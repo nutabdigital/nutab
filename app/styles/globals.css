@@ -1,0 +1,58 @@
+/* global.css is primarily used for app-wide configurations and styles that 
+affect the entire project. This includes importing Tailwind CSS utilities, 
+setting CSS variables, applying global resets, and configuring themes. 
+It complements your page.css file by handling global styling needs that 
+aren't specific to individual pages or components. */
+
+/* -------------------- Tailwind Imports -------------------- */
+/* Import Tailwind base styles, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* -------------------- Global Variables -------------------- */
+/* Define CSS variables for colors and themes */
+:root {
+  --background: #ffffff; /* Default background color for light mode */
+  --foreground: #171717; /* Default text color for light mode */
+}
+
+/* Dark mode variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a; /* Background color for dark mode */
+    --foreground: #ededed; /* Text color for dark mode */
+  }
+}
+
+/* -------------------- Base Styles & Resets -------------------- */
+/* Global body styles */
+body {
+  /* Margin and padding reset for consistent styling across browsers */
+  margin: 0;
+  padding: 0;
+  color: var(--foreground); /* Uses foreground variable for text color */
+  background: var(--background); /* Uses background variable for page background */
+  font-family: "Tomorrow", sans-serif; /* Default font for the app */
+}
+
+sup{
+  color:#0055ff;
+}
+
+/* -------------------- Custom Utility Classes -------------------- */
+/* Additional custom utilities for specific needs */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance; /* Provides balanced text wrapping */
+  }
+}
+
+/* Styling for hiding the text caret */
+.no-caret::selection {
+  background: rgba(0, 0, 0, 0.3); /* Semi-transparent background for selected text */
+}
+
+.no-caret {
+  caret-color: transparent; /* Hides the caret (blinking cursor) */
+}

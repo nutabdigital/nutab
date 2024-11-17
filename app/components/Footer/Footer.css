@@ -1,0 +1,19 @@
+/* Footer.css */
+
+.footer-container {
+  background-color: var(
+    --background
+  );
+  color: var(--foreground);
+  padding: 20px 0; 
+  text-align: center; 
+  z-index: 11;
+}
+
+.footer-content {
+  max-width: 800px; 
+  margin: 0 auto; 
+  padding: 0 15px; 
+}
+
+

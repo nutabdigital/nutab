@@ -1,0 +1,15 @@
+/* Model container styling with smooth animation */
+.model-container {
+  position: fixed;
+  width: 50vw;
+  height: 100vh;
+  transition: transform 0.75s ease-in-out; /* Smooth transition */
+  inset: 0px; /* Equivalent to setting top, bottom, left, right properties to 0px */
+  z-index: 0;
+}
+
+@media (max-width:600px) {
+  .model-container{
+    width:100vw;
+  }
+}

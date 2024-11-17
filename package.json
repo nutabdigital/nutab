@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev & open http://localhost:3000",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
     "lint": "next lint"
   },

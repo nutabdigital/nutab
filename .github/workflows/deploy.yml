@@ -5,7 +5,7 @@ name: Deploy Next.js to GitHub Pages
 on:
   push:
     branches:
-      - main  # Adjust if your main branch has a different name
+      - main  # Adjust the branch if your main branch has a different name
 
 jobs:
   deploy:
@@ -24,7 +24,7 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build Next.js app for static export
+      - name: Build and export Next.js app for static deployment
         run: |
           npm run build
           npm run export

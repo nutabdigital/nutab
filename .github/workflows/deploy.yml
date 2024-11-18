@@ -27,6 +27,10 @@ jobs:
       - name: Build Next.js app for static deployment
         run: npm run build
 
+      # Verify the 'out' folder was created after build
+      - name: Verify the out folder
+        run: ls -la ./out
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:

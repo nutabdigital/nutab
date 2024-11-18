@@ -27,14 +27,9 @@ jobs:
       - name: Build Next.js app for static deployment
         run: npm run build
 
-      - name: Configure Git for deployment
-        run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: './out'  # Points to the correct folder created after export
+          publish_dir: './out'  # Points to the 'out' folder created by Next.js for static files
           destination_dir: '.'  # Root folder on gh-pages branch

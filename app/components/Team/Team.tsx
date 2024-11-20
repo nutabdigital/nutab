@@ -9,7 +9,7 @@ const Team: React.FC = () => {
         <div className="team-member">
           <div
             className="photo"
-            style={{ backgroundImage: 'url("/photos/nav-headshot.png/")' }}
+            style={{ backgroundImage: 'url("/nutab/photos/nav-headshot.png/")' }}
           ></div>
           <p className="team-name">Navjot Saran</p>
           <p className="team-role">
@@ -23,7 +23,7 @@ const Team: React.FC = () => {
         <div className="team-member">
           <div
             className="photo"
-            style={{ backgroundImage: 'url("/photos/fysal-headshot.png/")' }}
+            style={{ backgroundImage: 'url("/nutab/photos/fysal-headshot.png/")' }}
           ></div>
           <p className="team-name">Fysal Beauferris</p>
           <p className="team-role">

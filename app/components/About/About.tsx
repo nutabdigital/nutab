@@ -1,11 +1,9 @@
 import React from "react";
 import "./About.css"; 
 
-interface AboutProps {
-  onHoverChange: (hovered: boolean) => void;
-}
 
-const About: React.FC<AboutProps> = ({ onHoverChange }) => {
+
+const About: React.FC = () => {
   const handleMouseEnter = () => {
     // Emit a custom event when mouse enters
     window.dispatchEvent(new CustomEvent('about-hover', { detail: { isHovering: true } }));

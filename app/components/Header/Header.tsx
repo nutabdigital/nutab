@@ -20,9 +20,18 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
   const handleScroll = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
+      // Notify start of smooth-scroll
+      window.dispatchEvent(new Event("smooth-scroll-start"));
+  
       section.scrollIntoView({ behavior: "smooth" });
+  
+      // Notify end of smooth-scroll
+      setTimeout(() => {
+        window.dispatchEvent(new Event("smooth-scroll-end"));
+      }, 1000); // Adjust timeout based on smooth-scroll duration
     }
   };
+  
 
   // Effect to add event listeners for mobile navigation open/close functionality
   useEffect(() => {

@@ -1,4 +1,6 @@
 .tagline-section {
+  position: relative;
+  top: 2rem;
   display: flex;
   align-items: center;
   width: 50vw;
@@ -88,7 +90,7 @@
   }
 
   .learn-more-button {
-    background-color: #5232c8;
+    background-color: #3f37c9;
     color: #ffffff;
   }
 

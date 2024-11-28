@@ -42,6 +42,7 @@
 
 .logo-light {
   display: block;
+  padding-left: 1.5rem;
 }
 
 .logo-dark {
@@ -179,6 +180,7 @@
 
   .logo-dark {
     display: block;
+    padding-left: 1.5rem;
   }
 
   .header {

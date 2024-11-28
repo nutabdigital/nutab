@@ -73,15 +73,11 @@ textarea {
   }
 
   .submit-button {
-    background-color: #5232c8;
+    background-color: #3f37c9;
   }
 
   .submit-button:hover {
     background-color: #0067e7;
-  }
-
-  #name,#email,#message{
-    color:black;
   }
 }
 

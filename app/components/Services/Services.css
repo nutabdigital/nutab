@@ -11,6 +11,9 @@
   caret-color: transparent;
 }
 
+
+
+
 .service-card {
   position: absolute;
   right: 3rem;
@@ -226,5 +229,66 @@
   
   .service-card.active {
     box-shadow: 2px 3px 20px rgba(0, 0, 0, 0.752);
+  }
+}
+
+@media (max-width:600px) {
+  .service-card {
+    right: 1rem;
+    top: 13%;
+    width: 60%;
+    height: 70vh;
+  }
+
+  .service-text {
+    font-size: 1rem;
+  }
+
+  .service-card.software.above:hover {
+    transform: translate(-60%, -72%) rotate(-2deg) scale(0.95) !important;
+  }
+  
+  .service-card.web.above:hover {
+    transform: translate(-70%, -82%) rotate(-7deg) scale(0.95) !important;
+  }
+  
+  .service-card.mobile.above:hover {
+    transform: translate(-80%, -93%) rotate(-12deg) scale(0.95) !important;
+  }
+
+  .service-card.software.above {
+    transform: translate(-60%, -72%) rotate(-5deg) scale(0.9) !important;
+  }
+  
+  .service-card.web.above {
+    transform: translate(-70%, -82%) rotate(-10deg) scale(0.9) !important;
+  }
+  
+  .service-card.mobile.above {
+    transform: translate(-80%, -93%) rotate(-15deg) scale(0.9) !important;
+  }
+  
+  .service-card.cloud.below {
+    transform: translate(-60%, 72%) rotate(5deg) scale(0.9) !important;
+  }
+  
+  .service-card.mobile.below {
+    transform: translate(-70%, 82%) rotate(10deg) scale(0.9) !important;
+  }
+  
+  .service-card.web.below {
+    transform: translate(-80%, 93%) rotate(15deg) scale(0.9) !important;
+  }
+
+  .service-card.web.below:hover {
+    transform: translate(-80%, 93%) rotate(12deg) scale(0.95) !important;
+  }
+  
+  .service-card.mobile.below:hover {
+    transform: translate(-70%, 82%) rotate(7deg) scale(0.95) !important;
+  }
+  
+  .service-card.cloud.below:hover {
+    transform: translate(-60%, 72%) rotate(5deg) rotate(2deg) scale(0.95) !important;
   }
 }

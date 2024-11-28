@@ -98,6 +98,62 @@ const Services = () => {
   }, [isInView, isTransitioning, currentService, isManualScroll, services.length]);
 
   useEffect(() => {
+    let touchStartY = 0;
+  
+    const touchStartHandler = (e: TouchEvent) => {
+      // Only track the first touch to calculate scroll delta
+      if (e.touches.length === 1) {
+        touchStartY = e.touches[0].clientY;
+      }
+    };
+  
+    const touchMoveHandler = (e: TouchEvent) => {
+      if (!isInView || isTransitioning || isManualScroll || e.touches.length !== 1) return;
+  
+      const touchEndY = e.touches[0].clientY; // Get the current touch position
+      const deltaY = touchStartY - touchEndY; // Calculate the movement difference
+  
+      // Allow scrolling out of the section at the first or last service
+      if ((currentService === 0 && deltaY > 0) || (currentService === services.length - 1 && deltaY < 0)) {
+        document.body.style.overflow = "auto"; // Allow normal scrolling when at the top or bottom of the section
+        return; // Allow the default scroll behavior (scrolling out of the section)
+      }
+  
+      // Prevent default scroll behavior to lock inside the service section
+      e.preventDefault();
+  
+      setIsTransitioning(true);
+  
+      let nextService = currentService;
+      if (deltaY > 0 && currentService < services.length - 1) {
+        nextService = currentService + 1; // Scroll down
+      } else if (deltaY < 0 && currentService > 0) {
+        nextService = currentService - 1; // Scroll up
+      }
+  
+      if (nextService !== currentService) {
+        setCurrentService(nextService); // Update service index
+      }
+  
+      // Reset transition after 1 second (for example)
+      setTimeout(() => setIsTransitioning(false), 1000);
+    };
+  
+    // Add event listeners for touch start and touch move
+    document.addEventListener('touchstart', touchStartHandler, { passive: true });
+    document.addEventListener('touchmove', touchMoveHandler, { passive: false });
+  
+    // Clean up event listeners when the component unmounts or on re-renders
+    return () => {
+      document.removeEventListener('touchstart', touchStartHandler);
+      document.removeEventListener('touchmove', touchMoveHandler);
+    };
+  }, [isInView, isTransitioning, currentService, isManualScroll, services.length]);
+  
+  
+  
+
+  useEffect(() => {
     const handleSmoothScrollStart = () => setIsManualScroll(true);
     const handleSmoothScrollEnd = () => setTimeout(() => setIsManualScroll(false), 1000);
 

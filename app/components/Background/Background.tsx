@@ -198,7 +198,8 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
   // Apply left-center-right transformation of whole canvas based on the current section
   const getHorizontalPosition = () => {
     const maxSections = 4; // Adjust based on the number of sections
-    if ((isMobile) || (currentSection == 1)) return "0%"; // Center the canvas horizontally on mobile
+    if ((isMobile) && (currentSection == 2)) return "-32%";
+    else if ((isMobile) || (currentSection == 1)) return "0%"; // Center the canvas horizontally on mobile    
     const position = (currentSection % 2 === 0) ? "left" : "right";
     return position === "left" ? "-50%" : "50%"; // Left and right
   };
@@ -285,7 +286,11 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
     // (x,y,z) camera coordinate value for 'z' distance from (0,0,0)
     const updateCamera = () => {
       if (isMobile) {
-        targetDistance = 85;
+        if (currentSection === 2) {
+          targetDistance = 170;
+        } else {
+          targetDistance = 85;
+        }
       } else if (currentSection === 1) {
         targetDistance = 29;
       } else if (currentSection === 2) {

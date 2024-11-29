@@ -63,45 +63,49 @@ const Services = () => {
   useEffect(() => {
     const handleScroll = (e: WheelEvent) => {
       if (!isInView || isTransitioning || isManualScroll) return;
-
+  
+      const threshold = 20; // Threshold to filter out small deltas
+      if (Math.abs(e.deltaY) < threshold) return;
+  
       // Allow scrolling out of the section at the first or last service
-      if ((currentService === 0 && e.deltaY < 0) || (currentService === services.length - 1 && e.deltaY > 0)) {
+      if (
+        (currentService === 0 && e.deltaY < 0) ||
+        (currentService === services.length - 1 && e.deltaY > 0)
+      ) {
         document.body.style.overflow = "hidden"; // Ensure smooth snapping
         const scrollOffset = e.deltaY > 0 ? window.innerHeight : -window.innerHeight; // Scroll 100vh up or down
         window.scrollBy({ top: scrollOffset, behavior: "smooth" });
         return;
       }
-
-
+  
       e.preventDefault(); // Lock scrolling inside the services section
       setIsTransitioning(true);
-
+  
       let nextService = currentService;
       if (e.deltaY > 0 && currentService < services.length - 1) {
-        nextService = currentService + 1;
+        nextService = currentService + 1; // Scroll down
       } else if (e.deltaY < 0 && currentService > 0) {
-        nextService = currentService - 1;
+        nextService = currentService - 1; // Scroll up
       }
-
+  
       if (nextService !== currentService) {
         setCurrentService(nextService);
       }
-
+  
       setTimeout(() => setIsTransitioning(false), 1000);
     };
-
+  
     window.addEventListener("wheel", handleScroll, { passive: false });
-
+  
     return () => {
       window.removeEventListener("wheel", handleScroll);
     };
   }, [isInView, isTransitioning, currentService, isManualScroll, services.length]);
-
+  
   useEffect(() => {
     let touchStartY = 0;
   
     const touchStartHandler = (e: TouchEvent) => {
-      // Only track the first touch to calculate scroll delta
       if (e.touches.length === 1) {
         touchStartY = e.touches[0].clientY;
       }
@@ -110,45 +114,44 @@ const Services = () => {
     const touchMoveHandler = (e: TouchEvent) => {
       if (!isInView || isTransitioning || isManualScroll || e.touches.length !== 1) return;
   
-      const touchEndY = e.touches[0].clientY; // Get the current touch position
-      const deltaY = touchStartY - touchEndY; // Calculate the movement difference
+      const touchEndY = e.touches[0].clientY;
+      const deltaY = touchStartY - touchEndY;
   
       // Allow scrolling out of the section at the first or last service
-      if ((currentService === 0 && deltaY > 0) || (currentService === services.length - 1 && deltaY < 0)) {
-        document.body.style.overflow = "auto"; // Allow normal scrolling when at the top or bottom of the section
-        return; // Allow the default scroll behavior (scrolling out of the section)
+      if (
+        (currentService === 0 && deltaY < 0) ||
+        (currentService === services.length - 1 && deltaY > 0)
+      ) {
+        document.body.style.overflow = "auto"; // Normal scrolling allowed
+        return;
       }
   
-      // Prevent default scroll behavior to lock inside the service section
-      e.preventDefault();
-  
+      e.preventDefault(); // Lock scrolling inside the services section
       setIsTransitioning(true);
   
       let nextService = currentService;
-      if (deltaY > 0 && currentService < services.length - 1) {
-        nextService = currentService + 1; // Scroll down
-      } else if (deltaY < 0 && currentService > 0) {
-        nextService = currentService - 1; // Scroll up
+      if (deltaY > 50 && currentService < services.length - 1) {
+        nextService = currentService + 1; // Swipe up to next service
+      } else if (deltaY < -50 && currentService > 0) {
+        nextService = currentService - 1; // Swipe down to previous service
       }
   
       if (nextService !== currentService) {
-        setCurrentService(nextService); // Update service index
+        setCurrentService(nextService);
       }
   
-      // Reset transition after 1 second (for example)
       setTimeout(() => setIsTransitioning(false), 1000);
     };
   
-    // Add event listeners for touch start and touch move
-    document.addEventListener('touchstart', touchStartHandler, { passive: true });
-    document.addEventListener('touchmove', touchMoveHandler, { passive: false });
+    document.addEventListener("touchstart", touchStartHandler, { passive: false });
+    document.addEventListener("touchmove", touchMoveHandler, { passive: false });
   
-    // Clean up event listeners when the component unmounts or on re-renders
     return () => {
-      document.removeEventListener('touchstart', touchStartHandler);
-      document.removeEventListener('touchmove', touchMoveHandler);
+      document.removeEventListener("touchstart", touchStartHandler);
+      document.removeEventListener("touchmove", touchMoveHandler);
     };
   }, [isInView, isTransitioning, currentService, isManualScroll, services.length]);
+  
   
   
   

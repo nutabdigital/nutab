@@ -28,7 +28,7 @@ const Services = () => {
       label: "Cloud",
       title: "Cloud Development, Scalable & Secure",
       className: "cloud",
-      text: "Take your business to the next level with cloud solutions that grow with you. We build secure, flexible cloud applications that are easy to scale and manage. Let’s create a cloud-based system that works seamlessly and supports your future growth!",
+      text: "Take your business to the next level with cloud solutions that grow with you. We build secure, flexible cloud applications that are easy to scale and manage. Let’s create a system that supports your future growth!",
       iconPath: "/icons/clouddev.svg",
     },
   ];
@@ -122,7 +122,9 @@ const Services = () => {
         (currentService === 0 && deltaY < 0) ||
         (currentService === services.length - 1 && deltaY > 0)
       ) {
-        document.body.style.overflow = "auto"; // Normal scrolling allowed
+        document.body.style.overflow = "hidden"; // Ensure smooth snapping
+        const scrollOffset = deltaY > 0 ? window.innerHeight : -window.innerHeight; // Scroll 100vh up or down
+        window.scrollBy({ top: scrollOffset, behavior: "smooth" });
         return;
       }
   
@@ -130,9 +132,9 @@ const Services = () => {
       setIsTransitioning(true);
   
       let nextService = currentService;
-      if (deltaY > 50 && currentService < services.length - 1) {
+      if (deltaY > 10 && currentService < services.length - 1) {
         nextService = currentService + 1; // Swipe up to next service
-      } else if (deltaY < -50 && currentService > 0) {
+      } else if (deltaY < -10 && currentService > 0) {
         nextService = currentService - 1; // Swipe down to previous service
       }
   

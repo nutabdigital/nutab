@@ -132,9 +132,9 @@ const Services = () => {
       setIsTransitioning(true);
   
       let nextService = currentService;
-      if (deltaY > 10 && currentService < services.length - 1) {
+      if (deltaY > 1 && currentService < services.length - 1) {
         nextService = currentService + 1; // Swipe up to next service
-      } else if (deltaY < -10 && currentService > 0) {
+      } else if (deltaY < -1 && currentService > 0) {
         nextService = currentService - 1; // Swipe down to previous service
       }
   

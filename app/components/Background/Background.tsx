@@ -22,6 +22,7 @@ let isDragging = false;
 let camDistance = 50;
 let targetDistance;
 let isScroll = false;
+let touchStartY = 0;
 
 const previousMousePosition = { x: 0, y: 0 };
 const particleCount = 10000;
@@ -141,8 +142,8 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
   const onScroll = (event: WheelEvent) => {
     if (currentSection === 2) {
       let delta = event.deltaY * 0.02; // Adjust burst strength based on scroll
-      console.log("delta: ", delta);
-      console.log("event.delta: ", event.deltaY);
+      // console.log("delta: ", delta);
+      // console.log("event.delta: ", event.deltaY);
       isScroll = true;
   
       // Cancel any ongoing animation and create a new burst effect
@@ -185,8 +186,65 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
     }
     isScroll = false;
   };
-  
 
+  const touchStartHandler = (e: TouchEvent) => {
+    if (e.touches.length === 1) {
+      touchStartY = e.touches[0].clientY;
+    }
+  };
+  
+  const touchScroll = (e: TouchEvent) => {
+    const touchEndY = e.touches[0].clientY;
+    const deltaY = touchStartY - touchEndY;
+
+    if (currentSection === 2) {
+      let delta = deltaY * 0.02; // Adjust burst strength based on scroll
+      console.log("delta: ", delta);
+      console.log("event.delta: ", deltaY);
+      isScroll = true;
+  
+      // Cancel any ongoing animation and create a new burst effect
+      if (burstTimeline.current) {
+        burstTimeline.current.kill();
+      }
+      burstTimeline.current = gsap.timeline();
+  
+      // Adjust frequency and reverse direction if needed
+      let newFrequency = frequencyRef.current + 2 * directionRef.current;
+  
+      // Reverse direction if hitting upper or lower bounds
+      if (newFrequency >= 20) {
+        newFrequency = 20; // Prevent overshooting
+        directionRef.current = -1; // Reverse direction
+      } else if (newFrequency <= 0) {
+        newFrequency = 0; // Prevent overshooting
+        directionRef.current = 1; // Reverse direction
+      }
+  
+      // Update angles
+      const newAngleY = angles.angleY + 2 * 0.2; // Modify angleY based on scroll
+  
+      // Animate frequencyRef and angles
+      burstTimeline.current
+        .to(frequencyRef, {
+          current: newFrequency,
+          duration: 1.5,
+          ease: "power2.out",
+        })
+        .to(
+          angles, // Target angles object
+          {
+            angleY: newAngleY, // End value for angleY
+            duration: 2.5,
+            ease: "power2.out",
+          },
+          "<" // Align animations to run concurrently
+        );
+    }
+    isScroll = false;
+
+
+  }
 
 
 
@@ -364,12 +422,19 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
       onScroll(event);
     }, 100); // Adjust throttle limit as needed
 
+    const handleTouches = throttle((event: TouchEvent) => {
+      touchStartHandler(event);
+      touchScroll(event);
+    }, 100);
+
     if (currentSection === 2) {
       document.addEventListener("wheel", handleScroll);
+      document.addEventListener("touchmove", handleTouches, { passive: false });
     }
 
     return () => {
       document.removeEventListener("wheel", handleScroll);
+      document.removeEventListener("touchmove", handleTouches);
     };
   }, [currentSection]); // Rerun whenever currentSection changes
 

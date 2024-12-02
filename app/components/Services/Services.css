@@ -209,6 +209,18 @@
   transform: translate(-30%, 70%) rotate(2deg) scale(0.95) !important;
 }
 
+/* .service-card.no-hover:hover {
+  transform: none !important;
+} */
+
+/* Disable hover styles for touch devices */
+@media (hover: none) {
+  .service-card.above:hover,
+  .service-card.below:hover {
+    transform: none !important;
+  }
+}
+
 /* Dark Mode Styling */
 @media (prefers-color-scheme: dark) {
   .service-card.software {

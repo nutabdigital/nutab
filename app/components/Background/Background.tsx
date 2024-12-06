@@ -10,7 +10,7 @@ import { gsap } from "gsap";
 // import { useIsMobile } from '../../context/WindowService'; 
 // import { SlowMo } from "gsap/EasePack";
 
-// currentSection from page.tsx and hovered unused for now
+// currentSection from page.tsx
 interface BackgroundProps {
   currentSection: number; // This can be used to control transformations if passed in
 }
@@ -463,7 +463,7 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
         transform: `translateX(${getHorizontalPosition()})`,
       }}
     >
-      <canvas ref={canvasRef} className="fixed inset-0 z-1 top-7" />
+      <canvas ref={canvasRef} className="fixed inset-0 z-1 top-5" />
     </div>
   );
 };

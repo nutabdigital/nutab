@@ -61,6 +61,7 @@ textarea {
 @media (max-width: 600px) {
   .contact-container{
     width: 100vw;
+    margin-bottom: 40vh;
   }
   
 }

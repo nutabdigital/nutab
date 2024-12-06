@@ -48,7 +48,7 @@ const Services = () => {
           containerRef.current.scrollIntoView({ behavior: "smooth" });
         }
       },
-      { threshold: 0.4 }
+      { threshold: 0.1 }
     );
 
     if (containerRef.current) {
@@ -73,9 +73,12 @@ const Services = () => {
         (currentService === services.length - 1 && e.deltaY > 0)
       ) {
         document.body.style.overflow = "hidden"; // Ensure smooth snapping
-        const scrollOffset = e.deltaY > 0 ? window.innerHeight : -window.innerHeight; // Scroll 100vh up or down
-        window.scrollBy({ top: scrollOffset, behavior: "smooth" });
-        return;
+        const scrollTo = e.deltaY > 0 ? document.getElementById("team") : document.getElementById("about"); // Scroll 135vh up or down
+        if (scrollTo) {
+          scrollTo.scrollIntoView({ behavior: "smooth" });
+          return;
+        }
+        
       }
   
       e.preventDefault(); // Lock scrolling inside the services section
@@ -104,15 +107,28 @@ const Services = () => {
   
   useEffect(() => {
     let touchStartY = 0;
+    let isTouching = false;
+
+    const preventMomentumScrolling = (e: TouchEvent) => {
+      if (isTouching) {
+        e.preventDefault();
+      }
+    };
   
     const touchStartHandler = (e: TouchEvent) => {
       if (e.touches.length === 1) {
         touchStartY = e.touches[0].clientY;
+        isTouching = true;
       }
     };
   
     const touchMoveHandler = (e: TouchEvent) => {
       if (!isInView || isTransitioning || isManualScroll || e.touches.length !== 1) return;
+      const touchMoveY = e.touches[0].clientY;
+      if (Math.abs(touchMoveY - touchStartY) > 10) {
+        // Disable scroll momentum
+        preventMomentumScrolling(e);
+      }
   
       const touchEndY = e.touches[0].clientY;
       const deltaY = touchStartY - touchEndY;
@@ -123,9 +139,12 @@ const Services = () => {
         (currentService === services.length - 1 && deltaY > 0)
       ) {
         document.body.style.overflow = "hidden"; // Ensure smooth snapping
-        const scrollOffset = deltaY > 0 ? window.innerHeight : -window.innerHeight; // Scroll 100vh up or down
-        window.scrollBy({ top: scrollOffset, behavior: "smooth" });
-        return;
+        const scrollTo = deltaY > 0 ? document.getElementById("team") : document.getElementById("about"); // Scroll 135vh up or down
+        if (scrollTo) {
+          scrollTo.scrollIntoView({ behavior: "smooth" });
+          return;
+        }
+        
       }
   
       e.preventDefault(); // Lock scrolling inside the services section

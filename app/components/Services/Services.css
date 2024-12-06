@@ -3,12 +3,14 @@
   width: 100%;
   height: 100vh;
   overflow-y: hidden;
+  scroll-snap-type: y mandatory; /* Set snap on the Y-axis (vertical) */
   overflow-x: visible;
   display: grid;
   grid-template-columns: auto;
   color: var(--foreground);
   box-sizing: border-box;
   caret-color: transparent;
+  scroll-behavior: smooth; /* Enables smooth scrolling */
 }
 
 

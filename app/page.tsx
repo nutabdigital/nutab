@@ -31,13 +31,43 @@ const HomePage: React.FC = () => {
           }
         });
       },
-      { threshold: 0.4 }
+      { threshold: 0.2 }
     );
 
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
   }, []);
+
+  // useEffect(() => {
+  //   const handleServicesSnap = () => {
+  //     const servicesSection = document.getElementById("services");
+  //     if (servicesSection) {
+  //       servicesSection.scrollIntoView({ behavior: "smooth", block: "start" });
+  //     }
+  //   };
+  
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       if (entry.isIntersecting) {
+  //         handleServicesSnap();
+  //       }
+  //     },
+  //     { threshold: 0.5 } // Adjust threshold as needed
+  //   );
+  
+  //   const servicesElement = document.getElementById("services");
+  //   if (servicesElement) {
+  //     observer.observe(servicesElement);
+  //   }
+  
+  //   return () => {
+  //     if (servicesElement) {
+  //       observer.unobserve(servicesElement);
+  //     }
+  //   };
+  // }, []);
+  
 
   // Lock scroll when inside the services section
   useEffect(() => {
@@ -63,7 +93,7 @@ const HomePage: React.FC = () => {
           </section>
 
           <section id="about" className="page-section fade-section align-left" data-section="1">
-            <About />
+            <About currentSection={currentSection} />
           </section>
 
           <section id="services" className="page-section fade-section" data-section="2">
@@ -71,7 +101,7 @@ const HomePage: React.FC = () => {
           </section>
 
           <section id="team" className="page-section fade-section align-left" data-section="3">
-            <Team />
+            <Team currentSection={currentSection} />
           </section>
 
           <section id="contact" className="page-section fade-section align-right" data-section="4">

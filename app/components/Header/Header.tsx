@@ -111,18 +111,6 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
         <ul>
           <li>
             <a
-              className="start-project-li"
-              href="#contact" // Link to 'contact' section
-              onClick={(e) => {
-                e.preventDefault();
-                handleScroll("contact");
-              }}
-            >
-              Start A Project
-            </a>
-          </li>
-          <li>
-            <a
               href="#about" // Link to 'about' section
               onClick={(e) => {
                 e.preventDefault();
@@ -130,6 +118,17 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
               }}
             >
               About
+            </a>
+          </li>
+          <li>
+            <a
+              href="#services" // Link to 'services' section
+              onClick={(e) => {
+                e.preventDefault();
+                handleScroll("services");
+              }}
+            >
+              Services
             </a>
           </li>
           <li>
@@ -145,13 +144,14 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
           </li>
           <li>
             <a
-              href="#services" // Link to 'services' section
+              className="start-project-li"
+              href="#contact" // Link to 'contact' section
               onClick={(e) => {
                 e.preventDefault();
-                handleScroll("services");
+                handleScroll("contact");
               }}
             >
-              Services
+              Start A Project
             </a>
           </li>
         </ul>

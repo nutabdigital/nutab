@@ -16,12 +16,12 @@ const Tagline: React.FC = () => {
           Open New Possibilities with NuTab<sup>+</sup>
         </h2>
         <p className="tagline-description">
-          Empowering Change with <strong>NuTab</strong><sup>+</sup>. Innovation Starts with <strong>NuTab</strong><sup>+</sup>.
-          Open New Horizons with <strong>NuTab</strong><sup>+</sup>. Reshaping the Future, One Scroll at a Time.
-          Evolving Ideas, Dynamic Solutions with <strong>NuTab</strong><sup>+</sup>. Where Innovation Takes Shape.
-          Constantly Evolving, Just Like Your Ideas. Shaping Your Next Digital Chapter.
-        </p>
-
+          Empowering businesses with innovative software solutions that drive
+          growth and transform ideas into reality. From web development to
+          digital transformation, we build the tools that shape the future.
+          Evolving with you—because your ideas deserve dynamic, scalable
+          solutions.
+</p>
         <div className="tag-buttons">
           <button
             className="learn-more-button"

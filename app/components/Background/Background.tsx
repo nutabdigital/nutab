@@ -53,8 +53,8 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
   const [isMobile, setIsMobile] = useState(false);
   const rotationSpeedX = 0.0047; // Adjust to control the speed of horizontal rotation
   const rotationSpeedY = 0.0047; // Adjust to control the speed of vertical rotation
-  const slowRotationSpeedX = 0.00075;
-  const slowRotationSpeedY = 0.00075;
+  const slowRotationSpeedX = 0.002;
+  const slowRotationSpeedY = 0.002;
   const frequencyRef = useRef(0);
   const directionRef = useRef(1);
   const [pause, setPause] = useState(false); // Boolean to pause/resume frequency
@@ -199,8 +199,8 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
 
     if (currentSection === 2) {
       let delta = deltaY * 0.02; // Adjust burst strength based on scroll
-      console.log("delta: ", delta);
-      console.log("event.delta: ", deltaY);
+      // console.log("delta: ", delta);
+      // console.log("event.delta: ", deltaY);
       isScroll = true;
   
       // Cancel any ongoing animation and create a new burst effect

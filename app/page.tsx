@@ -70,13 +70,13 @@ const HomePage: React.FC = () => {
   
 
   // Lock scroll when inside the services section
-  useEffect(() => {
-    if (currentSection === 2) {
-      document.body.style.overflow = "hidden"; // Disable scroll
-    } else {
-      document.body.style.overflow = "auto"; // Enable scroll
-    }
-  }, [currentSection]);
+  // useEffect(() => {
+  //   if (currentSection === 2) {
+  //     document.body.style.overflow = "hidden"; // Disable scroll
+  //   } else {
+  //     document.body.style.overflow = "auto"; // Enable scroll
+  //   }
+  // }, [currentSection]);
 
   return (
     <>

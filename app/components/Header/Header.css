@@ -60,6 +60,10 @@
     gap: 2rem;
   }
 
+  .mobile-menu{
+    display: none;
+  }
+
   .nav-links button {
     background: none;
     border: none;
@@ -72,10 +76,6 @@
 
   .nav-links button:hover {
     color: #0067e7;
-  }
-
-  .menu {
-    display: none;
   }
 
   .menu-button {
@@ -92,7 +92,6 @@
   }
 }
 
-
 /* Show mobile button on smaller screens, 600px is standard practice */
 @media (max-width: 600px) {
   .nav-links {
@@ -101,20 +100,6 @@
 
   .nav-links .start-project-btn {
     display:none;    
-  }
-
-  .menu {
-    display: block;
-    margin-right: 5%;
-    margin-top: 5%;
-    right: 0;
-    top: 0;
-    position: fixed;
-    width: 8vw;
-    max-width: calc(100vw - 0.5rem);
-    /* Prevents margin overflow */
-    z-index: 1;
-    cursor: pointer;
   }
 
   .mob-right-nav {
@@ -131,7 +116,7 @@
     /* Optimize rendering */
     overflow-x: hidden;
     transition: transform 0.5s ease-in-out;
-    z-index: 999;
+    z-index: 2;
   }
 
   .mob-right-nav ul {
@@ -159,16 +144,45 @@
 
   }
 
-  .close {
-    float: right;
-    margin-right: 7.5%;
-    margin-top: 7.5%;
-    width: 8vw;
-    background: #0067e7;
-  }
-
   .open-nav {
     transform: translateX(0%);
+  }
+
+  /* -- MOBILE MENU -- */
+  .mobile-menu {
+  transition: transform 0.5s;
+  cursor: pointer;
+  z-index: 10;
+  }
+
+  .mobile-menu .line-1,
+  .mobile-menu .line-2,
+  .mobile-menu .line-3 {
+    border-top: 3px solid #000;
+    display: block;
+    transition: margin 0.5s, transform 0.5s;
+    width: 35px;
+  }
+
+  .mobile-menu .line-2 {
+    margin: 10px 0;
+  }
+
+  .mobile-menu.toggle {
+    transform: rotateX(180deg);
+  }
+
+  .mobile-menu.toggle .line-1 {
+    transform: rotate(45deg);
+  }
+
+  .mobile-menu.toggle .line-2 {
+    margin: -3px 0;
+    opacity: 0;
+  }
+
+  .mobile-menu.toggle .line-3 {
+    transform: rotate(-45deg);
   }
 }
 
@@ -191,10 +205,6 @@
     color: #0067e7;
   }
 
-  .menu {
-    filter: invert(1);
-  }
-
   .nav-links .start-project-btn {
     background-color: #3A0CA3;
     color: #ffffff;
@@ -203,4 +213,12 @@
   .nav-links .start-project-btn:hover {
     background-color: #0067e7;
   } 
+
+  .mobile-menu .line-1,
+  .mobile-menu .line-2,
+  .mobile-menu .line-3 {
+    border-top: 3px solid #fff;
+  }
+
+ 
 }

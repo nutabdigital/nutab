@@ -13,8 +13,13 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
   const navLinkClasses = (sectionIndex: number) =>
     `nav-link ${currentSection === sectionIndex ? "active" : ""}`;
 
+  
   // State to manage visibility of mobile navigation
   const [isNavOpen, setIsNavOpen] = useState(false);
+
+  const toggleNav = () => {
+    setIsNavOpen(!isNavOpen);
+  };
 
   // Scrolls smoothly to a specific section of the page
   const handleScroll = (sectionId: string) => {
@@ -22,36 +27,15 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
     if (section) {
       // Notify start of smooth-scroll
       window.dispatchEvent(new Event("smooth-scroll-start"));
-  
+
       section.scrollIntoView({ behavior: "smooth" });
-  
+
       // Notify end of smooth-scroll
       setTimeout(() => {
         window.dispatchEvent(new Event("smooth-scroll-end"));
       }, 1000); // Adjust timeout based on smooth-scroll duration
     }
   };
-  
-
-  // Effect to add event listeners for mobile navigation open/close functionality
-  useEffect(() => {
-    const menu = document.querySelector(".menu"); // Mobile menu button
-    const close = document.querySelector(".close"); // Mobile nav close button
-    const nav = document.querySelector(".mob-right-nav"); // Mobile nav menu
-
-    if (menu && close && nav) {
-      // Open mobile nav on menu button click
-      menu.addEventListener("click", () => setIsNavOpen(true));
-      // Close mobile nav on close button click
-      close.addEventListener("click", () => setIsNavOpen(false));
-
-      // Cleanup event listeners on component unmount
-      return () => {
-        menu.removeEventListener("click", () => setIsNavOpen(true));
-        close.removeEventListener("click", () => setIsNavOpen(false));
-      };
-    }
-  }, []);
 
   return (
     <header className="header">
@@ -99,15 +83,18 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
             Start a Project
           </button>
         </nav>
-
+     
         {/* Mobile menu button */}
-        <img src="../icons/menu.svg" className="menu" alt="menu" />
+        <span className={`mobile-menu ${isNavOpen ? 'toggle' : ''}`} onClick={toggleNav}>
+          <span className="line-1"></span>
+          <span className="line-2"></span>
+          <span className="line-3"></span>
+        </span>
       </div>
 
       {/* Mobile right navigation menu */}
       <nav className={`mob-right-nav ${isNavOpen ? "open-nav" : ""}`}>
         {/* Close button for mobile navigation */}
-        <img src="../icons/close.svg" className="close" alt="close" />
         <ul>
           <li>
             <a

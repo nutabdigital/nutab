@@ -102,6 +102,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
               onClick={(e) => {
                 e.preventDefault();
                 handleScroll("about");
+                setIsNavOpen(false); // Close the navbar
               }}
             >
               About
@@ -113,6 +114,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
               onClick={(e) => {
                 e.preventDefault();
                 handleScroll("services");
+                setIsNavOpen(false); // Close the navbar
               }}
             >
               Services
@@ -124,6 +126,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
               onClick={(e) => {
                 e.preventDefault();
                 handleScroll("team");
+                setIsNavOpen(false); // Close the navbar
               }}
             >
               Our Team
@@ -136,6 +139,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
               onClick={(e) => {
                 e.preventDefault();
                 handleScroll("contact");
+                setIsNavOpen(false); // Close the navbar
               }}
             >
               Start A Project

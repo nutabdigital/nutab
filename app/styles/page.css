@@ -16,10 +16,7 @@ the component folder. */
 
 /* Styling for each section */
 .page-section {
-  /* height: 100vh; */
-  height: fit-content;
-  /* margin-top: 35vh; */
-  margin-bottom: 35vh;
+  height: 100vh;
   display: flex;
   align-items: center;
 }
@@ -59,6 +56,14 @@ the component folder. */
 
   .page-section.align-left {
     justify-content: flex-start;
+  }
+}
+
+@media (max-width:600px) {
+  .page-section{
+    height: inherit;
+    display: flex;
+    justify-content: center;
   }
 }
 

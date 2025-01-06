@@ -1,315 +1,112 @@
-.services-container {
-  position: relative;
-  width: 100%;
-  height: fit-content;
-  margin-top: 20vh;
-  /* overflow-y: hidden;
-  scroll-snap-type: y mandatory;
-  overflow-x: visible; */
+.services-section {
+  width: 50vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  flex-direction: column;
+  padding: 1rem;
+  padding-bottom: 2rem;
   margin-left: 2.5vw;
   margin-right: 2.5vw;
-  display: flex;
-  flex-direction: column;
-  gap: 20vh;
+  background-color: rgb(255, 255, 255, 0.9);
   color: var(--foreground);
-  box-sizing: border-box;
+  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
+  border-radius: 8px;
+  z-index: 10;
   caret-color: transparent;
-  scroll-behavior: smooth; 
-  align-items: end;
 }
 
-.service-card {
-  width: 45%;
-  height: 70vh;
-  border-radius: 10px;
-  /* transform: translate(-50%, -50%); */
-  transition: transform 1s ease, opacity 1s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  /* justify-content: center; */
-  z-index: 1;
-}
-
-.service-card.software {
-  position: relative;
-  background-color: #8fd4e1;  
-}
-
-.service-card.web {
-  position: relative;
-  background-color: #b7e5ed; 
-}
-
-.service-card.mobile {
-  position: relative;
-  background-color: #c7ecf3; 
-}
-
-.service-card.cloud {
-  position: relative;
-  background-color: #d6eef3; 
-}
-
-.service-card.active {
-  box-shadow: 2px 3px 20px rgba(3, 3, 3, 0.198);
-  /* transition: transform 1s ease-in-out;  */
-}
-
-.service-label {
-  display: none;
-  /* opacity: 0; */
-  position: absolute;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  left: 3rem;
-}
-
-/* .service-card.software .service-label {
-  width: 5vw;
-} */
-
-.card-rows {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem; 
-}
-
-.service-title {
-  /* display: none; */
-  position: relative;
-  padding: 1rem;
-  font-size: 1.5rem;
-  align-self: center;
-  /* font-weight: 500; */
-}
-
-.service-icon {
-  /* display: none; */
-  padding: 0.5rem;
-}
-
-.service-text {
-  position: relative;
-  display: block;
-  /* top: 7rem; */
-  padding: 1rem;
-  font-size: 1.2rem;
+.services-title {
+  font-size: clamp(2rem, 2.5vw, 3rem);
+  font-weight: bold;
+  margin-bottom: 1.5rem;
   text-align: center;
 }
 
-.service-card.above,
-.service-card.below {
+.services-list {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fit,
+      minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-box {
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
   cursor: pointer;
+  transition: transform 0.5s, background-color 0.5s;
+
 }
 
-.service-card.above .service-label {
+.service-box:hover{
+  background-color: #0067e7;
+  transform: scale(1.05);
+}
+
+.service-name {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-weight: bolder;
+  text-align: center;
+  transform: background-color 0.5s;
+}
+
+
+.service-description {
+  font-size: 0.9rem;
+  text-align: center;
+  transform: background-color 0.5s;
+}
+
+
+.service-icon {
+  width: 40px;
+  height: 40px;
   display: block;
-  bottom: 0;
-  /* opacity: 1; */
+  margin: 0 auto 10px; /* Centers and spaces the icon */
+  transform: filter 0.5s;
 }
 
-.service-card.above .service-icon {
-  position: absolute;
-  display: block;
-  bottom: 0;
-  left: 0;
-  transform: scale(0.5);
+
+
+/* Hover styles */
+.service-box:hover {
+  background-color: #0067e7; 
 }
 
-.service-card.active .service-title {
-  display: block;
-  align-self: center;
-  /* top: 1rem; */
+.service-box:hover .service-icon {
+  filter: brightness(0) invert(1); 
 }
 
-.service-card.active .service-icon {
-  position: relative;
-  display: block;
-  transform: scale(1);
-  /* top: 3.5rem; */
+.service-box:hover .service-name {
+  color: #ffffff; 
 }
 
-.service-card.below .service-label {
-  display: block;
-  top: 0;
-  /* opacity: 1; */
-}
-
-.service-card.below .service-icon {
-  position: absolute;
-  display: block;
-  left: 0;
-  transform: scale(0.5);
-}
-
-.service-card.software.above,
-.service-card.web.above,
-.service-card.mobile.above,
-.service-card.web.below,
-.service-card.mobile.below,
-.service-card.cloud.below {
-  opacity: 0.9 ;
-}
-
-.service-card.software.above:hover {
-  transform: translate(-30%, -70%) rotate(-2deg) scale(0.95) !important;
-}
-
-.service-card.web.above:hover {
-  transform: translate(-40%, -87%) rotate(-7deg) scale(0.95) !important;
-}
-
-.service-card.mobile.above:hover {
-  transform: translate(-50%, -100%) rotate(-12deg) scale(0.95) !important;
-}
-
-.service-card.software.above {
-  transform: translate(-30%, -77%) rotate(-5deg) scale(0.9) !important;
-  z-index: 2 ;
-}
-
-.service-card.web.above {
-  transform: translate(-40%, -90%) rotate(-10deg) scale(0.9) !important;
-  z-index: 3 ;
-}
-
-.service-card.mobile.above {
-  transform: translate(-50%, -103%) rotate(-15deg) scale(0.9) !important;
-  z-index: 4;
-}
-
-/* .service-card.software.active {
-  position: relative;
-  display: block;
-} */
-
-.service-card.active {
-  transform: translate(0%, 0%) scale(1) !important;
-  opacity: 1;
-  z-index: 10;
-}
-
-.service-card.cloud.below {
-  transform: translate(-30%, 77%) rotate(5deg) scale(0.9) !important;
-  z-index: 1 ; 
-}
-
-.service-card.mobile.below {
-  transform: translate(-40%, 90%) rotate(10deg) scale(0.9) !important;
-  z-index: 2 ;
-}
-
-.service-card.web.below {
-  transform: translate(-50%, 103%) rotate(15deg) scale(0.9) !important;
-  z-index: 3;
-}
-
-.service-card.web.below:hover {
-  transform: translate(-50%, 100%) rotate(12deg) scale(0.95) !important;
-}
-
-.service-card.mobile.below:hover {
-  transform: translate(-40%, 87%) rotate(7deg) scale(0.95) !important;
-}
-
-.service-card.cloud.below:hover {
-  transform: translate(-30%, 70%) rotate(2deg) scale(0.95) !important;
-}
-
-/* .service-card.no-hover:hover {
-  transform: none !important;
-} */
-
-/* Disable hover styles for touch devices */
-@media (hover: none) {
-  .service-card.above:hover,
-  .service-card.below:hover {
-    transform: none !important;
-  }
-}
-
-/* Dark Mode Styling */
-@media (prefers-color-scheme: dark) {
-  .service-card.software {
-    background-color: #250649;  
-  }
-  
-  .service-card.web {
-    background-color: #1a043d; 
-  }
-  
-  .service-card.mobile {
-    background-color: #16043e; 
-  }
-  
-  .service-card.cloud {
-    background-color: #161349; 
-  }
-  
-  .service-card.active {
-    box-shadow: 2px 3px 20px rgba(0, 0, 0, 0.752);
-  }
+.service-box:hover .service-description {
+  color: #ffffff; 
 }
 
 @media (max-width:600px) {
-  .service-card {
-    right: 1rem;
-    top: 13%;
-    width: 90%;
-    height: 70vh;
+  .services-section {
+    width: 85vw;
   }
 
-  .service-text {
-    font-size: 1rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .services-section {
+    background-color: rgba(10, 10, 10, 0.9);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
   }
 
-  .service-card.software.above:hover {
-    transform: translate(-60%, -72%) rotate(-2deg) scale(0.95) !important;
-  }
-  
-  .service-card.web.above:hover {
-    transform: translate(-70%, -82%) rotate(-7deg) scale(0.95) !important;
-  }
-  
-  .service-card.mobile.above:hover {
-    transform: translate(-80%, -93%) rotate(-12deg) scale(0.95) !important;
+  .service-box {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
   }
 
-  .service-card.software.above {
-    transform: translate(-60%, -72%) rotate(-5deg) scale(0.9) !important;
-  }
-  
-  .service-card.web.above {
-    transform: translate(-70%, -82%) rotate(-10deg) scale(0.9) !important;
-  }
-  
-  .service-card.mobile.above {
-    transform: translate(-80%, -93%) rotate(-15deg) scale(0.9) !important;
-  }
-  
-  .service-card.cloud.below {
-    transform: translate(-60%, 72%) rotate(5deg) scale(0.9) !important;
-  }
-  
-  .service-card.mobile.below {
-    transform: translate(-70%, 82%) rotate(10deg) scale(0.9) !important;
-  }
-  
-  .service-card.web.below {
-    transform: translate(-80%, 93%) rotate(15deg) scale(0.9) !important;
-  }
-
-  .service-card.web.below:hover {
-    transform: translate(-80%, 93%) rotate(12deg) scale(0.95) !important;
-  }
-  
-  .service-card.mobile.below:hover {
-    transform: translate(-70%, 82%) rotate(7deg) scale(0.95) !important;
-  }
-  
-  .service-card.cloud.below:hover {
-    transform: translate(-60%, 72%) rotate(5deg) rotate(2deg) scale(0.95) !important;
+  .service-icon{
+    filter: brightness(0) invert(1); 
   }
 }

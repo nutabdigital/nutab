@@ -1,8 +1,10 @@
 .contact-container {
-  /* height: 100vh; */
   width: 50vw;
   box-sizing: border-box; 
   padding: 1rem; 
+  padding-left: 2rem;
+  padding-right: 2rem;
+  padding-bottom: 2rem;
   margin-left: 2.5vw;
   margin-right: 2.5vw;
   background-color: rgb(255, 255, 255, 0.9);
@@ -61,8 +63,8 @@ textarea {
 
 @media (max-width: 600px) {
   .contact-container{
-    width: 100vw;
-    margin-bottom: 40vh;
+    width: 85vw;
+    margin-bottom: 10vh;
   }
   
 }
@@ -80,6 +82,12 @@ textarea {
 
   .submit-button:hover {
     background-color: #0067e7;
+  }
+
+  .name-textarea,
+  .email-textarea,
+  .message-textarea {
+    color:black;
   }
 }
 

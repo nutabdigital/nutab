@@ -41,11 +41,13 @@
 
 @media (max-width:600px) {
   .about-section{
-    width: 100vw;
+    width: 85vw;
+    display:flex;
+    justify-content: center;
   }
   
   .about-container{
-    width: 95vw;
+    width: 85vw;
   }
 }
 

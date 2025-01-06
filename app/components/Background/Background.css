@@ -8,6 +8,11 @@
   z-index: 0;
 }
 
+.model{
+  position: fixed;
+  z-index: 1;
+}
+
 @media (max-width:600px) {
   .model-container{
     width:100vw;

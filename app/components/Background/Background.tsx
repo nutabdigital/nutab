@@ -1,5 +1,5 @@
-// 3js Particles Model with dynamic positioning and colour mapping, based on 
-// oscillating frequency and distance from (0,0,0). 
+// 3js Particles Model with dynamic positioning and colour mapping, based on
+// oscillating frequency and distance from (0,0,0).
 
 "use client";
 
@@ -7,15 +7,15 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import "./Background.css";
 import { gsap } from "gsap";
-// import { useIsMobile } from '../../context/WindowService'; 
-// import { SlowMo } from "gsap/EasePack";
 
 // currentSection from page.tsx
 interface BackgroundProps {
   currentSection: number; // This can be used to control transformations if passed in
 }
 
-let scene: THREE.Scene, camera: THREE.PerspectiveCamera, renderer: THREE.WebGLRenderer;
+let scene: THREE.Scene,
+  camera: THREE.PerspectiveCamera,
+  renderer: THREE.WebGLRenderer;
 let particleSystem: THREE.Points;
 const angles = { angleX: 0, angleY: 0 }; // Wrap angles in an object
 let isDragging = false;
@@ -34,7 +34,10 @@ const particleData = new Array(particleCount).fill(null).map(() => {
 });
 
 // Throttle function for windowlistener
-const throttle = <T extends (...args: any[]) => void>(func: T, limit: number) => {
+const throttle = <T extends (...args: any[]) => void>(
+  func: T,
+  limit: number
+) => {
   let inThrottle = false;
   return function (this: ThisParameterType<T>, ...args: Parameters<T>) {
     const context = this;
@@ -49,7 +52,7 @@ const throttle = <T extends (...args: any[]) => void>(func: T, limit: number) =>
 };
 
 const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);  //client side?
+  const canvasRef = useRef<HTMLCanvasElement>(null); //client side?
   const [isMobile, setIsMobile] = useState(false);
   const rotationSpeedX = 0.0047; // Adjust to control the speed of horizontal rotation
   const rotationSpeedY = 0.0047; // Adjust to control the speed of vertical rotation
@@ -57,24 +60,39 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
   const slowRotationSpeedY = 0.002;
   const frequencyRef = useRef(0);
   const directionRef = useRef(1);
-  const [pause, setPause] = useState(false); // Boolean to pause/resume frequency
   const burstTimeline = useRef<gsap.core.Timeline | null>(null);
-  const pauseRef = useRef(false);
   const currentSectionRef = useRef(currentSection);
 
-  let camera = useRef(    //client side?
+  let camera = useRef(
+    //client side?
     typeof window !== "undefined"
-      ? new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
+      ? new THREE.PerspectiveCamera(
+          75,
+          window.innerWidth / window.innerHeight,
+          0.1,
+          1000
+        )
       : new THREE.PerspectiveCamera(75, 1, 0.1, 1000) // Fallback for SSR
   ).current;
 
   // Initialize Three.js scene
   const initializeScene = () => {
     scene = new THREE.Scene();
-    camera = new THREE.PerspectiveCamera(75, (window.innerWidth) / window.innerHeight, 0.1, 1000);
+    camera = new THREE.PerspectiveCamera(
+      75,
+      window.innerWidth / window.innerHeight,
+      0.1,
+      1000
+    );
     camera.position.z = isMobile ? 85 : 50; // Increase Z on mobile for a zoomed-out effect
-    renderer = new THREE.WebGLRenderer({ canvas: canvasRef.current!, alpha: true });
-    renderer.setSize(isMobile ? window.innerWidth : window.innerWidth, window.innerHeight);
+    renderer = new THREE.WebGLRenderer({
+      canvas: canvasRef.current!,
+      alpha: true,
+    });
+    renderer.setSize(
+      isMobile ? window.innerWidth : window.innerWidth,
+      window.innerHeight
+    );
   };
 
   // Generate the particle system
@@ -96,18 +114,23 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
       colors.push(0.5, 0.5, 0.5);
     }
 
-    geometry.setAttribute("position", new THREE.Float32BufferAttribute(vertices, 3));
+    geometry.setAttribute(
+      "position",
+      new THREE.Float32BufferAttribute(vertices, 3)
+    );
     geometry.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
 
-    const material = new THREE.PointsMaterial({ vertexColors: true, size: particleSize });
+    const material = new THREE.PointsMaterial({
+      vertexColors: true,
+      size: particleSize,
+    });
     particleSystem = new THREE.Points(geometry, material);
     scene.add(particleSystem);
   };
 
-  // Pause frequency change and allow manual orbit with mouse drag
+  // frequency change and allow manual orbit with mouse drag
   const onMouseDown = (event: MouseEvent) => {
     isDragging = true;
-    setPause(true); // Pause frequency changes
     previousMousePosition.x = event.clientX;
     previousMousePosition.y = event.clientY;
     document.addEventListener("mousemove", onMouseMove);
@@ -129,32 +152,31 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
     previousMousePosition.y = event.clientY;
   };
 
-  // Unpause/Resume frequency changes and block manual orbit
+  // Resume frequency changes and block manual orbit
   const onMouseUp = () => {
     isDragging = false;
-    setPause(false); // Resume frequency changes
     document.removeEventListener("mousemove", onMouseMove);
     document.removeEventListener("mouseup", onMouseUp);
   };
 
   // Handle scroll to adjust frequency and camera angle for service section
-  
+
   const onScroll = (event: WheelEvent) => {
     if (currentSection === 2) {
       let delta = event.deltaY * 0.02; // Adjust burst strength based on scroll
       // console.log("delta: ", delta);
       // console.log("event.delta: ", event.deltaY);
       isScroll = true;
-  
+
       // Cancel any ongoing animation and create a new burst effect
       if (burstTimeline.current) {
         burstTimeline.current.kill();
       }
       burstTimeline.current = gsap.timeline();
-  
+
       // Adjust frequency and reverse direction if needed
       let newFrequency = frequencyRef.current + 2 * directionRef.current;
-  
+
       // Reverse direction if hitting upper or lower bounds
       if (newFrequency >= 20) {
         newFrequency = 20; // Prevent overshooting
@@ -163,10 +185,10 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
         newFrequency = 0; // Prevent overshooting
         directionRef.current = 1; // Reverse direction
       }
-  
+
       // Update angles
       const newAngleY = angles.angleY + 2 * 0.2; // Modify angleY based on scroll
-  
+
       // Animate frequencyRef and angles
       burstTimeline.current
         .to(frequencyRef, {
@@ -192,7 +214,7 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
       touchStartY = e.touches[0].clientY;
     }
   };
-  
+
   const touchScroll = (e: TouchEvent) => {
     const touchEndY = e.touches[0].clientY;
     const deltaY = touchStartY - touchEndY;
@@ -202,16 +224,16 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
       // console.log("delta: ", delta);
       // console.log("event.delta: ", deltaY);
       isScroll = true;
-  
+
       // Cancel any ongoing animation and create a new burst effect
       if (burstTimeline.current) {
         burstTimeline.current.kill();
       }
       burstTimeline.current = gsap.timeline();
-  
+
       // Adjust frequency and reverse direction if needed
       let newFrequency = frequencyRef.current + 2 * directionRef.current;
-  
+
       // Reverse direction if hitting upper or lower bounds
       if (newFrequency >= 20) {
         newFrequency = 20; // Prevent overshooting
@@ -220,10 +242,10 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
         newFrequency = 0; // Prevent overshooting
         directionRef.current = 1; // Reverse direction
       }
-  
+
       // Update angles
       const newAngleY = angles.angleY + 2 * 0.2; // Modify angleY based on scroll
-  
+
       // Animate frequencyRef and angles
       burstTimeline.current
         .to(frequencyRef, {
@@ -242,23 +264,17 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
         );
     }
     isScroll = false;
-
-
-  }
-
-
+  };
 
   // Event listeners for scroll and mouse drag
   const attachEventListeners = () => {
     document.addEventListener("mousedown", onMouseDown);
   };
-
   // Apply left-center-right transformation of whole canvas based on the current section
   const getHorizontalPosition = () => {
     const maxSections = 4; // Adjust based on the number of sections
-    if ((isMobile) && (currentSection == 2)) return "-32%";
-    else if ((isMobile) || (currentSection == 1)) return "0%"; // Center the canvas horizontally on mobile    
-    const position = (currentSection % 2 === 0) ? "left" : "right";
+    if (isMobile || currentSection == 1) return "0%"; // Center the canvas horizontally on mobile
+    const position = currentSection % 2 === 0 ? "left" : "right";
     return position === "left" ? "-50%" : "50%"; // Left and right
   };
 
@@ -274,13 +290,18 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
 
   // Update particle positions and colors
   const updateParticles = () => {
-    const positions = particleSystem.geometry.attributes.position.array as Float32Array;
-    const colors = particleSystem.geometry.attributes.color.array as Float32Array;
-    const minHeight = -30, maxHeight = 30;
+    const positions = particleSystem.geometry.attributes.position
+      .array as Float32Array;
+    const colors = particleSystem.geometry.attributes.color
+      .array as Float32Array;
+    const minHeight = -30,
+      maxHeight = 30;
 
     for (let i = 0; i < positions.length; i += 3) {
-      const { theta, phi } = particleData[i / 3];  // Retrieve precomputed theta and phi
-      const radius = Math.sqrt(positions[i] ** 2 + positions[i + 1] ** 2 + positions[i + 2] ** 2);
+      const { theta, phi } = particleData[i / 3]; // Retrieve precomputed theta and phi
+      const radius = Math.sqrt(
+        positions[i] ** 2 + positions[i + 1] ** 2 + positions[i + 2] ** 2
+      );
       const newRadius = 20 + Math.sin(frequencyRef.current * phi + theta) * 5;
 
       // Update particle positions using the stored theta and phi
@@ -289,7 +310,9 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
       positions[i + 2] = newRadius * Math.cos(phi);
 
       // Map height to color
-      const height = Math.sqrt(positions[i] ** 2 + positions[i + 1] ** 2 + positions[i + 2] ** 2);
+      const height = Math.sqrt(
+        positions[i] ** 2 + positions[i + 1] ** 2 + positions[i + 2] ** 2
+      );
       const normalizedHeight = (height - minHeight) / (maxHeight - minHeight);
       const color = new THREE.Color();
       color.setHSL(normalizedHeight * 0.7, 1.0, 0.4);
@@ -308,7 +331,8 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
   const updateCam = () => {
     camera.position.x = camDistance * Math.sin(angles.angleX);
     camera.position.y = camDistance * Math.sin(angles.angleY);
-    camera.position.z = camDistance * Math.cos(angles.angleX) * Math.cos(angles.angleY);
+    camera.position.z =
+      camDistance * Math.cos(angles.angleX) * Math.cos(angles.angleY);
     camera.lookAt(0, 0, 0);
   };
 
@@ -320,16 +344,6 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
     document.removeEventListener("mouseup", onMouseUp);
     if (renderer) renderer.dispose();
   };
-
-  // Check on startup if window is defined and set the mobile state
-  // useEffect(() => {
-  //   setIsMobile(window.innerWidth < 600);   // felt cute might delete later
-  //   const handleResizeThrottled = () => {    
-  //     setIsMobile(window.innerWidth < 600);
-  //   };
-  //   window.addEventListener("resize", handleResizeThrottled);
-  //   return () => window.removeEventListener("resize", handleResizeThrottled);
-  // }, []);
 
   // Initialize Scene and Model Particles
   useEffect(() => {
@@ -344,33 +358,28 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
     // (x,y,z) camera coordinate value for 'z' distance from (0,0,0)
     const updateCamera = () => {
       if (isMobile) {
-        if (currentSection === 2) {
-          targetDistance = 170;
-        } else {
-          targetDistance = 85;
-        }
+        targetDistance = 85;
       } else if (currentSection === 1) {
         targetDistance = 29;
-      } else if (currentSection === 2) {
-        targetDistance = 60
       } else {
-        targetDistance = 50;
+        targetDistance = 60;
       }
       // Eased camera movement for smooth effect
       gsap.to(
         { value: camDistance },
         {
           value: targetDistance,
-          duration: 1,  // Adjust duration for desired smoothness
-          ease: "expo.inOut",  // Optional easing
+          duration: 1, // Adjust duration for desired smoothness
+          ease: "expo.inOut", // Optional easing
           onUpdate: function () {
-            camDistance = this.targets()[0].value;  // Update camDistance as it animates
+            camDistance = this.targets()[0].value; // Update camDistance as it animates
             // Update camera position based on the new camDistance
             camera.position.x = camDistance * Math.sin(angles.angleX);
             camera.position.y = camDistance * Math.sin(angles.angleY);
-            camera.position.z = camDistance * Math.cos(angles.angleX) * Math.cos(angles.angleY);
+            camera.position.z =
+              camDistance * Math.cos(angles.angleX) * Math.cos(angles.angleY);
             camera.lookAt(0, 0, 0);
-          }
+          },
         }
       );
     };
@@ -379,28 +388,19 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
 
   // Frequency change loop
 
-
   useEffect(() => {
     currentSectionRef.current = currentSection;
   }, [currentSection]);
 
-  useEffect(() => {
-    pauseRef.current = pause;
-  }, [pause]);
-
   const animateFrequency = () => {
-    if (!pauseRef.current && currentSectionRef.current != 2) {
-      // Only animate if not paused
+    if (currentSectionRef.current != 2) {
       angles.angleX += rotationSpeedX;
       angles.angleY += rotationSpeedY;
       frequencyRef.current += directionRef.current * 0.02; // Update frequency
       if (frequencyRef.current >= 20 || frequencyRef.current <= 0) {
         directionRef.current *= -1; // Reverse direction at limits
       }
-
-    }
-
-    else if (!pauseRef.current) {
+    } else {
       angles.angleX += slowRotationSpeedX;
       angles.angleY += slowRotationSpeedY;
       frequencyRef.current += directionRef.current * 0.007; // Update frequency
@@ -414,7 +414,6 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
   useEffect(() => {
     requestAnimationFrame(animateFrequency);
   }, []); // Only run once to start the animation loop
-
 
   // Service section scroll effect
   useEffect(() => {
@@ -438,10 +437,9 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
     };
   }, [currentSection]); // Rerun whenever currentSection changes
 
-
   // Model animation loop
   useEffect(() => {
-    window.addEventListener("resize", handleResizeThrottled);  // Check for user resizing window
+    window.addEventListener("resize", handleResizeThrottled); // Check for user resizing window
     // Start the animation loop
     const animate = () => {
       requestAnimationFrame(animate);
@@ -463,7 +461,7 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
         transform: `translateX(${getHorizontalPosition()})`,
       }}
     >
-      <canvas ref={canvasRef} className="fixed inset-0 z-1 top-5" />
+      <canvas ref={canvasRef} className="model" />
     </div>
   );
 };

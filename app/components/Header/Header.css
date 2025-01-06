@@ -68,7 +68,7 @@
     background: none;
     border: none;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1.1rem;
     font-weight: 500;
     margin-left: 15px;
     transition: color 0.3s ease;
@@ -108,7 +108,7 @@
     top: 0;
     background: #0067e7;
     opacity: 95%;
-    height: 100vh;
+    height: 35vh;
     width: 50vw;
     z-index: 2;
     transform: translateX(100%);
@@ -150,9 +150,11 @@
 
   /* -- MOBILE MENU -- */
   .mobile-menu {
-  transition: transform 0.5s;
-  cursor: pointer;
-  z-index: 10;
+    transition: transform 0.5s;
+    cursor: pointer;
+    z-index: 10;
+    position: relative;
+    left:5vw;
   }
 
   .mobile-menu .line-1,

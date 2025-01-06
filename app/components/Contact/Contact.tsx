@@ -35,19 +35,19 @@ const Contact: React.FC = () => {
         {/* Name input field */}
         <div className="form-group">
           <label htmlFor="name">Name:</label>
-          <input type="text" name="name" id="name" required />
+          <input type="text" name="name" id="name" className="name-textarea" required />
         </div>
 
         {/* Email input field */}
         <div className="form-group">
           <label htmlFor="email">Email:</label>
-          <input type="email" name="email" id="email" required />
+          <input type="email" name="email" id="email" className="email-textarea" required />
         </div>
 
         {/* Message input field */}
         <div className="form-group">
           <label htmlFor="message">Message:</label>
-          <textarea name="message" id="message" required />
+          <textarea name="message" id="message" className="message-textarea" required />
         </div>
 
         {/* Submit button to send the form */}

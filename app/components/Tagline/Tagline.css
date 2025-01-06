@@ -1,72 +1,54 @@
 .tagline-section {
   position: relative;
-  /* top: 2rem; */
   display: flex;
   justify-content: center;
-  /* margin-top: 25vh; */
-  /* padding-top: 25vh; */
   align-items: center;
   height: 100vh;
   width: 50vw;
   box-sizing: border-box;
   caret-color: transparent;
-  /* Include padding in total width */
 }
 
-/* Container for Tagline Content */
 .tagline-container {
   width: 50vw;
   box-sizing: border-box;
-  padding: 1rem;
+  padding: 1.5rem;
   margin-left: 2.5vw;
   margin-right: 2.5vw;
   background-color: rgb(255, 255, 255, 0.9);
-  /* Light mode background with 50% opacity */
   color: var(--foreground);
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
-  /* Light shadow for separation */
   border-radius: 8px;
-  /* Subtle rounding for a modern look */
-  /* opacity: 0.95; Slight transparency for a modern UI effect */
   z-index: 10;
 }
 
 /* Tagline Title */
 .tagline-title {
   font-size: clamp(2rem, 2.5vw, 3rem);
-  /* Responsive font scaling */
   font-weight: bold;
   text-align: start;
-  /* Start alignment for LTR/RTL support */
   margin-bottom: 1.5rem;
-  /* Adjusted margin for better spacing */
 }
 
 /* Tagline Description */
 .tagline-description {
   font-size: 1.125rem;
   line-height: 1.6;
-  /* Improved readability with line spacing */
   margin-bottom: 1.5rem;
   opacity: 0.85;
-  /* Slight transparency for softer text appearance */
-
 }
 
 /* Button alignment */
 .tag-buttons {
   display: flex;
   gap: 1rem;
-  /* Adjust the gap between buttons */
   justify-content: flex-start;
-  /* Align buttons to the left */
 }
 
 /* Learn More Button */
 .learn-more-button {
   padding: 0.75rem 1.5rem;
   width: fit-content;
-  /* background-color: #1675F2; */
   background-color: #03045e;
   color: rgb(245, 245, 245);
   border-radius: 4px;
@@ -75,14 +57,24 @@
   cursor: pointer;
   transition: background-color 0.15s ease, transform 0.15s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  /* Subtle shadow for elevation */
 }
 
 .learn-more-button:hover {
-  background-color: #0055ff;
+  background-color: #0067e7;
   color: rgb(255, 255, 255);
   transform: translateY(-2px);
-  /* Slight lift effect on hover */
+}
+
+@media (max-width:600px) {
+  .tagline-section {
+    width: 85vw;
+  }
+
+  .tagline-container {
+    width: 85vw;
+    margin-left:0vw;
+    margin-right: 0vw;
+  }
 }
 
 /* Dark Mode Styling */
@@ -104,12 +96,3 @@
 
 }
 
-@media (max-width:600px) {
-  .tagline-section {
-    width: 100vw;
-  }
-
-  .tagline-container {
-    width: 100vw;
-  }
-}

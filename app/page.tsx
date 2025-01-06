@@ -17,66 +17,27 @@ const HomePage: React.FC = () => {
 
   useEffect(() => {
     const sections = document.querySelectorAll(".page-section");
-
+  
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setCurrentSection(
-              parseInt(entry.target.getAttribute("data-section") || "0")
-            );
+            const sectionNumber = parseInt(entry.target.getAttribute("data-section") || "0");
+            setCurrentSection(sectionNumber);
+            console.log(`Currently in section: ${sectionNumber}`);
             entry.target.classList.add("visible");
           } else {
             entry.target.classList.remove("visible");
           }
         });
       },
-      { threshold: 0.2 }
+      { threshold: 0.5 }
     );
-
+  
     sections.forEach((section) => observer.observe(section));
-
+  
     return () => observer.disconnect();
   }, []);
-
-  // useEffect(() => {
-  //   const handleServicesSnap = () => {
-  //     const servicesSection = document.getElementById("services");
-  //     if (servicesSection) {
-  //       servicesSection.scrollIntoView({ behavior: "smooth", block: "start" });
-  //     }
-  //   };
-  
-  //   const observer = new IntersectionObserver(
-  //     ([entry]) => {
-  //       if (entry.isIntersecting) {
-  //         handleServicesSnap();
-  //       }
-  //     },
-  //     { threshold: 0.5 } // Adjust threshold as needed
-  //   );
-  
-  //   const servicesElement = document.getElementById("services");
-  //   if (servicesElement) {
-  //     observer.observe(servicesElement);
-  //   }
-  
-  //   return () => {
-  //     if (servicesElement) {
-  //       observer.unobserve(servicesElement);
-  //     }
-  //   };
-  // }, []);
-  
-
-  // Lock scroll when inside the services section
-  // useEffect(() => {
-  //   if (currentSection === 2) {
-  //     document.body.style.overflow = "hidden"; // Disable scroll
-  //   } else {
-  //     document.body.style.overflow = "auto"; // Enable scroll
-  //   }
-  // }, [currentSection]);
 
   return (
     <>
@@ -96,7 +57,7 @@ const HomePage: React.FC = () => {
             <About currentSection={currentSection} />
           </section>
 
-          <section id="services" className="page-section fade-section" data-section="2">
+          <section id="services" className="page-section fade-section align-right" data-section="2">
             <Services />
           </section>
 

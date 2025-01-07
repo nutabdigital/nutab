@@ -13,7 +13,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
   const navLinkClasses = (sectionIndex: number) =>
     `nav-link ${currentSection === sectionIndex ? "active" : ""}`;
 
-  
+
   // State to manage visibility of mobile navigation
   const [isNavOpen, setIsNavOpen] = useState(false);
 
@@ -77,13 +77,15 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
             Our Team
           </button>
           <button
-            className="start-project-btn" // Button for starting a project inquiry
+            className={`start-project-btn ${currentSection === 4 ? "active-start-project" : ""
+              }`} // Add 'active-start-project' class when viewing the 'contact' section
             onClick={() => handleScroll("contact")}
           >
             Start a Project
           </button>
+
         </nav>
-     
+
         {/* Mobile menu button */}
         <span className={`mobile-menu ${isNavOpen ? 'toggle' : ''}`} onClick={toggleNav}>
           <span className="line-1"></span>

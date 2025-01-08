@@ -24,7 +24,7 @@
 
 /* Tagline Title */
 .tagline-title {
-  font-size: clamp(2rem, 2.5vw, 3rem);
+  font-size: clamp(1.8rem, 1.8rem, 2rem);
   font-weight: bold;
   text-align: start;
   margin-bottom: 1.5rem;
@@ -34,7 +34,7 @@
 .tagline-description {
   font-size: 1.125rem;
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
   opacity: 0.85;
 }
 

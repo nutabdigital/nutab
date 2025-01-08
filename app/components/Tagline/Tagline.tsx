@@ -13,15 +13,9 @@ const Tagline: React.FC = () => {
     <section className="tagline-section">
       <div className="tagline-container">
         <h2 className="tagline-title">
-          Open New Possibilities with NuTab<sup>+</sup>
+        Open a New Tab,<br/>Start Something Extraordinary.
         </h2>
-        <p className="tagline-description">
-          Empowering businesses with innovative software solutions that drive
-          growth and transform ideas into reality. From web development to
-          digital transformation, we build the tools that shape the future.
-          Evolving with you—because your ideas deserve dynamic, scalable
-          solutions.
-</p>
+        <p className="tagline-description" >Elevating your brand through custom software solutions.</p>
         <div className="tag-buttons">
           <button
             className="learn-more-button"

@@ -1,0 +1,74 @@
+© 2025 NuTab Digital. All rights reserved.
+
+This repository contains proprietary code owned by NuTab Digital. Unauthorized
+copying, modification, distribution, or use of this code is strictly prohibited 
+without explicit written permission from NuTab Digital.
+
+For licensing inquiries, please contact us at nutabdigital@gmail.com.
+
+---
+
+# Third-Party Code and Resources
+
+This project includes code and resources from third-party sources.
+ Below are the details of third-party licenses that apply:
+
+## Acknowledgment of OpenAI
+Some portions of this code were generated with the help of OpenAI's
+ChatGPT, and are considered proprietary to the author upon incorporation 
+into this project.
+
+## Code from CodePen
+
+- **Title:** [Résumé](https://codepen.io/akwdezignz/pen/grgOew)
+- **Author:** [April Wade]](https://codepen.io/akwdezignz/)
+Copyright (c) 2025 by April Wade (https://codepen.io/akwdezignz/pen/grgOew)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy 
+of this software and associated documentation files (the "Software"), to deal 
+in the Software without restriction, including without limitation the rights to 
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies 
+of the Software, and to permit persons to whom the Software is furnished to do
+ o, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all 
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS
+FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR
+COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER
+IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+---
+
+The MIT License text for the third-party code is included below:
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+# Disclaimer
+
+This repository contains proprietary code that is the intellectual property 
+of NuTab Digital. All rights are reserved. The inclusion of third-party code, 
+such as CodePen snippets, is done in accordance with their respective licenses.

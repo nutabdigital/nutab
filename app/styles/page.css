@@ -65,6 +65,22 @@ the component folder. */
     display: flex;
     justify-content: center;
   }
+
+  #about{
+    margin-bottom: 15vh;
+  }
+
+  #services{
+    margin-bottom: 15vh;
+  }
+
+  #team{
+    margin-bottom: 5vh;
+  }
+
+  #contact{
+    margin-bottom: 5vh;
+  }
 }
 
 /* Dark mode adjustment for smoother blending */

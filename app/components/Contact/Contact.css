@@ -55,10 +55,14 @@ textarea {
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+  font-weight: 600;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  margin-top: 0.5rem;
 }
 
 .submit-button:hover {
   background-color: #0067e7;
+  transform: translateY(-2px);
 }
 
 @media (max-width: 600px) {

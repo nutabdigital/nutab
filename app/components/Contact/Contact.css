@@ -74,24 +74,21 @@ textarea {
 }
 
 /* Dark Mode Styling */
-@media (prefers-color-scheme: dark) {
-  .contact-container {
-    background-color: rgb(10, 10, 10, 0.9);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
-  }
-
-  .submit-button {
-    background-color: #3f37c9;
-  }
-
-  .submit-button:hover {
-    background-color: #0067e7;
-  }
-
-  .name-textarea,
-  .email-textarea,
-  .message-textarea {
-    color:black;
-  }
+[data-theme="dark"] .contact-container {
+  background-color: rgba(10, 10, 10, 0.9); /* Dark mode background with 90% opacity */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
 }
 
+[data-theme="dark"] .submit-button {
+  background-color: #3f37c9;
+}
+
+[data-theme="dark"] .submit-button:hover {
+  background-color: #0067e7;
+}
+
+[data-theme="dark"] .name-textarea,
+[data-theme="dark"] .email-textarea,
+[data-theme="dark"] .message-textarea {
+  color: black; /* Text color inside textareas */
+}

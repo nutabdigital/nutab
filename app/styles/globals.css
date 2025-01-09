@@ -18,11 +18,9 @@ aren't specific to individual pages or components. */
 }
 
 /* Dark mode variables */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a; /* Background color for dark mode */
-    --foreground: #ededed; /* Text color for dark mode */
-  }
+[data-theme="dark"] {
+  --background: #0a0a0a; /* Background color for dark mode */
+  --foreground: #ededed; /* Text color for dark mode */
 }
 
 /* -------------------- Base Styles & Resets -------------------- */

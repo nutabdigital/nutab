@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
+import { ThemeProvider } from "./context/ThemeContext"; // Import the ThemeProvider
 import Loader from "./components/Loader/Loader";
 import Background from "./components/Background/Background";
 import Header from "./components/Header/Header";
@@ -40,7 +41,7 @@ const HomePage: React.FC = () => {
   }, []);
 
   return (
-    <>
+    <ThemeProvider>
       <Header currentSection={currentSection} />
       <Loader />
       <div className="background-cloudy"></div>
@@ -72,7 +73,7 @@ const HomePage: React.FC = () => {
 
         <Footer />
       </main>
-    </>
+    </ThemeProvider>
   );
 };
 

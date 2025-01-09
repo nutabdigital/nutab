@@ -68,10 +68,7 @@
 
 
 /* Dark Mode Styling */
-@media (prefers-color-scheme: dark) {
-  .team-section {
-    background-color: rgb(10, 10, 10, 0.9);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
-  }
+[data-theme="dark"] .team-section {
+  background-color: rgba(10, 10, 10, 0.9); /* Ensure rgba syntax is correct */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
 }
-

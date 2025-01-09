@@ -78,21 +78,16 @@
 }
 
 /* Dark Mode Styling */
-@media (prefers-color-scheme: dark) {
-  .tagline-container {
-    background-color: rgb(10, 10, 10, 0.9);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
-    /* Dark mode background with 50% opacity */
-  }
-
-  .learn-more-button {
-    background-color: #3f37c9;
-    color: #ffffff;
-  }
-
-  .learn-more-button:hover {
-    background-color: #0067e7;
-  }
-
+[data-theme="dark"] .tagline-container {
+  background-color: rgba(10, 10, 10, 0.9); /* Dark mode background with 50% opacity */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
 }
 
+[data-theme="dark"] .learn-more-button {
+  background-color: #3f37c9;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .learn-more-button:hover {
+  background-color: #0067e7;
+}

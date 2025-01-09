@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { useTheme } from "../../context/ThemeContext";
 import "./Header.css";
 
 // Interface defining props for the Header component
@@ -9,13 +10,12 @@ interface HeaderProps {
 }
 
 const Header: React.FC<HeaderProps> = ({ currentSection }) => {
+  // State to manage visibility of mobile navigation
+  const [isNavOpen, setIsNavOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme(); // Access theme and toggleTheme from context
   // Function to determine CSS classes for nav links based on the current section
   const navLinkClasses = (sectionIndex: number) =>
     `nav-link ${currentSection === sectionIndex ? "active" : ""}`;
-
-
-  // State to manage visibility of mobile navigation
-  const [isNavOpen, setIsNavOpen] = useState(false);
 
   const toggleNav = () => {
     setIsNavOpen(!isNavOpen);
@@ -77,17 +77,42 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
             Our Team
           </button>
           <button
-            className={`start-project-btn ${currentSection === 4 ? "active-start-project" : ""
-              }`} // Add 'active-start-project' class when viewing the 'contact' section
+            className={navLinkClasses(4)} // Add 'active' class if current section is 'Our Team'
             onClick={() => handleScroll("contact")}
           >
             Start a Project
           </button>
-
+          {/* <button
+            className={`start-project-btn ${
+              currentSection === 4 ? "active-start-project" : ""
+            }`} // Add 'active-start-project' class when viewing the 'contact' section
+            onClick={() => handleScroll("contact")}
+          >
+            Start a Project
+          </button> */}
         </nav>
 
+        <div className="theme-toggle-container">
+          <label className="theme-toggle">
+            <input
+              type="checkbox"
+              checked={theme === "dark"}
+              onChange={toggleTheme}
+              className="theme-toggle-input"
+            />
+            <span className="slider">
+              <span className="slider-icon sun">☀️</span>
+              <span className="slider-icon moon">🌙</span>
+            </span>
+          </label>
+        </div>
+
+
         {/* Mobile menu button */}
-        <span className={`mobile-menu ${isNavOpen ? 'toggle' : ''}`} onClick={toggleNav}>
+        <span
+          className={`mobile-menu ${isNavOpen ? "toggle" : ""}`}
+          onClick={toggleNav}
+        >
           <span className="line-1"></span>
           <span className="line-2"></span>
           <span className="line-3"></span>

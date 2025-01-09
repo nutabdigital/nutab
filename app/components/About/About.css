@@ -26,8 +26,13 @@
   padding-bottom: 2rem;
 }
 
+.about-title h2{
+  font-size: 2rem;
+  margin-bottom: 0;
+}
+
 .about-title p{
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 sup{
@@ -95,23 +100,20 @@ sup{
 
 }
 
-@media (prefers-color-scheme: dark) {
-  .about-container {
-    background-color: rgba(10, 10, 10, 0.85);
-  }
-  .about-description {
-    color: #ecececef;
-  }
-
-  .about-item{
-    transition: transform 0.3s ease, color 0.3s ease;
-  }
-  
-  .about-item:hover{
-    color: rgb(255, 255, 255);
-    transform: scale(1.05);
-  }
-  
+/* Dark Mode Styling */
+[data-theme="dark"] .about-container {
+  background-color: rgba(10, 10, 10, 0.85); /* Dark mode background with 85% opacity */
 }
 
+[data-theme="dark"] .about-description {
+  color: #ecececef; /* Light text color for dark mode */
+}
 
+[data-theme="dark"] .about-item {
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+[data-theme="dark"] .about-item:hover {
+  color: rgb(255, 255, 255); /* Bright text on hover */
+  transform: scale(1.05); /* Slight zoom effect */
+}

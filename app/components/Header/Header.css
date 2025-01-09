@@ -53,6 +53,66 @@
   display: none;
 }
 
+/* Add these styles to your Header.css */
+
+.theme-toggle-container {
+  position: relative;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.theme-toggle-input {
+  display: none;
+}
+
+.slider {
+  position: relative;
+  width: 70px;
+  height: 34px;
+  background-color:  #0067e7;
+  border-radius: 50px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
+}
+
+.theme-toggle-input:checked + .slider {
+  background-color: #3f37c9;
+}
+
+.slider-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.sun {
+  left: 8px;
+}
+
+.moon {
+  right: 8px;
+  opacity: 0;
+}
+
+.theme-toggle-input:checked + .slider .moon {
+  opacity: 1;
+  right: 8px;
+}
+
+.theme-toggle-input:checked + .slider .sun {
+  opacity: 0;
+  left: 8px;
+}
+
+
+
 @media (min-width: 600px) {
 
   .logo {
@@ -152,6 +212,10 @@
     transform: translateX(0%);
   }
 
+  .theme-toggle-container {
+    display:none;
+  }
+
   /* -- MOBILE MENU -- */
   .mobile-menu {
     transition: transform 0.5s;
@@ -193,42 +257,38 @@
 }
 
 /* Switch to dark mode styles */
-@media (prefers-color-scheme: dark) {
-  .logo-light {
-    display: none;
-  }
+[data-theme="dark"] .logo-light {
+  display: none;
+}
 
-  .logo-dark {
-    display: block;
-    padding-left: 1.5rem;
-  }
+[data-theme="dark"] .logo-dark {
+  display: block;
+  padding-left: 1.5rem;
+}
 
-  .header {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
-  }
+[data-theme="dark"] .header {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
+}
 
-  .nav-links button:hover {
-    color: #0067e7;
-  }
+[data-theme="dark"] .nav-links button:hover {
+  color: #0067e7;
+}
 
-  .nav-links .start-project-btn {
-    background-color: #3A0CA3;
-    color: #ffffff;
-  }
+[data-theme="dark"] .nav-links .start-project-btn {
+  background-color: #3A0CA3;
+  color: #ffffff;
+}
 
-  .nav-links .start-project-btn:hover {
-    background-color: #0067e7;
-  } 
+[data-theme="dark"] .nav-links .start-project-btn:hover {
+  background-color: #0067e7;
+}
 
-  .nav-links .active-start-project {
-    background-color: #0067e7;
-  }
+[data-theme="dark"] .nav-links .active-start-project {
+  background-color: #0067e7;
+}
 
-  .mobile-menu .line-1,
-  .mobile-menu .line-2,
-  .mobile-menu .line-3 {
-    border-top: 3px solid #fff;
-  }
-
- 
+[data-theme="dark"] .mobile-menu .line-1,
+[data-theme="dark"] .mobile-menu .line-2,
+[data-theme="dark"] .mobile-menu .line-3 {
+  border-top: 3px solid #fff;
 }

@@ -96,17 +96,28 @@
 
 }
 
-@media (prefers-color-scheme: dark) {
-  .services-section {
-    background-color: rgba(10, 10, 10, 0.9);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
-  }
+/* Dark theme styles */
+[data-theme="dark"] .services-section {
+  background-color: rgba(10, 10, 10, 0.9);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
+}
 
-  .service-box {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
-  }
+[data-theme="dark"] .services-title{
+  color:white;
+}
 
-  .service-icon{
-    filter: brightness(0) invert(1); 
-  }
+[data-theme="dark"] .service-name {
+  color:white;
+}
+
+[data-theme="dark"] .service-description {
+  color:white;
+}
+
+[data-theme="dark"] .service-box {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
+}
+
+[data-theme="dark"] .service-icon {
+  filter: brightness(0) invert(1); 
 }

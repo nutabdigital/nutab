@@ -128,36 +128,36 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
     scene.add(particleSystem);
   };
 
-  // frequency change and allow manual orbit with mouse drag
-  const onMouseDown = (event: MouseEvent) => {
-    isDragging = true;
-    previousMousePosition.x = event.clientX;
-    previousMousePosition.y = event.clientY;
-    document.addEventListener("mousemove", onMouseMove);
-    document.addEventListener("mouseup", onMouseUp);
-  };
+  // // frequency change and allow manual orbit with mouse drag
+  // const onMouseDown = (event: MouseEvent) => {
+  //   isDragging = true;
+  //   previousMousePosition.x = event.clientX;
+  //   previousMousePosition.y = event.clientY;
+  //   document.addEventListener("mousemove", onMouseMove);
+  //   document.addEventListener("mouseup", onMouseUp);
+  // };
 
-  // Manual camera orbit around the model with mouse click + drag
-  const onMouseMove = (event: MouseEvent) => {
-    if (!isDragging) return;
+  // // Manual camera orbit around the model with mouse click + drag
+  // const onMouseMove = (event: MouseEvent) => {
+  //   if (!isDragging) return;
 
-    const deltaX = event.clientX - previousMousePosition.x;
-    const deltaY = event.clientY - previousMousePosition.y;
-    const sensitivity = 0.005;
+  //   const deltaX = event.clientX - previousMousePosition.x;
+  //   const deltaY = event.clientY - previousMousePosition.y;
+  //   const sensitivity = 0.005;
 
-    angles.angleX += deltaX * sensitivity;
-    angles.angleY -= deltaY * sensitivity;
+  //   angles.angleX += deltaX * sensitivity;
+  //   angles.angleY -= deltaY * sensitivity;
 
-    previousMousePosition.x = event.clientX;
-    previousMousePosition.y = event.clientY;
-  };
+  //   previousMousePosition.x = event.clientX;
+  //   previousMousePosition.y = event.clientY;
+  // };
 
-  // Resume frequency changes and block manual orbit
-  const onMouseUp = () => {
-    isDragging = false;
-    document.removeEventListener("mousemove", onMouseMove);
-    document.removeEventListener("mouseup", onMouseUp);
-  };
+  // // Resume frequency changes and block manual orbit
+  // const onMouseUp = () => {
+  //   isDragging = false;
+  //   document.removeEventListener("mousemove", onMouseMove);
+  //   document.removeEventListener("mouseup", onMouseUp);
+  // };
 
   // Handle scroll to adjust frequency and camera angle for service section
 
@@ -268,7 +268,8 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
 
   // Event listeners for scroll and mouse drag
   const attachEventListeners = () => {
-    document.addEventListener("mousedown", onMouseDown);
+      // Disable manual drag functionality
+      // document.addEventListener("mousedown", onMouseDown);
   };
   // Apply left-center-right transformation of whole canvas based on the current section
   const getHorizontalPosition = () => {
@@ -339,9 +340,9 @@ const Background: React.FC<BackgroundProps> = ({ currentSection }) => {
   // Cleanup function to remove listeners and dispose of the renderer
   const cleanup = (handleResizeThrottled: () => void) => {
     window.removeEventListener("resize", handleResizeThrottled);
-    document.removeEventListener("mousedown", onMouseDown);
-    document.removeEventListener("mousemove", onMouseMove);
-    document.removeEventListener("mouseup", onMouseUp);
+    // document.removeEventListener("mousedown", onMouseDown);
+    // document.removeEventListener("mousemove", onMouseMove);
+    // document.removeEventListener("mouseup", onMouseUp);
     if (renderer) renderer.dispose();
   };
 

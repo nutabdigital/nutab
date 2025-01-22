@@ -15,9 +15,15 @@
   width: 95vw;
   padding: 1rem;
   margin: 2vw auto;
+<<<<<<< Updated upstream
   background-color: rgba(255, 255, 255, 0.77);
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
   border-radius: 8px;
+=======
+  background-color: rgba(255, 255, 255, 0.90);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.425);
+  border-radius: 20px;
+>>>>>>> Stashed changes
   z-index: 10;
 }
 
@@ -102,8 +108,12 @@ sup{
 
 /* Dark Mode Styling */
 [data-theme="dark"] .about-container {
+<<<<<<< Updated upstream
   background-color: rgba(10, 10, 10, 0.77); /* Dark mode background with 50% opacity */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
+=======
+  background-color: rgba(10, 10, 10, 0.9); /* Dark mode background with 85% opacity */
+>>>>>>> Stashed changes
 }
 
 [data-theme="dark"] .about-description {

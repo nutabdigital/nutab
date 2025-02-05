@@ -82,18 +82,21 @@ To create a production build:
 ---
 
 ## Contributing 
-Although this repository is public, please refrain from using our site or its code in part or in entirety without permission. If you're interested in using or collaborating on parts of the project, please contact us to discuss collaboration terms.
+This repository is public, and we welcome interest in using or collaborating on parts of the project. If you’re interested, please reach out to us beforehand to discuss potential collaboration.
 
-We appreciate your understanding and respect for the proprietary nature of this project.
+We appreciate your courtesy and look forward to working together!
 
 ---
 
 ## License
-© 2025 NuTab Digital. All rights reserved.
 
-This repository contains proprietary code owned by NuTab Digital. Unauthorized copying, modification, distribution, or use of this code is strictly prohibited without explicit written permission from NuTab Digital.
+This repository is publicly available and free to use under the following terms:
 
-For licensing inquiries, please contact us at nutabdigital@gmail.com.
+- You are free to use, modify, distribute, and share this code, provided that you include proper attribution and acknowledge any third-party contributions where applicable.
+- While no explicit permission is required to use this code, we encourage interested collaborators to reach out before incorporating significant portions into their own projects.
+- This software is provided "as is," without warranty of any kind, express or implied, including but not limited to warranties of merchantability or fitness for a particular purpose.
+
+For inquiries or collaboration opportunities, please contact us at nutabdigital@gmail.com.
 
 ---
 

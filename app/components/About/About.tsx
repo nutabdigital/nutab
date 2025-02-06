@@ -25,8 +25,7 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
     <section className="about-section">
       <div className="about-container">
         <div className="about-title">
-          <h2>Our Principles</h2>
-          <p>Discover the values that drive <strong>NuTab</strong><sup>+</sup> Digital.</p>
+          <p>Discover the values that drive <strong>NuTab</strong><sup>+</sup> Digital</p>
         </div>
         <div className="about-grid">
           <div

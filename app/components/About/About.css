@@ -13,7 +13,7 @@
   align-items: center;
   box-sizing: border-box;
   width: 95vw;
-  padding: 1rem;
+  padding: 2rem;
   margin: 2vw auto;
   background-color: rgba(255, 255, 255, 0.90);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.425);
@@ -23,7 +23,7 @@
 
 .about-title{
   text-align: center;
-  padding-bottom: 2rem;
+  padding-bottom: 2.5rem;
 }
 
 .about-title h2{
@@ -32,7 +32,7 @@
 }
 
 .about-title p{
-  font-size: 1rem;
+  font-size: 1.75rem;
 }
 
 sup{

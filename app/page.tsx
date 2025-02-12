@@ -106,12 +106,12 @@ const HomePage: React.FC = () => {
           <section id="team" className="page-section fade-section align-left" data-section="3">
             {/* Clicking team member passes contact info */}
             <Team onSelectContact={setSelectedContact} />
-
-            {/* Show popup if a contact is selected */}
-            {selectedContact && (
-              <Popup contact={selectedContact} onClose={() => setSelectedContact(null)} />
-            )}
           </section>
+
+          {/* Show popup if a contact is selected */}
+          {selectedContact && (
+            <Popup contact={selectedContact} onClose={() => setSelectedContact(null)} />
+          )}
 
           <section id="contact" className="page-section fade-section align-right" data-section="4">
             <Contact />

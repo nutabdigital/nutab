@@ -19,9 +19,10 @@ const Popup: React.FC<PopupProps> = ({ contact, onClose }) => {
   const generateVCard = () => {
     const vCardData = `BEGIN:VCARD
 VERSION:3.0
+N:${contact.name}
 FN:${contact.name}
 ORG:${contact.company}
-TEL:${contact.phone}
+TEL;TYPE=CELL:${contact.phone}
 EMAIL:${contact.email}
 URL:${contact.website}
 END:VCARD`;

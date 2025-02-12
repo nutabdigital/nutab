@@ -52,12 +52,19 @@
   cursor: pointer;
   transition: background-color 0.15s ease, transform 0.15s ease;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  display: none;
 }
 
 .save-contact-button:hover {
   background-color: #0067e7;
   color: rgb(255, 255, 255);
   transform: translateY(-2px);
+}
+
+@media (max-width:600px) {
+  .save-contact-button {
+    display: block;
+  }
 }
 
 /* Dark Mode Styling */

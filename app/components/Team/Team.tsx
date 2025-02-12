@@ -1,19 +1,49 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Team.css";
 
-// currentSection from page.tsx
-interface TeamProps {
-  currentSection: number;
+// Contact structure
+interface Contact {
+  name: string;
+  phone: string;
+  email: string;
+  company: string;
+  website: string;
+  photo: string;
 }
 
-const Team: React.FC<TeamProps> = ({ currentSection }) => {
+interface TeamProps {
+  onSelectContact: (contact: Contact) => void;
+}
+
+// Contact database
+const contacts: Record<string, Contact> = {
+  navjot: {
+    name: "Navjot Saran",
+    phone: "(587) 707-2495",
+    email: "navjots@nutab.ca",
+    company: "Nutab",
+    website: "https://www.nutab.ca",
+    photo: "/photos/nav-headshot.png",
+  },
+  fysal: {
+    name: "Fysal Beauferris",
+    phone: "(587) 888-6755",
+    email: "fysalb@nutab.ca",
+    company: "Nutab",
+    website: "https://www.nutab.ca",
+    photo: "/photos/fysal-headshot.png",
+  },
+};
+
+
+const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
 
   
   return (
     <section className="team-section">
       <h2 className="team-header">Our Team</h2>
       <div className="grid-container">
-        <div className="team-member">
+        <div className="team-member" onClick={() => onSelectContact(contacts.navjot)}>
           <div
             className="photo"
             style={{ backgroundImage: 'url("/photos/nav-headshot.png")' }}
@@ -27,7 +57,7 @@ const Team: React.FC<TeamProps> = ({ currentSection }) => {
             University of Calgary Computer Science
           </p>
         </div>
-        <div className="team-member">
+        <div className="team-member" onClick={() => onSelectContact(contacts.fysal)}>
           <div
             className="photo"
             style={{ backgroundImage: 'url("/photos/fysal-headshot.png")' }}

@@ -29,7 +29,7 @@ const Services: React.FC = () => {
       id: "cloud-solutions",
       name: "Cloud Solutions",
       description:
-        "We offer cloud-based solutions that enhance scalability and efficiency for your business.",
+        "We offer cloud-based solutions that enhance efficiency and scale with your business.",
     },
   ];
 

@@ -1,0 +1,81 @@
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2vh;
+  align-items: center;
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  width: 350px;
+  text-align: center;
+}
+
+.popup-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.save-contact-button {
+  padding: 0.75rem 1.5rem;
+  width: fit-content;
+  background-color: #03045e;
+  color: rgb(245, 245, 245);
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.save-contact-button:hover {
+  background-color: #0067e7;
+  color: rgb(255, 255, 255);
+  transform: translateY(-2px);
+}
+
+/* Dark Mode Styling */
+[data-theme="dark"] .popup-overlay {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+[data-theme="dark"] .popup-content {
+  background: rgba(0, 0, 0, 0.9);
+  color: #ffffff;
+}
+
+[data-theme="dark"] .save-contact-button {
+  background-color: #3f37c9;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .save-contact-button:hover {
+  background-color: #0067e7;
+  color: #ffffff;
+}

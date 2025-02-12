@@ -12,13 +12,45 @@ import Team from "./components/Team/Team";
 import Contact from "./components/Contact/Contact";
 import Footer from "./components/Footer/Footer";
 import "./styles/page.css";
+import Popup from "./components/ContactCards/Popup";
+
+interface Contact {
+  name: string;
+  phone: string;
+  email: string;
+  company: string;
+  website: string;
+  photo: string;
+}
+
+// Contact database
+const contacts: Record<string, Contact> = {
+  navjot: {
+    name: "Navjot Saran",
+    phone: "(587) 707-2495",
+    email: "navjots@nutab.ca",
+    company: "Nutab",
+    website: "https://www.nutab.ca",
+    photo: "/photos/nav-headshot.png",
+
+  },
+  fysal: {
+    name: "Fysal Beauferris",
+    phone: "(587) 888-6755",
+    email: "fysalb@nutab.ca",
+    company: "Nutab",
+    website: "https://www.nutab.ca",
+    photo: "/photos/fysal-headshot.png",
+  },
+};
 
 const HomePage: React.FC = () => {
+  const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
   const [currentSection, setCurrentSection] = useState<number>(0);
 
   useEffect(() => {
     const sections = document.querySelectorAll(".page-section");
-  
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -34,10 +66,19 @@ const HomePage: React.FC = () => {
       },
       { threshold: 0.2 }
     );
-  
+
     sections.forEach((section) => observer.observe(section));
-  
+
     return () => observer.disconnect();
+  }, []);
+
+  // Check URL for NFC contact (only runs once on mount)
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const contactParam = urlParams.get("contact"); // Get "contact" from URL
+    if (contactParam && contacts[contactParam]) {
+      setSelectedContact(contacts[contactParam]); // Show corresponding popup
+    }
   }, []);
 
   return (
@@ -63,7 +104,13 @@ const HomePage: React.FC = () => {
           </section>
 
           <section id="team" className="page-section fade-section align-left" data-section="3">
-            <Team currentSection={currentSection} />
+            {/* Clicking team member passes contact info */}
+            <Team onSelectContact={setSelectedContact} />
+
+            {/* Show popup if a contact is selected */}
+            {selectedContact && (
+              <Popup contact={selectedContact} onClose={() => setSelectedContact(null)} />
+            )}
           </section>
 
           <section id="contact" className="page-section fade-section align-right" data-section="4">

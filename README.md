@@ -59,7 +59,7 @@ Check out the live website: [nutab.ca](https://nutab.ca)
    ```bash 
    npm run dev
    ```
-4. Open http://localhost:3000 to view the website locally.
+4. Open https://localhost:3000 to view the website locally.
 
 ---
 

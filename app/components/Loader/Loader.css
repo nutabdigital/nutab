@@ -1,12 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Playfair+Display:900);
 @import url(https://fonts.googleapis.com/css?family=Raleway:600);
 
-/*html & body*/
-html,
-body {
-  background-image: url(http://akw111080.aisites.com/bkground_img/bg.png);
-}
-
 /**page loader**/
 #loader-wrapper {
   position: fixed;

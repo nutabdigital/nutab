@@ -17,24 +17,6 @@
   align-items: center;
 }
 
-.nav-links .start-project-btn {
-  padding: 0.75rem 1.5rem;
-  width: fit-content;
-  background-color: #00b4d8;
-  color: rgb(255, 255, 255);
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.15s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.nav-links .start-project-btn:hover {
-  background-color: #0067e7;
-  color: rgb(255, 255, 255);
-  transform: translateY(-2px);
-}
 
 .nav-links .active-start-project {
   background-color: #0067e7;
@@ -128,7 +110,7 @@
     display: none;
   }
 
-  .nav-links button {
+  .nav-links a {
     background: none;
     border: none;
     cursor: pointer;
@@ -138,7 +120,7 @@
     transition: color 0.3s ease;
   }
 
-  .nav-links button:hover {
+  .nav-links a:hover {
     color: #0067e7;
   }
 
@@ -160,10 +142,6 @@
 @media (max-width: 600px) {
   .nav-links {
     display: none;
-  }
-
-  .nav-links .start-project-btn {
-    display:none;    
   }
 
   .mob-right-nav {
@@ -270,17 +248,8 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
 }
 
-[data-theme="dark"] .nav-links button:hover {
+[data-theme="dark"] .nav-links a:hover {
   color: #0067e7;
-}
-
-[data-theme="dark"] .nav-links .start-project-btn {
-  background-color: #3A0CA3;
-  color: #ffffff;
-}
-
-[data-theme="dark"] .nav-links .start-project-btn:hover {
-  background-color: #0067e7;
 }
 
 [data-theme="dark"] .nav-links .active-start-project {

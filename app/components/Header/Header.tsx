@@ -62,34 +62,26 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
             className={navLinkClasses(1)} // Add 'active' class if current section is 'About'
             onClick={() => handleScroll("about")}
           >
-            About
+            <a href="#about">About</a>
           </button>
           <button
             className={navLinkClasses(2)} // Add 'active' class if current section is 'Services'
             onClick={() => handleScroll("services")}
           >
-            Services
+            <a href="#services">Services</a>
           </button>
           <button
-            className={navLinkClasses(3)} // Add 'active' class if current section is 'Our Team'
+            className={navLinkClasses(3)} // Add 'active' class if current section is 'Team'
             onClick={() => handleScroll("team")}
           >
-            Our Team
+            <a href="#team">Team</a>
           </button>
           <button
-            className={navLinkClasses(4)} // Add 'active' class if current section is 'Our Team'
+            className={navLinkClasses(4)} // Add 'active' class if current section is 'Contact'
             onClick={() => handleScroll("contact")}
           >
-            Start a Project
+            <a href="#contact">Contact</a>
           </button>
-          {/* <button
-            className={`start-project-btn ${
-              currentSection === 4 ? "active-start-project" : ""
-            }`} // Add 'active-start-project' class when viewing the 'contact' section
-            onClick={() => handleScroll("contact")}
-          >
-            Start a Project
-          </button> */}
         </nav>
 
         <div className="theme-toggle-container">

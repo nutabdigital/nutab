@@ -47,6 +47,7 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
           <div
             className="photo"
             style={{ backgroundImage: 'url("/photos/nav-headshot.png")' }}
+            aria-label="Navjot Saran headshot"
           ></div>
           <p className="team-name">Navjot Saran</p>
           <p className="team-role">
@@ -61,6 +62,7 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
           <div
             className="photo"
             style={{ backgroundImage: 'url("/photos/fysal-headshot.png")' }}
+            aria-label="Fysal Beauferris headshot"
           ></div>
           <p className="team-name">Fysal Beauferris</p>
           <p className="team-role">

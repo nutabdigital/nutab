@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
   };
 
   // Scrolls smoothly to a specific section of the page
-  const handleScroll = (sectionId: string) => {
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (section) {
       // Notify start of smooth-scroll
@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
       <div className="header-container">
         {/* Logo that scrolls to the 'tagline' section on click */}
         <div className="logo">
-          <a onClick={() => handleScroll("tagline")}>
+          <a href="#home" onClick={(e) => handleScroll(e, "tagline")}>
             <img
               src="/icons/logo-light.svg"
               alt="New Tab Digital Light Logo"
@@ -55,35 +55,40 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
             />
           </a>
         </div>
-
+  
         {/* Desktop navigation links */}
         <nav className="nav-links">
-          <button
-            className={navLinkClasses(1)} // Add 'active' class if current section is 'About'
-            onClick={() => handleScroll("about")}
+          <a
+            href="#about"
+            className={navLinkClasses(1)}
+            onClick={(e) => handleScroll(e, "about")}
           >
-            <a href="#about">About</a>
-          </button>
-          <button
-            className={navLinkClasses(2)} // Add 'active' class if current section is 'Services'
-            onClick={() => handleScroll("services")}
+            About
+          </a>
+          <a
+            href="#services"
+            className={navLinkClasses(2)}
+            onClick={(e) => handleScroll(e, "services")}
           >
-            <a href="#services">Services</a>
-          </button>
-          <button
-            className={navLinkClasses(3)} // Add 'active' class if current section is 'Team'
-            onClick={() => handleScroll("team")}
+            Services
+          </a>
+          <a
+            href="#team"
+            className={navLinkClasses(3)}
+            onClick={(e) => handleScroll(e, "team")}
           >
-            <a href="#team">Team</a>
-          </button>
-          <button
-            className={navLinkClasses(4)} // Add 'active' class if current section is 'Contact'
-            onClick={() => handleScroll("contact")}
+            Team
+          </a>
+          <a
+            href="#contact"
+            className={navLinkClasses(4)}
+            onClick={(e) => handleScroll(e, "contact")}
           >
-            <a href="#contact">Contact</a>
-          </button>
+            Contact
+          </a>
         </nav>
-
+  
+        {/* Theme toggle (fixed structure) */}
         <div className="theme-toggle-container">
           <label className="theme-toggle">
             <input
@@ -98,8 +103,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
             </span>
           </label>
         </div>
-
-
+  
         {/* Mobile menu button */}
         <span
           className={`mobile-menu ${isNavOpen ? "toggle" : ""}`}
@@ -110,18 +114,17 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
           <span className="line-3"></span>
         </span>
       </div>
-
+  
       {/* Mobile right navigation menu */}
       <nav className={`mob-right-nav ${isNavOpen ? "open-nav" : ""}`}>
-        {/* Close button for mobile navigation */}
         <ul>
           <li>
             <a
-              href="#about" // Link to 'about' section
+              href="#about"
               onClick={(e) => {
                 e.preventDefault();
-                handleScroll("about");
-                setIsNavOpen(false); // Close the navbar
+                handleScroll(e, "about");
+                setIsNavOpen(false);
               }}
             >
               About
@@ -129,11 +132,11 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
           </li>
           <li>
             <a
-              href="#services" // Link to 'services' section
+              href="#services"
               onClick={(e) => {
                 e.preventDefault();
-                handleScroll("services");
-                setIsNavOpen(false); // Close the navbar
+                handleScroll(e, "services");
+                setIsNavOpen(false);
               }}
             >
               Services
@@ -141,11 +144,11 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
           </li>
           <li>
             <a
-              href="#team" // Link to 'team' section
+              href="#team"
               onClick={(e) => {
                 e.preventDefault();
-                handleScroll("team");
-                setIsNavOpen(false); // Close the navbar
+                handleScroll(e, "team");
+                setIsNavOpen(false);
               }}
             >
               Our Team
@@ -154,19 +157,20 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
           <li>
             <a
               className="start-project-li"
-              href="#contact" // Link to 'contact' section
+              href="#contact"
               onClick={(e) => {
                 e.preventDefault();
-                handleScroll("contact");
-                setIsNavOpen(false); // Close the navbar
+                handleScroll(e, "contact");
+                setIsNavOpen(false);
               }}
             >
               Start A Project
             </a>
           </li>
+  
+          {/* Theme toggle moved out of <a> */}
           <li>
-            <a
-              className="theme-toggle-container">
+            <div className="theme-toggle-container">
               <label className="theme-toggle">
                 <input
                   type="checkbox"
@@ -179,13 +183,12 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
                   <span className="slider-icon moon">🌙</span>
                 </span>
               </label>
-            
-            </a>
+            </div>
           </li>
         </ul>
       </nav>
     </header>
-  );
+  );  
 };
 
 export default Header;

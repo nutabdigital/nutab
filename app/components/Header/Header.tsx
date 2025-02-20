@@ -42,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
       <div className="header-container">
         {/* Logo that scrolls to the 'tagline' section on click */}
         <div className="logo">
-          <a onClick={() => handleScroll("tagline")}>
+          <a href="#home" onClick={(e) => handleScroll("tagline")}>
             <img
               src="/icons/logo-light.svg"
               alt="New Tab Digital Light Logo"
@@ -179,7 +179,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
                   <span className="slider-icon moon">🌙</span>
                 </span>
               </label>
-            
+
             </a>
           </li>
         </ul>

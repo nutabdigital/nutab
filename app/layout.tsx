@@ -33,25 +33,25 @@ const structuredData = {
       "@type": "Organization",
       "name": "Custom Software Development",
       "url": "https://nutab.ca#custom-software",
-      "description": "We create tailored software solutions that meet the unique needs of your business."
+      "description": "We create tailored software solutions that meet the unique needs of your business. Our custom software development services include enterprise software, SaaS solutions, and bespoke applications designed to improve efficiency and drive growth. Keywords: custom software development, enterprise software, SaaS solutions, bespoke applications."
     },
     {
       "@type": "Organization",
       "name": "Mobile App Development",
       "url": "https://nutab.ca#mobile-app",
-      "description": "Our team specializes in developing user-friendly mobile applications for iOS and Android."
+      "description": "Our team specializes in developing user-friendly mobile applications for iOS and Android. We focus on creating intuitive and engaging mobile experiences that drive user engagement and retention. Keywords: mobile app development, iOS development, Android development, user engagement, mobile experiences."
     },
     {
       "@type": "Organization",
       "name": "Web Development",
       "url": "https://nutab.ca#web-development",
-      "description": "We design and build responsive websites that provide seamless user experiences."
+      "description": "We design and build responsive websites that provide seamless user experiences. Our web development services include front-end and back-end development, e-commerce solutions, and content management systems. Keywords: web development, responsive websites, front-end development, back-end development, e-commerce solutions, content management systems."
     },
     {
       "@type": "Organization",
       "name": "Cloud Solutions",
       "url": "https://nutab.ca#cloud-solutions",
-      "description": "We offer cloud-based solutions that enhance efficiency and scale with your business."
+      "description": "We offer cloud-based solutions that enhance efficiency and scale with your business. Our cloud services include cloud migration, infrastructure management, and cloud-native application development. Keywords: cloud solutions, cloud migration, infrastructure management, cloud-native applications, scalability."
     }
   ]
 };
@@ -92,7 +92,6 @@ export default function RootLayout({
         <meta property="og:url" content="https://nutab.ca" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
-
 
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />

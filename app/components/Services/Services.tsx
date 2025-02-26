@@ -9,6 +9,7 @@ const Services: React.FC = () => {
       name: "Custom Software Development",
       description:
         "We create tailored software solutions that meet the unique needs of your business.",
+      link: "#custom-software",
     },
     {
       icon: "/icons/mobiledev.svg",
@@ -16,6 +17,7 @@ const Services: React.FC = () => {
       name: "Mobile App Development",
       description:
         "Our team specializes in developing user-friendly mobile applications for iOS and Android.",
+      link: "#mobile-app",
     },
     {
       icon: "/icons/webdev.svg",
@@ -23,6 +25,7 @@ const Services: React.FC = () => {
       name: "Web Development",
       description:
         "We design and build responsive websites that provide seamless user experiences.",
+      link: "#web-development",
     },
     {
       icon: "/icons/clouddev.svg",
@@ -30,6 +33,7 @@ const Services: React.FC = () => {
       name: "Cloud Solutions",
       description:
         "We offer cloud-based solutions that enhance efficiency and scale with your business.",
+      link: "#cloud-solutions",
     },
   ];
 
@@ -38,7 +42,7 @@ const Services: React.FC = () => {
       <h2 className="services-title">Our Services</h2>
       <div className="services-list">
         {services.map((service) => (
-          <div key={service.id} className="service-box">
+          <a key={service.id} href={service.link} className="service-box">
             <img
               src={service.icon}
               alt={`${service.name} icon`}
@@ -46,7 +50,7 @@ const Services: React.FC = () => {
             />
             <h3 className="service-name">{service.name}</h3>
             <p className="service-description">{service.description}</p>
-          </div>
+          </a>
         ))}
       </div>
     </section>

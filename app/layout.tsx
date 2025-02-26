@@ -28,6 +28,32 @@ const structuredData = {
     "addressRegion": "AB",
     "addressCountry": "CA",
   },
+  "department": [
+    {
+      "@type": "Organization",
+      "name": "Custom Software Development",
+      "url": "https://nutab.ca#custom-software",
+      "description": "We create tailored software solutions that meet the unique needs of your business."
+    },
+    {
+      "@type": "Organization",
+      "name": "Mobile App Development",
+      "url": "https://nutab.ca#mobile-app",
+      "description": "Our team specializes in developing user-friendly mobile applications for iOS and Android."
+    },
+    {
+      "@type": "Organization",
+      "name": "Web Development",
+      "url": "https://nutab.ca#web-development",
+      "description": "We design and build responsive websites that provide seamless user experiences."
+    },
+    {
+      "@type": "Organization",
+      "name": "Cloud Solutions",
+      "url": "https://nutab.ca#cloud-solutions",
+      "description": "We offer cloud-based solutions that enhance efficiency and scale with your business."
+    }
+  ]
 };
 
 export default function RootLayout({

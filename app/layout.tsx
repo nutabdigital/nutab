@@ -58,7 +58,22 @@ export default function RootLayout({
           content="custom software development, mobile app development, web development, cloud solutions, Calgary, Alberta, NuTab Digital, software company Calgary, software development Calgary"
         />
         <meta name="robots" content="index, follow" />
-        
+
+        {/* Open Graph Meta Tags */}
+        <meta property="og:title" content="NuTab Digital - Custom Software Development in Calgary, Alberta" />
+        <meta property="og:description" content="NuTab Digital offers custom software development, mobile app development, web development, and cloud solutions in Calgary, Alberta. We provide tailored software solutions for businesses and individuals." />
+        <meta property="og:image" content="https://nutab.ca/photos/nutab-logo.png" />
+        <meta property="og:url" content="https://nutab.ca" />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="en_US" />
+
+
+        {/* Twitter Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="NuTab Digital - Custom Software Development in Calgary, Alberta" />
+        <meta name="twitter:description" content="NuTab Digital offers custom software development, mobile app development, web development, and cloud solutions in Calgary, Alberta. We provide tailored software solutions for businesses and individuals." />
+        <meta name="twitter:image" content="https://nutab.ca/photos/nutab-logo.png" />
+
         {/* Properly insert JSON-LD structured data to avoid hydration issues */}
         <script
           type="application/ld+json"

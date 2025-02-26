@@ -1,4 +1,4 @@
-![Alt text](/public/icons/logo-light.svg)
+![Alt text](/public/icons/logo-dark.svg)
 
 Welcome to **NuTab Digital**, a custom software development company website built with [Next.js](https://nextjs.org/) and CSS. This repository contains the source code and resources for the NuTab Digital website.
 

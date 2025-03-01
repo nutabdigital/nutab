@@ -41,14 +41,14 @@ sup{
 }
 
 .about-grid{
-  display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Three equal columns */;
+  display: flexbox;
+  flex-direction: column;
   padding: 1rem;
   gap:4rem;
 }
 
 .about-item{
-  text-align: center;
+  text-align: left;
   transition: transform 0.3s ease, color 0.3s ease;
 }
 

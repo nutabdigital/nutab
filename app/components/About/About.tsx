@@ -25,7 +25,8 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
     <section className="about-section">
       <div className="about-container">
         <div className="about-title">
-          <p>Discover the values that drive <strong>NuTab</strong><sup>+</sup> Digital</p>
+          <p>Built in Canada, Designed for Growth. 
+          Your Digital Partner from Coast to Coast.</p>
         </div>
         <div className="about-grid">
           <div
@@ -33,10 +34,10 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
             onMouseLeave={handleMouseLeave}
             className="about-item"
           >
-            <h3>Innovation</h3>
+            <h3>What We Do</h3>
             <p>
-              Every project is an opportunity to innovate, exceed expectations,
-              and deliver transformative solutions.
+            We create tailored solutions for businesses—whether it’s building a custom website, 
+            improving your SEO, or developing mobile apps to engage your customers.
             </p>
           </div>
           <div
@@ -44,10 +45,10 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
             onMouseLeave={handleMouseLeave}
             className="about-item"
           >
-            <h3>Excellence</h3>
+            <h3>Why Choose Us</h3>
             <p>
-              We craft high-quality software that drives client success through
-              expertise, reliability, and efficiency.
+            Our team works face-to-face with Canadian businesses to understand their needs 
+            and deliver results that drive growth. We build long-term relationships, not just solutions.
             </p>
           </div>
           <div
@@ -55,10 +56,10 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
             onMouseLeave={handleMouseLeave}
             className="about-item"
           >
-            <h3>Scalability</h3>
+            <h3>Our Vision</h3>
             <p>
-              Our custom solutions connect businesses with technology designed
-              to evolve and grow with them.
+            To empower Canadian businesses with innovative, scalable, and effective digital 
+            strategies that boost visibility and success in today’s competitive market.
             </p>
           </div>
         </div>

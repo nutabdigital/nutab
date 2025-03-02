@@ -55,7 +55,7 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
           </p>
           <p className="team-description">Software Developer</p>
           <p className="team-description">
-            University of Calgary Computer Science
+          B.Sc. in Computer Science, University of Calgary
           </p>
         </div>
         <div className="team-member" onClick={() => onSelectContact(contacts.fysal)}>
@@ -70,7 +70,7 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
           </p>
           <p className="team-description">Software Developer</p>
           <p className="team-description">
-            University of Calgary Computer Science
+          B.Sc. in Computer Science, University of Calgary
           </p>
         </div>
       </div>

@@ -31,7 +31,7 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
               alt="mapleleaf"
               className="iconcan"
             />
-            <p>Built in Canada, Designed for Growth.
+            <p>Built in Canada, Designed for Growth.<br />
               Your Digital Partner from Coast to Coast.</p>
           </div>
 

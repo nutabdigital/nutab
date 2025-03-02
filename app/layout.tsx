@@ -4,9 +4,9 @@ import "./styles/globals.css";
 export const metadata: Metadata = {
   title: "NuTab Digital - Custom Software Development in Calgary, Alberta",
   description:
-    "NuTab Digital offers custom software development, mobile app development, web development, and cloud solutions in Calgary, Alberta. We provide tailored software solutions for businesses and individuals.",
+    "NuTab Digital offers custom software solutions, mobile & web app development, SEO & digital marketing, and e-commerce development in Calgary, Alberta. We provide tailored software solutions for businesses and individuals.",
   keywords:
-    "custom software development, mobile app development, web development, cloud solutions, Calgary, Alberta, NuTab Digital, software company Calgary, software development Calgary",
+    "custom software solutions, mobile app development, web app development, SEO, digital marketing, e-commerce development, Calgary, Alberta, NuTab Digital, software company Calgary, software development Calgary",
   robots: "index, follow",
 };
 
@@ -31,27 +31,31 @@ const structuredData = {
   "department": [
     {
       "@type": "Organization",
-      "name": "Custom Software Development",
+      "name": "Custom Software Solutions",
       "url": "https://nutab.ca#custom-software",
-      "description": "We create tailored software solutions that meet the unique needs of your business. Our custom software development services include enterprise software, SaaS solutions, and bespoke applications designed to improve efficiency and drive growth. Keywords: custom software development, enterprise software, SaaS solutions, bespoke applications."
+      "description": "We create custom software that streamlines operations and boosts efficiency, tailored to your business needs.",
+      "keywords": "custom software solutions, enterprise software, SaaS solutions, bespoke applications"
     },
     {
       "@type": "Organization",
-      "name": "Mobile App Development",
-      "url": "https://nutab.ca#mobile-app",
-      "description": "Our team specializes in developing user-friendly mobile applications for iOS and Android. We focus on creating intuitive and engaging mobile experiences that drive user engagement and retention. Keywords: mobile app development, iOS development, Android development, user engagement, mobile experiences."
+      "name": "Mobile & Web App Development",
+      "url": "https://nutab.ca#app-development",
+      "description": "We create user-friendly apps that provide seamless experiences and help businesses engage customers.",
+      "keywords": "mobile app development, web app development, iOS development, Android development, user engagement, mobile experiences"
     },
     {
       "@type": "Organization",
-      "name": "Web Development",
-      "url": "https://nutab.ca#web-development",
-      "description": "We design and build responsive websites that provide seamless user experiences. Our web development services include front-end and back-end development, e-commerce solutions, and content management systems. Keywords: web development, responsive websites, front-end development, back-end development, e-commerce solutions, content management systems."
+      "name": "SEO & Digital Marketing",
+      "url": "https://nutab.ca#seo-digital-marketing",
+      "description": "Enhance online visibility and attract customers with SEO and targeted digital marketing strategies.",
+      "keywords": "SEO, digital marketing, online visibility, customer attraction, targeted marketing"
     },
     {
       "@type": "Organization",
-      "name": "Cloud Solutions",
-      "url": "https://nutab.ca#cloud-solutions",
-      "description": "We offer cloud-based solutions that enhance efficiency and scale with your business. Our cloud services include cloud migration, infrastructure management, and cloud-native application development. Keywords: cloud solutions, cloud migration, infrastructure management, cloud-native applications, scalability."
+      "name": "E-Commerce Development",
+      "url": "https://nutab.ca#ecommerce-development",
+      "description": "Build scalable e-commerce sites with seamless shopping experiences, secure payments, and inventory management.",
+      "keywords": "e-commerce development, scalable e-commerce, shopping experiences, secure payments, inventory management"
     }
   ]
 };
@@ -77,17 +81,17 @@ export default function RootLayout({
         />
         <meta
           name="description"
-          content="NuTab Digital offers custom software development, mobile app development, web development, and cloud solutions in Calgary, Alberta. We provide tailored software solutions for businesses and individuals."
+          content="NuTab Digital offers custom software solutions, mobile & web app development, SEO & digital marketing, and e-commerce development in Calgary, Alberta. We provide tailored software solutions for businesses and individuals."
         />
         <meta
           name="keywords"
-          content="custom software development, mobile app development, web development, cloud solutions, Calgary, Alberta, NuTab Digital, software company Calgary, software development Calgary"
+          content="custom software solutions, mobile app development, web app development, SEO, digital marketing, e-commerce development, Calgary, Alberta, NuTab Digital, software company Calgary, software development Calgary"
         />
         <meta name="robots" content="index, follow" />
 
         {/* Open Graph Meta Tags */}
         <meta property="og:title" content="NuTab Digital - Custom Software Development in Calgary, Alberta" />
-        <meta property="og:description" content="NuTab Digital offers custom software development, mobile app development, web development, and cloud solutions in Calgary, Alberta. We provide tailored software solutions for businesses and individuals." />
+        <meta property="og:description" content="NuTab Digital offers custom software solutions, mobile & web app development, SEO & digital marketing, and e-commerce development in Calgary, Alberta. We provide tailored software solutions for businesses and individuals." />
         <meta property="og:image" content="https://nutab.ca/photos/nutab-logo.png" />
         <meta property="og:url" content="https://nutab.ca" />
         <meta property="og:type" content="website" />
@@ -96,7 +100,7 @@ export default function RootLayout({
         {/* Twitter Meta Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="NuTab Digital - Custom Software Development in Calgary, Alberta" />
-        <meta name="twitter:description" content="NuTab Digital offers custom software development, mobile app development, web development, and cloud solutions in Calgary, Alberta. We provide tailored software solutions for businesses and individuals." />
+        <meta name="twitter:description" content="NuTab Digital offers custom software solutions, mobile & web app development, SEO & digital marketing, and e-commerce development in Calgary, Alberta. We provide tailored software solutions for businesses and individuals." />
         <meta name="twitter:image" content="https://nutab.ca/photos/nutab-logo.png" />
 
         {/* Properly insert JSON-LD structured data to avoid hydration issues */}

@@ -6,34 +6,34 @@ const Services: React.FC = () => {
     {
       icon: "/icons/softdev.svg",
       id: "custom-software",
-      name: "Custom Software Development",
+      name: "Custom Software Solutions",
       description:
-        "We create tailored software solutions that meet the unique needs of your business.",
+        "We create custom software that streamlines operations and boosts efficiency, tailored to your business needs.",
       link: "#custom-software",
     },
     {
-      icon: "/icons/mobiledev.svg",
-      id: "mobile-app",
-      name: "Mobile App Development",
+      icon: "/icons/appdev.svg",
+      id: "app-development",
+      name: "Mobile & Web App Development",
       description:
-        "Our team specializes in developing user-friendly mobile applications for iOS and Android.",
-      link: "#mobile-app",
+        "We create user-friendly apps that provide seamless experiences and help businesses engage customers.",
+      link: "app-development",
     },
     {
-      icon: "/icons/webdev.svg",
-      id: "web-development",
-      name: "Web Development",
+      icon: "/icons/seo-marketing.svg",
+      id: "seo-digital-marketing",
+      name: "SEO & Digital Marketing",
       description:
-        "We design and build responsive websites that provide seamless user experiences.",
-      link: "#web-development",
+        "Enhance online visibility and attract customers with SEO and targeted digital marketing strategies.",
+      link: "#seo-digital-marketing",
     },
     {
-      icon: "/icons/clouddev.svg",
-      id: "cloud-solutions",
-      name: "Cloud Solutions",
+      icon: "/icons/ecommerce.svg",
+      id: "ecommerce-development",
+      name: "E-Commerce Development",
       description:
-        "We offer cloud-based solutions that enhance efficiency and scale with your business.",
-      link: "#cloud-solutions",
+        "Build scalable e-commerce sites with seamless shopping experiences, secure payments, and inventory management.",
+      link: "#ecommerce-development",
     },
   ];
 

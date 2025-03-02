@@ -7,59 +7,89 @@ interface AboutProps {
 }
 
 const About: React.FC<AboutProps> = ({ currentSection }) => {
-  const handleMouseEnter = () => {
-    // Emit a custom event when mouse enters
-    window.dispatchEvent(
-      new CustomEvent("about-hover", { detail: { isHovering: true } })
-    );
-  };
+  // const handleMouseEnter = () => {
+  //   // Emit a custom event when mouse enters
+  //   window.dispatchEvent(
+  //     new CustomEvent("about-hover", { detail: { isHovering: true } })
+  //   );
+  // };
 
-  const handleMouseLeave = () => {
-    // Emit a custom event when mouse leaves
-    window.dispatchEvent(
-      new CustomEvent("about-hover", { detail: { isHovering: false } })
-    );
-  };
+  // const handleMouseLeave = () => {
+  //   // Emit a custom event when mouse leaves
+  //   window.dispatchEvent(
+  //     new CustomEvent("about-hover", { detail: { isHovering: false } })
+  //   );
+  // };
 
   return (
     <section className="about-section">
       <div className="about-container">
         <div className="about-title">
-          <p>Built in Canada, Designed for Growth. 
-          Your Digital Partner from Coast to Coast.</p>
+          <div className="about-cols">
+            <img
+              src="/icons/maple-leaf-icon.svg"
+              alt="mapleleaf"
+              className="iconcan"
+            />
+            <p>Built in Canada, Designed for Growth.
+              Your Digital Partner from Coast to Coast.</p>
+          </div>
+
         </div>
         <div className="about-grid">
           <div
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            // onMouseEnter={handleMouseEnter}
+            // onMouseLeave={handleMouseLeave}
             className="about-item"
           >
-            <h3>What We Do</h3>
+            <div className="about-cols">
+              <img
+                src="/icons/wrench-tool-icon.svg"
+                alt="wrench"
+                className="icons"
+              />
+              <h3>What We Do</h3>
+            </div>
+
             <p>
-            We create tailored solutions for businesses—whether it’s building a custom website, 
-            improving your SEO, or developing mobile apps to engage your customers.
+              We create tailored solutions for businesses—whether it’s building a custom website,
+              improving your SEO, or developing mobile apps to engage your customers.
             </p>
           </div>
           <div
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            // onMouseEnter={handleMouseEnter}
+            // onMouseLeave={handleMouseLeave}
             className="about-item"
           >
-            <h3>Why Choose Us</h3>
+            <div className="about-cols">
+              <img
+                src="/icons/hand-shake-icon.svg"
+                alt="handshake"
+                className="icons"
+              />
+              <h3>Why Choose Us</h3>
+            </div>
             <p>
-            Our team works face-to-face with Canadian businesses to understand their needs 
-            and deliver results that drive growth. We build long-term relationships, not just solutions.
+              Our team works face-to-face with Canadian businesses to understand their needs
+              and deliver results that drive growth. We build long-term relationships, not just solutions.
             </p>
           </div>
           <div
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
+            // onMouseEnter={handleMouseEnter}
+            // onMouseLeave={handleMouseLeave}
             className="about-item"
           >
-            <h3>Our Vision</h3>
+            <div className="about-cols">
+              <img
+                src="/icons/globe-icon.svg"
+                alt="globeicon"
+                className="icons"
+              />
+              <h3>Our Vision</h3>
+            </div>
             <p>
-            To empower Canadian businesses with innovative, scalable, and effective digital 
-            strategies that boost visibility and success in today’s competitive market.
+              To empower Canadian businesses with innovative, scalable, and effective digital
+              strategies that boost visibility and success in today’s competitive market.
             </p>
           </div>
         </div>

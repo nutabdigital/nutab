@@ -16,7 +16,9 @@ the component folder. */
 
 /* Styling for each section */
 .page-section {
-  height: 100vh;
+  height: fit-content;
+  min-height: 100vh;
+  margin-bottom: 10vh;
   display: flex;
   align-items: center;
 }

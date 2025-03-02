@@ -46,7 +46,7 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
               <img
                 src="/icons/wrench-tool-icon.svg"
                 alt="wrench"
-                className="icons"
+                className="about-icon"
               />
               <h3>What We Do</h3>
             </div>
@@ -65,7 +65,7 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
               <img
                 src="/icons/hand-shake-icon.svg"
                 alt="handshake"
-                className="icons"
+                className="about-icon"
               />
               <h3>Why Choose Us</h3>
             </div>
@@ -83,7 +83,7 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
               <img
                 src="/icons/globe-icon.svg"
                 alt="globeicon"
-                className="icons"
+                className="about-icon"
               />
               <h3>Our Vision</h3>
             </div>

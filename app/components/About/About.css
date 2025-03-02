@@ -60,7 +60,7 @@ sup{
   left: 1.2rem;
 }
 
-.icons {
+.about-icon {
   width: 2vw;
   min-width: 20px;
 }
@@ -128,7 +128,15 @@ sup{
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
+[data-theme="dark"] .about-icon {
+  filter: brightness(0) invert(1); 
+}
+[data-theme="dark"] .iconcan {
+  filter: brightness(0) invert(1); 
+}
+
 /* [data-theme="dark"] .about-item:hover {
   color: rgb(255, 255, 255); 
   transform: scale(1.05); 
 } */
+

@@ -17,7 +17,7 @@ const Services: React.FC = () => {
       name: "Mobile & Web App Development",
       description:
         "We create user-friendly apps that provide seamless experiences and help businesses engage customers.",
-      link: "app-development",
+      link: "#app-development",
     },
     {
       icon: "/icons/seo-marketing.svg",

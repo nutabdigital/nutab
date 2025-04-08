@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
     <footer className="footer-container">
       <div className="footer-content">
         <p>
-          © {new Date().getFullYear()} NuTab Digital. All rights reserved.
+          © {new Date().getFullYear()} NuTab Digital Inc. All rights reserved.
         </p>
       </div>
     </footer>

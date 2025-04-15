@@ -135,12 +135,12 @@ export default function RootLayout({
           http-equiv="Content-Security-Policy"
           content="
             default-src 'self'; 
-            script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; 
-            style-src 'self' https://fonts.googleapis.com; 
+            script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; 
+            style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
             font-src 'self' https://fonts.gstatic.com; 
-            img-src 'self' https://www.google-analytics.com; 
-            connect-src 'self' https://www.google-analytics.com https://formsubmit.co; 
-            form-action 'self' https://formsubmit.co;
+            img-src 'self'; 
+            connect-src 'self' https://www.google-analytics.com; 
+            form-action 'self';
           "
         />
       </head>

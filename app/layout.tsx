@@ -131,7 +131,7 @@ export default function RootLayout({
           content="max-age=63072000; includeSubDomains; preload"
         />
         <meta name="referrer" content="no-referrer" />
-        {/* <meta
+        <meta
           http-equiv="Content-Security-Policy"
           content="
             default-src 'self'; 
@@ -142,7 +142,7 @@ export default function RootLayout({
             connect-src 'self' https://www.google-analytics.com https://formsubmit.co; 
             form-action 'self' https://formsubmit.co;
           "
-        /> */}
+        />
       </head>
       <body className="antialiased">{children}</body>
     </html>

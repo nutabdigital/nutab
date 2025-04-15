@@ -121,6 +121,28 @@ export default function RootLayout({
             `,
           }}
         />
+
+        {/* Security Meta Tags */}
+        <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+        <meta http-equiv="X-Frame-Options" content="DENY" />
+        <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
+        <meta
+          http-equiv="Strict-Transport-Security"
+          content="max-age=63072000; includeSubDomains; preload"
+        />
+        <meta name="referrer" content="no-referrer" />
+        {/* <meta
+          http-equiv="Content-Security-Policy"
+          content="
+            default-src 'self'; 
+            script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com; 
+            style-src 'self' https://fonts.googleapis.com; 
+            font-src 'self' https://fonts.gstatic.com; 
+            img-src 'self' https://www.google-analytics.com; 
+            connect-src 'self' https://www.google-analytics.com https://formsubmit.co; 
+            form-action 'self' https://formsubmit.co;
+          "
+        /> */}
       </head>
       <body className="antialiased">{children}</body>
     </html>

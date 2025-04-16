@@ -7,19 +7,6 @@ interface AboutProps {
 }
 
 const About: React.FC<AboutProps> = ({ currentSection }) => {
-  // const handleMouseEnter = () => {
-  //   // Emit a custom event when mouse enters
-  //   window.dispatchEvent(
-  //     new CustomEvent("about-hover", { detail: { isHovering: true } })
-  //   );
-  // };
-
-  // const handleMouseLeave = () => {
-  //   // Emit a custom event when mouse leaves
-  //   window.dispatchEvent(
-  //     new CustomEvent("about-hover", { detail: { isHovering: false } })
-  //   );
-  // };
 
   return (
     <section className="about-section">
@@ -38,8 +25,6 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
         </div>
         <div className="about-grid">
           <div
-            // onMouseEnter={handleMouseEnter}
-            // onMouseLeave={handleMouseLeave}
             className="about-item"
           >
             <div className="about-cols">
@@ -57,8 +42,6 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
             </p>
           </div>
           <div
-            // onMouseEnter={handleMouseEnter}
-            // onMouseLeave={handleMouseLeave}
             className="about-item"
           >
             <div className="about-cols">
@@ -75,8 +58,6 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
             </p>
           </div>
           <div
-            // onMouseEnter={handleMouseEnter}
-            // onMouseLeave={handleMouseLeave}
             className="about-item"
           >
             <div className="about-cols">

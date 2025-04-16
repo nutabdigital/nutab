@@ -47,10 +47,6 @@ END:VCARD`;
         <img src={contact.photo} alt={contact.name} className="popup-photo" />
         <h1>{contact.email}</h1>
         <h1>{contact.phone}</h1>
-        {/* <h1>📧 {contact.email}</h1>
-        <h1>📞 {contact.phone}</h1>
-        <p>🏢 {contact.company}</p>
-        <p>🌐 <a href={contact.website} target="_blank" rel="noopener noreferrer">{contact.website}</a></p> */}
         <button className="save-contact-button" onClick={generateVCard}>Save Contact</button>
       </div>
     </div>

@@ -1,6 +1,8 @@
 .footer-container {
-  background-color: #111;
-  color: #fff;
+  background-color: var(
+    --background
+  );
+  color: var(--foreground);
   padding: 20px 0;
 }
 
@@ -28,14 +30,22 @@
   z-index: 500;
 }
 
+:root {
+  --icon-color: #000000; /* Light mode */
+}
+
+[data-theme="dark"] {
+  --icon-color: #ffffff; /* Dark mode override */
+}
+
 .socials-icons a {
-  color: #ffffff;
-  transition: color 0.3s ease;
+  color: var(--icon-color);
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .socials-icons a:hover {
   color: #0067e7;
-  scale: 1.2;
+  transform: scale(1.2);
 }
 
 .rights-text {

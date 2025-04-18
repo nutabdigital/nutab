@@ -122,15 +122,20 @@ export default function RootLayout({
           }}
         />
 
-        {/* Security Meta Tags */}
-        {/* <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+        {/* Prevent MIME type sniffing */}
+        <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+
+        {/* Prevent clickjacking by disallowing the site to be embedded in an iframe */}
         <meta http-equiv="X-Frame-Options" content="DENY" />
+
+        {/* Enable browser's built-in XSS protection */}
         <meta http-equiv="X-XSS-Protection" content="1; mode=block" />
-        <meta
-          http-equiv="Strict-Transport-Security"
-          content="max-age=63072000; includeSubDomains; preload"
-        />
-        <meta name="referrer" content="no-referrer" /> */}
+
+        {/* Enforce HTTPS and prevent protocol downgrade attacks */}
+        <meta http-equiv="Strict-Transport-Security" content="max-age=63072000; includeSubDomains; preload" />
+
+        {/* Security Meta Tags */}
+        {/* <meta name="referrer" content="no-referrer" /> */}
         {/* <meta
           http-equiv="Content-Security-Policy"
           content="

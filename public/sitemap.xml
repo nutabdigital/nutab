@@ -1,9 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Home Page -->
   <url>
     <loc>https://nutab.ca/</loc>
-    <lastmod>2025-01-01</lastmod>
+    <lastmod>2025-04-27</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+  </url>
+  <!-- Custom Software Development Page -->
+  <url>
+    <loc>https://nutab.ca/services/custom-software</loc>
+    <lastmod>2025-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Mobile & Web App Development Page -->
+  <url>
+    <loc>https://nutab.ca/services/mobile-web-app-development</loc>
+    <lastmod>2025-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- SEO & Digital Marketing Page -->
+  <url>
+    <loc>https://nutab.ca/services/seo-digital-marketing</loc>
+    <lastmod>2025-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- E-Commerce Development Page -->
+  <url>
+    <loc>https://nutab.ca/services/ecommerce-development</loc>
+    <lastmod>2025-04-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
   </url>
 </urlset>

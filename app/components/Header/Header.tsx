@@ -1,18 +1,20 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useTheme } from "../../context/ThemeContext";
+import { useRouter } from "next/navigation"; // Import Next.js router
 import "./Header.css";
 
 // Interface defining props for the Header component
 interface HeaderProps {
-  currentSection: number; // The index of the current section in view
+  currentSection?: number; // The index of the current section in view (optional for service pages)
 }
 
 const Header: React.FC<HeaderProps> = ({ currentSection }) => {
-  // State to manage visibility of mobile navigation
   const [isNavOpen, setIsNavOpen] = useState(false);
   const { theme, toggleTheme } = useTheme(); // Access theme and toggleTheme from context
+  const router = useRouter(); // Initialize Next.js router
+
   // Function to determine CSS classes for nav links based on the current section
   const navLinkClasses = (sectionIndex: number) =>
     `nav-link ${currentSection === sectionIndex ? "active" : ""}`;
@@ -21,20 +23,22 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
     setIsNavOpen(!isNavOpen);
   };
 
-  // Scrolls smoothly to a specific section of the page
+  // Scrolls smoothly to a specific section of the page or redirects to the main page
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    if (section) {
-      // Notify start of smooth-scroll
-      window.dispatchEvent(new Event("smooth-scroll-start"));
+    e.preventDefault();
 
-      section.scrollIntoView({ behavior: "smooth" });
-
-      // Notify end of smooth-scroll
-      setTimeout(() => {
-        window.dispatchEvent(new Event("smooth-scroll-end"));
-      }, 1000); // Adjust timeout based on smooth-scroll duration
+    if (window.location.pathname !== "/") {
+      // If not on the main page, redirect to the main page with a hash for the section
+      router.push(`/#${sectionId}`);
+    } else {
+      // If already on the main page, scroll to the section
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({ behavior: "smooth" });
+      }
     }
+
+    setIsNavOpen(false); // Close the mobile menu if open
   };
 
   return (
@@ -42,7 +46,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
       <div className="header-container">
         {/* Logo that scrolls to the 'tagline' section on click */}
         <div className="logo">
-          <a href="#home" onClick={(e) => handleScroll(e, "tagline")}>
+          <a href="/" onClick={(e) => handleScroll(e, "tagline")}>
             <img
               src="/icons/logo-light.svg"
               alt="New Tab Digital Light Logo"
@@ -55,7 +59,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
             />
           </a>
         </div>
-  
+
         {/* Desktop navigation links */}
         <nav className="nav-links">
           <a
@@ -87,8 +91,8 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
             Contact
           </a>
         </nav>
-  
-        {/* Theme toggle (fixed structure) */}
+
+        {/* Theme toggle */}
         <div className="theme-toggle-container">
           <label className="theme-toggle">
             <input
@@ -103,7 +107,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
             </span>
           </label>
         </div>
-  
+
         {/* Mobile menu button */}
         <span
           className={`mobile-menu ${isNavOpen ? "toggle" : ""}`}
@@ -114,18 +118,14 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
           <span className="line-3"></span>
         </span>
       </div>
-  
+
       {/* Mobile right navigation menu */}
       <nav className={`mob-right-nav ${isNavOpen ? "open-nav" : ""}`}>
         <ul>
           <li>
             <a
               href="#about"
-              onClick={(e) => {
-                e.preventDefault();
-                handleScroll(e, "about");
-                setIsNavOpen(false);
-              }}
+              onClick={(e) => handleScroll(e, "about")}
             >
               About
             </a>
@@ -133,11 +133,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
           <li>
             <a
               href="#services"
-              onClick={(e) => {
-                e.preventDefault();
-                handleScroll(e, "services");
-                setIsNavOpen(false);
-              }}
+              onClick={(e) => handleScroll(e, "services")}
             >
               Services
             </a>
@@ -145,50 +141,23 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
           <li>
             <a
               href="#team"
-              onClick={(e) => {
-                e.preventDefault();
-                handleScroll(e, "team");
-                setIsNavOpen(false);
-              }}
+              onClick={(e) => handleScroll(e, "team")}
             >
               Our Team
             </a>
           </li>
           <li>
             <a
-              className="start-project-li"
               href="#contact"
-              onClick={(e) => {
-                e.preventDefault();
-                handleScroll(e, "contact");
-                setIsNavOpen(false);
-              }}
+              onClick={(e) => handleScroll(e, "contact")}
             >
               Start A Project
             </a>
           </li>
-  
-          {/* Theme toggle moved out of <a> */}
-          <li>
-            <div className="theme-toggle-container">
-              <label className="theme-toggle">
-                <input
-                  type="checkbox"
-                  checked={theme === "dark"}
-                  onChange={toggleTheme}
-                  className="theme-toggle-input"
-                />
-                <span className="slider">
-                  <span className="slider-icon sun">☀️</span>
-                  <span className="slider-icon moon">🌙</span>
-                </span>
-              </label>
-            </div>
-          </li>
         </ul>
       </nav>
     </header>
-  );  
+  );
 };
 
 export default Header;

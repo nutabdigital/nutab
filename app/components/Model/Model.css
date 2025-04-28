@@ -1,0 +1,21 @@
+/* Model container styling with smooth animation */
+.model-container {
+  position: fixed;
+  width: 50vw; /* Always start with 50% of the viewport width */
+  max-width: 50vw; /* Ensure it never exceeds 50% of the viewport width */
+  height: auto; /* Maintain aspect ratio */
+  transition: transform 0.75s ease-in-out; /* Smooth transition */
+  inset: 0px; /* Equivalent to setting top, bottom, left, right properties to 0px */
+  z-index: 0;
+}
+
+.model{
+  position: fixed;
+  z-index: 1;
+}
+
+@media (max-width:600px) {
+  .model-container{
+    width:100vw;
+  }
+}

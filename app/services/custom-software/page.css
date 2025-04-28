@@ -1,0 +1,10 @@
+
+.custom-software-page {
+  position: relative;
+  z-index: 1; /* Ensure it's above the background */
+  margin-top:150px;
+}
+
+.background-cloudy {
+  z-index: 0; /* Ensure the background is behind everything */
+}

@@ -10,7 +10,7 @@ const Services: React.FC = () => {
       name: "Custom Software Solutions",
       description:
         "We create custom software that streamlines operations and boosts efficiency, tailored to your business needs.",
-      link: "/services/custom-software", 
+      link: "/services/custom-software",
     },
     {
       icon: "/icons/appdev.svg",
@@ -26,7 +26,7 @@ const Services: React.FC = () => {
       name: "SEO & Digital Marketing",
       description:
         "Enhance online visibility and attract customers with SEO and targeted digital marketing strategies.",
-      link: "/services/seo-digital-marketing", 
+      link: "/services/seo-digital-marketing",
     },
     {
       icon: "/icons/ecommerce.svg",
@@ -34,7 +34,7 @@ const Services: React.FC = () => {
       name: "E-Commerce Development",
       description:
         "Build scalable e-commerce sites with seamless shopping experiences, secure payments, and inventory management.",
-      link: "/services/ecommerce-development", 
+      link: "/services/ecommerce-development",
     },
   ];
 
@@ -52,6 +52,16 @@ const Services: React.FC = () => {
             />
             <h3 className="service-name">{service.name}</h3>
             <p className="service-description">{service.description}</p>
+            <div className="learn-more-wrapper">
+              <div className="learn-more-bubble">
+                Learn More
+              </div>
+              <img
+                  src="/icons/arrow.svg"
+                  alt="Arrow icon"
+                  className="learn-more-icon"
+                />
+            </div>
           </Link>
         ))}
       </div>

@@ -1,15 +1,16 @@
 import React from "react";
 import Header from "../../components/Header/Header"; 
 import Loader from "../../components/Loader/Loader"; 
+import Background from "../../components/Background/Background";
 import Footer from "../../components/Footer/Footer"; 
 import "./page.css"; 
 import { Metadata } from "next";
 
 export const generateMetadata = (): Metadata => ({
-  title: "Custom Software Development - NuTab Digital",
+  title: "Custom Software Development Services in Calgary - NuTab Digital",
   description:
-    "NuTab Digital offers custom software solutions tailored to streamline operations and boost efficiency for businesses in Calgary, Alberta.",
-  keywords: "custom software development, Calgary, Alberta, enterprise software, SaaS solutions",
+    "NuTab Digital offers custom software development services in Calgary, Alberta. We create tailored solutions to streamline operations, enhance efficiency, and drive business growth.",
+  keywords: "custom software development, Calgary, Alberta, enterprise software, SaaS solutions, software integration, business software, scalable software solutions",
 });
 
 const CustomSoftwareSolutions: React.FC = () => {
@@ -34,15 +35,9 @@ const CustomSoftwareSolutions: React.FC = () => {
           }),
         }}
       />
-      <nav aria-label="breadcrumb">
-        <ol>
-          <li><a href="/">Home</a></li>
-          <li><a href="/services">Services</a></li>
-          <li aria-current="page">Custom Software Development</li>
-        </ol>
-      </nav>
+      <Background />
       <section className="custom-software-page">
-        <h1>Custom Software Development Services</h1>
+        <h1>Custom Software Development Services in Calgary</h1>
         <p>
           At <strong>NuTab Digital</strong>, we specialize in delivering <strong>custom software solutions</strong> that are tailored to meet the unique needs of businesses in <strong>Calgary, Alberta</strong>, and beyond. Our mission is to help you streamline operations, enhance efficiency, and achieve your business goals with innovative, scalable, and secure software.
         </p>
@@ -61,15 +56,16 @@ const CustomSoftwareSolutions: React.FC = () => {
           <li><strong>Ongoing Support:</strong> Receive continuous updates and maintenance to keep your software running smoothly.</li>
         </ul>
 
-        <h2>Why Partner with NuTab Digital?</h2>
+        <h2>Benefits of Custom Software Development</h2>
         <p>
-          At NuTab Digital, we pride ourselves on being a <strong>trusted software development partner</strong>. Here’s why businesses choose us:
+          Investing in custom software development offers numerous advantages for your business:
         </p>
         <ul>
-          <li><strong>Transparency:</strong> We value open communication and keep you informed at every stage of development.</li>
-          <li><strong>Scalability:</strong> Our solutions are designed to grow with your business.</li>
-          <li><strong>Local Expertise:</strong> Based in Calgary, we understand the unique challenges and opportunities of Canadian businesses.</li>
-          <li><strong>Future-Ready Solutions:</strong> We use the latest technologies to ensure your software stays relevant.</li>
+          <li><strong>Tailored Solutions:</strong> Address your unique business challenges with software designed specifically for your needs.</li>
+          <li><strong>Scalability:</strong> Ensure your software grows with your business, adapting to changing requirements.</li>
+          <li><strong>Improved Efficiency:</strong> Automate repetitive tasks and streamline workflows to save time and resources.</li>
+          <li><strong>Competitive Advantage:</strong> Stand out in your industry with innovative and unique software solutions.</li>
+          <li><strong>Enhanced Security:</strong> Protect sensitive data with custom-built security features.</li>
         </ul>
 
         <h2>Industries We Serve</h2>
@@ -82,11 +78,13 @@ const CustomSoftwareSolutions: React.FC = () => {
           <li>Retail and E-Commerce</li>
           <li>Education</li>
           <li>Manufacturing</li>
+          <li>Logistics and Supply Chain</li>
+          <li>Real Estate</li>
         </ul>
 
-        <h3>How We Work</h3>
+        <h2>Our Development Process</h2>
         <p>
-          Our development process is designed to ensure your satisfaction:
+          At NuTab Digital, we follow a proven process to ensure the success of your custom software project:
         </p>
         <ol>
           <li><strong>Consultation:</strong> We start by understanding your business needs and goals.</li>
@@ -95,6 +93,44 @@ const CustomSoftwareSolutions: React.FC = () => {
           <li><strong>Testing:</strong> Rigorous testing ensures your software is bug-free and ready for deployment.</li>
           <li><strong>Deployment and Support:</strong> We launch your software and provide ongoing support to ensure its success.</li>
         </ol>
+
+        <h2>Why Partner with NuTab Digital?</h2>
+        <p>
+          At NuTab Digital, we pride ourselves on being a <strong>trusted software development partner</strong>. Here’s why businesses choose us:
+        </p>
+        <ul>
+          <li><strong>Transparency:</strong> We value open communication and keep you informed at every stage of development.</li>
+          <li><strong>Scalability:</strong> Our solutions are designed to grow with your business.</li>
+          <li><strong>Local Expertise:</strong> Based in Calgary, we understand the unique challenges and opportunities of Canadian businesses.</li>
+          <li><strong>Future-Ready Solutions:</strong> We use the latest technologies to ensure your software stays relevant.</li>
+          <li><strong>Customer-Centric Approach:</strong> Your satisfaction is our top priority.</li>
+        </ul>
+
+        <h2>Frequently Asked Questions</h2>
+        <h3>What is custom software development?</h3>
+        <p>
+          Custom software development involves creating software applications tailored to meet the specific needs of a business or organization. Unlike off-the-shelf software, custom solutions are designed to address unique challenges and workflows.
+        </p>
+
+        <h3>How long does it take to develop custom software?</h3>
+        <p>
+          The timeline for custom software development depends on the complexity of the project. On average, it can take anywhere from a few weeks to several months. We work closely with you to establish a realistic timeline based on your requirements.
+        </p>
+
+        <h3>How much does custom software development cost?</h3>
+        <p>
+          The cost of custom software development varies depending on the scope and complexity of the project. Contact us for a free consultation and quote tailored to your needs.
+        </p>
+
+        <h3>Can you integrate custom software with our existing systems?</h3>
+        <p>
+          Yes, we specialize in system integration to ensure your new software works seamlessly with your existing tools and platforms.
+        </p>
+
+        <h3>Do you provide ongoing support after deployment?</h3>
+        <p>
+          Absolutely! We offer ongoing support and maintenance to ensure your software continues to perform optimally.
+        </p>
 
         <h3>Ready to Transform Your Business?</h3>
         <p>

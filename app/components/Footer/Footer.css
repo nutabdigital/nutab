@@ -4,6 +4,7 @@
   );
   color: var(--foreground);
   padding: 20px 0;
+  position: relative;
 }
 
 .footer-content {

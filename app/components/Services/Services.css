@@ -72,7 +72,26 @@
   transform: filter 0.5s;
 }
 
+.learn-more-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
 
+.learn-more-bubble{
+  font-size: 0.9rem;
+  font-weight: bold;
+  position:relative;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+.learn-more-icon {
+  width: 20px;
+  height: 20px;
+}
 
 /* Hover styles */
 .service-box:hover {
@@ -122,4 +141,9 @@
 
 [data-theme="dark"] .service-icon {
   filter: brightness(0) invert(1); 
+}
+
+/* Dark mode styles for the learn-more-icon */
+[data-theme="dark"] .learn-more-icon {
+  filter: brightness(0) invert(1); /* Makes the icon white */
 }

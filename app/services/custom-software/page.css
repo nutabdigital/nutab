@@ -1,3 +1,7 @@
 .background-cloudy {
   z-index: 0; /* Ensure the background is behind everything */
 }
+
+.section-wrapper--custom-padding {
+  margin-top: 10vh; /* Add custom margin-top padding */
+}

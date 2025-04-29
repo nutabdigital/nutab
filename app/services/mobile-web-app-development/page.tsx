@@ -3,7 +3,8 @@ import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import Footer from "../../components/Footer/Footer";
-import { ThemeProvider } from "../../context/ThemeContext"; 
+import SectionWrapper from "../../components/SectionWrapper/SectionWrapper"; // Import SectionWrapper
+import { ThemeProvider } from "../../context/ThemeContext";
 import "./page.css"; // Add CSS for styling
 import { Metadata } from "next";
 
@@ -40,7 +41,7 @@ const MobileWebAppDevelopment: React.FC = () => {
           }),
         }}
       />
-      <section className="mobile-web-app-development-page">
+      <SectionWrapper>
         <h1>Mobile & Web App Development Services in Calgary</h1>
         <p>
           At <strong>NuTab Digital</strong>, we specialize in creating{" "}
@@ -50,7 +51,9 @@ const MobileWebAppDevelopment: React.FC = () => {
           Android, or a <strong>responsive web application</strong>, our team
           is here to bring your vision to life.
         </p>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Why Choose Mobile & Web App Development?</h2>
         <p>
           In today’s fast-paced world, having a{" "}
@@ -61,7 +64,9 @@ const MobileWebAppDevelopment: React.FC = () => {
           creating intuitive, scalable, and secure applications that meet your
           business goals.
         </p>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Our Mobile & Web App Development Services</h2>
         <ul>
           <li>
@@ -85,7 +90,9 @@ const MobileWebAppDevelopment: React.FC = () => {
             with your business.
           </li>
         </ul>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Benefits of Mobile & Web App Development</h2>
         <p>
           Investing in <strong>mobile and web app development</strong> offers
@@ -113,7 +120,9 @@ const MobileWebAppDevelopment: React.FC = () => {
             with innovative and user-friendly applications.
           </li>
         </ul>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Industries We Serve</h2>
         <p>
           Our <strong>mobile and web app development services</strong> cater to
@@ -126,7 +135,9 @@ const MobileWebAppDevelopment: React.FC = () => {
           <li>Education</li>
           <li>Travel and Hospitality</li>
         </ul>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>How We Work</h2>
         <p>
           Our development process ensures your satisfaction at every step:
@@ -153,7 +164,9 @@ const MobileWebAppDevelopment: React.FC = () => {
             ongoing support to ensure its success.
           </li>
         </ol>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Why Partner with NuTab Digital?</h2>
         <p>
           At NuTab Digital, we pride ourselves on delivering{" "}
@@ -178,7 +191,9 @@ const MobileWebAppDevelopment: React.FC = () => {
             maintenance to keep your app running smoothly.
           </li>
         </ul>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h3>Ready to Build Your App?</h3>
         <p>
           Contact us today to discuss your{" "}
@@ -186,7 +201,7 @@ const MobileWebAppDevelopment: React.FC = () => {
           together to create an application that drives growth and success for
           your business.
         </p>
-      </section>
+      </SectionWrapper>
       <Footer />
     </ThemeProvider>
   );

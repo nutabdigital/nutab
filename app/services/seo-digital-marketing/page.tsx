@@ -3,7 +3,8 @@ import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import Footer from "../../components/Footer/Footer";
-import "./page.css"; // Add CSS for styling
+import { ThemeProvider } from "../../context/ThemeContext"; 
+import "./page.css";
 import { Metadata } from "next";
 
 // Add unique meta tags for SEO
@@ -17,7 +18,7 @@ export const generateMetadata = (): Metadata => ({
 
 const SEODigitalMarketing: React.FC = () => {
   return (
-    <>
+    <ThemeProvider>
       <Header />
       <Background />
       <Loader />
@@ -185,7 +186,7 @@ const SEODigitalMarketing: React.FC = () => {
         </p>
       </section>
       <Footer />
-    </>
+    </ThemeProvider>
   );
 };
 

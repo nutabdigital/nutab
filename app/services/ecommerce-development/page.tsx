@@ -3,12 +3,11 @@ import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import Footer from "../../components/Footer/Footer";
-import SectionWrapper from "../../components/SectionWrapper/SectionWrapper"; // Import SectionWrapper
+import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
 import { ThemeProvider } from "../../context/ThemeContext";
-import "./page.css"; // Add CSS for styling
+import "./page.css";
 import { Metadata } from "next";
 
-// Add unique meta tags for SEO
 export const generateMetadata = (): Metadata => ({
   title: "E-Commerce Development Services in Calgary - NuTab Digital",
   description:
@@ -23,6 +22,8 @@ const EcommerceDevelopment: React.FC = () => {
       <Header />
       <Background />
       <Loader />
+
+      {/* Structured Data Script */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -41,7 +42,9 @@ const EcommerceDevelopment: React.FC = () => {
           }),
         }}
       />
-      <SectionWrapper>
+
+      {/* Hero Section */}
+      <SectionWrapper className="section-wrapper--custom-padding">
         <h1>E-Commerce Development Services in Calgary</h1>
         <p>
           At <strong>NuTab Digital</strong>, we specialize in creating{" "}
@@ -53,6 +56,7 @@ const EcommerceDevelopment: React.FC = () => {
         </p>
       </SectionWrapper>
 
+      {/* Why Choose This Service */}
       <SectionWrapper>
         <h2>Why Choose E-Commerce Development?</h2>
         <p>
@@ -66,6 +70,7 @@ const EcommerceDevelopment: React.FC = () => {
         </p>
       </SectionWrapper>
 
+      {/* Our Services */}
       <SectionWrapper>
         <h2>Our E-Commerce Development Services</h2>
         <ul>
@@ -92,6 +97,7 @@ const EcommerceDevelopment: React.FC = () => {
         </ul>
       </SectionWrapper>
 
+      {/* Benefits of the Service */}
       <SectionWrapper>
         <h2>Benefits of E-Commerce Development</h2>
         <p>
@@ -122,6 +128,7 @@ const EcommerceDevelopment: React.FC = () => {
         </ul>
       </SectionWrapper>
 
+      {/* Industries We Serve */}
       <SectionWrapper>
         <h2>Industries We Serve</h2>
         <p>
@@ -137,8 +144,9 @@ const EcommerceDevelopment: React.FC = () => {
         </ul>
       </SectionWrapper>
 
+      {/* How We Work */}
       <SectionWrapper>
-        <h2>How We Work</h2>
+        <h2>Our Development Process</h2>
         <p>
           Our development process ensures your satisfaction at every step:
         </p>
@@ -166,6 +174,7 @@ const EcommerceDevelopment: React.FC = () => {
         </ol>
       </SectionWrapper>
 
+      {/* Why Partner with NuTab Digital */}
       <SectionWrapper>
         <h2>Why Partner with NuTab Digital?</h2>
         <p>
@@ -193,14 +202,54 @@ const EcommerceDevelopment: React.FC = () => {
         </ul>
       </SectionWrapper>
 
+      {/* Get Started Today */}
       <SectionWrapper>
-        <h3>Ready to Build Your Online Store?</h3>
+        <h2>Ready to Build Your Online Store?</h2>
         <p>
           Contact us today to discuss your{" "}
           <strong>e-commerce development</strong> needs. Let’s work together to
           create a platform that drives growth and success for your business.
         </p>
       </SectionWrapper>
+
+      {/* FAQ */}
+      <SectionWrapper>
+        <h2>Frequently Asked Questions</h2>
+        <h3>What is e-commerce development?</h3>
+        <p>
+          E-commerce development involves creating online stores and platforms
+          that allow businesses to sell products or services online. This
+          includes features like product catalogs, shopping carts, and payment
+          gateways.
+        </p>
+
+        <h3>How long does it take to build an e-commerce website?</h3>
+        <p>
+          The timeline depends on the complexity of the website. Simple
+          e-commerce sites can take a few weeks, while more complex platforms
+          may take several months.
+        </p>
+
+        <h3>Can you integrate payment gateways?</h3>
+        <p>
+          Yes, we can integrate secure payment gateways like PayPal, Stripe, or
+          custom solutions to ensure smooth transactions for your customers.
+        </p>
+
+        <h3>Do you provide ongoing support for e-commerce websites?</h3>
+        <p>
+          Yes, we offer ongoing support and maintenance to ensure your
+          e-commerce platform runs smoothly and stays up-to-date.
+        </p>
+
+        <h3>Can you customize the design of the e-commerce site?</h3>
+        <p>
+          Absolutely! We create custom designs tailored to your brand and
+          business needs to provide a unique shopping experience for your
+          customers.
+        </p>
+      </SectionWrapper>
+
       <Footer />
     </ThemeProvider>
   );

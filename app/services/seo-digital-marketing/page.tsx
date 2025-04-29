@@ -3,12 +3,11 @@ import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import Footer from "../../components/Footer/Footer";
-import SectionWrapper from "../../components/SectionWrapper/SectionWrapper"; // Import SectionWrapper
+import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
 import { ThemeProvider } from "../../context/ThemeContext";
-import "./page.css"; // Add CSS for styling
+import "./page.css";
 import { Metadata } from "next";
 
-// Add unique meta tags for SEO
 export const generateMetadata = (): Metadata => ({
   title: "SEO & Digital Marketing Services in Calgary - NuTab Digital",
   description:
@@ -23,6 +22,8 @@ const SEODigitalMarketing: React.FC = () => {
       <Header />
       <Background />
       <Loader />
+
+      {/* Structured Data Script */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -41,7 +42,9 @@ const SEODigitalMarketing: React.FC = () => {
           }),
         }}
       />
-      <SectionWrapper>
+
+      {/* Hero Section */}
+      <SectionWrapper className="section-wrapper--custom-padding">
         <h1>SEO & Digital Marketing Services in Calgary</h1>
         <p>
           At <strong>NuTab Digital</strong>, we specialize in delivering{" "}
@@ -53,6 +56,7 @@ const SEODigitalMarketing: React.FC = () => {
         </p>
       </SectionWrapper>
 
+      {/* Why Choose This Service */}
       <SectionWrapper>
         <h2>Why Choose SEO & Digital Marketing?</h2>
         <p>
@@ -64,6 +68,7 @@ const SEODigitalMarketing: React.FC = () => {
         </p>
       </SectionWrapper>
 
+      {/* Our Services */}
       <SectionWrapper>
         <h2>Our SEO & Digital Marketing Services</h2>
         <ul>
@@ -91,6 +96,7 @@ const SEODigitalMarketing: React.FC = () => {
         </ul>
       </SectionWrapper>
 
+      {/* Benefits of the Service */}
       <SectionWrapper>
         <h2>Benefits of SEO & Digital Marketing</h2>
         <p>
@@ -121,6 +127,7 @@ const SEODigitalMarketing: React.FC = () => {
         </ul>
       </SectionWrapper>
 
+      {/* Industries We Serve */}
       <SectionWrapper>
         <h2>Industries We Serve</h2>
         <p>
@@ -136,6 +143,7 @@ const SEODigitalMarketing: React.FC = () => {
         </ul>
       </SectionWrapper>
 
+      {/* How We Work */}
       <SectionWrapper>
         <h2>How We Work</h2>
         <p>
@@ -165,6 +173,7 @@ const SEODigitalMarketing: React.FC = () => {
         </ol>
       </SectionWrapper>
 
+      {/* Why Partner with NuTab Digital */}
       <SectionWrapper>
         <h2>Why Partner with NuTab Digital?</h2>
         <p>
@@ -192,6 +201,7 @@ const SEODigitalMarketing: React.FC = () => {
         </ul>
       </SectionWrapper>
 
+      {/* Get Started Today */}
       <SectionWrapper>
         <h2>Get Started Today</h2>
         <p>
@@ -200,6 +210,46 @@ const SEODigitalMarketing: React.FC = () => {
           marketing services</strong> and how we can help your business grow.
         </p>
       </SectionWrapper>
+
+      {/* FAQ */}
+      <SectionWrapper>
+        <h2>Frequently Asked Questions</h2>
+        <h3>What is SEO?</h3>
+        <p>
+          SEO (Search Engine Optimization) is the process of optimizing your
+          website to rank higher in search engine results, making it easier for
+          potential customers to find you online.
+        </p>
+
+        <h3>How long does it take to see results from SEO?</h3>
+        <p>
+          SEO is a long-term strategy, and results typically take 3-6 months to
+          become noticeable. However, the timeline can vary depending on your
+          industry and competition.
+        </p>
+
+        <h3>What is digital marketing?</h3>
+        <p>
+          Digital marketing involves promoting your business online through
+          channels like social media, email, search engines, and paid
+          advertising to reach your target audience.
+        </p>
+
+        <h3>Do you provide content creation services?</h3>
+        <p>
+          Yes, we offer content marketing services, including blog posts,
+          social media content, and website copy, to help engage your audience
+          and improve your SEO.
+        </p>
+
+        <h3>Can you manage our social media accounts?</h3>
+        <p>
+          Absolutely! We provide social media management services to help you
+          build your brand and connect with your audience on platforms like
+          Facebook, Instagram, and LinkedIn.
+        </p>
+      </SectionWrapper>
+
       <Footer />
     </ThemeProvider>
   );

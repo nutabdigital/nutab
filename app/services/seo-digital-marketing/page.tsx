@@ -3,8 +3,9 @@ import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import Footer from "../../components/Footer/Footer";
-import { ThemeProvider } from "../../context/ThemeContext"; 
-import "./page.css";
+import SectionWrapper from "../../components/SectionWrapper/SectionWrapper"; // Import SectionWrapper
+import { ThemeProvider } from "../../context/ThemeContext";
+import "./page.css"; // Add CSS for styling
 import { Metadata } from "next";
 
 // Add unique meta tags for SEO
@@ -40,7 +41,7 @@ const SEODigitalMarketing: React.FC = () => {
           }),
         }}
       />
-      <section className="seo-digital-marketing-page">
+      <SectionWrapper>
         <h1>SEO & Digital Marketing Services in Calgary</h1>
         <p>
           At <strong>NuTab Digital</strong>, we specialize in delivering{" "}
@@ -50,7 +51,9 @@ const SEODigitalMarketing: React.FC = () => {
           your search engine rankings or run targeted ad campaigns, our team is
           here to help.
         </p>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Why Choose SEO & Digital Marketing?</h2>
         <p>
           In today’s digital-first world, having a strong online presence is
@@ -59,7 +62,9 @@ const SEODigitalMarketing: React.FC = () => {
           search results, engage your target audience, and drive measurable
           results.
         </p>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Our SEO & Digital Marketing Services</h2>
         <ul>
           <li>
@@ -84,7 +89,9 @@ const SEODigitalMarketing: React.FC = () => {
             customers with personalized email campaigns.
           </li>
         </ul>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Benefits of SEO & Digital Marketing</h2>
         <p>
           Investing in <strong>SEO and digital marketing</strong> offers
@@ -112,7 +119,9 @@ const SEODigitalMarketing: React.FC = () => {
             competitors with innovative marketing strategies.
           </li>
         </ul>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Industries We Serve</h2>
         <p>
           Our <strong>SEO and digital marketing services</strong> cater to a
@@ -125,7 +134,9 @@ const SEODigitalMarketing: React.FC = () => {
           <li>Education</li>
           <li>Real Estate</li>
         </ul>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>How We Work</h2>
         <p>
           Our process ensures your satisfaction at every step:
@@ -152,7 +163,9 @@ const SEODigitalMarketing: React.FC = () => {
             success of your campaigns.
           </li>
         </ol>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Why Partner with NuTab Digital?</h2>
         <p>
           At NuTab Digital, we pride ourselves on delivering{" "}
@@ -177,14 +190,16 @@ const SEODigitalMarketing: React.FC = () => {
             optimization to ensure long-term success.
           </li>
         </ul>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Get Started Today</h2>
         <p>
           Ready to enhance your online presence? <br />
           Contact us today to learn more about our <strong>SEO and digital
           marketing services</strong> and how we can help your business grow.
         </p>
-      </section>
+      </SectionWrapper>
       <Footer />
     </ThemeProvider>
   );

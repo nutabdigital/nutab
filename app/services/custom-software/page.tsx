@@ -1,10 +1,11 @@
 import React from "react";
-import Header from "../../components/Header/Header"; 
-import Loader from "../../components/Loader/Loader"; 
+import Header from "../../components/Header/Header";
+import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
-import Footer from "../../components/Footer/Footer"; 
-import { ThemeProvider } from "../../context/ThemeContext"; 
-import "./page.css"; 
+import Footer from "../../components/Footer/Footer";
+import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
+import { ThemeProvider } from "../../context/ThemeContext";
+import "./page.css";
 import { Metadata } from "next";
 
 export const generateMetadata = (): Metadata => ({
@@ -37,17 +38,21 @@ const CustomSoftwareSolutions: React.FC = () => {
         }}
       />
       <Background />
-      <section className="custom-software-page">
+      <SectionWrapper>
         <h1>Custom Software Development Services in Calgary</h1>
         <p>
           At <strong>NuTab Digital</strong>, we specialize in delivering <strong>custom software solutions</strong> that are tailored to meet the unique needs of businesses in <strong>Calgary, Alberta</strong>, and beyond. Our mission is to help you streamline operations, enhance efficiency, and achieve your business goals with innovative, scalable, and secure software.
         </p>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Why Choose Custom Software Development?</h2>
         <p>
           Off-the-shelf software often falls short of meeting the specific requirements of growing businesses. With <strong>custom software development</strong>, you gain a solution that is designed exclusively for your workflows, ensuring seamless integration and maximum efficiency. Whether you need a <strong>bespoke application</strong>, <strong>enterprise-grade software</strong>, or a <strong>custom SaaS platform</strong>, we’ve got you covered.
         </p>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Our Custom Software Development Services</h2>
         <ul>
           <li><strong>Enterprise Software Development:</strong> Build robust, scalable solutions for large-scale operations.</li>
@@ -56,7 +61,9 @@ const CustomSoftwareSolutions: React.FC = () => {
           <li><strong>Secure Architecture:</strong> Ensure your software is built with top-notch security protocols.</li>
           <li><strong>Ongoing Support:</strong> Receive continuous updates and maintenance to keep your software running smoothly.</li>
         </ul>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Benefits of Custom Software Development</h2>
         <p>
           Investing in custom software development offers numerous advantages for your business:
@@ -68,7 +75,9 @@ const CustomSoftwareSolutions: React.FC = () => {
           <li><strong>Competitive Advantage:</strong> Stand out in your industry with innovative and unique software solutions.</li>
           <li><strong>Enhanced Security:</strong> Protect sensitive data with custom-built security features.</li>
         </ul>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Industries We Serve</h2>
         <p>
           Our <strong>custom software solutions</strong> cater to a wide range of industries, including:
@@ -82,7 +91,9 @@ const CustomSoftwareSolutions: React.FC = () => {
           <li>Logistics and Supply Chain</li>
           <li>Real Estate</li>
         </ul>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Our Development Process</h2>
         <p>
           At NuTab Digital, we follow a proven process to ensure the success of your custom software project:
@@ -94,7 +105,9 @@ const CustomSoftwareSolutions: React.FC = () => {
           <li><strong>Testing:</strong> Rigorous testing ensures your software is bug-free and ready for deployment.</li>
           <li><strong>Deployment and Support:</strong> We launch your software and provide ongoing support to ensure its success.</li>
         </ol>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Why Partner with NuTab Digital?</h2>
         <p>
           At NuTab Digital, we pride ourselves on being a <strong>trusted software development partner</strong>. Here’s why businesses choose us:
@@ -106,7 +119,9 @@ const CustomSoftwareSolutions: React.FC = () => {
           <li><strong>Future-Ready Solutions:</strong> We use the latest technologies to ensure your software stays relevant.</li>
           <li><strong>Customer-Centric Approach:</strong> Your satisfaction is our top priority.</li>
         </ul>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Frequently Asked Questions</h2>
         <h3>What is custom software development?</h3>
         <p>
@@ -137,7 +152,7 @@ const CustomSoftwareSolutions: React.FC = () => {
         <p>
           Contact us today to discuss your <strong>custom software development</strong> needs. Let’s work together to create a solution that drives your business forward.
         </p>
-      </section>
+      </SectionWrapper>
       <Footer />
     </ThemeProvider>
   );

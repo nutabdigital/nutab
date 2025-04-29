@@ -3,7 +3,8 @@ import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import Footer from "../../components/Footer/Footer";
-import { ThemeProvider } from "../../context/ThemeContext"; 
+import SectionWrapper from "../../components/SectionWrapper/SectionWrapper"; // Import SectionWrapper
+import { ThemeProvider } from "../../context/ThemeContext";
 import "./page.css"; // Add CSS for styling
 import { Metadata } from "next";
 
@@ -11,9 +12,9 @@ import { Metadata } from "next";
 export const generateMetadata = (): Metadata => ({
   title: "E-Commerce Development Services in Calgary - NuTab Digital",
   description:
-    "NuTab Digital builds scalable e-commerce platforms with secure payments, seamless shopping experiences, and inventory management.",
+    "NuTab Digital offers e-commerce development services in Calgary, Alberta. Build scalable, user-friendly online stores tailored to your business needs.",
   keywords:
-    "e-commerce development, Calgary, Alberta, scalable e-commerce, secure payments, inventory management, online store development, responsive e-commerce design",
+    "e-commerce development, online store development, Calgary, Alberta, Shopify, WooCommerce, custom e-commerce solutions, scalable e-commerce platforms",
 });
 
 const EcommerceDevelopment: React.FC = () => {
@@ -30,7 +31,7 @@ const EcommerceDevelopment: React.FC = () => {
             "@type": "Service",
             "name": "E-Commerce Development",
             "description":
-              "Build scalable e-commerce platforms with secure payments and seamless shopping experiences.",
+              "We create user-friendly e-commerce platforms tailored to your business needs.",
             "provider": {
               "@type": "Organization",
               "name": "NuTab Digital",
@@ -40,51 +41,58 @@ const EcommerceDevelopment: React.FC = () => {
           }),
         }}
       />
-      <section className="ecommerce-development-page">
+      <SectionWrapper>
         <h1>E-Commerce Development Services in Calgary</h1>
         <p>
           At <strong>NuTab Digital</strong>, we specialize in creating{" "}
-          <strong>scalable e-commerce solutions</strong> that empower businesses
-          to thrive in the digital marketplace. Whether you're launching a new
-          online store or enhancing an existing platform, our team delivers{" "}
-          <strong>custom e-commerce development</strong> tailored to your unique
-          needs.
+          <strong>custom e-commerce platforms</strong> that deliver seamless
+          shopping experiences and help businesses thrive in the digital
+          marketplace. Whether you need a <strong>Shopify store</strong>,{" "}
+          <strong>WooCommerce site</strong>, or a fully custom solution, our
+          team is here to bring your vision to life.
         </p>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Why Choose E-Commerce Development?</h2>
         <p>
-          In today’s competitive market, having a robust and user-friendly{" "}
-          <strong>e-commerce platform</strong> is essential for success. Our{" "}
+          In today’s competitive market, having a{" "}
+          <strong>user-friendly</strong> and{" "}
+          <strong>scalable e-commerce platform</strong> is essential for
+          engaging customers and driving sales. Our{" "}
           <strong>e-commerce development services</strong> focus on creating
-          seamless shopping experiences, secure payment gateways, and efficient
-          inventory management systems. With our expertise, you can boost
-          customer satisfaction and drive sales.
+          intuitive, secure, and high-performing online stores that meet your
+          business goals.
         </p>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Our E-Commerce Development Services</h2>
         <ul>
           <li>
-            <strong>Custom E-Commerce Platforms:</strong> Build a unique online
-            store tailored to your brand and business goals.
+            <strong>Custom Online Store Development:</strong> Build feature-rich
+            e-commerce platforms tailored to your needs.
           </li>
           <li>
-            <strong>Responsive Design:</strong> Ensure your e-commerce site
-            looks and performs flawlessly on all devices.
+            <strong>Shopify and WooCommerce Development:</strong> Leverage
+            popular platforms to create scalable online stores.
           </li>
           <li>
-            <strong>Secure Payment Integration:</strong> Implement trusted
-            payment gateways for safe and seamless transactions.
+            <strong>UI/UX Design:</strong> Deliver intuitive and visually
+            appealing shopping experiences.
           </li>
           <li>
-            <strong>Inventory Management:</strong> Streamline your operations
-            with efficient inventory tracking and management tools.
+            <strong>Payment Gateway Integration:</strong> Seamlessly integrate
+            secure payment solutions.
           </li>
           <li>
-            <strong>Third-Party Integrations:</strong> Integrate with popular
-            tools like CRM, ERP, and marketing platforms.
+            <strong>Scalable Architecture:</strong> Ensure your store can grow
+            with your business.
           </li>
         </ul>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Benefits of E-Commerce Development</h2>
         <p>
           Investing in <strong>e-commerce development</strong> offers numerous
@@ -92,40 +100,44 @@ const EcommerceDevelopment: React.FC = () => {
         </p>
         <ul>
           <li>
-            <strong>Increased Sales:</strong> Reach a global audience and boost
-            revenue with a professional online store.
+            <strong>Enhanced Customer Engagement:</strong> Provide a seamless
+            shopping experience to keep your customers engaged.
           </li>
           <li>
-            <strong>Improved Customer Experience:</strong> Provide a seamless
-            and enjoyable shopping experience for your customers.
+            <strong>Increased Sales:</strong> Reach a wider audience and boost
+            your revenue with an online store.
           </li>
           <li>
-            <strong>Scalability:</strong> Build a platform that grows with your
-            business and adapts to changing needs.
+            <strong>Improved Efficiency:</strong> Automate processes and
+            streamline workflows with custom e-commerce solutions.
           </li>
           <li>
-            <strong>Enhanced Efficiency:</strong> Automate processes like
-            inventory management and order tracking.
+            <strong>Scalability:</strong> Build platforms that grow with your
+            business and adapt to changing needs.
           </li>
           <li>
             <strong>Competitive Advantage:</strong> Stand out in your industry
-            with a custom e-commerce solution.
+            with innovative and user-friendly e-commerce platforms.
           </li>
         </ul>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Industries We Serve</h2>
         <p>
           Our <strong>e-commerce development services</strong> cater to a wide
           range of industries, including:
         </p>
         <ul>
-          <li>Retail and Fashion</li>
-          <li>Health and Wellness</li>
-          <li>Electronics and Technology</li>
+          <li>Retail</li>
+          <li>Fashion</li>
+          <li>Electronics</li>
+          <li>Health and Beauty</li>
           <li>Food and Beverage</li>
-          <li>Home and Lifestyle</li>
         </ul>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>How We Work</h2>
         <p>
           Our development process ensures your satisfaction at every step:
@@ -136,33 +148,35 @@ const EcommerceDevelopment: React.FC = () => {
             business goals and target audience.
           </li>
           <li>
-            <strong>Design:</strong> Our team creates a visually appealing and
-            user-friendly design for your store.
+            <strong>Design:</strong> Our team creates wireframes and prototypes
+            for your approval.
           </li>
           <li>
             <strong>Development:</strong> We build your e-commerce platform
             using the latest technologies and best practices.
           </li>
           <li>
-            <strong>Testing:</strong> Rigorous testing ensures your site is
+            <strong>Testing:</strong> Rigorous testing ensures your platform is
             bug-free and ready for launch.
           </li>
           <li>
-            <strong>Launch and Support:</strong> We deploy your site and provide
-            ongoing support to ensure its success.
+            <strong>Launch and Support:</strong> We deploy your platform and
+            provide ongoing support to ensure its success.
           </li>
         </ol>
+      </SectionWrapper>
 
+      <SectionWrapper>
         <h2>Why Partner with NuTab Digital?</h2>
         <p>
           At NuTab Digital, we pride ourselves on delivering{" "}
-          <strong>future-ready e-commerce solutions</strong>. Here’s why
+          <strong>future-ready e-commerce platforms</strong>. Here’s why
           businesses choose us:
         </p>
         <ul>
           <li>
-            <strong>Scalability:</strong> Our platforms are designed to grow
-            with your business.
+            <strong>Expertise:</strong> Our team has extensive experience in
+            e-commerce development.
           </li>
           <li>
             <strong>Customization:</strong> We tailor every solution to meet
@@ -174,17 +188,19 @@ const EcommerceDevelopment: React.FC = () => {
           </li>
           <li>
             <strong>Ongoing Support:</strong> We provide continuous updates and
-            maintenance to keep your e-commerce site running smoothly.
+            maintenance to keep your platform running smoothly.
           </li>
         </ul>
+      </SectionWrapper>
 
-        <h3>Ready to Elevate Your Online Store?</h3>
+      <SectionWrapper>
+        <h3>Ready to Build Your Online Store?</h3>
         <p>
           Contact us today to discuss your{" "}
           <strong>e-commerce development</strong> needs. Let’s work together to
           create a platform that drives growth and success for your business.
         </p>
-      </section>
+      </SectionWrapper>
       <Footer />
     </ThemeProvider>
   );

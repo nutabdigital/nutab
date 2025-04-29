@@ -3,12 +3,11 @@ import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import Footer from "../../components/Footer/Footer";
-import SectionWrapper from "../../components/SectionWrapper/SectionWrapper"; // Import SectionWrapper
+import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
 import { ThemeProvider } from "../../context/ThemeContext";
-import "./page.css"; // Add CSS for styling
+import "./page.css";
 import { Metadata } from "next";
 
-// Add unique meta tags for SEO
 export const generateMetadata = (): Metadata => ({
   title: "Mobile & Web App Development Services in Calgary - NuTab Digital",
   description:
@@ -21,8 +20,10 @@ const MobileWebAppDevelopment: React.FC = () => {
   return (
     <ThemeProvider>
       <Header />
-      <Background />
       <Loader />
+      <Background />
+
+      {/* Structured Data Script */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -41,7 +42,9 @@ const MobileWebAppDevelopment: React.FC = () => {
           }),
         }}
       />
-      <SectionWrapper>
+
+      {/* Hero Section */}
+      <SectionWrapper className="section-wrapper--custom-padding">
         <h1>Mobile & Web App Development Services in Calgary</h1>
         <p>
           At <strong>NuTab Digital</strong>, we specialize in creating{" "}
@@ -53,6 +56,7 @@ const MobileWebAppDevelopment: React.FC = () => {
         </p>
       </SectionWrapper>
 
+      {/* Why Choose This Service */}
       <SectionWrapper>
         <h2>Why Choose Mobile & Web App Development?</h2>
         <p>
@@ -66,6 +70,7 @@ const MobileWebAppDevelopment: React.FC = () => {
         </p>
       </SectionWrapper>
 
+      {/* Our Services */}
       <SectionWrapper>
         <h2>Our Mobile & Web App Development Services</h2>
         <ul>
@@ -92,6 +97,7 @@ const MobileWebAppDevelopment: React.FC = () => {
         </ul>
       </SectionWrapper>
 
+      {/* Benefits of the Service */}
       <SectionWrapper>
         <h2>Benefits of Mobile & Web App Development</h2>
         <p>
@@ -122,6 +128,7 @@ const MobileWebAppDevelopment: React.FC = () => {
         </ul>
       </SectionWrapper>
 
+      {/* Industries We Serve */}
       <SectionWrapper>
         <h2>Industries We Serve</h2>
         <p>
@@ -137,8 +144,9 @@ const MobileWebAppDevelopment: React.FC = () => {
         </ul>
       </SectionWrapper>
 
+      {/* How We Work */}
       <SectionWrapper>
-        <h2>How We Work</h2>
+        <h2>Our Development Process</h2>
         <p>
           Our development process ensures your satisfaction at every step:
         </p>
@@ -166,6 +174,7 @@ const MobileWebAppDevelopment: React.FC = () => {
         </ol>
       </SectionWrapper>
 
+      {/* Why Partner with NuTab Digital */}
       <SectionWrapper>
         <h2>Why Partner with NuTab Digital?</h2>
         <p>
@@ -193,15 +202,55 @@ const MobileWebAppDevelopment: React.FC = () => {
         </ul>
       </SectionWrapper>
 
+      {/* Get Started Today */}
       <SectionWrapper>
-        <h3>Ready to Build Your App?</h3>
+        <h2>Get Started Today</h2>
         <p>
-          Contact us today to discuss your{" "}
+          Ready to build your app? Contact us today to discuss your{" "}
           <strong>mobile and web app development</strong> needs. Let’s work
           together to create an application that drives growth and success for
           your business.
         </p>
       </SectionWrapper>
+
+      {/* FAQ */}
+      <SectionWrapper>
+        <h2>Frequently Asked Questions</h2>
+        <h3>What is mobile and web app development?</h3>
+        <p>
+          Mobile and web app development involves creating applications for
+          mobile devices (iOS and Android) and web browsers. These apps are
+          designed to provide seamless user experiences and meet specific
+          business needs.
+        </p>
+
+        <h3>How long does it take to develop an app?</h3>
+        <p>
+          The timeline depends on the complexity of the app. Simple apps can
+          take a few weeks, while more complex apps may take several months. We
+          work with you to create a realistic timeline.
+        </p>
+
+        <h3>Can you build apps for both iOS and Android?</h3>
+        <p>
+          Yes, we specialize in building cross-platform apps that work
+          seamlessly on both iOS and Android devices.
+        </p>
+
+        <h3>Do you provide ongoing support for apps?</h3>
+        <p>
+          Yes, we offer ongoing support and maintenance to ensure your app
+          remains up-to-date and performs optimally.
+        </p>
+
+        <h3>Can you integrate third-party APIs into the app?</h3>
+        <p>
+          Absolutely! We can integrate third-party APIs to enhance your app's
+          functionality, such as payment gateways, social media, or analytics
+          tools.
+        </p>
+      </SectionWrapper>
+
       <Footer />
     </ThemeProvider>
   );

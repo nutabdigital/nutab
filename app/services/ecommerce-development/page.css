@@ -1,10 +1,6 @@
 .background-cloudy {
     z-index: 0; /* Ensure the background is behind everything */
 }
-
-.ecommerce-development-page{
-  position: relative;
-  z-index: 1; /* Ensure it's above the background */
-  margin-top:150px;
+.section-wrapper--custom-padding {
+  margin-top: 10vh; /* Add custom margin-top padding */
 }
-

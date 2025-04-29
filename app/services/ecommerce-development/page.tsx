@@ -3,6 +3,7 @@ import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import Footer from "../../components/Footer/Footer";
+import { ThemeProvider } from "../../context/ThemeContext"; 
 import "./page.css"; // Add CSS for styling
 import { Metadata } from "next";
 
@@ -17,7 +18,7 @@ export const generateMetadata = (): Metadata => ({
 
 const EcommerceDevelopment: React.FC = () => {
   return (
-    <>
+    <ThemeProvider>
       <Header />
       <Background />
       <Loader />
@@ -185,7 +186,7 @@ const EcommerceDevelopment: React.FC = () => {
         </p>
       </section>
       <Footer />
-    </>
+    </ThemeProvider>
   );
 };
 

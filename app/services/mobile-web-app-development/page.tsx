@@ -214,7 +214,7 @@ const MobileWebAppDevelopment: React.FC = () => {
       </SectionWrapper>
 
       {/* FAQ */}
-      <SectionWrapper>
+      <SectionWrapper className = "section-wrapper--faq">
         <h2>Frequently Asked Questions</h2>
         <h3>What is mobile and web app development?</h3>
         <p>

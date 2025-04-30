@@ -87,6 +87,10 @@
   margin-bottom: 1rem;
 }
 
+.section-wrapper--faq{
+  margin-bottom: 10vh;
+}
+
 /* Media Query for Mobile */
 @media (max-width: 600px) {
   .section-wrapper,

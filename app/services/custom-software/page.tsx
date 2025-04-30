@@ -2,6 +2,7 @@ import React from "react";
 import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
+import Model from "../../components/Model/Model"
 import Footer from "../../components/Footer/Footer";
 import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
 import { ThemeProvider } from "../../context/ThemeContext";
@@ -15,11 +16,14 @@ export const generateMetadata = (): Metadata => ({
   keywords: "custom software development, Calgary, Alberta, enterprise software, SaaS solutions, software integration, business software, scalable software solutions",
 });
 
+const currentSection = 0;
+
 const CustomSoftwareSolutions: React.FC = () => {
   return (
     <ThemeProvider>
       <Header />
       <Loader />
+      {/* <Model currentSection={currentSection} /> */}
       <Background />
 
       {/* Structured Data Script */}

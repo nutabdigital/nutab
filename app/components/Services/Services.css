@@ -40,7 +40,7 @@
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
   cursor: pointer;
   transition: transform 0.5s, background-color 0.5s;
-
+  height: 90%;
 }
 
 .service-box:hover{
@@ -78,6 +78,10 @@
   justify-content: center;
   align-items: center;
   margin-top: 1rem;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 1s ease;
+  transition-delay: 0.5s;
 }
 
 .learn-more-bubble{
@@ -86,6 +90,7 @@
   position:relative;
   text-align: center;
   margin-top: 0.5rem;
+  color: #ffffff;
 }
 
 .learn-more-icon {
@@ -96,6 +101,7 @@
 /* Hover styles */
 .service-box:hover {
   background-color: #0067e7; 
+  height: fit-content;
 }
 
 .service-box:hover .service-icon {
@@ -108,6 +114,11 @@
 
 .service-box:hover .service-description {
   color: #ffffff; 
+}
+
+.service-box:hover .learn-more-wrapper {
+  visibility: visible;
+  opacity: 1;
 }
 
 @media (max-width:600px) {
@@ -144,6 +155,6 @@
 }
 
 /* Dark mode styles for the learn-more-icon */
-[data-theme="dark"] .learn-more-icon {
-  filter: brightness(0) invert(1); /* Makes the icon white */
-}
+/* [data-theme="light"] .learn-more-icon {
+  filter: brightness(1) invert(1); 
+} */

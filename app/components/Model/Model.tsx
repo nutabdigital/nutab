@@ -52,6 +52,11 @@ const throttle = <T extends (...args: any[]) => void>(
 };
 
 const Model: React.FC<ModelProps> = ({ currentSection }) => {
+  useEffect(() => {
+    console.log("Current Section in Model:", currentSection);
+    // Perform animations or transformations based on currentSection
+  }, [currentSection]);
+  
   const canvasRef = useRef<HTMLCanvasElement>(null); //client side?
   const [isMobile, setIsMobile] = useState(false);
   const rotationSpeedX = 0.0047; // Adjust to control the speed of horizontal rotation
@@ -454,6 +459,10 @@ const Model: React.FC<ModelProps> = ({ currentSection }) => {
 
   // Throttled resize handler
   const handleResizeThrottled = throttle(handleResize, 100);
+
+  // useEffect(() => {
+  //   console.log("Model component is mounted");
+  // }, []);
 
   return (
     <div

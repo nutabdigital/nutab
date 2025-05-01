@@ -3,14 +3,14 @@
 import React, { useEffect, useState } from "react";
 import { ThemeProvider } from "./context/ThemeContext"; // Import the ThemeProvider
 import Loader from "./components/Loader/Loader";
-import Model from "./components/Model/Model";
-import Header from "./components/Header/Header";
+// import Model from "./components/Model/Model";
+import Header from "./components/Header/Header";  //should remove soon
 import Tagline from "./components/Tagline/Tagline";
 import About from "./components/About/About";
 import Services from "./components/Services/Services";
 import Team from "./components/Team/Team";
 import Contact from "./components/Contact/Contact";
-import Footer from "./components/Footer/Footer";
+// import Footer from "./components/Footer/Footer";
 import "./styles/page.css";
 import Popup from "./components/ContactCards/Popup";
 
@@ -88,7 +88,7 @@ const HomePage: React.FC = () => {
       <div className="background-cloudy"></div>
 
       <main className="home-page">
-        <Model currentSection={currentSection} />
+        {/* <Model currentSection={currentSection} /> */}
 
         <div className="content-wrapper">
           <section id="tagline" className="page-section fade-section align-right" data-section="0">
@@ -118,7 +118,7 @@ const HomePage: React.FC = () => {
           </section>
         </div>
 
-        <Footer />
+        {/* <Footer /> */}
       </main>
     </ThemeProvider>
   );

@@ -1,12 +1,20 @@
+"use client"
+import { useEffect } from "react";
+import { useSectionContext } from "../../context/SectionContext";
 import React from "react";
-import Header from "../../components/Header/Header";
+// import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
-import Footer from "../../components/Footer/Footer";
-import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
+// import Footer from "../../components/Footer/Footer";
+// import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
 import { ThemeProvider } from "../../context/ThemeContext";
 import "./page.css";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
+
+const SectionWrapper = dynamic(() => import("../../components/SectionWrapper/SectionWrapper"), {
+  ssr: false, // Disable SSR if the component doesn't need it
+});
 
 export const generateMetadata = (): Metadata => ({
   title: "SEO & Digital Marketing Services in Calgary - NuTab Digital",
@@ -19,7 +27,7 @@ export const generateMetadata = (): Metadata => ({
 const SEODigitalMarketing: React.FC = () => {
   return (
     <ThemeProvider>
-      <Header />
+      {/* <Header /> */}
       <Background />
       <Loader />
 
@@ -250,7 +258,7 @@ const SEODigitalMarketing: React.FC = () => {
         </p>
       </SectionWrapper>
 
-      <Footer />
+      {/* <Footer /> */}
     </ThemeProvider>
   );
 };

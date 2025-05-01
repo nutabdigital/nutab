@@ -1,5 +1,12 @@
 import type { Metadata } from "next"; // Type import from Next.js to type-check metadata.
 import "./styles/globals.css";
+import { SectionProvider } from "../app/context/SectionContext"; // Import SectionProvider if using context for currentSection
+import dynamic from "next/dynamic";
+import Header from "./components/Header/Header"; // Import Header component
+import Footer from "./components/Footer/Footer"; // Import Footer component
+
+// Dynamically import the ModelWrapper component
+const ModelWrapper = dynamic(() => import("./context/ModelWrapper"), { ssr: false });
 
 export const metadata: Metadata = {
   title: "NuTab Digital - Custom Software Development in Calgary, Alberta",
@@ -65,6 +72,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
   return (
     <html lang="en">
       <head>
@@ -149,7 +157,16 @@ export default function RootLayout({
           "
         /> */}
       </head>
-      <body className="antialiased">{children}</body>
+      <body >
+        <SectionProvider>
+          <Header />
+          {/* Render the Model component */}
+          <ModelWrapper />
+          {/* Render the page content */}
+          {children}
+          <Footer />
+        </SectionProvider>
+      </body>
     </html>
   );
 }

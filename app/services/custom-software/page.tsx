@@ -1,13 +1,18 @@
 import React from "react";
-import Header from "../../components/Header/Header";
+// import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import Model from "../../components/Model/Model"
-import Footer from "../../components/Footer/Footer";
-import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
+// import Footer from "../../components/Footer/Footer";
+// import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
 import { ThemeProvider } from "../../context/ThemeContext";
 import "./page.css";
 import { Metadata } from "next";
+import dynamic from "next/dynamic";
+
+const SectionWrapper = dynamic(() => import("../../components/SectionWrapper/SectionWrapper"), {
+  ssr: false, // Disable SSR if the component doesn't need it
+});
 
 export const generateMetadata = (): Metadata => ({
   title: "Custom Software Development Services in Calgary - NuTab Digital",
@@ -21,7 +26,7 @@ const currentSection = 0;
 const CustomSoftwareSolutions: React.FC = () => {
   return (
     <ThemeProvider>
-      <Header />
+      {/* <Header /> */}
       <Loader />
       {/* <Model currentSection={currentSection} /> */}
       <Background />
@@ -261,7 +266,7 @@ const CustomSoftwareSolutions: React.FC = () => {
         </p>
       </SectionWrapper>
 
-      <Footer />
+      {/* <Footer /> */}
     </ThemeProvider>
   );
 };

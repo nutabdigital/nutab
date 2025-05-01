@@ -6,7 +6,7 @@
   height: auto; /* Maintain aspect ratio */
   transition: transform 0.75s ease-in-out; /* Smooth transition */
   inset: 0px; /* Equivalent to setting top, bottom, left, right properties to 0px */
-  z-index: 0;
+  z-index: 1;
 }
 
 .model{

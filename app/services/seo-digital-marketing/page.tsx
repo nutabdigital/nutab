@@ -1,6 +1,3 @@
-"use client"
-import { useEffect } from "react";
-import { useSectionContext } from "../../context/SectionContext";
 import React from "react";
 // import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";

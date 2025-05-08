@@ -21,6 +21,8 @@ the component folder. */
   margin-bottom: 10vh;
   display: flex;
   align-items: center;
+  position: relative; /* Ensure stacking context */
+  z-index: 2; /* Higher than the model's z-index */
 }
 
 /* Fade-in effect for elements that scroll into view */

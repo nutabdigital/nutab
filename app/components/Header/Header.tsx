@@ -154,6 +154,24 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
               Start A Project
             </a>
           </li>
+  
+          {/* Theme toggle moved out of <a> */}
+          <li>
+            <div className="theme-toggle-container">
+              <label className="theme-toggle">
+                <input
+                  type="checkbox"
+                  checked={theme === "dark"}
+                  onChange={toggleTheme}
+                  className="theme-toggle-input"
+                />
+                <span className="slider">
+                  <span className="slider-icon sun">☀️</span>
+                  <span className="slider-icon moon">🌙</span>
+                </span>
+              </label>
+            </div>
+          </li>
         </ul>
       </nav>
     </header>

@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { useTheme } from "../../context/ThemeContext";
 import { useRouter } from "next/navigation"; // Import Next.js router
+import Link from "next/link"; // Add this if not already imported
 import "./Header.css";
 
 // Interface defining props for the Header component
@@ -10,8 +11,16 @@ interface HeaderProps {
   currentSection?: number; // The index of the current section in view (optional for service pages)
 }
 
+const servicesDropdown = [
+  { name: "Custom Software Solutions", link: "/services/custom-software" },
+  { name: "Mobile & Web App Development", link: "/services/mobile-web-app-development" },
+  { name: "SEO & Digital Marketing", link: "/services/seo-digital-marketing" },
+  { name: "E-Commerce Development", link: "/services/ecommerce-development" },
+];
+
 const Header: React.FC<HeaderProps> = ({ currentSection }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
+  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const { theme, toggleTheme } = useTheme(); // Access theme and toggleTheme from context
   const router = useRouter(); // Initialize Next.js router
 
@@ -69,13 +78,32 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
           >
             About
           </a>
-          <a
-            href="#services"
-            className={navLinkClasses(2)}
-            onClick={(e) => handleScroll(e, "services")}
+          <div
+            className="nav-link-dropdown"
+            onMouseEnter={() => setIsServicesOpen(true)}
+            onMouseLeave={() => setIsServicesOpen(false)}
+            tabIndex={0}
           >
-            Services
-          </a>
+            <a
+              href="#services"
+              className={navLinkClasses(2)}
+              onClick={(e) => handleScroll(e, "services")}
+              aria-haspopup="true"
+              aria-expanded={isServicesOpen}
+            >
+              Services ▼
+            </a>
+            {/* Dropdown menu is now inside the same parent div */}
+            {isServicesOpen && (
+              <div className="dropdown-menu">
+                {servicesDropdown.map((service) => (
+                  <Link key={service.link} href={service.link} className="dropdown-item">
+                    {service.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
           <a
             href="#team"
             className={navLinkClasses(3)}

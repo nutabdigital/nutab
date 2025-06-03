@@ -268,3 +268,49 @@
 [data-theme="dark"] .mobile-menu .line-3 {
   border-top: 3px solid #fff;
 }
+
+.nav-link-dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%; /* Sits directly below the parent */
+  left: 0;
+  background: #fff;
+  min-width: 220px;
+  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.15);
+  border-radius: 8px;
+  z-index: 100;
+  padding: 0.5rem 0;
+}
+
+.dropdown-item {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  color: #222;
+  text-decoration: none;
+  font-size: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+}
+
+.dropdown-item:hover {
+  background: #0067e7;
+  color: #fff;
+}
+
+/* Optional: Dark mode support */
+[data-theme="dark"] .dropdown-menu {
+  background: #181818;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.75);
+}
+
+[data-theme="dark"] .dropdown-item {
+  color: #fff;
+}
+
+[data-theme="dark"] .dropdown-item:hover {
+  background: #0067e7;
+  color: #fff;
+}

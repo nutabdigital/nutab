@@ -13,7 +13,10 @@ interface HeaderProps {
 
 const servicesDropdown = [
   { name: "Custom Software Solutions", link: "/services/custom-software" },
-  { name: "Mobile & Web App Development", link: "/services/mobile-web-app-development" },
+  {
+    name: "Mobile & Web App Development",
+    link: "/services/mobile-web-app-development",
+  },
   { name: "SEO & Digital Marketing", link: "/services/seo-digital-marketing" },
   { name: "E-Commerce Development", link: "/services/ecommerce-development" },
 ];
@@ -33,7 +36,10 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
   };
 
   // Scrolls smoothly to a specific section of the page or redirects to the main page
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+  const handleScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string
+  ) => {
     e.preventDefault();
 
     if (window.location.pathname !== "/") {
@@ -91,13 +97,24 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
               aria-haspopup="true"
               aria-expanded={isServicesOpen}
             >
-              Services ▼
+              <span>
+                Services
+                <img
+                  src="/icons/menu-drop-down.svg"
+                  alt="Dropdown arrow"
+                  aria-hidden="true"
+                />
+              </span>
             </a>
             {/* Dropdown menu is now inside the same parent div */}
             {isServicesOpen && (
               <div className="dropdown-menu">
                 {servicesDropdown.map((service) => (
-                  <Link key={service.link} href={service.link} className="dropdown-item">
+                  <Link
+                    key={service.link}
+                    href={service.link}
+                    className="dropdown-item"
+                  >
                     {service.name}
                   </Link>
                 ))}
@@ -151,34 +168,22 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
       <nav className={`mob-right-nav ${isNavOpen ? "open-nav" : ""}`}>
         <ul>
           <li>
-            <a
-              href="#about"
-              onClick={(e) => handleScroll(e, "about")}
-            >
+            <a href="#about" onClick={(e) => handleScroll(e, "about")}>
               About
             </a>
           </li>
           <li>
-            <a
-              href="#services"
-              onClick={(e) => handleScroll(e, "services")}
-            >
+            <a href="#services" onClick={(e) => handleScroll(e, "services")}>
               Services
             </a>
           </li>
           <li>
-            <a
-              href="#team"
-              onClick={(e) => handleScroll(e, "team")}
-            >
+            <a href="#team" onClick={(e) => handleScroll(e, "team")}>
               Our Team
             </a>
           </li>
           <li>
-            <a
-              href="#contact"
-              onClick={(e) => handleScroll(e, "contact")}
-            >
+            <a href="#contact" onClick={(e) => handleScroll(e, "contact")}>
               Start A Project
             </a>
           </li>

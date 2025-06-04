@@ -41,6 +41,9 @@
 
 .theme-toggle-container {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .theme-toggle {
@@ -48,6 +51,7 @@
   align-items: center;
   cursor: pointer;
   position: relative;
+  margin-bottom: 0px;
 }
 
 .theme-toggle-input {
@@ -241,6 +245,45 @@
   }
 }
 
+/* Tablet view: shrink header elements for screens between 600px and 1024px */
+@media (max-width: 1024px) and (min-width: 601px) {
+  .header-container {
+    padding: 0.5rem 1rem;
+    max-width: 900px;
+  }
+
+  .logo-light,
+  .logo-dark {
+    padding-left: 1rem;
+    width: 70%;
+    height: 70%;
+  }
+
+  .nav-links {
+    gap: 1rem;
+  }
+
+  .nav-links a {
+    font-size: 0.95rem;
+    margin-left: 8px;
+    padding: 0.25rem 0.5rem;
+  }
+
+  .theme-toggle {
+    /* Reduce the size of the dark mode toggle */
+    transform: scale(0.8);
+  }
+
+  .slider {
+    width: 50px;
+    height: 24px;
+  }
+
+  .slider-icon {
+    font-size: 1.1rem;
+  }
+}
+
 /* Switch to dark mode styles */
 [data-theme="dark"] .logo-light {
   display: none;
@@ -313,4 +356,13 @@
 [data-theme="dark"] .dropdown-item:hover {
   background: #0067e7;
   color: #fff;
+}
+
+.menu-arrow {
+  margin-left: 8px;
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: middle;
+  transition: transform 0.2s;
 }

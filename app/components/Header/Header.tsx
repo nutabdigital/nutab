@@ -24,6 +24,7 @@ const servicesDropdown = [
 const Header: React.FC<HeaderProps> = ({ currentSection }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const { theme, toggleTheme } = useTheme(); // Access theme and toggleTheme from context
   const router = useRouter(); // Initialize Next.js router
 
@@ -96,15 +97,28 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
               onClick={(e) => handleScroll(e, "services")}
               aria-haspopup="true"
               aria-expanded={isServicesOpen}
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
             >
-              <span>
-                Services
-                <img
-                  src="/icons/menu-drop-down.svg"
-                  alt="Dropdown arrow"
-                  aria-hidden="true"
+              <span>Services</span>
+              <svg
+                className="menu-arrow"
+                width="18"
+                height="18"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M4 6L8 10L12 6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                 />
-              </span>
+              </svg>
             </a>
             {/* Dropdown menu is now inside the same parent div */}
             {isServicesOpen && (
@@ -173,9 +187,56 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
             </a>
           </li>
           <li>
-            <a href="#services" onClick={(e) => handleScroll(e, "services")}>
-              Services
-            </a>
+            {/* Services with expandable sublist */}
+            <button
+              className="mobile-services-toggle"
+              onClick={() => setIsMobileServicesOpen((open) => !open)}
+              aria-expanded={isMobileServicesOpen}
+              style={{
+                display: "flex",
+                alignItems: "center",
+                width: "100%",
+                background: "none",
+                border: "none",
+                color: "inherit",
+                font: "inherit",
+                padding: "0.5rem 1rem",
+                cursor: "pointer",
+              }}
+            >
+              <span style={{ flex: 1, textAlign: "left" }}>Services</span>
+              <svg
+                className={`menu-arrow${isMobileServicesOpen ? " open" : ""}`}
+                width="18"
+                height="18"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                style={{
+                  transition: "transform 0.2s",
+                  transform: isMobileServicesOpen ? "rotate(180deg)" : "rotate(0deg)",
+                }}
+              >
+                <path
+                  d="M4 6L8 10L12 6"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            {isMobileServicesOpen && (
+              <ul className="mobile-services-sublist">
+                {servicesDropdown.map((service) => (
+                  <li key={service.link}>
+                    <Link href={service.link} className="mobile-services-link">
+                      {service.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            )}
           </li>
           <li>
             <a href="#team" onClick={(e) => handleScroll(e, "team")}>

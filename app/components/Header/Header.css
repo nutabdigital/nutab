@@ -312,6 +312,25 @@
   border-top: 3px solid #fff;
 }
 
+/* Dropdown arrow styling */
+.menu-arrow {
+  display: inline-block;
+  margin-left: 0.5em;
+  width: 0;
+  height: 0;
+  vertical-align: middle;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid currentColor; /* Uses current text color */
+  transition: transform 0.2s;
+}
+
+.nav-link-dropdown:hover .menu-arrow,
+.nav-link-dropdown:focus .menu-arrow {
+  transform: rotate(180deg);
+}
+
+/* Dropdown menu styles */
 .nav-link-dropdown {
   position: relative;
   display: inline-block;
@@ -319,34 +338,38 @@
 
 .dropdown-menu {
   position: absolute;
-  top: 100%; /* Sits directly below the parent */
+  top: 100%;
   left: 0;
   background: #fff;
   min-width: 220px;
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.15);
   border-radius: 8px;
   z-index: 100;
-  padding: 0.5rem 0;
 }
 
 .dropdown-item {
   display: block;
-  padding: 0.75rem 1.25rem;
-  color: #222;
+  padding: 0.75rem 1.25rem; 
+  color: inherit;
   text-decoration: none;
-  font-size: 0.5rem;
+  font-size: 1rem;
   transition: background 0.2s, color 0.2s;
+  background: none;
 }
 
 .dropdown-item:hover {
   background: #0067e7;
-  color: #fff;
+  color: inherit;
 }
 
-/* Optional: Dark mode support */
+/* Ensure dropdown-item text color stays as per theme on hover */
+.nav-link-dropdown .dropdown-menu .dropdown-item:hover {
+  color: inherit !important;
+}
+
+/* Dark mode dropdown */
 [data-theme="dark"] .dropdown-menu {
   background: #181818;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.75);
 }
 
 [data-theme="dark"] .dropdown-item {
@@ -356,13 +379,4 @@
 [data-theme="dark"] .dropdown-item:hover {
   background: #0067e7;
   color: #fff;
-}
-
-.menu-arrow {
-  margin-left: 8px;
-  width: 1em;
-  height: 1em;
-  display: inline-block;
-  vertical-align: middle;
-  transition: transform 0.2s;
 }

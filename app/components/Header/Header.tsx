@@ -212,10 +212,6 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
                 viewBox="0 0 16 16"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
-                style={{
-                  transition: "transform 0.2s",
-                  transform: isMobileServicesOpen ? "rotate(180deg)" : "rotate(0deg)",
-                }}
               >
                 <path
                   d="M4 6L8 10L12 6"

@@ -137,7 +137,7 @@ const EcommerceDevelopment: React.FC = () => {
           Our <strong>e-commerce development services</strong> cater to a wide
           range of industries, including:
         </p>
-        <ul>
+        <ul style={{ listStyleType: "disc", paddingLeft: "2rem" }}>
           <li>Retail</li>
           <li>Fashion</li>
           <li>Electronics</li>

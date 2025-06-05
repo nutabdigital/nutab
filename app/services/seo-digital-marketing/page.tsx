@@ -137,7 +137,7 @@ const SEODigitalMarketing: React.FC = () => {
           Our <strong>SEO and digital marketing services</strong> cater to a
           wide range of industries, including:
         </p>
-        <ul>
+        <ul style={{ listStyleType: "disc", paddingLeft: "2rem" }}>
           <li>Retail and E-Commerce</li>
           <li>Healthcare</li>
           <li>Finance</li>

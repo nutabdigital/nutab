@@ -135,7 +135,8 @@ const MobileWebAppDevelopment: React.FC = () => {
           Our <strong>mobile and web app development services</strong> cater to
           a wide range of industries, including:
         </p>
-        <ul>
+        <ul style={{ listStyleType: "disc", paddingLeft: "2rem" }}>
+
           <li>Healthcare</li>
           <li>Finance</li>
           <li>Retail and E-Commerce</li>

@@ -215,7 +215,7 @@ const EcommerceDevelopment: React.FC = () => {
       {/* FAQ */}
       <SectionWrapper className="section-wrapper--faq">
         <h2>Frequently Asked Questions</h2>
-        <h3>What is e-commerce development?</h3>
+        <h3 className="faq-question">What is e-commerce development?</h3>
         <p>
           E-commerce development involves creating online stores and platforms
           that allow businesses to sell products or services online. This
@@ -223,26 +223,26 @@ const EcommerceDevelopment: React.FC = () => {
           gateways.
         </p>
 
-        <h3>How long does it take to build an e-commerce website?</h3>
+        <h3 className="faq-question">How long does it take to build an e-commerce website?</h3>
         <p>
           The timeline depends on the complexity of the website. Simple
           e-commerce sites can take a few weeks, while more complex platforms
           may take several months.
         </p>
 
-        <h3>Can you integrate payment gateways?</h3>
+        <h3 className="faq-question">Can you integrate payment gateways?</h3>
         <p>
           Yes, we can integrate secure payment gateways like PayPal, Stripe, or
           custom solutions to ensure smooth transactions for your customers.
         </p>
 
-        <h3>Do you provide ongoing support for e-commerce websites?</h3>
+        <h3 className="faq-question">Do you provide ongoing support for e-commerce websites?</h3>
         <p>
           Yes, we offer ongoing support and maintenance to ensure your
           e-commerce platform runs smoothly and stays up-to-date.
         </p>
 
-        <h3>Can you customize the design of the e-commerce site?</h3>
+        <h3 className="faq-question">Can you customize the design of the e-commerce site?</h3>
         <p>
           Absolutely! We create custom designs tailored to your brand and
           business needs to provide a unique shopping experience for your

@@ -227,7 +227,7 @@ const CustomSoftwareSolutions: React.FC = () => {
       {/* FAQ */}
       <SectionWrapper className="section-wrapper--faq">
         <h2>Frequently Asked Questions</h2>
-        <h3>What is custom software development?</h3>
+        <h3 className="faq-question">What is custom software development?</h3>
         <p>
           Custom software development involves creating software applications
           tailored to meet the specific needs of a business or organization.
@@ -235,7 +235,7 @@ const CustomSoftwareSolutions: React.FC = () => {
           address unique challenges and workflows.
         </p>
 
-        <h3>How long does it take to develop custom software?</h3>
+        <h3 className="faq-question">How long does it take to develop custom software?</h3>
         <p>
           The timeline for custom software development depends on the complexity
           of the project. On average, it can take anywhere from a few weeks to
@@ -243,20 +243,20 @@ const CustomSoftwareSolutions: React.FC = () => {
           timeline based on your requirements.
         </p>
 
-        <h3>How much does custom software development cost?</h3>
+        <h3 className="faq-question">How much does custom software development cost?</h3>
         <p>
           The cost of custom software development varies depending on the scope
           and complexity of the project. Contact us for a free consultation and
           quote tailored to your needs.
         </p>
 
-        <h3>Can you integrate custom software with our existing systems?</h3>
+        <h3 className="faq-question">Can you integrate custom software with our existing systems?</h3>
         <p>
           Yes, we specialize in system integration to ensure your new software
           works seamlessly with your existing tools and platforms.
         </p>
 
-        <h3>Do you provide ongoing support after deployment?</h3>
+        <h3 className="faq-question">Do you provide ongoing support after deployment?</h3>
         <p>
           Absolutely! We offer ongoing support and maintenance to ensure your
           software continues to perform optimally.

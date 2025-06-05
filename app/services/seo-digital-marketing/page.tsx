@@ -216,35 +216,35 @@ const SEODigitalMarketing: React.FC = () => {
       {/* FAQ */}
       <SectionWrapper className="section-wrapper--faq">
         <h2>Frequently Asked Questions</h2>
-        <h3>What is SEO?</h3>
+        <h3 className="faq-question">What is SEO?</h3>
         <p>
           SEO (Search Engine Optimization) is the process of optimizing your
           website to rank higher in search engine results, making it easier for
           potential customers to find you online.
         </p>
 
-        <h3>How long does it take to see results from SEO?</h3>
+        <h3 className="faq-question">How long does it take to see results from SEO?</h3>
         <p>
           SEO is a long-term strategy, and results typically take 3-6 months to
           become noticeable. However, the timeline can vary depending on your
           industry and competition.
         </p>
 
-        <h3>What is digital marketing?</h3>
+        <h3 className="faq-question">What is digital marketing?</h3>
         <p>
           Digital marketing involves promoting your business online through
           channels like social media, email, search engines, and paid
           advertising to reach your target audience.
         </p>
 
-        <h3>Do you provide content creation services?</h3>
+        <h3 className="faq-question">Do you provide content creation services?</h3>
         <p>
           Yes, we offer content marketing services, including blog posts, social
           media content, and website copy, to help engage your audience and
           improve your SEO.
         </p>
 
-        <h3>Can you manage our social media accounts?</h3>
+        <h3 className="faq-question">Can you manage our social media accounts?</h3>
         <p>
           Absolutely! We provide social media management services to help you
           build your brand and connect with your audience on platforms like

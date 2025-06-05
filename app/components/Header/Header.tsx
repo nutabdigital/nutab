@@ -204,7 +204,25 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
                 cursor: "pointer",
               }}
             >
-              <span style={{ flex: 1, textAlign: "left" }}>Services</span>
+              <span style={{ flex: 1, textAlign: "left" }}>
+                Services{" "}
+                <svg
+                  className={`menu-arrow${isMobileServicesOpen ? " open" : ""}`}
+                  width="18"
+                  height="18"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4 6L8 10L12 6"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
             </button>
             {isMobileServicesOpen && (
               <ul className="mobile-services-sublist">

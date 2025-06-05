@@ -1,17 +1,16 @@
 import React from "react";
-// import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
-// import Footer from "../../components/Footer/Footer";
-// import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
-import { ThemeProvider } from "../../context/ThemeContext";
 import "./page.css";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 
-const SectionWrapper = dynamic(() => import("../../components/SectionWrapper/SectionWrapper"), {
-  ssr: false, // Disable SSR if the component doesn't need it
-});
+const SectionWrapper = dynamic(
+  () => import("../../components/SectionWrapper/SectionWrapper"),
+  {
+    ssr: false, // Disable SSR if the component doesn't need it
+  }
+);
 
 export const generateMetadata = (): Metadata => ({
   title: "SEO & Digital Marketing Services in Calgary - NuTab Digital",
@@ -23,8 +22,7 @@ export const generateMetadata = (): Metadata => ({
 
 const SEODigitalMarketing: React.FC = () => {
   return (
-    <ThemeProvider>
-      {/* <Header /> */}
+    <>
       <Background />
       <Loader />
 
@@ -35,15 +33,15 @@ const SEODigitalMarketing: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "SEO & Digital Marketing",
-            "description":
+            name: "SEO & Digital Marketing",
+            description:
               "Enhance your online visibility and attract customers with our SEO and digital marketing services.",
-            "provider": {
+            provider: {
               "@type": "Organization",
-              "name": "NuTab Digital",
-              "url": "https://nutab.ca",
+              name: "NuTab Digital",
+              url: "https://nutab.ca",
             },
-            "areaServed": "Calgary, Alberta",
+            areaServed: "Calgary, Alberta",
           }),
         }}
       />
@@ -55,9 +53,9 @@ const SEODigitalMarketing: React.FC = () => {
           At <strong>NuTab Digital</strong>, we specialize in delivering{" "}
           <strong>SEO and digital marketing solutions</strong> that help
           businesses enhance their online visibility, attract more customers,
-          and achieve sustainable growth. Whether you’re looking to improve
-          your search engine rankings or run targeted ad campaigns, our team is
-          here to help.
+          and achieve sustainable growth. Whether you’re looking to improve your
+          search engine rankings or run targeted ad campaigns, our team is here
+          to help.
         </p>
       </SectionWrapper>
 
@@ -66,10 +64,10 @@ const SEODigitalMarketing: React.FC = () => {
         <h2>Why Choose SEO & Digital Marketing?</h2>
         <p>
           In today’s digital-first world, having a strong online presence is
-          essential for success. Our <strong>SEO and digital marketing
-          services</strong> are designed to help your business stand out in
-          search results, engage your target audience, and drive measurable
-          results.
+          essential for success. Our{" "}
+          <strong>SEO and digital marketing services</strong> are designed to
+          help your business stand out in search results, engage your target
+          audience, and drive measurable results.
         </p>
       </SectionWrapper>
 
@@ -95,8 +93,8 @@ const SEODigitalMarketing: React.FC = () => {
             campaigns to drive traffic and conversions.
           </li>
           <li>
-            <strong>Email Marketing:</strong> Nurture leads and retain
-            customers with personalized email campaigns.
+            <strong>Email Marketing:</strong> Nurture leads and retain customers
+            with personalized email campaigns.
           </li>
         </ul>
       </SectionWrapper>
@@ -151,21 +149,19 @@ const SEODigitalMarketing: React.FC = () => {
       {/* How We Work */}
       <SectionWrapper>
         <h2>How We Work</h2>
-        <p>
-          Our process ensures your satisfaction at every step:
-        </p>
+        <p>Our process ensures your satisfaction at every step:</p>
         <ol>
           <li>
             <strong>Consultation:</strong> We start by understanding your
             business goals and target audience.
           </li>
           <li>
-            <strong>Strategy Development:</strong> Our team creates a
-            customized marketing plan tailored to your needs.
+            <strong>Strategy Development:</strong> Our team creates a customized
+            marketing plan tailored to your needs.
           </li>
           <li>
-            <strong>Implementation:</strong> We execute your campaigns using
-            the latest tools and techniques.
+            <strong>Implementation:</strong> We execute your campaigns using the
+            latest tools and techniques.
           </li>
           <li>
             <strong>Monitoring and Optimization:</strong> We track performance
@@ -188,8 +184,8 @@ const SEODigitalMarketing: React.FC = () => {
         </p>
         <ul>
           <li>
-            <strong>Expertise:</strong> Our team has extensive experience in
-            SEO and digital marketing.
+            <strong>Expertise:</strong> Our team has extensive experience in SEO
+            and digital marketing.
           </li>
           <li>
             <strong>Customization:</strong> We tailor every strategy to meet
@@ -211,13 +207,14 @@ const SEODigitalMarketing: React.FC = () => {
         <h2>Get Started Today</h2>
         <p>
           Ready to enhance your online presence? <br />
-          Contact us today to learn more about our <strong>SEO and digital
-          marketing services</strong> and how we can help your business grow.
+          Contact us today to learn more about our{" "}
+          <strong>SEO and digital marketing services</strong> and how we can
+          help your business grow.
         </p>
       </SectionWrapper>
 
       {/* FAQ */}
-      <SectionWrapper className = "section-wrapper--faq">
+      <SectionWrapper className="section-wrapper--faq">
         <h2>Frequently Asked Questions</h2>
         <h3>What is SEO?</h3>
         <p>
@@ -242,9 +239,9 @@ const SEODigitalMarketing: React.FC = () => {
 
         <h3>Do you provide content creation services?</h3>
         <p>
-          Yes, we offer content marketing services, including blog posts,
-          social media content, and website copy, to help engage your audience
-          and improve your SEO.
+          Yes, we offer content marketing services, including blog posts, social
+          media content, and website copy, to help engage your audience and
+          improve your SEO.
         </p>
 
         <h3>Can you manage our social media accounts?</h3>
@@ -254,9 +251,7 @@ const SEODigitalMarketing: React.FC = () => {
           Facebook, Instagram, and LinkedIn.
         </p>
       </SectionWrapper>
-
-      {/* <Footer /> */}
-    </ThemeProvider>
+    </>
   );
 };
 

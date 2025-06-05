@@ -1,10 +1,6 @@
 import React from "react";
-// import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
-// import Footer from "../../components/Footer/Footer";
-// import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
-import { ThemeProvider } from "../../context/ThemeContext";
 import "./page.css";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
@@ -23,8 +19,7 @@ export const generateMetadata = (): Metadata => ({
 
 const MobileWebAppDevelopment: React.FC = () => {
   return (
-    <ThemeProvider>
-      {/* <Header /> */}
+    <>
       <Loader />
       <Background />
 
@@ -255,9 +250,7 @@ const MobileWebAppDevelopment: React.FC = () => {
           tools.
         </p>
       </SectionWrapper>
-
-      {/* <Footer /> */}
-    </ThemeProvider>
+    </>
   );
 };
 

@@ -1,34 +1,29 @@
 import React from "react";
-// import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
-import Model from "../../components/Model/Model"
-// import Footer from "../../components/Footer/Footer";
-// import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
-import { ThemeProvider } from "../../context/ThemeContext";
 import "./page.css";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 
-const SectionWrapper = dynamic(() => import("../../components/SectionWrapper/SectionWrapper"), {
-  ssr: false, // Disable SSR if the component doesn't need it
-});
+const SectionWrapper = dynamic(
+  () => import("../../components/SectionWrapper/SectionWrapper"),
+  {
+    ssr: false, // Disable SSR if the component doesn't need it
+  }
+);
 
 export const generateMetadata = (): Metadata => ({
   title: "Custom Software Development Services in Calgary - NuTab Digital",
   description:
     "NuTab Digital offers custom software development services in Calgary, Alberta. We create tailored solutions to streamline operations, enhance efficiency, and drive business growth.",
-  keywords: "custom software development, Calgary, Alberta, enterprise software, SaaS solutions, software integration, business software, scalable software solutions",
+  keywords:
+    "custom software development, Calgary, Alberta, enterprise software, SaaS solutions, software integration, business software, scalable software solutions",
 });
-
-const currentSection = 0;
 
 const CustomSoftwareSolutions: React.FC = () => {
   return (
-    <ThemeProvider>
-      {/* <Header /> */}
+    <>
       <Loader />
-      {/* <Model currentSection={currentSection} /> */}
       <Background />
 
       {/* Structured Data Script */}
@@ -38,15 +33,15 @@ const CustomSoftwareSolutions: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Custom Software Development",
-            "description":
+            name: "Custom Software Development",
+            description:
               "NuTab Digital offers custom software development services in Calgary, Alberta. We create tailored solutions to streamline operations, enhance efficiency, and drive business growth.",
-            "provider": {
+            provider: {
               "@type": "Organization",
-              "name": "NuTab Digital",
-              "url": "https://nutab.ca",
+              name: "NuTab Digital",
+              url: "https://nutab.ca",
             },
-            "areaServed": "Calgary, Alberta",
+            areaServed: "Calgary, Alberta",
           }),
         }}
       />
@@ -59,8 +54,8 @@ const CustomSoftwareSolutions: React.FC = () => {
           <strong>custom software solutions</strong> that are tailored to meet
           the unique needs of businesses in <strong>Calgary, Alberta</strong>,
           and beyond. Our mission is to help you streamline operations, enhance
-          efficiency, and achieve your business goals with innovative,
-          scalable, and secure software.
+          efficiency, and achieve your business goals with innovative, scalable,
+          and secure software.
         </p>
       </SectionWrapper>
 
@@ -70,8 +65,8 @@ const CustomSoftwareSolutions: React.FC = () => {
         <p>
           Off-the-shelf software often falls short of meeting the specific
           requirements of growing businesses. With{" "}
-          <strong>custom software development</strong>, you gain a solution
-          that is designed exclusively for your workflows, ensuring seamless
+          <strong>custom software development</strong>, you gain a solution that
+          is designed exclusively for your workflows, ensuring seamless
           integration and maximum efficiency. Whether you need a{" "}
           <strong>bespoke application</strong>,{" "}
           <strong>enterprise-grade software</strong>, or a{" "}
@@ -180,8 +175,8 @@ const CustomSoftwareSolutions: React.FC = () => {
             bug-free and ready for deployment.
           </li>
           <li>
-            <strong>Deployment and Support:</strong> We launch your software
-            and provide ongoing support to ensure its success.
+            <strong>Deployment and Support:</strong> We launch your software and
+            provide ongoing support to ensure its success.
           </li>
         </ol>
       </SectionWrapper>
@@ -212,8 +207,8 @@ const CustomSoftwareSolutions: React.FC = () => {
             technologies to ensure your software stays relevant.
           </li>
           <li>
-            <strong>Customer-Centric Approach:</strong> Your satisfaction is
-            our top priority.
+            <strong>Customer-Centric Approach:</strong> Your satisfaction is our
+            top priority.
           </li>
         </ul>
       </SectionWrapper>
@@ -223,12 +218,14 @@ const CustomSoftwareSolutions: React.FC = () => {
         <h2>Get Started Today</h2>
         <p>
           Ready to take your business to the next level? Contact us today to
-          learn more about our <strong>custom software development services</strong> and how we can help you achieve your goals.
+          learn more about our{" "}
+          <strong>custom software development services</strong> and how we can
+          help you achieve your goals.
         </p>
       </SectionWrapper>
 
       {/* FAQ */}
-      <SectionWrapper className = "section-wrapper--faq">
+      <SectionWrapper className="section-wrapper--faq">
         <h2>Frequently Asked Questions</h2>
         <h3>What is custom software development?</h3>
         <p>
@@ -240,10 +237,10 @@ const CustomSoftwareSolutions: React.FC = () => {
 
         <h3>How long does it take to develop custom software?</h3>
         <p>
-          The timeline for custom software development depends on the
-          complexity of the project. On average, it can take anywhere from a
-          few weeks to several months. We work closely with you to establish a
-          realistic timeline based on your requirements.
+          The timeline for custom software development depends on the complexity
+          of the project. On average, it can take anywhere from a few weeks to
+          several months. We work closely with you to establish a realistic
+          timeline based on your requirements.
         </p>
 
         <h3>How much does custom software development cost?</h3>
@@ -265,9 +262,7 @@ const CustomSoftwareSolutions: React.FC = () => {
           software continues to perform optimally.
         </p>
       </SectionWrapper>
-
-      {/* <Footer /> */}
-    </ThemeProvider>
+    </>
   );
 };
 

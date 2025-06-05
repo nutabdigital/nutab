@@ -1,17 +1,16 @@
 import React from "react";
-// import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
-// import Footer from "../../components/Footer/Footer";
-// import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
-import { ThemeProvider } from "../../context/ThemeContext";
 import "./page.css";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 
-const SectionWrapper = dynamic(() => import("../../components/SectionWrapper/SectionWrapper"), {
-  ssr: false, // Disable SSR if the component doesn't need it
-});
+const SectionWrapper = dynamic(
+  () => import("../../components/SectionWrapper/SectionWrapper"),
+  {
+    ssr: false, // Disable SSR if the component doesn't need it
+  }
+);
 
 export const generateMetadata = (): Metadata => ({
   title: "E-Commerce Development Services in Calgary - NuTab Digital",
@@ -23,8 +22,7 @@ export const generateMetadata = (): Metadata => ({
 
 const EcommerceDevelopment: React.FC = () => {
   return (
-    <ThemeProvider>
-      {/* <Header /> */}
+    <>
       <Background />
       <Loader />
 
@@ -35,15 +33,15 @@ const EcommerceDevelopment: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "E-Commerce Development",
-            "description":
+            name: "E-Commerce Development",
+            description:
               "We create user-friendly e-commerce platforms tailored to your business needs.",
-            "provider": {
+            provider: {
               "@type": "Organization",
-              "name": "NuTab Digital",
-              "url": "https://nutab.ca",
+              name: "NuTab Digital",
+              url: "https://nutab.ca",
             },
-            "areaServed": "Calgary, Alberta",
+            areaServed: "Calgary, Alberta",
           }),
         }}
       />
@@ -65,9 +63,8 @@ const EcommerceDevelopment: React.FC = () => {
       <SectionWrapper>
         <h2>Why Choose E-Commerce Development?</h2>
         <p>
-          In today’s competitive market, having a{" "}
-          <strong>user-friendly</strong> and{" "}
-          <strong>scalable e-commerce platform</strong> is essential for
+          In today’s competitive market, having a <strong>user-friendly</strong>{" "}
+          and <strong>scalable e-commerce platform</strong> is essential for
           engaging customers and driving sales. Our{" "}
           <strong>e-commerce development services</strong> focus on creating
           intuitive, secure, and high-performing online stores that meet your
@@ -152,9 +149,7 @@ const EcommerceDevelopment: React.FC = () => {
       {/* How We Work */}
       <SectionWrapper>
         <h2>Our Development Process</h2>
-        <p>
-          Our development process ensures your satisfaction at every step:
-        </p>
+        <p>Our development process ensures your satisfaction at every step:</p>
         <ol>
           <li>
             <strong>Consultation:</strong> We start by understanding your
@@ -218,7 +213,7 @@ const EcommerceDevelopment: React.FC = () => {
       </SectionWrapper>
 
       {/* FAQ */}
-      <SectionWrapper className = "section-wrapper--faq">
+      <SectionWrapper className="section-wrapper--faq">
         <h2>Frequently Asked Questions</h2>
         <h3>What is e-commerce development?</h3>
         <p>
@@ -254,9 +249,7 @@ const EcommerceDevelopment: React.FC = () => {
           customers.
         </p>
       </SectionWrapper>
-
-      {/* <Footer /> */}
-    </ThemeProvider>
+    </>
   );
 };
 

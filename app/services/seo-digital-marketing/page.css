@@ -5,3 +5,8 @@
 .section-wrapper--custom-padding {
     margin-top: 10vh; /* Add custom margin-top padding */
 }
+
+.faq-question {
+    font-weight: 700;
+    font-size: large;
+}

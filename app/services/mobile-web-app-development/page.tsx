@@ -1,10 +1,6 @@
 import React from "react";
-// import Header from "../../components/Header/Header";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
-// import Footer from "../../components/Footer/Footer";
-// import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
-import { ThemeProvider } from "../../context/ThemeContext";
 import "./page.css";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
@@ -23,8 +19,7 @@ export const generateMetadata = (): Metadata => ({
 
 const MobileWebAppDevelopment: React.FC = () => {
   return (
-    <ThemeProvider>
-      {/* <Header /> */}
+    <>
       <Loader />
       <Background />
 
@@ -140,7 +135,8 @@ const MobileWebAppDevelopment: React.FC = () => {
           Our <strong>mobile and web app development services</strong> cater to
           a wide range of industries, including:
         </p>
-        <ul>
+        <ul style={{ listStyleType: "disc", paddingLeft: "2rem" }}>
+
           <li>Healthcare</li>
           <li>Finance</li>
           <li>Retail and E-Commerce</li>
@@ -221,7 +217,7 @@ const MobileWebAppDevelopment: React.FC = () => {
       {/* FAQ */}
       <SectionWrapper className = "section-wrapper--faq">
         <h2>Frequently Asked Questions</h2>
-        <h3>What is mobile and web app development?</h3>
+        <h3 className="faq-question">What is mobile and web app development?</h3>
         <p>
           Mobile and web app development involves creating applications for
           mobile devices (iOS and Android) and web browsers. These apps are
@@ -229,35 +225,33 @@ const MobileWebAppDevelopment: React.FC = () => {
           business needs.
         </p>
 
-        <h3>How long does it take to develop an app?</h3>
+        <h3 className="faq-question">How long does it take to develop an app?</h3>
         <p>
           The timeline depends on the complexity of the app. Simple apps can
           take a few weeks, while more complex apps may take several months. We
           work with you to create a realistic timeline.
         </p>
 
-        <h3>Can you build apps for both iOS and Android?</h3>
+        <h3 className="faq-question">Can you build apps for both iOS and Android?</h3>
         <p>
           Yes, we specialize in building cross-platform apps that work
           seamlessly on both iOS and Android devices.
         </p>
 
-        <h3>Do you provide ongoing support for apps?</h3>
+        <h3 className="faq-question">Do you provide ongoing support for apps?</h3>
         <p>
           Yes, we offer ongoing support and maintenance to ensure your app
           remains up-to-date and performs optimally.
         </p>
 
-        <h3>Can you integrate third-party APIs into the app?</h3>
+        <h3 className="faq-question">Can you integrate third-party APIs into the app?</h3>
         <p>
           Absolutely! We can integrate third-party APIs to enhance your app's
           functionality, such as payment gateways, social media, or analytics
           tools.
         </p>
       </SectionWrapper>
-
-      {/* <Footer /> */}
-    </ThemeProvider>
+    </>
   );
 };
 

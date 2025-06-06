@@ -69,6 +69,15 @@
   }
 }
 
+/* Example: Center team-member cards when in a single column */
+@media (max-width: 1000px) {
+  .grid-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
 
 /* Dark Mode Styling */
 [data-theme="dark"] .team-section {

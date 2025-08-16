@@ -112,3 +112,8 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
 }
+
+.section-wrapper:nth-child(15) {
+  width: 90vw;
+  max-width: 100%;
+}

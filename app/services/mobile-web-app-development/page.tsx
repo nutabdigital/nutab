@@ -5,6 +5,7 @@ import "./page.css";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
+import PriceChart from "../../components/PriceChart/PriceChart";
 
 const SectionWrapper = dynamic(() => import("../../components/SectionWrapper/SectionWrapper"), {
   ssr: false, // Disable SSR if the component doesn't need it
@@ -217,41 +218,84 @@ const MobileWebAppDevelopment: React.FC = () => {
       </SectionWrapper>
 
       {/* FAQ */}
-      <SectionWrapper className = "section-wrapper--faq">
-        <h2>Frequently Asked Questions</h2>
-        <h3 className="faq-question">What is mobile and web app development?</h3>
-        <p>
-          Mobile and web app development involves creating applications for
-          mobile devices (iOS and Android) and web browsers. These apps are
-          designed to provide seamless user experiences and meet specific
-          business needs.
-        </p>
+      <SectionWrapper className="section-wrapper--faq">
+        <div className="faq">
+          <header className="faq__header">
+            <h2>Frequently Asked Questions</h2>
+            <p className="faq__lead">Quick answers to common questions about our mobile & web app development services.</p>
+          </header>
 
-        <h3 className="faq-question">How long does it take to develop an app?</h3>
-        <p>
-          The timeline depends on the complexity of the app. Simple apps can
-          take a few weeks, while more complex apps may take several months. We
-          work with you to create a realistic timeline.
-        </p>
+          <div className="faq__list">
+            <details className="faq__item">
+              <summary className="faq__summary">
+                <h3 className="faq-question">What is mobile and web app development?</h3>
+              </summary>
+              <div className="faq-answer">
+                <p>
+                  Mobile and web app development involves creating applications for
+                  mobile devices (iOS and Android) and web browsers. These apps are
+                  designed to provide seamless user experiences and meet specific
+                  business needs.
+                </p>
+              </div>
+            </details>
 
-        <h3 className="faq-question">Can you build apps for both iOS and Android?</h3>
-        <p>
-          Yes, we specialize in building cross-platform apps that work
-          seamlessly on both iOS and Android devices.
-        </p>
+            <details className="faq__item">
+              <summary className="faq__summary">
+                <h3 className="faq-question">How long does it take to develop an app?</h3>
+              </summary>
+              <div className="faq-answer">
+                <p>
+                  The timeline depends on the complexity of the app. Simple apps can
+                  take a few weeks, while more complex apps may take several months. We
+                  work with you to create a realistic timeline.
+                </p>
+              </div>
+            </details>
 
-        <h3 className="faq-question">Do you provide ongoing support for apps?</h3>
-        <p>
-          Yes, we offer ongoing support and maintenance to ensure your app
-          remains up-to-date and performs optimally.
-        </p>
+            <details className="faq__item">
+              <summary className="faq__summary">
+                <h3 className="faq-question">Can you build apps for both iOS and Android?</h3>
+              </summary>
+              <div className="faq-answer">
+                <p>
+                  Yes, we specialize in building cross-platform apps that work
+                  seamlessly on both iOS and Android devices.
+                </p>
+              </div>
+            </details>
 
-        <h3 className="faq-question">Can you integrate third-party APIs into the app?</h3>
-        <p>
-          Absolutely! We can integrate third-party APIs to enhance your app's
-          functionality, such as payment gateways, social media, or analytics
-          tools.
-        </p>
+            <details className="faq__item">
+              <summary className="faq__summary">
+                <h3 className="faq-question">Do you provide ongoing support for apps?</h3>
+              </summary>
+              <div className="faq-answer">
+                <p>
+                  Yes, we offer ongoing support and maintenance to ensure your app
+                  remains up-to-date and performs optimally.
+                </p>
+              </div>
+            </details>
+
+            <details className="faq__item">
+              <summary className="faq__summary">
+                <h3 className="faq-question">Can you integrate third-party APIs into the app?</h3>
+              </summary>
+              <div className="faq-answer">
+                <p>
+                  Absolutely! We can integrate third-party APIs to enhance your app's
+                  functionality, such as payment gateways, social media, or analytics
+                  tools.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </SectionWrapper>
+
+      {/* Pricing / Bundles */}
+      <SectionWrapper>
+        <PriceChart />
       </SectionWrapper>
     </>
   );

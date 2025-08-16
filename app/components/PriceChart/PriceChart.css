@@ -8,6 +8,12 @@
   gap: 2rem;
   align-items: center;
   margin: 0 auto;
+
+  /* scale entire price chart to 90% of original */
+  transform: scale(0.9);
+  transform-origin: top center;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .price-chart__intro {

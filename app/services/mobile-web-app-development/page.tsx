@@ -255,7 +255,7 @@ const MobileWebAppDevelopment: React.FC = () => {
         </p>
       </SectionWrapper>
 
-         {/* Pricing / Bundles */}
+      {/* Pricing / Bundles */}
       <SectionWrapper>
         <PriceChart />
       </SectionWrapper>

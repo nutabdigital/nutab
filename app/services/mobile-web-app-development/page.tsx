@@ -294,9 +294,9 @@ const MobileWebAppDevelopment: React.FC = () => {
       </SectionWrapper>
 
       {/* Pricing / Bundles */}
-      <SectionWrapper>
+      {/* <SectionWrapper>
         <PriceChart />
-      </SectionWrapper>
+      </SectionWrapper> */}
     </>
   );
 };

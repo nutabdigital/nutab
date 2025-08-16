@@ -5,6 +5,7 @@ import "./page.css";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
+import PriceChart from "../../components/PriceChart/PriceChart";
 
 const SectionWrapper = dynamic(() => import("../../components/SectionWrapper/SectionWrapper"), {
   ssr: false, // Disable SSR if the component doesn't need it
@@ -252,6 +253,11 @@ const MobileWebAppDevelopment: React.FC = () => {
           functionality, such as payment gateways, social media, or analytics
           tools.
         </p>
+      </SectionWrapper>
+
+         {/* Pricing / Bundles */}
+      <SectionWrapper>
+        <PriceChart />
       </SectionWrapper>
     </>
   );

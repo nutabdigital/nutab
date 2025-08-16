@@ -3,7 +3,8 @@ import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import "./page.css";
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
+import dynamic from "next/dynamic"; 
+import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";  
 
 const SectionWrapper = dynamic(
   () => import("../../components/SectionWrapper/SectionWrapper"),
@@ -57,6 +58,7 @@ const CustomSoftwareSolutions: React.FC = () => {
           efficiency, and achieve your business goals with innovative, scalable,
           and secure software.
         </p>
+        <GetQuoteButton />
       </SectionWrapper>
 
       {/* Why Choose This Service */}

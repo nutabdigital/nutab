@@ -1,0 +1,28 @@
+.get-quote-button {
+  padding: 0.75rem 1.5rem;
+  width: fit-content;
+  background-color: #03045e;
+  color: rgb(245, 245, 245);
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.15s ease, transform 0.15s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.get-quote-button:hover {
+  background-color: #0067e7;
+  color: rgb(255, 255, 255);
+  transform: translateY(-2px);
+}
+
+
+[data-theme="dark"] .get-quote-button {
+  background-color: #3f37c9;
+  color: #ffffff;
+}
+
+[data-theme="dark"] .get-quote-button:hover {
+  background-color: #0067e7;
+}

@@ -4,6 +4,8 @@ import Background from "../../components/Background/Background";
 import "./page.css";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
+import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
+
 
 const SectionWrapper = dynamic(
   () => import("../../components/SectionWrapper/SectionWrapper"),
@@ -57,6 +59,7 @@ const SEODigitalMarketing: React.FC = () => {
           search engine rankings or run targeted ad campaigns, our team is here
           to help.
         </p>
+         <GetQuoteButton />
       </SectionWrapper>
 
       {/* Why Choose This Service */}
@@ -68,7 +71,7 @@ const SEODigitalMarketing: React.FC = () => {
           <strong>SEO and digital marketing services</strong> are designed to
           help your business stand out in search results, engage your target
           audience, and drive measurable results.
-        </p>
+        </p>     
       </SectionWrapper>
 
       {/* Our Services */}

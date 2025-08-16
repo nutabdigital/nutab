@@ -4,6 +4,7 @@ import Background from "../../components/Background/Background";
 import "./page.css";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
+import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
 
 const SectionWrapper = dynamic(() => import("../../components/SectionWrapper/SectionWrapper"), {
   ssr: false, // Disable SSR if the component doesn't need it
@@ -54,6 +55,7 @@ const MobileWebAppDevelopment: React.FC = () => {
           Android, or a <strong>responsive web application</strong>, our team
           is here to bring your vision to life.
         </p>
+        <GetQuoteButton />
       </SectionWrapper>
 
       {/* Why Choose This Service */}

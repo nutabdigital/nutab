@@ -4,6 +4,7 @@ import Background from "../../components/Background/Background";
 import "./page.css";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
+import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
 
 const SectionWrapper = dynamic(
   () => import("../../components/SectionWrapper/SectionWrapper"),
@@ -57,6 +58,7 @@ const EcommerceDevelopment: React.FC = () => {
           <strong>WooCommerce site</strong>, or a fully custom solution, our
           team is here to bring your vision to life.
         </p>
+        <GetQuoteButton />
       </SectionWrapper>
 
       {/* Why Choose This Service */}

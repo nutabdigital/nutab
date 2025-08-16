@@ -93,6 +93,8 @@ const Model: React.FC<ModelProps> = ({ currentSection }) => {
     renderer = new THREE.WebGLRenderer({
       canvas: canvasRef.current!,
       alpha: true,
+      antialias: true, // Enable antialiasing
+
     });
     renderer.setSize(
       isMobile ? window.innerWidth : window.innerWidth,

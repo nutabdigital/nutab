@@ -71,7 +71,7 @@
   font-size: 1.125rem;
   line-height: 1.6;
   margin-bottom: 2rem;
-  opacity: 0.85;
+  opacity: 1;
 }
 
 /* List Styling */
@@ -107,6 +107,8 @@
 /* Dark Mode */
 [data-theme="dark"] .section-wrapper > div,
 [data-theme="dark"] .section-wrapper--custom-padding > div {
-  background-color: rgba(10, 10, 10, 0.9);
+  background-color: rgba(10, 10, 10, 0.75);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }

@@ -14,13 +14,13 @@ aren't specific to individual pages or components. */
 /* Define CSS variables for colors and themes */
 :root {
   --background: #ffffff; /* Default background color for light mode */
-  --foreground: #171717; /* Default text color for light mode */
+  --foreground: #000000; /* Default text color for light mode */
 }
 
 /* Dark mode variables */
 [data-theme="dark"] {
   --background: #0a0a0a; /* Background color for dark mode */
-  --foreground: #ededed; /* Text color for dark mode */
+  --foreground: #ffffff; /* Text color for dark mode */
 }
 
 /* -------------------- Base Styles & Resets -------------------- */

@@ -8,9 +8,11 @@
   padding-bottom: 2rem;
   margin-left: 2.5vw;
   margin-right: 2.5vw;
-  background-color: rgb(255, 255, 255, 0.9);
+  background-color: rgb(255, 255, 255, 0.75);
   color: var(--foreground);
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-radius: 8px;
   opacity: 0.95; 
   z-index: 10;
@@ -77,7 +79,7 @@ textarea {
 
 /* Dark Mode Styling */
 [data-theme="dark"] .contact-container {
-  background-color: rgba(10, 10, 10, 0.9); /* Dark mode background with 90% opacity */
+  background-color: rgba(10, 10, 10, 0.75); /* Dark mode background with 75% opacity */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
 }
 

@@ -216,40 +216,85 @@ const EcommerceDevelopment: React.FC = () => {
 
       {/* FAQ */}
       <SectionWrapper className="section-wrapper--faq">
-        <h2>Frequently Asked Questions</h2>
-        <h3 className="faq-question">What is e-commerce development?</h3>
-        <p>
-          E-commerce development involves creating online stores and platforms
-          that allow businesses to sell products or services online. This
-          includes features like product catalogs, shopping carts, and payment
-          gateways.
-        </p>
+        <div className="faq">
+          <header className="faq__header">
+            <h2>Frequently Asked Questions</h2>
+            <p className="faq__lead">
+              Quick answers to common questions about our e‑commerce development
+              services.
+            </p>
+          </header>
 
-        <h3 className="faq-question">How long does it take to build an e-commerce website?</h3>
-        <p>
-          The timeline depends on the complexity of the website. Simple
-          e-commerce sites can take a few weeks, while more complex platforms
-          may take several months.
-        </p>
+          <div className="faq__list">
+            <details className="faq__item">
+              <summary className="faq__summary">
+                <h3 className="faq-question">What is e-commerce development?</h3>
+              </summary>
+              <div className="faq-answer">
+                <p>
+                  E-commerce development involves creating online stores and platforms
+                  that allow businesses to sell products or services online. This
+                  includes features like product catalogs, shopping carts, and payment
+                  gateways.
+                </p>
+              </div>
+            </details>
 
-        <h3 className="faq-question">Can you integrate payment gateways?</h3>
-        <p>
-          Yes, we can integrate secure payment gateways like PayPal, Stripe, or
-          custom solutions to ensure smooth transactions for your customers.
-        </p>
+            <details className="faq__item">
+              <summary className="faq__summary">
+                <h3 className="faq-question">
+                  How long does it take to build an e-commerce website?
+                </h3>
+              </summary>
+              <div className="faq-answer">
+                <p>
+                  The timeline depends on the complexity of the website. Simple
+                  e-commerce sites can take a few weeks, while more complex platforms
+                  may take several months.
+                </p>
+              </div>
+            </details>
 
-        <h3 className="faq-question">Do you provide ongoing support for e-commerce websites?</h3>
-        <p>
-          Yes, we offer ongoing support and maintenance to ensure your
-          e-commerce platform runs smoothly and stays up-to-date.
-        </p>
+            <details className="faq__item">
+              <summary className="faq__summary">
+                <h3 className="faq-question">Can you integrate payment gateways?</h3>
+              </summary>
+              <div className="faq-answer">
+                <p>
+                  Yes, we can integrate secure payment gateways like PayPal, Stripe, or
+                  custom solutions to ensure smooth transactions for your customers.
+                </p>
+              </div>
+            </details>
 
-        <h3 className="faq-question">Can you customize the design of the e-commerce site?</h3>
-        <p>
-          Absolutely! We create custom designs tailored to your brand and
-          business needs to provide a unique shopping experience for your
-          customers.
-        </p>
+            <details className="faq__item">
+              <summary className="faq__summary">
+                <h3 className="faq-question">
+                  Do you provide ongoing support for e-commerce websites?
+                </h3>
+              </summary>
+              <div className="faq-answer">
+                <p>
+                  Yes, we offer ongoing support and maintenance to ensure your
+                  e-commerce platform runs smoothly and stays up-to-date.
+                </p>
+              </div>
+            </details>
+
+            <details className="faq__item">
+              <summary className="faq__summary">
+                <h3 className="faq-question">Can you customize the design of the e-commerce site?</h3>
+              </summary>
+              <div className="faq-answer">
+                <p>
+                  Absolutely! We create custom designs tailored to your brand and
+                  business needs to provide a unique shopping experience for your
+                  customers.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
       </SectionWrapper>
     </>
   );

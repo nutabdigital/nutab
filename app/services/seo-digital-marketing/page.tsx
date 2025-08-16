@@ -218,41 +218,79 @@ const SEODigitalMarketing: React.FC = () => {
 
       {/* FAQ */}
       <SectionWrapper className="section-wrapper--faq">
-        <h2>Frequently Asked Questions</h2>
-        <h3 className="faq-question">What is SEO?</h3>
-        <p>
-          SEO (Search Engine Optimization) is the process of optimizing your
-          website to rank higher in search engine results, making it easier for
-          potential customers to find you online.
-        </p>
+        <div className="faq">
+          <header className="faq__header">
+            <h2>Frequently Asked Questions</h2>
+            <p className="faq__lead">Quick answers to common questions about our SEO & digital marketing services.</p>
+          </header>
 
-        <h3 className="faq-question">How long does it take to see results from SEO?</h3>
-        <p>
-          SEO is a long-term strategy, and results typically take 3-6 months to
-          become noticeable. However, the timeline can vary depending on your
-          industry and competition.
-        </p>
+          <div className="faq__list">
+            <details className="faq__item">
+              <summary className="faq__summary">
+                <h3 className="faq-question">What is SEO?</h3>
+              </summary>
+              <div className="faq-answer">
+                <p>
+                  SEO (Search Engine Optimization) is the process of optimizing your
+                  website to rank higher in search engine results, making it easier for
+                  potential customers to find you online.
+                </p>
+              </div>
+            </details>
 
-        <h3 className="faq-question">What is digital marketing?</h3>
-        <p>
-          Digital marketing involves promoting your business online through
-          channels like social media, email, search engines, and paid
-          advertising to reach your target audience.
-        </p>
+            <details className="faq__item">
+              <summary className="faq__summary">
+                <h3 className="faq-question">How long does it take to see results from SEO?</h3>
+              </summary>
+              <div className="faq-answer">
+                <p>
+                  SEO is a long-term strategy, and results typically take 3-6 months to
+                  become noticeable. However, the timeline can vary depending on your
+                  industry and competition.
+                </p>
+              </div>
+            </details>
 
-        <h3 className="faq-question">Do you provide content creation services?</h3>
-        <p>
-          Yes, we offer content marketing services, including blog posts, social
-          media content, and website copy, to help engage your audience and
-          improve your SEO.
-        </p>
+            <details className="faq__item">
+              <summary className="faq__summary">
+                <h3 className="faq-question">What is digital marketing?</h3>
+              </summary>
+              <div className="faq-answer">
+                <p>
+                  Digital marketing involves promoting your business online through
+                  channels like social media, email, search engines, and paid
+                  advertising to reach your target audience.
+                </p>
+              </div>
+            </details>
 
-        <h3 className="faq-question">Can you manage our social media accounts?</h3>
-        <p>
-          Absolutely! We provide social media management services to help you
-          build your brand and connect with your audience on platforms like
-          Facebook, Instagram, and LinkedIn.
-        </p>
+            <details className="faq__item">
+              <summary className="faq__summary">
+                <h3 className="faq-question">Do you provide content creation services?</h3>
+              </summary>
+              <div className="faq-answer">
+                <p>
+                  Yes, we offer content marketing services, including blog posts, social
+                  media content, and website copy, to help engage your audience and
+                  improve your SEO.
+                </p>
+              </div>
+            </details>
+
+            <details className="faq__item">
+              <summary className="faq__summary">
+                <h3 className="faq-question">Can you manage our social media accounts?</h3>
+              </summary>
+              <div className="faq-answer">
+                <p>
+                  Absolutely! We provide social media management services to help you
+                  build your brand and connect with your audience on platforms like
+                  Facebook, Instagram, and LinkedIn.
+                </p>
+              </div>
+            </details>
+          </div>
+        </div>
       </SectionWrapper>
     </>
   );

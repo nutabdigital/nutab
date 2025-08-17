@@ -131,7 +131,7 @@ const HomePage: React.FC = () => {
           <section
             id="contact"
             className="page-section fade-section align-right"
-            data-section="4"
+            data-section="1"
           >
             <Contact />
           </section>

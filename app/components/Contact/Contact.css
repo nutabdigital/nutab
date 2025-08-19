@@ -128,7 +128,7 @@ textarea {
 }
 
 .contact-left p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-bottom: 1.5rem;
 }
 
@@ -140,15 +140,30 @@ textarea {
 .contact-right {
   flex: 1.2;
   padding: 2rem 2rem;
-  background-color: #0a0a0a; /* Updated to match container black */
-  color: var(--foreground);
-  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
+  background-color: rgb(255, 255, 255, 0.70); /* Matches light mode container */
+  color: #222; /* Use a dark text for readability in light mode */
+  /* Remove left box-shadow only in two-column layout */
+  box-shadow: 4px 0 12px rgba(3, 3, 3, 0.198), 0 4px 12px rgba(3, 3, 3, 0.198);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 0 8px 8px 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+/* Remove left-side box-shadow when in two-column layout */
+.contact-two-col .contact-right {
+  box-shadow: 4px 0 12px rgba(3, 3, 3, 0.198); /* Only right shadow */
+}
+
+/* Ensure form fields look good in light mode */
+.contact-right .name-textarea,
+.contact-right .email-textarea,
+.contact-right .message-textarea {
+  background: #fff;
+  color: #222;
+  border: 1px solid #ccc;
 }
 
 .contact-right h2 {
@@ -163,14 +178,16 @@ textarea {
     flex-direction: column;
     min-height: unset;
     max-width: 98vw;
+    width: 85vw; /* Ensure the container only takes up 90% of the viewport */
+    margin: 0 auto;
   }
   .contact-left, .contact-right {
     border-radius: 8px;
     padding: 1.5rem 1rem;
   }
-  .contact-left {
+  /* .contact-left {
     margin-bottom: 1rem;
-  }
+  } */
 }
 
 /* Dark mode gradient */
@@ -178,4 +195,12 @@ textarea {
   background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
   background-color: rgb(255, 255, 255, 0.70);
   color: #fff;
+}
+
+/* Dark mode override for right column */
+[data-theme="dark"] .contact-right {
+  background-color: rgba(10, 10, 10, 0.7);
+  color: var(--foreground);
+  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
+
 }

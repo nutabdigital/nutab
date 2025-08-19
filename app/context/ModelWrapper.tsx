@@ -3,10 +3,12 @@
 import React, { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Model from "../components/Model/Model";
+import { useSectionContext } from "./SectionContext";
 
 const ModelWrapper: React.FC = () => {
   const pathname = usePathname();
-  const [currentSection, setCurrentSection] = useState<number>(0);
+  const { currentSection } = useSectionContext();
+  const [section, setSection] = useState<number>(0);
 
   useEffect(() => {
     if (pathname === "/") {
@@ -18,7 +20,7 @@ const ModelWrapper: React.FC = () => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               const sectionNumber = parseInt(entry.target.getAttribute("data-section") || "0");
-              setCurrentSection(sectionNumber);
+              setSection(sectionNumber);
             }
           });
         },
@@ -29,12 +31,12 @@ const ModelWrapper: React.FC = () => {
 
       return () => observer.disconnect();
     } else {
-      // On service pages, set currentSection to 2
-      setCurrentSection(2);
+      // On service pages, use the context value
+      setSection(currentSection);
     }
-  }, [pathname]);
+  }, [pathname, currentSection]);
 
-  return <Model currentSection={currentSection} />;
+  return <Model currentSection={section} />;
 };
 
 export default ModelWrapper;

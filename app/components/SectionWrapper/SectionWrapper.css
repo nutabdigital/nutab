@@ -117,3 +117,22 @@
   width: 90vw;
   max-width: 100%;
 }
+
+.section-wrapper--pricing-full {
+  width: 79vw;
+  max-width: 100vw;
+  margin-left: 50%;
+  margin-bottom: 7vh;
+  transform: translateX(-50%);
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.section-wrapper--pricing-full > .price-chart {
+  width: 100vw;
+  max-width: 1200px;
+  margin: 0 auto;
+}

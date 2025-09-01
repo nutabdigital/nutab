@@ -12,11 +12,11 @@ const SectionWrapper = dynamic(() => import("../../components/SectionWrapper/Sec
 });
 
 export const generateMetadata = (): Metadata => ({
-  title: "Mobile & Web App Development Services in Calgary - NuTab Digital",
+  title: "Mobile App Development Calgary Alberta - iOS Android Web Apps | NuTab Digital",
   description:
-    "NuTab Digital offers mobile and web app development services in Calgary, Alberta. Build scalable, user-friendly apps for iOS, Android, and the web.",
+    "Expert mobile app development company in Calgary, Alberta. NuTab Digital builds custom iOS, Android, and web applications for Calgary businesses. Professional app developers delivering scalable mobile solutions.",
   keywords:
-    "mobile app development, web app development, Calgary, Alberta, iOS apps, Android apps, responsive web applications, scalable apps, custom app development",
+    "mobile app development Calgary, mobile app development Calgary Alberta, iOS app development Calgary, Android app development Calgary, web app development Calgary, app developers Calgary, mobile software Calgary, Calgary app development company, Alberta mobile apps",
 });
 
 const MobileWebAppDevelopment: React.FC = () => {

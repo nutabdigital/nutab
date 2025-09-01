@@ -14,11 +14,11 @@ const SectionWrapper = dynamic(
 );
 
 export const generateMetadata = (): Metadata => ({
-  title: "Custom Software Development Services in Calgary - NuTab Digital",
+  title: "Custom Software Development Calgary Alberta - Enterprise Solutions | NuTab Digital",
   description:
-    "NuTab Digital offers custom software development services in Calgary, Alberta. We create tailored solutions to streamline operations, enhance efficiency, and drive business growth.",
+    "Leading custom software development company in Calgary, Alberta. NuTab Digital creates tailored enterprise software solutions, SaaS platforms, and business applications for Calgary businesses. Expert Alberta software developers.",
   keywords:
-    "custom software development, Calgary, Alberta, enterprise software, SaaS solutions, software integration, business software, scalable software solutions",
+    "custom software development Calgary, custom software development Calgary Alberta, enterprise software Calgary, SaaS development Calgary, business software Calgary, software development company Calgary, Calgary software developers, Alberta software development, custom applications Calgary",
 });
 
 const CustomSoftwareSolutions: React.FC = () => {
@@ -36,7 +36,7 @@ const CustomSoftwareSolutions: React.FC = () => {
             "@type": "Service",
             name: "Custom Software Development",
             description:
-              "NuTab Digital offers custom software development services in Calgary, Alberta. We create tailored solutions to streamline operations, enhance efficiency, and drive business growth.",
+              "Leading custom software development company in Calgary, Alberta. NuTab Digital creates tailored enterprise software solutions, SaaS platforms, and business applications for Calgary businesses.",
             provider: {
               "@type": "Organization",
               name: "NuTab Digital",
@@ -49,7 +49,7 @@ const CustomSoftwareSolutions: React.FC = () => {
 
       {/* Hero Section */}
       <SectionWrapper className="section-wrapper--custom-padding">
-        <h1>Custom Software Development Services in Calgary</h1>
+        <h1>Custom Software Development Services in Calgary, Alberta</h1>
         <p>
           At <strong>NuTab Digital</strong>, we specialize in delivering{" "}
           <strong>custom software solutions</strong> that are tailored to meet

@@ -14,11 +14,11 @@ const SectionWrapper = dynamic(
 );
 
 export const generateMetadata = (): Metadata => ({
-  title: "E-Commerce Development Services in Calgary - NuTab Digital",
+  title: "E-Commerce Development Calgary Alberta - Online Store Solutions | NuTab Digital",
   description:
-    "NuTab Digital offers e-commerce development services in Calgary, Alberta. Build scalable, user-friendly online stores tailored to your business needs.",
+    "Professional e-commerce development company in Calgary, Alberta. NuTab Digital creates custom online stores, Shopify solutions, and scalable e-commerce platforms for Calgary businesses. Expert Alberta e-commerce developers.",
   keywords:
-    "e-commerce development, online store development, Calgary, Alberta, Shopify, WooCommerce, custom e-commerce solutions, scalable e-commerce platforms",
+    "e-commerce development Calgary, e-commerce development Calgary Alberta, online store development Calgary, Shopify development Calgary, WooCommerce Calgary, e-commerce website Calgary, Calgary online store, Alberta e-commerce development, custom e-commerce Calgary",
 });
 
 const EcommerceDevelopment: React.FC = () => {

@@ -13,9 +13,9 @@ const Tagline: React.FC = () => {
     <section className="tagline-section">
       <div className="tagline-container">
         <h2 className="tagline-title">
-        Open a New Tab,<br/>Start Something Extraordinary.
+        Calgary Software Development.<br/>Start Something Extraordinary.
         </h2>
-        <p className="tagline-description" >Elevating your brand through custom software solutions.</p>
+        <p className="tagline-description" >Leading Calgary software development company elevating your brand through custom software solutions in Alberta.</p>
         <div className="tag-buttons">
           <button
             className="learn-more-button"

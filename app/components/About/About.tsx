@@ -18,8 +18,8 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
               alt="mapleleaf"
               className="iconcan"
             />
-            <h1>Built in Canada, Designed for Growth.<br />
-              Your Digital Partner from Coast to Coast.</h1>
+            <h1>Calgary Software Development Excellence.<br />
+              Your Trusted Alberta Digital Partner.</h1>
           </div>
 
         </div>
@@ -37,8 +37,9 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
             </div>
 
             <p>
-              We create tailored solutions for businesses—whether it’s building a custom website,
-              improving your SEO, or developing mobile apps to engage your customers.
+              We create tailored software solutions for Calgary businesses—whether it's building custom software applications,
+              improving your SEO, or developing mobile and web apps to engage your customers. Our Calgary-based team delivers
+              innovative software development services across Alberta.
             </p>
           </div>
           <div
@@ -53,8 +54,8 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
               <h3>Why Choose Us</h3>
             </div>
             <p>
-              Our team works face-to-face with Canadian businesses to understand their needs
-              and deliver results that drive growth. We build long-term relationships, not just solutions.
+              Our team works directly with Calgary and Alberta businesses to understand their unique software development needs
+              and deliver results that drive growth. We build long-term partnerships with local companies, not just software solutions.
             </p>
           </div>
           <div
@@ -69,8 +70,8 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
               <h3>Our Vision</h3>
             </div>
             <p>
-              To empower Canadian businesses with innovative, scalable, and effective digital
-              strategies that boost visibility and success in today’s competitive market.
+              To empower Calgary and Alberta businesses with innovative, scalable, and effective software development
+              strategies that boost visibility and success in today's competitive market.
             </p>
           </div>
         </div>

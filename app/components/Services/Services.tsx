@@ -9,7 +9,7 @@ const Services: React.FC = () => {
       id: "custom-software",
       name: "Custom Software Solutions",
       description:
-        "We create custom software that streamlines operations and boosts efficiency, tailored to your business needs.",
+        "We create custom software applications that streamline operations and boost efficiency, tailored to Calgary business needs.",
       link: "/services/custom-software",
     },
     {
@@ -17,7 +17,7 @@ const Services: React.FC = () => {
       id: "app-development",
       name: "Mobile & Web App Development",
       description:
-        "We create user-friendly apps that provide seamless experiences and help businesses engage customers.",
+        "We create user-friendly mobile and web apps that provide seamless experiences and help Calgary businesses engage customers.",
       link: "/services/mobile-web-app-development",
     },
     {
@@ -25,7 +25,7 @@ const Services: React.FC = () => {
       id: "seo-digital-marketing",
       name: "SEO & Digital Marketing",
       description:
-        "Enhance online visibility and attract customers with SEO and targeted digital marketing strategies.",
+        "Enhance online visibility and attract customers with Calgary SEO and targeted digital marketing strategies.",
       link: "/services/seo-digital-marketing",
     },
     {
@@ -33,14 +33,14 @@ const Services: React.FC = () => {
       id: "ecommerce-development",
       name: "E-Commerce Development",
       description:
-        "Build scalable e-commerce sites with seamless shopping experiences, secure payments, and inventory management.",
+        "Build scalable e-commerce sites for Calgary businesses with seamless shopping experiences, secure payments, and inventory management.",
       link: "/services/ecommerce-development",
     },
   ];
 
   return (
     <section className="services-section">
-      <h2 className="services-title">Our Services</h2>
+      <h2 className="services-title">Calgary Software Development Services</h2>
       <div className="services-list">
         {services.map((service) => (
           <Link key={service.id} href={service.link} className="service-box">

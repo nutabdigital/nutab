@@ -11,6 +11,7 @@ interface HeaderProps {
   currentSection?: number; // The index of the current section in view (optional for service pages)
 }
 
+// Updated servicesDropdown with Graphic & Brand Design
 const servicesDropdown = [
   { name: "Custom Software Solutions", link: "/services/custom-software" },
   {
@@ -19,6 +20,11 @@ const servicesDropdown = [
   },
   { name: "SEO & Digital Marketing", link: "/services/seo-digital-marketing" },
   { name: "E-Commerce Development", link: "/services/ecommerce-development" },
+  { name: "AI & Automation Solutions", link: "/services/ai-automation" },
+  { name: "Business & IT Consulting", link: "/services/business-it-consulting" },
+  { name: "Graphic & Brand Design", link: "/services/graphic-brand-design" },
+  { name: "Photography & Media Production", link: "/services/photography-media-production" }, // Added new service
+ // Added new service
 ];
 
 const Header: React.FC<HeaderProps> = ({ currentSection }) => {

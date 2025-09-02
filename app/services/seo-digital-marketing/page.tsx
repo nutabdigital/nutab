@@ -5,12 +5,13 @@ import "./page.css";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
-
+import HeroSection from "../custom-software/HeroSection";
+import { LineChart, Megaphone, Users } from "lucide-react";
 
 const SectionWrapper = dynamic(
   () => import("../../components/SectionWrapper/SectionWrapper"),
   {
-    ssr: false, // Disable SSR if the component doesn't need it
+    ssr: false,
   }
 );
 
@@ -49,17 +50,35 @@ const SEODigitalMarketing: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <SectionWrapper className="section-wrapper--custom-padding">
-        <h1>SEO & Digital Marketing Services in Calgary</h1>
-        <p>
-          At <strong>NuTab Digital</strong>, we specialize in delivering{" "}
-          <strong>SEO and digital marketing solutions</strong> that help
-          businesses enhance their online visibility, attract more customers,
-          and achieve sustainable growth. Whether you’re looking to improve your
-          search engine rankings or run targeted ad campaigns, our team is here
-          to help.
-        </p>
-         <GetQuoteButton />
+      <SectionWrapper className="section-wrapper--no-padding">
+        <HeroSection
+          title="SEO & Digital Marketing Services in Calgary"
+          subtitle={
+            <>
+              At <span className="highlight">NuTab Digital</span>, we specialize in delivering{" "}
+              <span className="accent">SEO and digital marketing solutions</span> that help
+              businesses enhance their online visibility, attract more customers,
+              and achieve sustainable growth. Whether you’re looking to improve your
+              search engine rankings or run targeted ad campaigns, our team is here
+              to help.
+            </>
+          }
+          icons={[
+            {
+              icon: <LineChart className="icon purple" />,
+              label: "SEO Strategies",
+            },
+            {
+              icon: <Megaphone className="icon blue" />,
+              label: "Digital Campaigns",
+            },
+            {
+              icon: <Users className="icon pink" />,
+              label: "Audience Growth",
+            },
+          ]}
+          showCTA={true}
+        />
       </SectionWrapper>
 
       {/* Why Choose This Service */}

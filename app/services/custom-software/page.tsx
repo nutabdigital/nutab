@@ -3,13 +3,15 @@ import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import "./page.css";
 import { Metadata } from "next";
-import dynamic from "next/dynamic"; 
-import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";  
+import dynamic from "next/dynamic";
+import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
+import HeroSection from "./HeroSection";
+import { Code2, Layers, ShieldCheck } from "lucide-react";
 
 const SectionWrapper = dynamic(
   () => import("../../components/SectionWrapper/SectionWrapper"),
   {
-    ssr: false, // Disable SSR if the component doesn't need it
+    ssr: false,
   }
 );
 
@@ -27,7 +29,6 @@ const CustomSoftwareSolutions: React.FC = () => {
       <Loader />
       <Background />
 
-      {/* Structured Data Script */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -47,101 +48,126 @@ const CustomSoftwareSolutions: React.FC = () => {
         }}
       />
 
-      {/* Hero Section */}
-      <SectionWrapper className="section-wrapper--custom-padding">
-        <h1>Custom Software Development Services in Calgary</h1>
-        <p>
-          At <strong>NuTab Digital</strong>, we specialize in delivering{" "}
-          <strong>custom software solutions</strong> that are tailored to meet
-          the unique needs of businesses in <strong>Calgary, Alberta</strong>,
-          and beyond. Our mission is to help you streamline operations, enhance
-          efficiency, and achieve your business goals with innovative, scalable,
-          and secure software.
-        </p>
-        <GetQuoteButton />
+      <SectionWrapper className="section-wrapper--no-padding">
+        <HeroSection
+          title="Custom Software Development Services in Calgary"
+          subtitle={
+            <>
+              At <span className="highlight">NuTab Digital</span>, we build
+              <span className="accent"> tailored software solutions </span>
+              that streamline operations, boost efficiency, and drive business growth.
+              Whether you need a <span className="accent">bespoke application</span>, 
+              <span className="accent">enterprise-grade software</span>, or a 
+              <span className="accent">custom SaaS platform</span>, our team delivers future-ready results.
+            </>
+          }
+          icons={[
+            {
+              icon: <Code2 className="icon purple" />,
+              label: "Custom Applications",
+            },
+            {
+              icon: <Layers className="icon blue" />,
+              label: "Enterprise Solutions",
+            },
+            {
+              icon: <ShieldCheck className="icon pink" />,
+              label: "Secure Architecture",
+            },
+          ]}
+          showCTA={true}
+        />
       </SectionWrapper>
 
-      {/* Why Choose This Service */}
       <SectionWrapper>
-        <h2>Why Choose Custom Software Development?</h2>
-        <p>
+        <h2 className="gradient-title">
+          Why Choose Custom Software Development?
+        </h2>
+        <p className="section-text">
           Off-the-shelf software often falls short of meeting the specific
           requirements of growing businesses. With{" "}
-          <strong>custom software development</strong>, you gain a solution that
-          is designed exclusively for your workflows, ensuring seamless
-          integration and maximum efficiency. Whether you need a{" "}
-          <strong>bespoke application</strong>,{" "}
-          <strong>enterprise-grade software</strong>, or a{" "}
-          <strong>custom SaaS platform</strong>, we’ve got you covered.
+          <span className="highlight">custom software development</span>, you
+          gain a solution that is designed exclusively for your workflows,
+          ensuring seamless integration and maximum efficiency. Whether you need
+          a <span className="accent">bespoke application</span>,{" "}
+          <span className="accent">enterprise-grade software</span>, or a{" "}
+          <span className="accent">custom SaaS platform</span>, we’ve got you
+          covered.
         </p>
       </SectionWrapper>
 
-      {/* Our Services */}
       <SectionWrapper>
-        <h2>Our Custom Software Development Services</h2>
-        <ul>
+        <h2 className="gradient-title">
+          Our Custom Software Development Services
+        </h2>
+        <ul className="styled-list">
           <li>
-            <strong>Enterprise Software Development:</strong> Build robust,
-            scalable solutions for large-scale operations.
+            <span className="accent">Enterprise Software Development:</span>{" "}
+            Build robust, scalable solutions for large-scale operations.
           </li>
           <li>
-            <strong>Custom SaaS Solutions:</strong> Create subscription-based
-            software tailored to your business model.
+            <span className="accent">Custom SaaS Solutions:</span> Create
+            subscription-based software tailored to your business model.
           </li>
           <li>
-            <strong>System Integration:</strong> Seamlessly integrate new
-            software with your existing systems.
+            <span className="accent">System Integration:</span> Seamlessly
+            integrate new software with your existing systems.
           </li>
           <li>
-            <strong>Secure Architecture:</strong> Ensure your software is built
-            with top-notch security protocols.
+            <span className="accent">Secure Architecture:</span> Ensure your
+            software is built with top-notch security protocols.
           </li>
           <li>
-            <strong>Ongoing Support:</strong> Receive continuous updates and
-            maintenance to keep your software running smoothly.
+            <span className="accent">Ongoing Support:</span> Receive continuous
+            updates and maintenance to keep your software running smoothly.
           </li>
         </ul>
       </SectionWrapper>
 
-      {/* Benefits of the Service */}
       <SectionWrapper>
-        <h2>Benefits of Custom Software Development</h2>
-        <p>
+        <h2 className="gradient-title">
+          Benefits of Custom Software Development
+        </h2>
+        <p className="section-text">
           Investing in custom software development offers numerous advantages
           for your business:
         </p>
-        <ul>
+        <ul className="styled-list">
           <li>
-            <strong>Tailored Solutions:</strong> Address your unique business
-            challenges with software designed specifically for your needs.
+            <span className="accent">Tailored Solutions:</span> Address your
+            unique business challenges with software designed specifically for
+            your needs.
           </li>
           <li>
-            <strong>Scalability:</strong> Ensure your software grows with your
-            business, adapting to changing requirements.
+            <span className="accent">Scalability:</span> Ensure your software
+            grows with your business, adapting to changing requirements.
           </li>
           <li>
-            <strong>Improved Efficiency:</strong> Automate repetitive tasks and
-            streamline workflows to save time and resources.
+            <span className="accent">Improved Efficiency:</span> Automate
+            repetitive tasks and streamline workflows to save time and
+            resources.
           </li>
           <li>
-            <strong>Competitive Advantage:</strong> Stand out in your industry
-            with innovative and unique software solutions.
+            <span className="accent">Competitive Advantage:</span> Stand out in
+            your industry with innovative and unique software solutions.
           </li>
           <li>
-            <strong>Enhanced Security:</strong> Protect sensitive data with
-            custom-built security features.
+            <span className="accent">Enhanced Security:</span> Protect sensitive
+            data with custom-built security features.
           </li>
         </ul>
       </SectionWrapper>
 
-      {/* Industries We Serve */}
       <SectionWrapper>
-        <h2>Industries We Serve</h2>
-        <p>
-          Our <strong>custom software solutions</strong> cater to a wide range
-          of industries, including:
+        <h2 className="gradient-title">Industries We Serve</h2>
+        <p className="section-text">
+          Our <span className="highlight">custom software solutions</span> cater
+          to a wide range of industries, including:
         </p>
-        <ul style={{ listStyleType: "disc", paddingLeft: "2rem" }}>
+        <ul
+          className="styled-list"
+          style={{ listStyleType: "disc", paddingLeft: "2rem" }}
+        >
           <li>Healthcare</li>
           <li>Finance</li>
           <li>Retail and E-Commerce</li>
@@ -152,150 +178,168 @@ const CustomSoftwareSolutions: React.FC = () => {
         </ul>
       </SectionWrapper>
 
-      {/* How We Work */}
       <SectionWrapper>
-        <h2>Our Development Process</h2>
-        <p>
+        <h2 className="gradient-title">Our Development Process</h2>
+        <p className="section-text">
           At NuTab Digital, we follow a proven process to ensure the success of
           your custom software project:
         </p>
-        <ol>
+        <ol className="styled-list">
           <li>
-            <strong>Consultation:</strong> We start by understanding your
-            business needs and goals.
+            <span className="accent">Consultation:</span> We start by
+            understanding your business needs and goals.
           </li>
           <li>
-            <strong>Design:</strong> Our team creates a detailed plan and
-            wireframes for your approval.
+            <span className="accent">Design:</span> Our team creates a detailed
+            plan and wireframes for your approval.
           </li>
           <li>
-            <strong>Development:</strong> We build your software using the
-            latest technologies and best practices.
+            <span className="accent">Development:</span> We build your software
+            using the latest technologies and best practices.
           </li>
           <li>
-            <strong>Testing:</strong> Rigorous testing ensures your software is
-            bug-free and ready for deployment.
+            <span className="accent">Testing:</span> Rigorous testing ensures
+            your software is bug-free and ready for deployment.
           </li>
           <li>
-            <strong>Deployment and Support:</strong> We launch your software and
-            provide ongoing support to ensure its success.
+            <span className="accent">Deployment and Support:</span> We launch
+            your software and provide ongoing support to ensure its success.
           </li>
         </ol>
       </SectionWrapper>
 
-      {/* Why Partner with NuTab Digital */}
       <SectionWrapper>
-        <h2>Why Partner with NuTab Digital?</h2>
-        <p>
+        <h2 className="gradient-title">Why Partner with NuTab Digital?</h2>
+        <p className="section-text">
           At NuTab Digital, we pride ourselves on being a{" "}
-          <strong>trusted software development partner</strong>. Here’s why
-          businesses choose us:
+          <span className="highlight">
+            trusted software development partner
+          </span>
+          . Here’s why businesses choose us:
         </p>
-        <ul>
+        <ul className="styled-list">
           <li>
-            <strong>Transparency:</strong> We value open communication and keep
-            you informed at every stage of development.
+            <span className="accent">Transparency:</span> We value open
+            communication and keep you informed at every stage of development.
           </li>
           <li>
-            <strong>Scalability:</strong> Our solutions are designed to grow
-            with your business.
+            <span className="accent">Scalability:</span> Our solutions are
+            designed to grow with your business.
           </li>
           <li>
-            <strong>Local Expertise:</strong> Based in Calgary, we understand
-            the unique challenges and opportunities of Canadian businesses.
+            <span className="accent">Local Expertise:</span> Based in Calgary,
+            we understand the unique challenges and opportunities of Canadian
+            businesses.
           </li>
           <li>
-            <strong>Future-Ready Solutions:</strong> We use the latest
-            technologies to ensure your software stays relevant.
+            <span className="accent">Future-Ready Solutions:</span> We use the
+            latest technologies to ensure your software stays relevant.
           </li>
           <li>
-            <strong>Customer-Centric Approach:</strong> Your satisfaction is our
-            top priority.
+            <span className="accent">Customer-Centric Approach:</span> Your
+            satisfaction is our top priority.
           </li>
         </ul>
       </SectionWrapper>
 
-      {/* Get Started Today */}
       <SectionWrapper>
-        <h2>Get Started Today</h2>
-        <p>
+        <h2 className="gradient-title">Get Started Today</h2>
+        <p className="section-text">
           Ready to take your business to the next level? Contact us today to
           learn more about our{" "}
-          <strong>custom software development services</strong> and how we can
-          help you achieve your goals.
+          <span className="highlight">
+            custom software development services
+          </span>{" "}
+          and how we can help you achieve your goals.
         </p>
+
+        <GetQuoteButton />
       </SectionWrapper>
 
-      {/* FAQ */}
       <SectionWrapper className="section-wrapper--faq">
         <div className="faq">
           <header className="faq__header">
-            <h2>Frequently Asked Questions</h2>
-            <p className="faq__lead">Quick answers to common questions about our custom software development services.</p>
+            <h2 className="gradient-title">Frequently Asked Questions</h2>
+            <p className="faq__lead section-text">
+              Quick answers to common questions about our custom software
+              development services.
+            </p>
           </header>
 
           <div className="faq__list">
             <details className="faq__item">
               <summary className="faq__summary">
-                <h3 className="faq-question">What is custom software development?</h3>
+                <h3 className="faq-question">
+                  What is custom software development?
+                </h3>
               </summary>
-              <div className="faq-answer">
+              <div className="faq-answer section-text">
                 <p>
-                  Custom software development involves creating software applications
-                  tailored to meet the specific needs of a business or organization.
-                  Unlike off-the-shelf software, custom solutions are designed to
-                  address unique challenges and workflows.
+                  Custom software development involves creating software
+                  applications tailored to meet the specific needs of a business
+                  or organization. Unlike off-the-shelf software, custom
+                  solutions are designed to address unique challenges and
+                  workflows.
                 </p>
               </div>
             </details>
 
             <details className="faq__item">
               <summary className="faq__summary">
-                <h3 className="faq-question">How long does it take to develop custom software?</h3>
+                <h3 className="faq-question">
+                  How long does it take to develop custom software?
+                </h3>
               </summary>
-              <div className="faq-answer">
+              <div className="faq-answer section-text">
                 <p>
-                  The timeline for custom software development depends on the complexity
-                  of the project. On average, it can take anywhere from a few weeks to
-                  several months. We work closely with you to establish a realistic
-                  timeline based on your requirements.
+                  The timeline for custom software development depends on the
+                  complexity of the project. On average, it can take anywhere
+                  from a few weeks to several months. We work closely with you
+                  to establish a realistic timeline based on your requirements.
                 </p>
               </div>
             </details>
 
             <details className="faq__item">
               <summary className="faq__summary">
-                <h3 className="faq-question">How much does custom software development cost?</h3>
+                <h3 className="faq-question">
+                  How much does custom software development cost?
+                </h3>
               </summary>
-              <div className="faq-answer">
+              <div className="faq-answer section-text">
                 <p>
-                  The cost of custom software development varies depending on the scope
-                  and complexity of the project. Contact us for a free consultation and
-                  quote tailored to your needs.
+                  The cost of custom software development varies depending on
+                  the scope and complexity of the project. Contact us for a free
+                  consultation and quote tailored to your needs.
                 </p>
               </div>
             </details>
 
             <details className="faq__item">
               <summary className="faq__summary">
-                <h3 className="faq-question">Can you integrate custom software with our existing systems?</h3>
+                <h3 className="faq-question">
+                  Can you integrate custom software with our existing systems?
+                </h3>
               </summary>
-              <div className="faq-answer">
+              <div className="faq-answer section-text">
                 <p>
-                  Yes, we specialize in system integration to ensure your new software
-                  works seamlessly with your existing tools and platforms.
+                  Yes, we specialize in system integration to ensure your new
+                  software works seamlessly with your existing tools and
+                  platforms.
                 </p>
               </div>
             </details>
 
             <details className="faq__item">
               <summary className="faq__summary">
-                <h3 className="faq-question">Do you provide ongoing support after deployment?</h3>
+                <h3 className="faq-question">
+                  Do you provide ongoing support after deployment?
+                </h3>
               </summary>
-              <div className="faq-answer">
+              <div className="faq-answer section-text">
                 <p>
-                  Absolutely! We offer ongoing support and maintenance to ensure your
-                  software continues to perform optimally.
+                  Absolutely! We offer ongoing support and maintenance to ensure
+                  your software continues to perform optimally.
                 </p>
               </div>
             </details>

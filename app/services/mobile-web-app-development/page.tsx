@@ -5,10 +5,11 @@ import "./page.css";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
-import PriceChart from "../../components/PriceChart/PriceChart";
+import HeroSection from "../custom-software/HeroSection";
+import { MonitorSmartphone, Layers, ShieldCheck } from "lucide-react";
 
 const SectionWrapper = dynamic(() => import("../../components/SectionWrapper/SectionWrapper"), {
-  ssr: false, // Disable SSR if the component doesn't need it
+  ssr: false,
 });
 
 export const generateMetadata = (): Metadata => ({
@@ -46,17 +47,34 @@ const MobileWebAppDevelopment: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <SectionWrapper className="section-wrapper--custom-padding">
-        <h1>Mobile & Web App Development Services in Calgary</h1>
-        <p>
-          At <strong>NuTab Digital</strong>, we specialize in creating{" "}
-          <strong>custom mobile and web applications</strong> that deliver
-          seamless user experiences and help businesses thrive in the digital
-          age. Whether you need a <strong>mobile app</strong> for iOS or
-          Android, or a <strong>responsive web application</strong>, our team
-          is here to bring your vision to life.
-        </p>
-        <GetQuoteButton />
+      <SectionWrapper className="section-wrapper--no-padding">
+        <HeroSection
+          title="Mobile & Web App Development Services in Calgary"
+          subtitle={
+            <>
+              At <span className="highlight">NuTab Digital</span>, we specialize in creating
+              <span className="accent"> custom mobile and web applications </span>
+              that deliver seamless user experiences and help businesses thrive in the digital age.
+              Whether you need a <span className="accent">mobile app</span> for iOS or Android,
+              or a <span className="accent">responsive web application</span>, our team is here to bring your vision to life.
+            </>
+          }
+          icons={[
+            {
+              icon: <MonitorSmartphone className="icon purple" />,
+              label: "Mobile Apps",
+            },
+            {
+              icon: <Layers className="icon blue" />,
+              label: "Web Applications",
+            },
+            {
+              icon: <ShieldCheck className="icon pink" />,
+              label: "Secure & Scalable",
+            },
+          ]}
+          showCTA={true}
+        />
       </SectionWrapper>
 
       {/* Why Choose This Service */}
@@ -139,7 +157,6 @@ const MobileWebAppDevelopment: React.FC = () => {
           a wide range of industries, including:
         </p>
         <ul style={{ listStyleType: "disc", paddingLeft: "2rem" }}>
-
           <li>Healthcare</li>
           <li>Finance</li>
           <li>Retail and E-Commerce</li>

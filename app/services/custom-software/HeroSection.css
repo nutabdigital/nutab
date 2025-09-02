@@ -1,0 +1,144 @@
+.hero-section {
+  position: relative;
+  color: white;
+  padding: 6rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+/* Overlay update for new design */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0); /* transparent overlay for new style */
+  z-index: 0;
+}
+
+.hero-content {
+  max-width: 100%;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+}
+
+.hero-title {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  background: linear-gradient(to right, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center !important; 
+}
+
+.hero-subtext {
+  margin-top: 1.5rem;
+  font-size: 1.125rem;
+  color: #081024;
+
+}
+
+.highlight {
+  font-weight: 700;
+  color: #081024;
+}
+
+.accent {
+  font-weight: 600;
+  color: #c084fc;
+}
+
+.icon-row {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2.5rem;
+}
+
+.icon-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #081024;  
+  font-size: 0.875rem;
+}
+
+.icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.icon.purple { color: #a78bfa; }
+.icon.blue { color: #60a5fa; }
+.icon.pink { color: #f472b6; }
+
+.cta-container {
+  margin-top: 2.5rem;
+}
+
+.cta-button {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 1rem;
+  background: linear-gradient(to right, #9333ea, #3b82f6);
+  color: white;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background: linear-gradient(to right, #a855f7, #60a5fa);
+}
+
+.floating-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(40px);
+}
+
+.orb-purple {
+  top: 2.5rem;
+  left: 2.5rem;
+  width: 5rem;
+  height: 5rem;
+  background: rgba(168, 85, 247, 0.4);
+}
+
+.orb-blue {
+  bottom: 5rem;
+  right: 4rem;
+  width: 7rem;
+  height: 7rem;
+  background: rgba(59, 130, 246, 0.3);
+}
+
+/* Dark theme support for section wrapper backgrounds */
+[data-theme="dark"] .section-wrapper > div,
+[data-theme="dark"] .section-wrapper--custom-padding > div {
+  background-color: rgba(10, 10, 10, 0);
+}
+
+/* Responsive and heading tweaks from page.css */
+.section-wrapper h1,
+.section-wrapper h2,
+.section-wrapper--custom-padding h1,
+.section-wrapper--custom-padding h2 {
+  font-size: clamp(2.0rem, 2.0rem, 2.0rem);
+}
+
+[data-theme="dark"] .hero-subtext {
+    color: #d1d5db;
+}
+
+[data-theme="dark"] .highlight{
+    color:white;
+}
+
+[data-theme="dark"] .icon-box{
+    color: #d1d5db;
+}

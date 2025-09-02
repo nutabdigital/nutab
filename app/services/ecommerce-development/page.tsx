@@ -5,6 +5,8 @@ import "./page.css";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
+import HeroSection from "../custom-software/HeroSection";
+import { ShoppingCart, Layers, ShieldCheck } from "lucide-react";
 
 const SectionWrapper = dynamic(
   () => import("../../components/SectionWrapper/SectionWrapper"),
@@ -48,17 +50,33 @@ const EcommerceDevelopment: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <SectionWrapper className="section-wrapper--custom-padding">
-        <h1>E-Commerce Development Services in Calgary</h1>
-        <p>
-          At <strong>NuTab Digital</strong>, we specialize in creating{" "}
-          <strong>custom e-commerce platforms</strong> that deliver seamless
-          shopping experiences and help businesses thrive in the digital
-          marketplace. Whether you need a <strong>Shopify store</strong>,{" "}
-          <strong>WooCommerce site</strong>, or a fully custom solution, our
-          team is here to bring your vision to life.
-        </p>
-        <GetQuoteButton />
+      <SectionWrapper className="section-wrapper--no-padding">
+        <HeroSection
+          title="E-Commerce Development Services in Calgary"
+          subtitle={
+            <>
+              At <span className="highlight">NuTab Digital</span>, we specialize in creating
+              <span className="accent"> custom e-commerce platforms </span>
+              that deliver seamless shopping experiences and help businesses thrive in the digital marketplace.
+              Whether you need a <span className="accent">Shopify store</span>, <span className="accent">WooCommerce site</span>, or a fully custom solution, our team is here to bring your vision to life.
+            </>
+          }
+          icons={[
+            {
+              icon: <ShoppingCart className="icon purple" />,
+              label: "Seamless Shopping",
+            },
+            {
+              icon: <Layers className="icon blue" />,
+              label: "Scalable Platforms",
+            },
+            {
+              icon: <ShieldCheck className="icon pink" />,
+              label: "Secure Payments",
+            },
+          ]}
+          showCTA={true}
+        />
       </SectionWrapper>
 
       {/* Why Choose This Service */}

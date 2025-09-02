@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
             <strong>Email:</strong> nutabdigital@gmail.com
           </p>
           <p>
-            <strong>Phone:</strong> (587) 888-6755 
+            <strong>Phone:</strong> (587) 707-2495
           </p>
           <p>
             <strong>Location:</strong> Calgary, Alberta

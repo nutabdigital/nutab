@@ -5,7 +5,7 @@
   color: var(--foreground);
   padding: 20px 0;
   position: relative;
-  z-index: 1000;
+  z-index: 10;
 }
 
 .footer-content {

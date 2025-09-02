@@ -199,7 +199,7 @@ textarea {
 
 /* Dark mode override for right column */
 [data-theme="dark"] .contact-right {
-  background-color: rgba(10, 10, 10, 0.1);
+  background-color: rgba(10, 10, 10, 0);
   color: var(--foreground);
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
 

@@ -106,7 +106,7 @@ const HomePage: React.FC = () => {
           <section
             id="services"
             className="page-section fade-section align-right"
-            data-section="2"
+            data-section="1"
           >
             <Services />
           </section>

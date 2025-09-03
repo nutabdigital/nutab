@@ -4,9 +4,9 @@
   margin: 0 0 0 auto; /* Push to the right */
   margin-right: 5vw;
   padding: 2rem;
-  background-color: rgb(255, 255, 255, 0.70);
+  background-color: var(--card-bg);
   color: var(--foreground);
-  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
+  box-shadow: 0 4px 12px var(--shadow-color);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -49,9 +49,9 @@
   padding: 1.5rem;
   margin-left: 2.5vw;
   margin-right: 2.5vw;
-  background-color: rgba(255, 255, 255, 0.75);
+  background-color: var(--card-bg);
   color: var(--foreground);
-  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
+  box-shadow: 0 4px 12px var(--shadow-color);
   border-radius: 8px;
   z-index: 10;
 }
@@ -108,14 +108,13 @@
 
 /* Dark Mode */
 [data-theme="dark"] .section-wrapper{
-    background-color: rgba(10, 10, 10, 0.70); 
-
+    background-color: var(--card-bg); 
 }
 
 [data-theme="dark"] .section-wrapper > div,
 [data-theme="dark"] .section-wrapper--custom-padding > div {
-  background-color: rgba(10, 10, 10, 0.75);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
+  background-color: var(--card-bg);
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 .section-wrapper:nth-child(15) {

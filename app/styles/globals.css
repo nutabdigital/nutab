@@ -13,14 +13,52 @@ aren't specific to individual pages or components. */
 /* -------------------- Global Variables -------------------- */
 /* Define CSS variables for colors and themes */
 :root {
+  /* Base colors */
   --background: #ffffff; /* Default background color for light mode */
   --foreground: #000000; /* Default text color for light mode */
+  
+  /* Primary color palette */
+  --primary-blue: #0067e7; /* Main brand blue */
+  --primary-purple: #3f37c9; /* Brand purple accent */
+  --secondary-blue: #2563eb; /* Secondary blue */
+  
+  /* Light mode button gradients */
+  --button-gradient-primary: linear-gradient(to right, #e0eafc, #0067e7);
+  --button-gradient-primary-hover: linear-gradient(to right, #93c5fd, #0052cc);
+  
+  /* Light mode background gradients */
+  --bg-gradient-card: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(245,250,255,0.9));
+  --bg-gradient-section: linear-gradient(135deg, #e0eafc, #cfdef3);
+  --bg-gradient-hero: linear-gradient(135deg, #6366f1, #a855f7);
+  
+  /* Light mode colors */
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --text-muted: #6b7280;
+  --text-accent: #03045e;
+  --border-color: rgba(3, 10, 30, 0.04);
+  --shadow-color: rgba(3, 3, 3, 0.198);
 }
 
 /* Dark mode variables */
 [data-theme="dark"] {
   --background: #0a0a0a; /* Background color for dark mode */
   --foreground: #ffffff; /* Text color for dark mode */
+  
+  /* Dark mode button gradients */
+  --button-gradient-primary: linear-gradient(to right, #3f37c9, #0067e7);
+  --button-gradient-primary-hover: linear-gradient(to right, #4c46d6, #0078ff);
+  
+  /* Dark mode background gradients */
+  --bg-gradient-card: linear-gradient(180deg, rgba(12,16,26,0.6), rgba(10,14,24,0.5));
+  --bg-gradient-section: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+  --bg-gradient-hero: linear-gradient(135deg, #4f46e5, #7e22ce);
+  
+  /* Dark mode colors */
+  --card-bg: rgba(10, 10, 10, 0.75);
+  --text-muted: #9fb0d0;
+  --text-accent: #79a7ff;
+  --border-color: rgba(255,255,255,0.04);
+  --shadow-color: rgba(0, 0, 0, 0.75);
 }
 
 /* -------------------- Base Styles & Resets -------------------- */

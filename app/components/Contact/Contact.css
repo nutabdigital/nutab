@@ -53,8 +53,8 @@ textarea {
 .submit-button {
   width: 100%;
   padding: 10px;
-  background-color: #03045e;
-  color: white;
+  background: var(--button-gradient-primary);
+  color: var(--text-accent);
   border: none;
   border-radius: 4px;
   cursor: pointer;
@@ -65,7 +65,7 @@ textarea {
 }
 
 .submit-button:hover {
-  background-color: #0067e7;
+  background: var(--button-gradient-primary-hover);
   transform: translateY(-2px);
 }
 
@@ -79,16 +79,16 @@ textarea {
 
 /* Dark Mode Styling */
 [data-theme="dark"] .contact-container {
-  background-color: rgba(10, 10, 10, 0.70); 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
+  background-color: var(--card-bg); 
+  box-shadow: 0 4px 12px var(--shadow-color);
 }
 
 [data-theme="dark"] .submit-button {
-  background-color: #3f37c9;
+  color: #ffffff;
 }
 
 [data-theme="dark"] .submit-button:hover {
-  background-color: #0067e7;
+  color: #ffffff;
 }
 
 [data-theme="dark"] .name-textarea,
@@ -113,8 +113,8 @@ textarea {
 .contact-left {
   flex: 1;
   padding: 2rem 1.5rem;
-  background: linear-gradient(135deg, #e0eafc, #cfdef3);
-  color: #03045e;
+  background: var(--bg-gradient-section);
+  color: var(--text-accent);
   border-radius: 8px 0 0 8px;
   display: flex;
   flex-direction: column;
@@ -140,10 +140,9 @@ textarea {
 .contact-right {
   flex: 1.2;
   padding: 2rem 2rem;
-  background-color: rgb(255, 255, 255, 0.70); /* Matches light mode container */
-  color: #222; /* Use a dark text for readability in light mode */
-  /* Remove left box-shadow only in two-column layout */
-  box-shadow: 4px 0 12px rgba(3, 3, 3, 0.198), 0 4px 12px rgba(3, 3, 3, 0.198);
+  background-color: var(--card-bg); /* Matches light mode container */
+  color: var(--foreground); /* Use consistent text color */
+  box-shadow: 4px 0 12px var(--shadow-color), 0 4px 12px var(--shadow-color);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 0 8px 8px 0;
@@ -154,7 +153,7 @@ textarea {
 
 /* Remove left-side box-shadow when in two-column layout */
 .contact-two-col .contact-right {
-  box-shadow: 4px 0 12px rgba(3, 3, 3, 0.198); /* Only right shadow */
+  box-shadow: 4px 0 12px var(--shadow-color); /* Only right shadow */
 }
 
 /* Ensure form fields look good in light mode */
@@ -192,15 +191,14 @@ textarea {
 
 /* Dark mode gradient */
 [data-theme="dark"] .contact-left {
-  background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
-  background-color: rgb(255, 255, 255, 0.70);
+  background: var(--bg-gradient-section);
+  background-color: var(--card-bg);
   color: #fff;
 }
 
 /* Dark mode override for right column */
 [data-theme="dark"] .contact-right {
-  background-color: rgba(10, 10, 10, 0);
+  background-color: var(--card-bg);
   color: var(--foreground);
-  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
-
+  box-shadow: 0 4px 12px var(--shadow-color);
 }

@@ -1,20 +1,21 @@
 :root {
-  --bg-dark: #0a0a0a;
-  --bg-light: #ffffff;
-  --card-bg-dark: #0a0a0a;
-  --card-bg-light: #f9fafb;
-  --text-dark: #f9fafb;
-  --text-light: #111827;
-  --muted-dark: #e5e7eb;
-  --muted-light: #374151;
-  --input-dark: #111827;
-  --input-light: #ffffff;
-  --border-dark: #374151;
-  --border-light: #d1d5db;
-  --primary: #4f46e5;
-  --primary-hover: #4338ca;
-  --gradient-dark: linear-gradient(135deg, #4f46e5, #7e22ce);
-  --gradient-light: linear-gradient(135deg, #6366f1, #a855f7);
+  /* Use global color variables from globals.css */
+  --bg-dark: var(--background);
+  --bg-light: var(--background);
+  --card-bg-dark: var(--card-bg);
+  --card-bg-light: var(--card-bg);
+  --text-dark: var(--foreground);
+  --text-light: var(--foreground);
+  --muted-dark: var(--text-muted);
+  --muted-light: var(--text-muted);
+  --input-dark: var(--card-bg);
+  --input-light: var(--card-bg);
+  --border-dark: var(--border-color);
+  --border-light: var(--border-color);
+  --primary: var(--primary-blue);
+  --primary-hover: var(--primary-blue);
+  --gradient-dark: var(--bg-gradient-section);
+  --gradient-light: var(--bg-gradient-section);
 }
 
 [data-theme="dark"] .contact-section {
@@ -142,17 +143,25 @@
 
 .form-button {
   width: 100%;
-  background: var(--primary);
+  background: var(--button-gradient-primary);
   border: none;
   border-radius: 0.75rem;
   padding: 1rem;
   font-size: 1.125rem;
   font-weight: 500;
-  color: white;
+  color: var(--text-accent);
   cursor: pointer;
   transition: background 0.3s;
 }
 
 .form-button:hover {
-  background: var(--primary-hover);
+  background: var(--button-gradient-primary-hover);
+}
+
+[data-theme="dark"] .form-button {
+  color: white;
+}
+
+[data-theme="dark"] .form-button:hover {
+  color: white;
 }

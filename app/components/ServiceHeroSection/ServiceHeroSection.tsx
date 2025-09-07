@@ -1,8 +1,8 @@
 "use client";
 
 import { motion } from "framer-motion";
-import "./HeroSection.css";
-import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
+import "./ServiceHeroSection.css";
+import GetQuoteButton from "../GetQuoteButton/GetQuoteButton";
 
 export interface HeroSectionIcon {
   icon: React.ReactNode;

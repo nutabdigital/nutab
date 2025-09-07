@@ -1,13 +1,13 @@
 import type { Metadata } from "next"; // Type import from Next.js to type-check metadata.
 import "./styles/globals.css";
-import { ThemeProvider } from "./context/ThemeContext";
-import { SectionProvider } from "../app/context/SectionContext"; // Import SectionProvider if using context for currentSection
+import { ThemeProvider } from "./Context/ThemeContext";
+import { SectionProvider } from "./Context/SectionContext"; // Import SectionProvider if using context for currentSection
 import dynamic from "next/dynamic";
 import Header from "./components/Header/Header"; // Import Header component
 import Footer from "./components/Footer/Footer"; // Import Footer component
 
 // Dynamically import the ModelWrapper component
-const ModelWrapper = dynamic(() => import("./context/ModelWrapper"), { ssr: false });
+const ModelWrapper = dynamic(() => import("./Context/ModelWrapper"), { ssr: false });
 
 export const metadata: Metadata = {
   title: "NuTab Digital - Custom Software Development in Calgary, Alberta",

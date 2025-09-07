@@ -35,8 +35,8 @@ the component folder. */
   opacity: 1;
 }
 
-/* Background with cloud effect for the page */
-.background-cloudy {
+/* Background with gradient effect for the page */
+.gradient-background {
   position: fixed;
   top: 0;
   left: 0;
@@ -88,7 +88,7 @@ the component folder. */
 }
 
 /* Dark mode adjustment for smoother blending */
-[data-theme="dark"] .background-cloudy {
+[data-theme="dark"] .gradient-background {
   background: radial-gradient(
       circle at 100% 70%, 
       rgba(109, 36, 255, 0.418), 

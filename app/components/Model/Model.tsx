@@ -280,10 +280,11 @@ const Model: React.FC<ModelProps> = ({ currentSection }) => {
   };
   // Apply left-center-right transformation of whole canvas based on the current section
   const getHorizontalPosition = () => {
-    const maxSections = 4; // Adjust based on the number of sections
-    if (isMobile || currentSection == 1) return "0%"; // Center the canvas horizontally on mobile
+    if (isMobile || currentSection === 1 || currentSection === 2 || currentSection === 4) {
+      return "0%"; // Center the canvas horizontally on mobile or for sections 1, 2, 4
+    }
     const position = currentSection % 2 === 0 ? "left" : "right";
-    return position === "left" ? "-50%" : "50%"; // Left and right
+    return position === "left" ? "-50%" : "50%"; // Left and
   };
 
   // Handle resize events
@@ -367,8 +368,12 @@ const Model: React.FC<ModelProps> = ({ currentSection }) => {
     const updateCamera = () => {
       if (isMobile) {
         targetDistance = 85;
-      } else if (currentSection === 1) {
-        targetDistance = 29;
+      } else if (
+        currentSection === 1 ||
+        currentSection === 2 ||
+        currentSection === 4
+      ) {
+        targetDistance = 35;
       } else {
         targetDistance = 60;
       }

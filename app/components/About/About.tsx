@@ -1,12 +1,8 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import "./About.css";
 
-// currentSection from page.tsx
-interface AboutProps {
-  currentSection: number;
-}
 
-const About: React.FC<AboutProps> = ({ currentSection }) => {
+const About: React.FC = () => {
 
   return (
     <section className="about-section">
@@ -18,10 +14,11 @@ const About: React.FC<AboutProps> = ({ currentSection }) => {
               alt="mapleleaf"
               className="iconcan"
             />
-            <h1>Built in Canada, Designed for Growth.<br />
-              Your Digital Partner from Coast to Coast.</h1>
+            <h1>Built in Canada, Designed for Growth</h1>
           </div>
-
+          <div className="about-subtitle">
+            Your Digital Partner from Coast to Coast
+          </div>
         </div>
         <div className="about-grid">
           <div

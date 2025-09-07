@@ -121,13 +121,16 @@
     border: none;
     cursor: pointer;
     font-size: 1.1rem;
-    font-weight: 500;
-    margin-left: 15px;
+    font-weight: 400;
     transition: color 0.3s ease;
   }
 
   .nav-links a:hover {
     color: #0067e7;
+  }
+
+  .nav-link-dropdown a{
+    /* font-size: 0.9rem; */
   }
 
   .menu-button {

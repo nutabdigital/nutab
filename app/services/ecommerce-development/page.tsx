@@ -5,7 +5,7 @@ import "./page.css";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
-import HeroSection from "../custom-software/HeroSection";
+import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { ShoppingCart, Layers, ShieldCheck } from "lucide-react";
 
 const SectionWrapper = dynamic(

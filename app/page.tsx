@@ -5,11 +5,11 @@ import Loader from "./components/Loader/Loader";
 import Header from "./components/Header/Header"; //should remove soon
 import Tagline from "./components/Tagline/Tagline";
 import About from "./components/About/About";
-import Services from "./components/Services/Services";
+import Services from "./components/ServicesSummary/Services";
 import Team from "./components/Team/Team";
 import Contact from "./components/Contact/Contact";
 import "./styles/page.css";
-import Popup from "./components/ContactCards/Popup";
+import ContactPopup from "./components/ContactPopup/ContactPopup";
 
 interface Contact {
   name: string;
@@ -52,7 +52,7 @@ const HomePage: React.FC = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const sectionNumber = parseInt(
-              entry.target.getAttribute("data-section") || "0"
+              entry.target.getAttribute("data-section") || "0" 
             );
             setCurrentSection(sectionNumber);
             console.log(`Currently in section: ${sectionNumber}`);
@@ -83,7 +83,7 @@ const HomePage: React.FC = () => {
     <>
       <Header currentSection={currentSection} />
       <Loader />
-      <div className="background-cloudy"></div>
+      <div className="gradient-background"></div>
 
       <main className="home-page">
         <div className="content-wrapper">
@@ -100,13 +100,13 @@ const HomePage: React.FC = () => {
             className="page-section fade-section align-left"
             data-section="1"
           >
-            <About currentSection={currentSection} />
+            <About />
           </section>
 
           <section
             id="services"
             className="page-section fade-section align-right"
-            data-section="1"
+            data-section="2"
           >
             <Services />
           </section>
@@ -122,7 +122,7 @@ const HomePage: React.FC = () => {
 
           {/* Show popup if a contact is selected */}
           {selectedContact && (
-            <Popup
+            <ContactPopup
               contact={selectedContact}
               onClose={() => setSelectedContact(null)}
             />
@@ -131,7 +131,7 @@ const HomePage: React.FC = () => {
           <section
             id="contact"
             className="page-section fade-section align-right"
-            data-section="1"
+            data-section="4"
           >
             <Contact />
           </section>

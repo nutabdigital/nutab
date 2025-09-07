@@ -19,7 +19,7 @@
   margin: 2vw auto;
   background-color: rgba(255, 255, 255, 0.70);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.425);
-  border-radius: 20px;
+  border-radius: 1.5rem;
   z-index: 10;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -27,30 +27,72 @@
 
 .about-title{
   text-align: center;
-  padding-bottom: 2.5rem;
 }
 
 .about-title h1{
-  font-size: 1.75rem;
-  font-weight: bold;
+  font-size: clamp(2.0rem, 2.0rem, 2rem);  /* property: clamp(MIN, PREFERRED, MAX); */
+  font-weight: 400;
+  background: linear-gradient(to right, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent; /* For non-webkit browsers */
+  text-shadow:
+    0 1px 6px #a78bfa33,   /* lighter, softer purple glow */
+    0 1px 10px #60a5fa22;  /* lighter, softer blue glow */
 }
 
-sup{
-  font-size: 1.5rem;
-  font-weight: 600;
+.about-subtitle {
+  font-size: 1.15rem;
+  font-weight: 400;
+  text-align: center;
+  margin-bottom: 1.5rem;
+   opacity: 0.85;
 }
 
-.about-grid{
-  display: flexbox;
-  flex-direction: column;
-  padding: 1rem;
-  gap:7rem;
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-rows: 1fr;               /* 1 row */
+  gap: 3rem;                             /* space between columns */
+  width: 100%;
+  padding: 1rem 0;
+  margin: 0 auto;
+}
+
+.about-item{
+  cursor: pointer;
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
+  transition: transform 0.5s ease, color 0.5s ease;
+}
+
+.about-item:hover {
+   transform: scale(1.05);
+   background-color: #0067e7;
+   color: white;
+}
+
+/* Change icon color when parent .about-item is hovered */
+.about-item:hover .about-icon {
+  filter: brightness(0) invert(1);
+}
+/* Responsive: stack vertically on mobile */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+    gap: 2rem;
+  }
 }
 
 .about-cols {
   display: flex;
   flex-direction: row;
   gap: 2vw;
+  justify-content: center;
+  margin-bottom: 0.5rem;
 }
 
 .iconcan {
@@ -70,33 +112,19 @@ sup{
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* .about-item:hover{
-  color: rgba(0, 0, 0);
-  transform: scale(1.05);
-} */
-
 .about-item h3{
   font-size: 1.5rem;
-  font-weight: 600;
+  font-weight: normal;
   
 }
 
 .about-item p{
   font-size: 1.1rem;
-}
-
-
-.about-description {
-  color: #333;
-  font-size: 1.5rem;
-  font-weight: 400;
   text-align: center;
-  margin-bottom: 1rem;
-  border-radius: 12px;
-  padding: 1rem;
-  transition: transform 0.3s ease, color 0.3s ease;
-  justify-self: center;
+   opacity: 0.85;
 }
+
+
 
 @media (max-width:600px) {
   .about-section{
@@ -128,11 +156,6 @@ sup{
     margin-bottom: 1rem;
   }
 
-  /* .about-grid{
-    grid-template-columns: 1fr; 
-    grid-template-rows: repeat(3, auto); 
-    gap: 10vw;
-  } */
 }
 
 /* Dark Mode Styling */
@@ -145,18 +168,14 @@ sup{
 }
 
 [data-theme="dark"] .about-item {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
   transition: transform 0.3s ease, color 0.3s ease;
 }
 
 [data-theme="dark"] .about-icon {
   filter: brightness(0) invert(1); 
 }
-[data-theme="dark"] .iconcan {
-  filter: brightness(0) invert(1); 
-}
 
-/* [data-theme="dark"] .about-item:hover {
-  color: rgb(255, 255, 255); 
-  transform: scale(1.05); 
-} */
+
+
 

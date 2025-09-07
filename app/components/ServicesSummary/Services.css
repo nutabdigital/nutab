@@ -14,16 +14,30 @@
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-radius: 8px;
+  border-radius: 1.5rem;
   z-index: 10;
   caret-color: transparent;
 }
 
 .services-title {
+  background: linear-gradient(to right, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent; /* For non-webkit browsers */
   font-size: 2rem;
-  font-weight: bold;
-  margin-bottom: 1.5rem;
+  font-weight: 400;
   text-align: center;
+  text-shadow:
+    0 1px 6px #a78bfa33,   /* lighter, softer purple glow */
+    0 1px 10px #60a5fa22;  /* lighter, softer blue glow */
+}
+
+.services-subtitle {
+  text-align: center;
+  font-size: 1.15rem;
+  margin-bottom: 1.5rem;
+  opacity: 0.85;
 }
 
 .services-list {
@@ -50,8 +64,8 @@
 }
 
 .service-box {
-  border-radius: 8px;
-  padding: 1.5rem;
+  border-radius: 1.25rem;
+  padding: 1rem;
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
   cursor: pointer;
   transition: transform 0.5s, background-color 0.5s;
@@ -64,9 +78,9 @@
 }
 
 .service-name {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   margin-bottom: 0.5rem;
-  font-weight: bolder;
+  font-weight: normal;
   text-align: center;
   transform: background-color 0.5s;
 }
@@ -76,6 +90,7 @@
   font-size: 0.9rem;
   text-align: center;
   transform: background-color 0.5s;
+  opacity: 0.85;
 }
 
 
@@ -85,6 +100,14 @@
   display: block;
   margin: 0 auto 10px; /* Centers and spaces the icon */
   transform: filter 0.5s;
+   background: linear-gradient(to right, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent; /* For non-webkit browsers */
+  text-shadow:
+    0 1px 6px #a78bfa33,  
+    0 1px 10px #60a5fa22;  
 }
 
 .learn-more-wrapper {
@@ -104,13 +127,14 @@
   font-weight: bold;
   position:relative;
   text-align: center;
-  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   color: #ffffff;
 }
 
 .learn-more-icon {
   width: 20px;
   height: 20px;
+  margin-bottom: 0.5rem;
 }
 
 /* Hover styles */
@@ -168,8 +192,3 @@
 [data-theme="dark"] .service-icon {
   filter: brightness(0) invert(1); 
 }
-
-/* Dark mode styles for the learn-more-icon */
-/* [data-theme="light"] .learn-more-icon {
-  filter: brightness(1) invert(1); 
-} */

@@ -1,4 +1,4 @@
-.background-cloudy {
+.gradient-background {
     position: fixed;
     top: 0;
     left: 0;
@@ -13,7 +13,7 @@
 
 
 /* Dark mode adjustment for smoother blending */
-[data-theme="dark"] .background-cloudy {
+[data-theme="dark"] .gradient-background {
     background: radial-gradient(
         circle at 100% 70%, 
         rgba(109, 36, 255, 0.418), 
@@ -31,6 +31,5 @@
       ),
       #000000;
   }
-  
-  
-  
+
+

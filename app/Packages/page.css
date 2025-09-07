@@ -1,0 +1,32 @@
+.pricing-main {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  background: transparent;
+}
+
+.pricing-title {
+  font-size: 2.3rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.2rem;
+  color: var(--foreground, #081024);
+}
+
+.pricing-lead {
+  font-size: 1.15rem;
+  color: var(--muted, #48515b);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+@media (max-width: 700px) {
+  .pricing-title {
+    font-size: 1.5rem;
+  }
+  .pricing-lead {
+    font-size: 1rem;
+  }
+}

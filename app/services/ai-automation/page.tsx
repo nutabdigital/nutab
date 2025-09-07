@@ -3,7 +3,7 @@ import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import dynamic from "next/dynamic";
 import "./page.css";
-import HeroSection from "../custom-software/HeroSection";
+import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { Brain, Zap, ShieldCheck } from "lucide-react";
 
 const SectionWrapper = dynamic(
@@ -46,7 +46,7 @@ const AIAutomation: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <SectionWrapper className="section-wrapper--custom-padding">
+      <SectionWrapper className="section-wrapper--no-padding">
         <HeroSection
           title="AI & Automation Solutions in Calgary"
           subtitle={

@@ -73,6 +73,9 @@ const services = [
 const Services: React.FC = () => (
 	<section className="services-section">
 		<h2 className="services-title">Our Services</h2>
+		<p className="services-subtitle">
+			Comprehensive digital solutions to help your business thrive
+		</p>
 		<div className="services-list">
 			{services.map((service) => (
 				<Link key={service.id} href={service.link} className="service-box">

@@ -4,8 +4,7 @@ import Background from "../../components/Background/Background";
 import "./page.css";
 import { Metadata } from "next";
 import dynamic from "next/dynamic";
-import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
-import HeroSection from "../custom-software/HeroSection";
+import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { MonitorSmartphone, Layers, ShieldCheck } from "lucide-react";
 
 const SectionWrapper = dynamic(() => import("../../components/SectionWrapper/SectionWrapper"), {
@@ -309,11 +308,6 @@ const MobileWebAppDevelopment: React.FC = () => {
           </div>
         </div>
       </SectionWrapper>
-
-      {/* Pricing / Bundles */}
-      {/* <SectionWrapper>
-        <PriceChart />
-      </SectionWrapper> */}
     </>
   );
 };

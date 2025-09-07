@@ -35,13 +35,13 @@ const contacts: Record<string, Contact> = {
   },
 };
 
-
 const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
-
-  
   return (
     <section className="team-section">
       <h2 className="team-header">Our Team</h2>
+      <p className="team-subtitle">
+        Meet the passionate developers behind NuTab Digital
+      </p>
       <div className="grid-container">
         <div className="team-member" onClick={() => onSelectContact(contacts.navjot)}>
           <div
@@ -51,11 +51,11 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
           ></div>
           <p className="team-name">Navjot Saran</p>
           <p className="team-role">
-            <strong>Co-Founder</strong>
+            Co-Founder
           </p>
-          <p className="team-description">Software Developer</p>
+          <p className="team-position">Software Developer</p>
           <p className="team-description">
-          B.Sc. in Computer Science, University of Calgary
+            B.Sc. in Computer Science, University of Calgary
           </p>
         </div>
         <div className="team-member" onClick={() => onSelectContact(contacts.fysal)}>
@@ -66,11 +66,11 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
           ></div>
           <p className="team-name">Fysal Beauferris</p>
           <p className="team-role">
-            <strong>Co-Founder</strong>
+            Co-Founder
           </p>
-          <p className="team-description">Software Developer</p>
+          <p className="team-position">Software Developer</p>
           <p className="team-description">
-          B.Sc. in Computer Science, University of Calgary
+            B.Sc. in Computer Science, University of Calgary
           </p>
         </div>
       </div>

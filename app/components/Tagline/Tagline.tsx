@@ -1,6 +1,6 @@
 // Tagline.tsx
 import React from "react";
-import "./Tagline.css"; // Import the CSS file for styling
+import "./Tagline.css";
 
 const Tagline: React.FC = () => {
   // Smooth scroll to the 'About' section when the button is clicked
@@ -12,10 +12,18 @@ const Tagline: React.FC = () => {
   return (
     <section className="tagline-section">
       <div className="tagline-container">
+        {/* Orbs for visual effect */}
+        <div className="floating-orb orb-purple tagline-orb"></div>
+        <div className="floating-orb orb-blue tagline-orb"></div>
         <h2 className="tagline-title">
-        Open a New Tab,<br/>Start Something Extraordinary.
+          Open a New Tab,
         </h2>
-        <p className="tagline-description" >Elevating your brand through custom software solutions.</p>
+        <h2 className="gradient-title">
+          Start Something Extraordinary
+        </h2>
+        <p className="tagline-description">
+          Elevating your brand through custom software solutions
+        </p>
         <div className="tag-buttons">
           <button
             className="learn-more-button"
@@ -24,7 +32,6 @@ const Tagline: React.FC = () => {
             Learn More
           </button>
         </div>
-
       </div>
     </section>
   );

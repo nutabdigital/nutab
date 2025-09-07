@@ -11,6 +11,7 @@
 }
 
 .tagline-container {
+  position: relative;
   width: 50vw;
   max-width:700px;
   box-sizing: border-box;
@@ -22,51 +23,93 @@
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-radius: 8px;
+  border-radius: 1.5rem;
   z-index: 10;
 }
 
 /* Tagline Title */
 .tagline-title {
-  font-size: clamp(1.8rem, 1.8rem, 2rem);
-  font-weight: bold;
+  font-size: clamp(2.0rem, 2.0rem, 2rem);  /* property: clamp(MIN, PREFERRED, MAX); */
+  font-weight: 400;
   text-align: start;
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+/* Gradient Title */
+.gradient-title {
+  background: linear-gradient(to right, #a78bfa, #60a5fa); /* Sets a horizontal gradient background from purple (#a78bfa) to blue (#60a5fa) */
+  -webkit-background-clip: text; /* For WebKit browsers (Chrome, Safari): clips the background to the text, so the gradient only appears on the text */
+  background-clip: text; /* Standard property: clips the background to the text (not supported in all browsers) */
+  text-fill-color: transparent; /* For non-webkit browsers */
+  -webkit-text-fill-color: transparent; /* For WebKit browsers: makes the text itself transparent, so only the background gradient shows through */
+  text-align: center;
+  font-size: clamp(2.0rem, 2.0rem, 2rem);  /* property: clamp(MIN, PREFERRED, MAX); */
+  margin-bottom: 0.5rem;
+  /* More subtle glow effect */
+  text-shadow:
+    0 1px 6px #a78bfa33,   /* lighter, softer purple glow */
+    0 1px 10px #60a5fa22;  /* lighter, softer blue glow */
 }
 
 /* Tagline Description */
 .tagline-description {
   font-size: 1.125rem;
+  font-weight: 400;
   line-height: 1.6;
   margin-bottom: 2rem;
   opacity: 0.85;
+  text-align: center;
 }
 
 /* Button alignment */
 .tag-buttons {
   display: flex;
   gap: 1rem;
-  justify-content: flex-start;
+  justify-content: center;
 }
 
 /* Learn More Button */
 .learn-more-button {
-  padding: 0.75rem 1.5rem;
+  padding: 1rem 2.5rem;
   width: fit-content;
-  background-color: #03045e;
-  color: rgb(245, 245, 245);
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.15s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  font-size: 1.15rem;
+  font-weight: 400;
+  border-radius: 1.5rem;
+  background: linear-gradient(to right, #9333ea, #3b82f6);
+  color: white;
+  box-shadow: 0 4px 20px rgba(96,165,250,0.18);
+  border: none;
+  transition: background 0.3s, transform 0.15s;
 }
 
 .learn-more-button:hover {
-  background-color: #0067e7;
-  color: rgb(255, 255, 255);
-  transform: translateY(-2px);
+  background: linear-gradient(to right, #a855f7, #60a5fa);
+  transform: translateY(-2px) scale(1.05);
+}
+
+.floating-orb.tagline-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(32px);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.orb-purple.tagline-orb {
+  top: 1.5rem;
+  left: 1.5rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  background: rgba(168, 85, 247, 0.4);
+}
+
+.orb-blue.tagline-orb {
+  bottom: 2.5rem;
+  right: 2rem;
+  width: 5rem;
+  height: 5rem;
+  background: rgba(59, 130, 246, 0.3);
 }
 
 @media (max-width:600px) {
@@ -95,3 +138,4 @@
 [data-theme="dark"] .learn-more-button:hover {
   background-color: #0067e7;
 }
+

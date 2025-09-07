@@ -1,5 +1,6 @@
 import React from "react";
-import "./Card.css";
+import { X } from "lucide-react";
+import "./ContactPopup.css";
 
 interface Contact {
   name: string;
@@ -15,7 +16,7 @@ interface PopupProps {
   onClose: () => void;
 }
 
-const Popup: React.FC<PopupProps> = ({ contact, onClose }) => {
+const ContactPopup: React.FC<PopupProps> = ({ contact, onClose }) => {
   const generateVCard = () => {
     const vCardData = `BEGIN:VCARD
 VERSION:3.0
@@ -40,11 +41,13 @@ END:VCARD`;
   };
 
   return (
-    <div className="popup-overlay" onClick={onClose}>
-      <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-      <button className="close-button" onClick={onClose}>✖</button>
+    <div className="contact-popup-overlay" onClick={onClose}>
+      <div className="contact-popup-content" onClick={(e) => e.stopPropagation()}>
+        <button className="close-btn" onClick={onClose}>
+          <X size={24} />
+        </button>
         <h2>{contact.name}</h2>
-        <img src={contact.photo} alt={contact.name} className="popup-photo" />
+        <img src={contact.photo} alt={contact.name} className="contact-popup-photo" />
         <h1>{contact.email}</h1>
         <h1>{contact.phone}</h1>
         <button className="save-contact-button" onClick={generateVCard}>Save Contact</button>
@@ -53,4 +56,4 @@ END:VCARD`;
   );
 };
 
-export default Popup;
+export default ContactPopup;

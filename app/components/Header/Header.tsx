@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { useTheme } from "../../Context/ThemeContext";
+import { useTheme } from "../../context/ThemeContext";
 import { useRouter } from "next/navigation"; // Import Next.js router
 import Link from "next/link"; // Add this if not already imported
 import "./Header.css";

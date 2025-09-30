@@ -70,16 +70,20 @@ the component folder. */
     justify-content: center;
   }
 
-  #about{
-    margin-bottom: 30vh;
+  #tagline{
+    margin-bottom: 40vh;
+  }
+
+  #about{ 
+    margin-bottom: 50vh;
   }
 
   #services{
-    margin-bottom: 15vh;
+    margin-bottom: 30vh;
   }
 
   #team{
-    margin-bottom: 5vh;
+    margin-bottom: 15vh;
   }
 
   #contact{

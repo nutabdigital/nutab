@@ -1,10 +1,13 @@
 "use client";
 
 import React, { useState } from "react";
+import { Menu, X, ChevronDown } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
-import { useRouter } from "next/navigation"; // Import Next.js router
-import Link from "next/link"; // Add this if not already imported
+import { useRouter } from "next/navigation";
+import Link from "next/link";
 import "./Header.css";
+import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 
 // Interface defining props for the Header component
 interface HeaderProps {
@@ -31,16 +34,13 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
-  const { theme, toggleTheme } = useTheme(); // Access theme and toggleTheme from context
   const router = useRouter(); // Initialize Next.js router
 
   // Function to determine CSS classes for nav links based on the current section
   const navLinkClasses = (sectionIndex: number) =>
     `nav-link ${currentSection === sectionIndex ? "active" : ""}`;
 
-  const toggleNav = () => {
-    setIsNavOpen(!isNavOpen);
-  };
+  const toggleNav = () => setIsNavOpen((open) => !open);
 
   // Scrolls smoothly to a specific section of the page or redirects to the main page
   const handleScroll = (
@@ -66,7 +66,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
   return (
     <header className="header">
       <div className="header-container">
-        {/* Logo that scrolls to the 'tagline' section on click */}
+        {/* Logo on the left */}
         <div className="logo">
           <a href="/" onClick={(e) => handleScroll(e, "tagline")}>
             <img
@@ -126,20 +126,31 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
                 />
               </svg>
             </a>
-            {/* Dropdown menu is now inside the same parent div */}
-            {isServicesOpen && (
-              <div className="dropdown-menu">
-                {servicesDropdown.map((service) => (
-                  <Link
-                    key={service.link}
-                    href={service.link}
-                    className="dropdown-item"
-                  >
-                    {service.name}
-                  </Link>
-                ))}
-              </div>
-            )}
+            <AnimatePresence>
+              {isServicesOpen && (
+                <motion.div
+                  className="dropdown-menu"
+                  initial={{ opacity: 0, y: -10, height: 0 }}
+                  animate={{ opacity: 1, y: 0, height: "auto" }}
+                  exit={{ opacity: 0, y: -10, height: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {servicesDropdown.map((service, idx) => (
+                    <motion.div
+                      key={service.link}
+                      initial={{ opacity: 0, y: -10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -10 }}
+                      transition={{ delay: 0.07 * idx }}
+                    >
+                      <Link href={service.link} className="dropdown-item">
+                        {service.name}
+                      </Link>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
           </div>
           <a
             href="#team"
@@ -157,120 +168,119 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
           </a>
         </nav>
 
-        {/* Theme toggle */}
-        <div className="theme-toggle-container">
-          <label className="theme-toggle">
-            <input
-              type="checkbox"
-              checked={theme === "dark"}
-              onChange={toggleTheme}
-              className="theme-toggle-input"
-            />
-            <span className="slider">
-              <span className="slider-icon sun">☀️</span>
-              <span className="slider-icon moon">🌙</span>
-            </span>
-          </label>
+        {/* Mobile controls: DarkModeToggle + Mobile Menu Button */}
+        <div className="mobile-controls">
+          <DarkModeToggle />
+          <button
+            className="mobile-menu-btn"
+            onClick={toggleNav}
+            aria-label={isNavOpen ? "Close menu" : "Open menu"}
+          >
+            {isNavOpen ? (
+              <X size={32} className="mobile-menu-icon" />
+            ) : (
+              <Menu size={32} className="mobile-menu-icon" />
+            )}
+          </button>
         </div>
-
-        {/* Mobile menu button */}
-        <span
-          className={`mobile-menu ${isNavOpen ? "toggle" : ""}`}
-          onClick={toggleNav}
-        >
-          <span className="line-1"></span>
-          <span className="line-2"></span>
-          <span className="line-3"></span>
-        </span>
       </div>
 
       {/* Mobile right navigation menu */}
-      <nav className={`mob-right-nav ${isNavOpen ? "open-nav" : ""}`}>
-        <ul>
-          <li>
-            <a href="#about" onClick={(e) => handleScroll(e, "about")}>
-              About
-            </a>
-          </li>
-          <li>
-            {/* Services with expandable sublist */}
-            <button
-              className="mobile-services-toggle"
-              onClick={() => setIsMobileServicesOpen((open) => !open)}
-              aria-expanded={isMobileServicesOpen}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                width: "100%",
-                background: "none",
-                border: "none",
-                color: "inherit",
-                font: "inherit",
-                padding: "0.5rem 1rem",
-                cursor: "pointer",
-              }}
-            >
-              <span style={{ flex: 1, textAlign: "left" }}>
-                Services{" "}
-                <svg
-                  className={`menu-arrow${isMobileServicesOpen ? " open" : ""}`}
-                  width="18"
-                  height="18"
-                  viewBox="0 0 16 16"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+      <AnimatePresence>
+        {isNavOpen && (
+          <motion.nav
+            className="mob-right-nav open-nav"
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: 100 }}
+            transition={{ duration: 0.3 }}
+          >
+            <ul>
+              <li>
+                <a href="#about" onClick={(e) => handleScroll(e, "about")}>
+                  About
+                </a>
+              </li>
+              <li>
+                {/* Services with expandable sublist */}
+                <button
+                  className="mobile-services-toggle"
+                  onClick={() => setIsMobileServicesOpen((open) => !open)}
+                  aria-expanded={isMobileServicesOpen}
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    width: "100%",
+                    background: "none",
+                    border: "none",
+                    color: "inherit",
+                    font: "inherit",
+                    padding: "0.5rem 1rem",
+                    cursor: "pointer",
+                  }}
                 >
-                  <path
-                    d="M4 6L8 10L12 6"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </span>
-            </button>
-            {isMobileServicesOpen && (
-              <ul className="mobile-services-sublist">
-                {servicesDropdown.map((service) => (
-                  <li key={service.link}>
-                    <Link href={service.link} className="mobile-services-link">
-                      {service.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-          <li>
-            <a href="#team" onClick={(e) => handleScroll(e, "team")}>
-              Our Team
-            </a>
-          </li>
-          <li>
-            <a href="#contact" onClick={(e) => handleScroll(e, "contact")}>
-              Start A Project
-            </a>
-          </li>
-          {/* Theme toggle moved out of <a> */}
-          <li>
-            <div className="theme-toggle-container">
-              <label className="theme-toggle">
-                <input
-                  type="checkbox"
-                  checked={theme === "dark"}
-                  onChange={toggleTheme}
-                  className="theme-toggle-input"
-                />
-                <span className="slider">
-                  <span className="slider-icon sun">☀️</span>
-                  <span className="slider-icon moon">🌙</span>
-                </span>
-              </label>
-            </div>
-          </li>
-        </ul>
-      </nav>
+                  <span style={{ flex: 1, textAlign: "left" }}>
+                    Services{" "}
+                    <svg
+                      className={`menu-arrow${
+                        isMobileServicesOpen ? " open" : ""
+                      }`}
+                      width="18"
+                      height="18"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M4 6L8 10L12 6"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </span>
+                </button>
+                <AnimatePresence>
+                  {isMobileServicesOpen && (
+                    <motion.ul
+                      className="mobile-services-sublist open"
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {servicesDropdown.map((service, idx) => (
+                        <motion.li
+                          key={service.link}
+                          initial={{ opacity: 0, y: -10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: -10 }}
+                          transition={{ delay: 0.07 * idx }}
+                        >
+                          <a href={service.link} className="mobile-services-link">
+                            {service.name}
+                          </a>
+                        </motion.li>
+                      ))}
+                    </motion.ul>
+                  )}
+                </AnimatePresence>
+              </li>
+              <li>
+                <a href="#team" onClick={(e) => handleScroll(e, "team")}>
+                  Our Team
+                </a>
+              </li>
+              <li>
+                <a href="#contact" onClick={(e) => handleScroll(e, "contact")}>
+                  Start A Project
+                </a>
+              </li>
+            </ul>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   );
 };

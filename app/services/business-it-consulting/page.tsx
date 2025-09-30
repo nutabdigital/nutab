@@ -15,8 +15,33 @@ export const generateMetadata = (): import("next").Metadata => ({
   title: "Business & IT Consulting Services in Calgary - NuTab Digital",
   description:
     "NuTab Digital offers business and IT consulting services in Calgary, Alberta. Get expert guidance on digital transformation, technology adoption, and growth strategies tailored to your business.",
-  keywords:
-    "business consulting, IT consulting, Calgary, Alberta, digital transformation, technology strategy, business growth, IT solutions, expert guidance",
+  alternates: {
+    canonical: "https://nutab.ca/services/business-it-consulting",
+  },
+  openGraph: {
+    title: "Business & IT Consulting Services in Calgary - NuTab Digital",
+    description:
+      "NuTab Digital offers business and IT consulting services in Calgary, Alberta. Get expert guidance on digital transformation, technology adoption, and growth strategies tailored to your business.",
+    url: "https://nutab.ca/services/business-it-consulting",
+    siteName: "NuTab Digital",
+    images: [
+      {
+        url: "https://nutab.ca/photos/3d-nutab-logo.png",
+        width: 600,
+        height: 600,
+        alt: "Business & IT Consulting Services in Calgary",
+      },
+    ],
+    locale: "en_CA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Business & IT Consulting Services in Calgary - NuTab Digital",
+    description:
+      "NuTab Digital offers business and IT consulting services in Calgary, Alberta. Get expert guidance on digital transformation, technology adoption, and growth strategies tailored to your business.",
+    images: ["https://nutab.ca/photos/3d-nutab-logo.png"],
+  },
 });
 
 const BusinessITConsulting: React.FC = () => {
@@ -25,7 +50,7 @@ const BusinessITConsulting: React.FC = () => {
       <Background />
       <Loader />
 
-      {/* Structured Data Script */}
+      {/* Structured Data Script: Service & FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -44,9 +69,61 @@ const BusinessITConsulting: React.FC = () => {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is business & IT consulting?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Business & IT consulting provides expert advice on technology, strategy, and operations to help organizations achieve their goals and solve challenges."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How can consulting help my business?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Consulting helps you make informed decisions, optimize processes, adopt new technologies, and drive growth."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you offer ongoing support?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, we provide ongoing advice and optimization to ensure your business continues to succeed."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you help with digital transformation?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely! We specialize in guiding organizations through digital transformation and technology adoption."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is consulting right for small businesses?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, our consulting services are tailored for businesses of all sizes, including startups and small enterprises."
+                }
+              }
+            ]
+          }),
+        }}
+      />
 
       {/* Hero Section */}
       <SectionWrapper className="section-wrapper--no-padding">
+        <h1>Business & IT Consulting Services in Calgary</h1>
         <HeroSection
           title="Business & IT Consulting Services in Calgary"
           subtitle={
@@ -151,6 +228,22 @@ const BusinessITConsulting: React.FC = () => {
           <li><strong>Tailored Solutions:</strong> Every engagement is customized to your needs.</li>
           <li><strong>Local Support:</strong> Calgary-based team for responsive service.</li>
           <li><strong>Long-Term Partnership:</strong> We’re committed to your ongoing success.</li>
+        </ul>
+      </SectionWrapper>
+
+      {/* Internal Links for SEO */}
+      <SectionWrapper>
+        <h2>Related Services</h2>
+        <ul>
+          <li>
+            <a href="/services/ai-automation">AI & Automation Solutions</a>
+          </li>
+          <li>
+            <a href="/services/custom-software">Custom Software Development</a>
+          </li>
+          <li>
+            <a href="/services/seo-digital-marketing">SEO & Digital Marketing</a>
+          </li>
         </ul>
       </SectionWrapper>
 

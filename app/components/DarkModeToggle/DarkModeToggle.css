@@ -1,0 +1,32 @@
+.darkmode-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0.5rem;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.darkmode-toggle.dark {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.darkmode-toggle.light {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.darkmode-toggle-icon {
+  transition: transform 0.3s ease;
+}
+
+.darkmode-toggle-sun {
+  color: #facc15; 
+}
+
+.darkmode-toggle-moon {
+  color: #2563eb;
+}

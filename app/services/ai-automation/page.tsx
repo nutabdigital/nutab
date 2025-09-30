@@ -15,8 +15,33 @@ export const generateMetadata = (): import("next").Metadata => ({
   title: "AI & Automation Solutions in Calgary - NuTab Digital",
   description:
     "NuTab Digital offers AI and automation solutions in Calgary, Alberta. Leverage artificial intelligence and automation to improve efficiency, reduce manual tasks, and make smarter decisions.",
-  keywords:
-    "AI solutions, automation, artificial intelligence, Calgary, Alberta, business automation, machine learning, workflow automation, smart business tools",
+  alternates: {
+    canonical: "https://nutab.ca/services/ai-automation",
+  },
+  openGraph: {
+    title: "AI & Automation Solutions in Calgary - NuTab Digital",
+    description:
+      "NuTab Digital offers AI and automation solutions in Calgary, Alberta. Leverage artificial intelligence and automation to improve efficiency, reduce manual tasks, and make smarter decisions.",
+    url: "https://nutab.ca/services/ai-automation",
+    siteName: "NuTab Digital",
+    images: [
+      {
+        url: "https://nutab.ca/photos/3d-nutab-logo.png",
+        width: 600,
+        height: 600,
+        alt: "AI & Automation Solutions in Calgary",
+      },
+    ],
+    locale: "en_CA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AI & Automation Solutions in Calgary - NuTab Digital",
+    description:
+      "NuTab Digital offers AI and automation solutions in Calgary, Alberta. Leverage artificial intelligence and automation to improve efficiency, reduce manual tasks, and make smarter decisions.",
+    images: ["https://nutab.ca/photos/3d-nutab-logo.png"],
+  },
 });
 
 const AIAutomation: React.FC = () => {
@@ -25,7 +50,7 @@ const AIAutomation: React.FC = () => {
       <Background />
       <Loader />
 
-      {/* Structured Data Script */}
+      {/* Structured Data Script: Service & FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -44,9 +69,61 @@ const AIAutomation: React.FC = () => {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is AI & automation?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "AI (Artificial Intelligence) uses computer systems to perform tasks that normally require human intelligence. Automation uses technology to perform tasks with minimal human intervention."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How can AI help my business?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "AI can help you analyze data, automate decisions, improve customer service, and optimize operations for better results."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Is automation expensive?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Automation can reduce costs over time by saving labor and improving efficiency. We offer solutions for businesses of all sizes."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you provide ongoing support?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, we provide ongoing support and optimization to ensure your AI and automation solutions continue to deliver value."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you integrate AI with my existing systems?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely! We specialize in integrating AI and automation tools with your current business software and workflows."
+                }
+              }
+            ]
+          }),
+        }}
+      />
 
       {/* Hero Section */}
       <SectionWrapper className="section-wrapper--no-padding">
+        <h1>AI & Automation Solutions in Calgary</h1>
         <HeroSection
           title="AI & Automation Solutions in Calgary"
           subtitle={
@@ -154,6 +231,22 @@ const AIAutomation: React.FC = () => {
           <li><strong>Customization:</strong> Solutions tailored to your unique needs.</li>
           <li><strong>Local Support:</strong> Calgary-based team for responsive service.</li>
           <li><strong>Continuous Improvement:</strong> We help you stay ahead with ongoing updates.</li>
+        </ul>
+      </SectionWrapper>
+
+      {/* Internal Links for SEO */}
+      <SectionWrapper>
+        <h2>Related Services</h2>
+        <ul>
+          <li>
+            <a href="/services/business-it-consulting">Business IT Consulting</a>
+          </li>
+          <li>
+            <a href="/services/custom-software">Custom Software Development</a>
+          </li>
+          <li>
+            <a href="/services/seo-digital-marketing">SEO & Digital Marketing</a>
+          </li>
         </ul>
       </SectionWrapper>
 

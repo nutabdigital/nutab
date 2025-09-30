@@ -1,39 +1,85 @@
-.contact-popup-overlay {
+.popup-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: rgba(0, 0, 0, 0.7);
-  /* Semi-transparent background */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   display: flex;
   justify-content: center;
   align-items: center;
   z-index: 1000;
 }
 
-.contact-popup-content {
+.popup-content {
   display: flex;
   flex-direction: column;
-  gap: 2vh;
+  gap: 1rem;
   align-items: center;
   background: white;
-  padding: 20px;
-  border-radius: 10px;
+  padding: 2rem 1.5rem;
+  border-radius: 1.5rem;
   position: relative;
-  width: 350px;
+  max-width: 400px;
+  width:80vw;
   text-align: center;
+  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--foreground);
 }
 
-.contact-popup-photo {
+.popup-photo {
   width: 200px;
   height: 200px;
+  background-size: cover;
+  background-position: center;
   border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 10px;
+  margin-top: 1rem;
+  border: 0.25rem solid rgba(0, 103, 231, 0.5);
 }
 
-.close-btn {
+.popup-team-name {
+  font-size: 1.5rem;
+  font-weight: normal;
+}
+
+.popup-team-role {
+  background: #0067e7;
+  border-radius: 1.5rem;
+  font-weight: 400;
+  color: white;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  font-size: 1rem;
+}
+
+.popup-team-position {
+  font-size: 1.05rem;
+  font-weight: 400;
+  color: #0067e7;
+  opacity: 0.95;
+  letter-spacing: 0.01em;
+}
+
+.popup-team-description {
+  opacity: 0.85;
+}
+
+.popup-contact-info {
+  font-size: 1rem;
+  opacity: 0.85;
+}
+
+.popup-contact-info a {
+  color: #0067e7;
+  opacity: 0.95;
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.popup-close-btn {
   position: absolute;
   top: 10px;
   right: 15px;
@@ -46,13 +92,15 @@
   justify-content: center;
   color: #222;
   transition: color 0.2s;
+  width: 40px;
+  height: 40px;
 }
 
-.close-btn:hover {
+.popup-close-btn:hover {
   color: #0067e7;
 }
 
-.save-contact-button {
+.popup-save-contact-button {
   padding: 0.75rem 1.5rem;
   width: fit-content;
   background: linear-gradient(to right, #9333ea, #3b82f6);
@@ -62,47 +110,42 @@
   font-weight: 400;
   cursor: pointer;
   transition: background-color 0.15s ease, transform 0.15s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  display: none;
-  box-shadow: 0 4px 20px rgba(96,165,250,0.18);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1), 0 4px 20px rgba(96,165,250,0.18);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.save-contact-button:hover {
+.popup-save-contact-button:hover {
   background-color: #0067e7;
   color: rgb(255, 255, 255);
   transform: translateY(-2px);
 }
 
-@media (max-width:600px) {
-  .save-contact-button {
-    display: block;
-  }
-}
-
 /* Dark Mode Styling */
-[data-theme="dark"] .contact-popup-overlay {
-  background: rgba(255, 255, 255, 0.7);
+[data-theme="dark"] .popup-overlay {
+
 }
 
-[data-theme="dark"] .contact-popup-content {
+[data-theme="dark"] .popup-content {
   background: rgb(0, 0, 0);
   color: #ffffff;
 }
 
-[data-theme="dark"] .save-contact-button {
+[data-theme="dark"] .popup-save-contact-button {
   background-color: #3f37c9;
   color: #ffffff;
 }
 
-[data-theme="dark"] .save-contact-button:hover {
+[data-theme="dark"] .popup-save-contact-button:hover {
   background-color: #0067e7;
   color: #ffffff;
 }
 
-[data-theme="dark"] .close-btn {
+[data-theme="dark"] .popup-close-btn {
   color: #fff;
 }
 
-[data-theme="dark"] .close-btn:hover {
+[data-theme="dark"] .popup-close-btn:hover {
   color: #60a5fa;
 }

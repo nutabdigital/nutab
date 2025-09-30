@@ -1,5 +1,5 @@
 import React from "react";
-import { X } from "lucide-react";
+import { X, Download } from "lucide-react";
 import "./ContactPopup.css";
 
 interface Contact {
@@ -41,16 +41,22 @@ END:VCARD`;
   };
 
   return (
-    <div className="contact-popup-overlay" onClick={onClose}>
-      <div className="contact-popup-content" onClick={(e) => e.stopPropagation()}>
-        <button className="close-btn" onClick={onClose}>
-          <X size={24} />
+    <div className="popup-overlay" onClick={onClose}>
+      <div className="popup-content" onClick={(e) => e.stopPropagation()}>
+        <button className="popup-close-btn" onClick={onClose}>
+          <X size={30} />
         </button>
-        <h2>{contact.name}</h2>
-        <img src={contact.photo} alt={contact.name} className="contact-popup-photo" />
-        <h1>{contact.email}</h1>
-        <h1>{contact.phone}</h1>
-        <button className="save-contact-button" onClick={generateVCard}>Save Contact</button>
+        <div className="popup-photo" style={{ backgroundImage: `url(${contact.photo})` }} aria-label={`${contact.name} headshot`} />
+        <p className="popup-team-name">{contact.name}</p>
+        <p className="popup-team-role">Co-Founder</p>
+        <p className="popup-team-position">Software Developer</p>
+        <p className="popup-team-description">B.Sc. in Computer Science, University of Calgary</p>
+        <p className="popup-contact-info"><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
+        <p className="popup-contact-info">{contact.phone}</p>
+        <button className="popup-save-contact-button" onClick={generateVCard}>
+          <Download size={18} />
+          Save Contact
+        </button>
       </div>
     </div>
   );

@@ -5,11 +5,7 @@ import "./Loader.css"; // Import the CSS file
 
 const Loader: React.FC = () => {
   useEffect(() => {
-    const timer = setTimeout(() => {
-      document.body.classList.add("loaded");
-    }, 3000);
-
-    return () => clearTimeout(timer); // Cleanup timer on unmount
+    document.body.classList.add("loaded");
   }, []);
 
   return (

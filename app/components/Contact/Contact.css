@@ -8,7 +8,7 @@
   padding-bottom: 2rem;
   margin-left: 2.5vw;
   margin-right: 2.5vw;
-  background-color: rgb(255, 255, 255, 0.70);
+  background-color: rgb(255, 255, 255, 0.75);
   color: var(--foreground);
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
   backdrop-filter: blur(12px);
@@ -132,7 +132,7 @@ textarea {
 .contact-right {
   flex: 1.2;
   padding: 2rem 2rem;
-  background-color: rgb(255, 255, 255, 0.70); /* Matches light mode container */
+  background-color: rgb(255, 255, 255, 0.75); /* Matches light mode container */
   color: #222; /* Use a dark text for readability in light mode */
   /* Remove left box-shadow only in two-column layout */
   box-shadow: 4px 0 12px rgba(3, 3, 3, 0.198), 0 4px 12px rgba(3, 3, 3, 0.198);

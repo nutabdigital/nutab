@@ -10,7 +10,7 @@
   padding-bottom: 2rem;
   margin-left: 2.5vw;
   margin-right: 2.5vw;
-  background-color: rgb(255, 255, 255, 0.70);
+  background-color: rgb(255, 255, 255, 0.75);
   color: var(--foreground);
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
   backdrop-filter: blur(12px);

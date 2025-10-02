@@ -15,8 +15,33 @@ export const generateMetadata = (): Metadata => ({
   title: "Mobile & Web App Development Services in Calgary - NuTab Digital",
   description:
     "NuTab Digital offers mobile and web app development services in Calgary, Alberta. Build scalable, user-friendly apps for iOS, Android, and the web.",
-  keywords:
-    "mobile app development, web app development, Calgary, Alberta, iOS apps, Android apps, responsive web applications, scalable apps, custom app development",
+  alternates: {
+    canonical: "https://nutab.ca/services/mobile-web-app-development",
+  },
+  openGraph: {
+    title: "Mobile & Web App Development Services in Calgary - NuTab Digital",
+    description:
+      "NuTab Digital offers mobile and web app development services in Calgary, Alberta. Build scalable, user-friendly apps for iOS, Android, and the web.",
+    url: "https://nutab.ca/services/mobile-web-app-development",
+    siteName: "NuTab Digital",
+    images: [
+      {
+        url: "https://nutab.ca/photos/3d-nutab-logo.png",
+        width: 600,
+        height: 600,
+        alt: "Mobile & Web App Development Services in Calgary",
+      },
+    ],
+    locale: "en_CA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Mobile & Web App Development Services in Calgary - NuTab Digital",
+    description:
+      "NuTab Digital offers mobile and web app development services in Calgary, Alberta. Build scalable, user-friendly apps for iOS, Android, and the web.",
+    images: ["https://nutab.ca/photos/3d-nutab-logo.png"],
+  },
 });
 
 const MobileWebAppDevelopment: React.FC = () => {
@@ -25,7 +50,7 @@ const MobileWebAppDevelopment: React.FC = () => {
       <Loader />
       <Background />
 
-      {/* Structured Data Script */}
+      {/* Structured Data Script: Service & FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -44,9 +69,61 @@ const MobileWebAppDevelopment: React.FC = () => {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is mobile and web app development?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Mobile and web app development involves creating applications for mobile devices (iOS and Android) and web browsers. These apps are designed to provide seamless user experiences and meet specific business needs."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How long does it take to develop an app?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The timeline depends on the complexity of the app. Simple apps can take a few weeks, while more complex apps may take several months. We work with you to create a realistic timeline."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you build apps for both iOS and Android?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, we specialize in building cross-platform apps that work seamlessly on both iOS and Android devices."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you provide ongoing support for apps?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, we offer ongoing support and maintenance to ensure your app remains up-to-date and performs optimally."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you integrate third-party APIs into the app?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely! We can integrate third-party APIs to enhance your app's functionality, such as payment gateways, social media, or analytics tools."
+                }
+              }
+            ]
+          }),
+        }}
+      />
 
       {/* Hero Section */}
       <SectionWrapper className="section-wrapper--no-padding">
+        <h1>Mobile & Web App Development Services in Calgary</h1>
         <HeroSection
           title="Mobile & Web App Development Services in Calgary"
           subtitle={
@@ -218,6 +295,22 @@ const MobileWebAppDevelopment: React.FC = () => {
           <li>
             <strong>Ongoing Support:</strong> We provide continuous updates and
             maintenance to keep your app running smoothly.
+          </li>
+        </ul>
+      </SectionWrapper>
+
+      {/* Internal Links for SEO */}
+      <SectionWrapper>
+        <h2>Related Services</h2>
+        <ul>
+          <li>
+            <a href="/services/custom-software">Custom Software Development</a>
+          </li>
+          <li>
+            <a href="/services/business-it-consulting">Business IT Consulting</a>
+          </li>
+          <li>
+            <a href="/services/seo-digital-marketing">SEO & Digital Marketing</a>
           </li>
         </ul>
       </SectionWrapper>

@@ -19,8 +19,33 @@ export const generateMetadata = (): Metadata => ({
   title: "Custom Software Development Services in Calgary - NuTab Digital",
   description:
     "NuTab Digital offers custom software development services in Calgary, Alberta. We create tailored solutions to streamline operations, enhance efficiency, and drive business growth.",
-  keywords:
-    "custom software development, Calgary, Alberta, enterprise software, SaaS solutions, software integration, business software, scalable software solutions",
+  alternates: {
+    canonical: "https://nutab.ca/services/custom-software",
+  },
+  openGraph: {
+    title: "Custom Software Development Services in Calgary - NuTab Digital",
+    description:
+      "NuTab Digital offers custom software development services in Calgary, Alberta. We create tailored solutions to streamline operations, enhance efficiency, and drive business growth.",
+    url: "https://nutab.ca/services/custom-software",
+    siteName: "NuTab Digital",
+    images: [
+      {
+        url: "https://nutab.ca/photos/3d-nutab-logo.png",
+        width: 600,
+        height: 600,
+        alt: "Custom Software Development Services in Calgary",
+      },
+    ],
+    locale: "en_CA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Custom Software Development Services in Calgary - NuTab Digital",
+    description:
+      "NuTab Digital offers custom software development services in Calgary, Alberta. We create tailored solutions to streamline operations, enhance efficiency, and drive business growth.",
+    images: ["https://nutab.ca/photos/3d-nutab-logo.png"],
+  },
 });
 
 const CustomSoftwareSolutions: React.FC = () => {
@@ -29,6 +54,7 @@ const CustomSoftwareSolutions: React.FC = () => {
       <Loader />
       <Background />
 
+      {/* Structured Data Script: Service & FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -47,8 +73,60 @@ const CustomSoftwareSolutions: React.FC = () => {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is custom software development?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Custom software development involves creating software applications tailored to meet the specific needs of a business or organization. Unlike off-the-shelf software, custom solutions are designed to address unique challenges and workflows."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How long does it take to develop custom software?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The timeline for custom software development depends on the complexity of the project. On average, it can take anywhere from a few weeks to several months. We work closely with you to establish a realistic timeline based on your requirements."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How much does custom software development cost?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The cost of custom software development varies depending on the scope and complexity of the project. Contact us for a free consultation and quote tailored to your needs."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you integrate custom software with our existing systems?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, we specialize in system integration to ensure your new software works seamlessly with your existing tools and platforms."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you provide ongoing support after deployment?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely! We offer ongoing support and maintenance to ensure your software continues to perform optimally."
+                }
+              }
+            ]
+          }),
+        }}
+      />
 
       <SectionWrapper className="section-wrapper--no-padding">
+        <h1>Custom Software Development Services in Calgary</h1>
         <HeroSection
           title="Custom Software Development Services in Calgary"
           subtitle={
@@ -238,6 +316,22 @@ const CustomSoftwareSolutions: React.FC = () => {
           <li>
             <span className="accent">Customer-Centric Approach:</span> Your
             satisfaction is our top priority.
+          </li>
+        </ul>
+      </SectionWrapper>
+
+      {/* Internal Links for SEO */}
+      <SectionWrapper>
+        <h2 className="gradient-title">Related Services</h2>
+        <ul className="styled-list">
+          <li>
+            <a href="/services/ai-automation">AI & Automation Solutions</a>
+          </li>
+          <li>
+            <a href="/services/business-it-consulting">Business IT Consulting</a>
+          </li>
+          <li>
+            <a href="/services/seo-digital-marketing">SEO & Digital Marketing</a>
           </li>
         </ul>
       </SectionWrapper>

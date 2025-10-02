@@ -1,5 +1,6 @@
 import React from "react";
 import "./About.css";
+import { Wrench, HeartHandshake, Globe } from "lucide-react";
 
 
 const About: React.FC = () => {
@@ -25,11 +26,7 @@ const About: React.FC = () => {
             className="about-item"
           >
             <div className="about-cols">
-              <img
-                src="/icons/wrench-tool-icon.svg"
-                alt="wrench"
-                className="about-icon"
-              />
+              <Wrench className="about-icon" aria-label="wrench" />
               <h3>What We Do</h3>
             </div>
 
@@ -42,11 +39,7 @@ const About: React.FC = () => {
             className="about-item"
           >
             <div className="about-cols">
-              <img
-                src="/icons/hand-shake-icon.svg"
-                alt="handshake"
-                className="about-icon"
-              />
+              <HeartHandshake className="about-icon" aria-label="handshake" />
               <h3>Why Choose Us</h3>
             </div>
             <p>
@@ -58,11 +51,7 @@ const About: React.FC = () => {
             className="about-item"
           >
             <div className="about-cols">
-              <img
-                src="/icons/globe-icon.svg"
-                alt="globeicon"
-                className="about-icon"
-              />
+              <Globe className="about-icon" aria-label="globeicon" />
               <h3>Our Vision</h3>
             </div>
             <p>

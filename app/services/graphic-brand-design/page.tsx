@@ -15,8 +15,33 @@ export const generateMetadata = (): import("next").Metadata => ({
   title: "Graphic & Brand Design Services in Calgary - NuTab Digital",
   description:
     "NuTab Digital offers graphic and brand design services in Calgary, Alberta. Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
-  keywords:
-    "graphic design, brand design, Calgary, Alberta, logo design, visual identity, digital graphics, creative design, branding services",
+  alternates: {
+    canonical: "https://nutab.ca/services/graphic-brand-design",
+  },
+  openGraph: {
+    title: "Graphic & Brand Design Services in Calgary - NuTab Digital",
+    description:
+      "NuTab Digital offers graphic and brand design services in Calgary, Alberta. Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
+    url: "https://nutab.ca/services/graphic-brand-design",
+    siteName: "NuTab Digital",
+    images: [
+      {
+        url: "https://nutab.ca/photos/3d-nutab-logo.png",
+        width: 600,
+        height: 600,
+        alt: "Graphic & Brand Design Services in Calgary",
+      },
+    ],
+    locale: "en_CA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Graphic & Brand Design Services in Calgary - NuTab Digital",
+    description:
+      "NuTab Digital offers graphic and brand design services in Calgary, Alberta. Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
+    images: ["https://nutab.ca/photos/3d-nutab-logo.png"],
+  },
 });
 
 const GraphicBrandDesign: React.FC = () => {
@@ -25,7 +50,7 @@ const GraphicBrandDesign: React.FC = () => {
       <Background />
       <Loader />
 
-      {/* Structured Data Script */}
+      {/* Structured Data Script: Service & FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -44,9 +69,61 @@ const GraphicBrandDesign: React.FC = () => {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is brand design?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Brand design is the process of creating a visual identity for your business, including logos, colors, fonts, and style guidelines."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you offer logo design?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, we specialize in creating custom logos that reflect your brand’s personality and values."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you design graphics for social media?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely! We create digital graphics for social media, websites, and marketing campaigns."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you provide print design services?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, we design business cards, brochures, packaging, and other print materials."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Will I get all the design files?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, you’ll receive all final design files and brand guidelines for your use."
+                }
+              }
+            ]
+          }),
+        }}
+      />
 
       {/* Hero Section */}
       <SectionWrapper className="section-wrapper--no-padding">
+        <h1>Graphic & Brand Design Services in Calgary</h1>
         <HeroSection
           title="Graphic & Brand Design Services in Calgary"
           subtitle={
@@ -152,6 +229,22 @@ const GraphicBrandDesign: React.FC = () => {
           <li><strong>Tailored Solutions:</strong> Every project is customized to your needs.</li>
           <li><strong>Local Support:</strong> Calgary-based team for responsive service.</li>
           <li><strong>Long-Term Partnership:</strong> We’re committed to your brand’s success.</li>
+        </ul>
+      </SectionWrapper>
+
+      {/* Internal Links for SEO */}
+      <SectionWrapper>
+        <h2>Related Services</h2>
+        <ul>
+          <li>
+            <a href="/services/custom-software">Custom Software Development</a>
+          </li>
+          <li>
+            <a href="/services/business-it-consulting">Business IT Consulting</a>
+          </li>
+          <li>
+            <a href="/services/seo-digital-marketing">SEO & Digital Marketing</a>
+          </li>
         </ul>
       </SectionWrapper>
 

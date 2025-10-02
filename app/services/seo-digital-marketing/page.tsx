@@ -19,8 +19,33 @@ export const generateMetadata = (): Metadata => ({
   title: "SEO & Digital Marketing Services in Calgary - NuTab Digital",
   description:
     "NuTab Digital offers SEO and digital marketing services in Calgary, Alberta. Enhance your online visibility, attract customers, and grow your business.",
-  keywords:
-    "SEO services, digital marketing, Calgary, Alberta, search engine optimization, online marketing, content marketing, social media marketing, PPC advertising",
+  alternates: {
+    canonical: "https://nutab.ca/services/seo-digital-marketing",
+  },
+  openGraph: {
+    title: "SEO & Digital Marketing Services in Calgary - NuTab Digital",
+    description:
+      "NuTab Digital offers SEO and digital marketing services in Calgary, Alberta. Enhance your online visibility, attract customers, and grow your business.",
+    url: "https://nutab.ca/services/seo-digital-marketing",
+    siteName: "NuTab Digital",
+    images: [
+      {
+        url: "https://nutab.ca/photos/3d-nutab-logo.png",
+        width: 600,
+        height: 600,
+        alt: "SEO & Digital Marketing Services in Calgary",
+      },
+    ],
+    locale: "en_CA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SEO & Digital Marketing Services in Calgary - NuTab Digital",
+    description:
+      "NuTab Digital offers SEO and digital marketing services in Calgary, Alberta. Enhance your online visibility, attract customers, and grow your business.",
+    images: ["https://nutab.ca/photos/3d-nutab-logo.png"],
+  },
 });
 
 const SEODigitalMarketing: React.FC = () => {
@@ -29,7 +54,7 @@ const SEODigitalMarketing: React.FC = () => {
       <Background />
       <Loader />
 
-      {/* Structured Data Script */}
+      {/* Structured Data Script: Service & FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -48,9 +73,61 @@ const SEODigitalMarketing: React.FC = () => {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is SEO?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "SEO (Search Engine Optimization) is the process of optimizing your website to rank higher in search engine results, making it easier for potential customers to find you online."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How long does it take to see results from SEO?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "SEO is a long-term strategy, and results typically take 3-6 months to become noticeable. However, the timeline can vary depending on your industry and competition."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "What is digital marketing?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Digital marketing involves promoting your business online through channels like social media, email, search engines, and paid advertising to reach your target audience."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you provide content creation services?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, we offer content marketing services, including blog posts, social media content, and website copy, to help engage your audience and improve your SEO."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you manage our social media accounts?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely! We provide social media management services to help you build your brand and connect with your audience on platforms like Facebook, Instagram, and LinkedIn."
+                }
+              }
+            ]
+          }),
+        }}
+      />
 
       {/* Hero Section */}
       <SectionWrapper className="section-wrapper--no-padding">
+        <h1>SEO & Digital Marketing Services in Calgary</h1>
         <HeroSection
           title="SEO & Digital Marketing Services in Calgary"
           subtitle={
@@ -224,6 +301,22 @@ const SEODigitalMarketing: React.FC = () => {
         </ul>
       </SectionWrapper>
 
+      {/* Internal Links for SEO */}
+      <SectionWrapper>
+        <h2>Related Services</h2>
+        <ul>
+          <li>
+            <a href="/services/custom-software">Custom Software Development</a>
+          </li>
+          <li>
+            <a href="/services/business-it-consulting">Business IT Consulting</a>
+          </li>
+          <li>
+            <a href="/services/ai-automation">AI & Automation Solutions</a>
+          </li>
+        </ul>
+      </SectionWrapper>
+
       {/* Get Started Today */}
       <SectionWrapper>
         <h2>Get Started Today</h2>
@@ -233,6 +326,7 @@ const SEODigitalMarketing: React.FC = () => {
           <strong>SEO and digital marketing services</strong> and how we can
           help your business grow.
         </p>
+        <GetQuoteButton />
       </SectionWrapper>
 
       {/* FAQ */}

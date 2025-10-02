@@ -28,7 +28,7 @@ const contacts: Record<string, Contact> = {
     email: "navjots@nutab.ca",
     company: "Nutab",
     website: "https://www.nutab.ca",
-    photo: "/photos/nav-headshot.png",
+    photo: "/photos/nav-headshot.webp", // updated to webp
   },
   fysal: {
     name: "Fysal Beauferris",
@@ -36,7 +36,7 @@ const contacts: Record<string, Contact> = {
     email: "fysalb@nutab.ca",
     company: "Nutab",
     website: "https://www.nutab.ca",
-    photo: "/photos/fysal-headshot.png",
+    photo: "/photos/fysal-headshot.webp", // updated to webp
   },
 };
 
@@ -55,7 +55,7 @@ const HomePage: React.FC = () => {
               entry.target.getAttribute("data-section") || "0" 
             );
             setCurrentSection(sectionNumber);
-            console.log(`Currently in section: ${sectionNumber}`);
+            // console.log(`Currently in section: ${sectionNumber}`);
             entry.target.classList.add("visible");
           } else {
             entry.target.classList.remove("visible");

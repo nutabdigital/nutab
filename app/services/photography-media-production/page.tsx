@@ -15,8 +15,33 @@ export const generateMetadata = (): import("next").Metadata => ({
   title: "Photography & Media Production Services in Calgary - NuTab Digital",
   description:
     "NuTab Digital offers photography and media production services in Calgary, Alberta. High-quality photography and media for websites, marketing campaigns, and brand storytelling.",
-  keywords:
-    "photography, media production, Calgary, Alberta, commercial photography, video production, brand storytelling, marketing media, content creation",
+  alternates: {
+    canonical: "https://nutab.ca/services/photography-media-production",
+  },
+  openGraph: {
+    title: "Photography & Media Production Services in Calgary - NuTab Digital",
+    description:
+      "NuTab Digital offers photography and media production services in Calgary, Alberta. High-quality photography and media for websites, marketing campaigns, and brand storytelling.",
+    url: "https://nutab.ca/services/photography-media-production",
+    siteName: "NuTab Digital",
+    images: [
+      {
+        url: "https://nutab.ca/photos/3d-nutab-logo.png",
+        width: 600,
+        height: 600,
+        alt: "Photography & Media Production Services in Calgary",
+      },
+    ],
+    locale: "en_CA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Photography & Media Production Services in Calgary - NuTab Digital",
+    description:
+      "NuTab Digital offers photography and media production services in Calgary, Alberta. High-quality photography and media for websites, marketing campaigns, and brand storytelling.",
+    images: ["https://nutab.ca/photos/3d-nutab-logo.png"],
+  },
 });
 
 const PhotographyMediaProduction: React.FC = () => {
@@ -25,7 +50,7 @@ const PhotographyMediaProduction: React.FC = () => {
       <Background />
       <Loader />
 
-      {/* Structured Data Script */}
+      {/* Structured Data Script: Service & FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -44,9 +69,61 @@ const PhotographyMediaProduction: React.FC = () => {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What types of photography do you offer?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "We offer commercial, product, lifestyle, event, and business photography tailored to your needs."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you provide video production?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, we produce promotional videos, interviews, and brand stories for marketing and web."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you cover events?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely! We offer professional event photography and videography services."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Will I get all the media files?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, you’ll receive all final edited images and videos for your use."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you offer editing and post-production?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, our team provides professional editing and post-production for all media projects."
+                }
+              }
+            ]
+          }),
+        }}
+      />
 
       {/* Hero Section */}
       <SectionWrapper className="section-wrapper--no-padding">
+        <h1>Photography & Media Production Services in Calgary</h1>
         <HeroSection
           title="Photography & Media Production Services in Calgary"
           subtitle={
@@ -151,6 +228,22 @@ const PhotographyMediaProduction: React.FC = () => {
           <li><strong>Tailored Solutions:</strong> Every project is customized to your needs.</li>
           <li><strong>Local Support:</strong> Calgary-based team for responsive service.</li>
           <li><strong>Long-Term Partnership:</strong> We’re committed to your brand’s success.</li>
+        </ul>
+      </SectionWrapper>
+
+      {/* Internal Links for SEO */}
+      <SectionWrapper>
+        <h2>Related Services</h2>
+        <ul>
+          <li>
+            <a href="/services/custom-software">Custom Software Development</a>
+          </li>
+          <li>
+            <a href="/services/business-it-consulting">Business IT Consulting</a>
+          </li>
+          <li>
+            <a href="/services/seo-digital-marketing">SEO & Digital Marketing</a>
+          </li>
         </ul>
       </SectionWrapper>
 

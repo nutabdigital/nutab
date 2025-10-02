@@ -23,7 +23,7 @@ const contacts: Record<string, Contact> = {
     email: "navjots@nutab.ca",
     company: "Nutab",
     website: "https://www.nutab.ca",
-    photo: "/photos/nav-headshot.png",
+    photo: "/photos/nav-headshot.webp",
   },
   fysal: {
     name: "Fysal Beauferris",
@@ -31,7 +31,7 @@ const contacts: Record<string, Contact> = {
     email: "fysalb@nutab.ca",
     company: "Nutab",
     website: "https://www.nutab.ca",
-    photo: "/photos/fysal-headshot.png",
+    photo: "/photos/fysal-headshot.webp",
   },
 };
 
@@ -46,7 +46,7 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
         <div className="team-member" onClick={() => onSelectContact(contacts.navjot)}>
           <div
             className="photo"
-            style={{ backgroundImage: 'url("/photos/nav-headshot.png")' }}
+            style={{ backgroundImage: 'url("/photos/nav-headshot.webp")' }}
             aria-label="Navjot Saran headshot"
           ></div>
           <p className="team-name">Navjot Saran</p>
@@ -61,7 +61,7 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
         <div className="team-member" onClick={() => onSelectContact(contacts.fysal)}>
           <div
             className="photo"
-            style={{ backgroundImage: 'url("/photos/fysal-headshot.png")' }}
+            style={{ backgroundImage: 'url("/photos/fysal-headshot.webp")' }}
             aria-label="Fysal Beauferris headshot"
           ></div>
           <p className="team-name">Fysal Beauferris</p>

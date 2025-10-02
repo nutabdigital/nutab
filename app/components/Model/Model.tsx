@@ -53,7 +53,7 @@ const throttle = <T extends (...args: any[]) => void>(
 
 const Model: React.FC<ModelProps> = ({ currentSection }) => {
   useEffect(() => {
-    console.log("Current Section in Model:", currentSection);
+    // console.log("Current Section in Model:", currentSection);
     // Perform animations or transformations based on currentSection
   }, [currentSection]);
   

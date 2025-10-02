@@ -1,11 +1,21 @@
 import React from "react";
 import Link from "next/link";
-import { Brain, PenTool, Briefcase, Camera } from "lucide-react";
+import {
+	Brain,
+	PenTool,
+	Briefcase,
+	Camera,
+	ExternalLink,
+	Code,
+	MonitorSmartphone,
+	ShoppingCart,
+	LineChart,
+} from "lucide-react";
 import "./Services.css";
 
 const services = [
 	{
-		icon: "/icons/softdev.svg",
+		icon: "code",
 		id: "custom-software",
 		name: "Custom Software Solutions",
 		description:
@@ -13,7 +23,7 @@ const services = [
 		link: "/services/custom-software",
 	},
 	{
-		icon: "/icons/appdev.svg",
+		icon: "monitor-smartphone",
 		id: "app-development",
 		name: "Mobile & Web App Development",
 		description:
@@ -21,7 +31,7 @@ const services = [
 		link: "/services/mobile-web-app-development",
 	},
 	{
-		icon: "/icons/seo-marketing.svg",
+		icon: "line-chart",
 		id: "seo-digital-marketing",
 		name: "SEO & Digital Marketing",
 		description:
@@ -29,7 +39,7 @@ const services = [
 		link: "/services/seo-digital-marketing",
 	},
 	{
-		icon: "/icons/ecommerce.svg",
+		icon: "shopping-cart",
 		id: "ecommerce-development",
 		name: "E-Commerce Development",
 		description:
@@ -61,7 +71,7 @@ const services = [
 		link: "/services/graphic-brand-design",
 	},
 	{
-		icon: "camera", // Use a string identifier for Camera
+		icon: "camera",
 		id: "media-production",
 		name: "Photography & Media Production",
 		description:
@@ -69,6 +79,21 @@ const services = [
 		link: "/services/photography-media-production",
 	},
 ];
+
+const iconMap: Record<string, React.ReactNode> = {
+	"code": <Code className="service-icon" color="#000000" size={38} />,
+	"monitor-smartphone": (
+		<MonitorSmartphone className="service-icon" color="#000000" size={38} />
+	),
+	"line-chart": <LineChart className="service-icon" color="#000000" size={38} />,
+	"shopping-cart": (
+		<ShoppingCart className="service-icon" color="#000000" size={38} />
+	),
+	"brain": <Brain className="service-icon" color="#000000" size={38} />,
+	"briefcase": <Briefcase className="service-icon" color="#000000" size={38} />,
+	"pen-tool": <PenTool className="service-icon" color="#000000" size={38} />,
+	"camera": <Camera className="service-icon" color="#000000" size={38} />,
+};
 
 const Services: React.FC = () => (
 	<section className="services-section">
@@ -79,15 +104,7 @@ const Services: React.FC = () => (
 		<div className="services-list">
 			{services.map((service) => (
 				<Link key={service.id} href={service.link} className="service-box">
-					{service.icon === "pen-tool" ? (
-						<PenTool className="service-icon" color="#000000" size={38} />
-					) : service.icon === "brain" ? (
-						<Brain className="service-icon" color="#000000" size={38} />
-					) : service.icon === "briefcase" ? (
-						<Briefcase className="service-icon" color="#000000" size={38} />
-					) : service.icon === "camera" ? (
-						<Camera className="service-icon" color="#000000" size={38} />
-					) : (
+					{iconMap[service.icon] || (
 						<img
 							src={service.icon}
 							alt={`${service.name} icon`}
@@ -99,10 +116,10 @@ const Services: React.FC = () => (
 					<p className="service-description">{service.description}</p>
 					<div className="learn-more-wrapper">
 						<div className="learn-more-bubble">Learn More</div>
-						<img
-							src="/icons/arrow.svg"
-							alt="Arrow icon"
+						<ExternalLink
 							className="learn-more-icon"
+							aria-label="External link icon"
+							size={20}
 						/>
 					</div>
 				</Link>

@@ -135,6 +135,9 @@
   width: 20px;
   height: 20px;
   margin-bottom: 0.5rem;
+  margin-left: 0.5rem;
+  transition: color 0.3s, filter 0.3s;
+  
 }
 
 /* Hover styles */
@@ -158,6 +161,18 @@
 .service-box:hover .learn-more-wrapper {
   visibility: visible;
   opacity: 1;
+}
+
+/* On light mode, hover makes icon white */
+.service-box:hover .learn-more-icon {
+  color: #ffffff;
+  filter: brightness(0) invert(1);
+}
+
+/* On dark mode, keep icon white by default */
+[data-theme="dark"] .learn-more-icon {
+  color: #ffffff;
+  filter: brightness(0) invert(1);
 }
 
 @media (max-width:600px) {

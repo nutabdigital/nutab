@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   robots: "index, follow",
 };
 
-// Define structured data as a JavaScript object
-const structuredData = {
+// Define structured data as JavaScript objects
+const structuredDataOrganization = {
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "NuTab Digital",
@@ -68,6 +68,34 @@ const structuredData = {
   ]
 };
 
+// const structuredDataWebSite = {
+//   "@context": "https://schema.org",
+//   "@type": "WebSite",
+//   "name": "NuTab Digital",
+//   "url": "https://nutab.ca",
+//   "potentialAction": {
+//     "@type": "SearchAction",
+//     "target": "https://nutab.ca/search?q={search_term_string}",
+//     "query-input": "required name=search_term_string"
+//   }
+// };
+
+const structuredDataLocalBusiness = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "NuTab Digital",
+  "image": "https://nutab.ca/photos/nutab-logo.webp",
+  "telephone": "+1-587-707-2495",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Calgary",
+    "addressRegion": "AB",
+    "addressCountry": "CA"
+  },
+  "url": "https://nutab.ca",
+  "priceRange": "$$"
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -92,16 +120,12 @@ export default function RootLayout({
           name="description"
           content="NuTab Digital offers custom software solutions, mobile & web app development, SEO & digital marketing, and e-commerce development in Calgary, Alberta. We provide tailored software solutions for businesses and individuals."
         />
-        <meta
-          name="keywords"
-          content="custom software solutions, mobile app development, web app development, SEO, digital marketing, e-commerce development, Calgary, Alberta, NuTab Digital, software company Calgary, software development Calgary"
-        />
         <meta name="robots" content="index, follow" />
 
         {/* Open Graph Meta Tags */}
         <meta property="og:title" content="NuTab Digital - Custom Software Development in Calgary, Alberta" />
         <meta property="og:description" content="NuTab Digital offers custom software solutions, mobile & web app development, SEO & digital marketing, and e-commerce development in Calgary, Alberta. We provide tailored software solutions for businesses and individuals." />
-        <meta property="og:image" content="https://nutab.ca/photos/nutab-logo.png" />
+        <meta property="og:image" content="https://nutab.ca/photos/nutab-logo.webp" />
         <meta property="og:url" content="https://nutab.ca" />
         <meta property="og:type" content="website" />
         <meta property="og:locale" content="en_US" />
@@ -110,12 +134,22 @@ export default function RootLayout({
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="NuTab Digital - Custom Software Development in Calgary, Alberta" />
         <meta name="twitter:description" content="NuTab Digital offers custom software solutions, mobile & web app development, SEO & digital marketing, and e-commerce development in Calgary, Alberta. We provide tailored software solutions for businesses and individuals." />
-        <meta name="twitter:image" content="https://nutab.ca/photos/nutab-logo.png" />
+        <meta name="twitter:image" content="https://nutab.ca/photos/nutab-logo.webp" />
 
-        {/* Properly insert JSON-LD structured data to avoid hydration issues */}
+        {/* Structured Data: Organization */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDataOrganization) }}
+        />
+        {/* Structured Data: WebSite */}
+        {/* <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDataWebSite) }}
+        /> */}
+        {/* Structured Data: LocalBusiness */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredDataLocalBusiness) }}
         />
 
         {/* Google Tag (gtag.js) */}

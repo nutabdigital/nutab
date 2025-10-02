@@ -11,7 +11,7 @@ import { ShoppingCart, Layers, ShieldCheck } from "lucide-react";
 const SectionWrapper = dynamic(
   () => import("../../components/SectionWrapper/SectionWrapper"),
   {
-    ssr: false, // Disable SSR if the component doesn't need it
+    ssr: false,
   }
 );
 
@@ -19,8 +19,33 @@ export const generateMetadata = (): Metadata => ({
   title: "E-Commerce Development Services in Calgary - NuTab Digital",
   description:
     "NuTab Digital offers e-commerce development services in Calgary, Alberta. Build scalable, user-friendly online stores tailored to your business needs.",
-  keywords:
-    "e-commerce development, online store development, Calgary, Alberta, Shopify, WooCommerce, custom e-commerce solutions, scalable e-commerce platforms",
+  alternates: {
+    canonical: "https://nutab.ca/services/ecommerce-development",
+  },
+  openGraph: {
+    title: "E-Commerce Development Services in Calgary - NuTab Digital",
+    description:
+      "NuTab Digital offers e-commerce development services in Calgary, Alberta. Build scalable, user-friendly online stores tailored to your business needs.",
+    url: "https://nutab.ca/services/ecommerce-development",
+    siteName: "NuTab Digital",
+    images: [
+      {
+        url: "https://nutab.ca/photos/3d-nutab-logo.png",
+        width: 600,
+        height: 600,
+        alt: "E-Commerce Development Services in Calgary",
+      },
+    ],
+    locale: "en_CA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "E-Commerce Development Services in Calgary - NuTab Digital",
+    description:
+      "NuTab Digital offers e-commerce development services in Calgary, Alberta. Build scalable, user-friendly online stores tailored to your business needs.",
+    images: ["https://nutab.ca/photos/3d-nutab-logo.png"],
+  },
 });
 
 const EcommerceDevelopment: React.FC = () => {
@@ -29,7 +54,7 @@ const EcommerceDevelopment: React.FC = () => {
       <Background />
       <Loader />
 
-      {/* Structured Data Script */}
+      {/* Structured Data Script: Service & FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -48,9 +73,61 @@ const EcommerceDevelopment: React.FC = () => {
           }),
         }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "What is e-commerce development?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "E-commerce development involves creating online stores and platforms that allow businesses to sell products or services online. This includes features like product catalogs, shopping carts, and payment gateways."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "How long does it take to build an e-commerce website?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "The timeline depends on the complexity of the website. Simple e-commerce sites can take a few weeks, while more complex platforms may take several months."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you integrate payment gateways?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, we can integrate secure payment gateways like PayPal, Stripe, or custom solutions to ensure smooth transactions for your customers."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you provide ongoing support for e-commerce websites?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes, we offer ongoing support and maintenance to ensure your e-commerce platform runs smoothly and stays up-to-date."
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "Can you customize the design of the e-commerce site?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Absolutely! We create custom designs tailored to your brand and business needs to provide a unique shopping experience for your customers."
+                }
+              }
+            ]
+          }),
+        }}
+      />
 
       {/* Hero Section */}
       <SectionWrapper className="section-wrapper--no-padding">
+        <h1>E-Commerce Development Services in Calgary</h1>
         <HeroSection
           title="E-Commerce Development Services in Calgary"
           subtitle={
@@ -222,6 +299,22 @@ const EcommerceDevelopment: React.FC = () => {
         </ul>
       </SectionWrapper>
 
+      {/* Internal Links for SEO */}
+      <SectionWrapper>
+        <h2>Related Services</h2>
+        <ul>
+          <li>
+            <a href="/services/custom-software">Custom Software Development</a>
+          </li>
+          <li>
+            <a href="/services/business-it-consulting">Business IT Consulting</a>
+          </li>
+          <li>
+            <a href="/services/seo-digital-marketing">SEO & Digital Marketing</a>
+          </li>
+        </ul>
+      </SectionWrapper>
+
       {/* Get Started Today */}
       <SectionWrapper>
         <h2>Ready to Build Your Online Store?</h2>
@@ -230,6 +323,7 @@ const EcommerceDevelopment: React.FC = () => {
           <strong>e-commerce development</strong> needs. Let’s work together to
           create a platform that drives growth and success for your business.
         </p>
+        <GetQuoteButton />
       </SectionWrapper>
 
       {/* FAQ */}

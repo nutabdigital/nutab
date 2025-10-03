@@ -26,7 +26,7 @@ const About: React.FC = () => {
             className="about-item"
           >
             <div className="about-cols">
-              <Wrench className="about-icon" aria-label="wrench" />
+              <Wrench className="about-icon" aria-label="wrench" size={38} />
               <h3>What We Do</h3>
             </div>
 
@@ -39,7 +39,7 @@ const About: React.FC = () => {
             className="about-item"
           >
             <div className="about-cols">
-              <HeartHandshake className="about-icon" aria-label="handshake" />
+              <HeartHandshake className="about-icon" aria-label="handshake" size={38} />
               <h3>Why Choose Us</h3>
             </div>
             <p>
@@ -51,7 +51,7 @@ const About: React.FC = () => {
             className="about-item"
           >
             <div className="about-cols">
-              <Globe className="about-icon" aria-label="globeicon" />
+              <Globe className="about-icon" aria-label="globeicon" size={38} />
               <h3>Our Vision</h3>
             </div>
             <p>

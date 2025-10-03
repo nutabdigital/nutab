@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTheme } from "../../context/ThemeContext";
@@ -35,6 +35,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
   const router = useRouter(); // Initialize Next.js router
+  const navRef = useRef<HTMLDivElement>(null);
 
   // Function to determine CSS classes for nav links based on the current section
   const navLinkClasses = (sectionIndex: number) =>
@@ -62,6 +63,27 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
 
     setIsNavOpen(false); // Close the mobile menu if open
   };
+
+  useEffect(() => {
+    if (!isNavOpen) return;
+
+    const handleOutsideClick = (event: MouseEvent | TouchEvent) => {
+      if (
+        navRef.current &&
+        !navRef.current.contains(event.target as Node)
+      ) {
+        setIsNavOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("touchstart", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("touchstart", handleOutsideClick);
+    };
+  }, [isNavOpen]);
 
   return (
     <header className="header">
@@ -109,22 +131,11 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
               }}
             >
               <span>Services</span>
-              <svg
-                className="menu-arrow"
-                width="18"
-                height="18"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M4 6L8 10L12 6"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              <ChevronDown
+                className={`menu-arrow${isServicesOpen ? " open" : ""}`}
+                size={18}
+                strokeWidth={2}
+              />
             </a>
             <AnimatePresence>
               {isServicesOpen && (
@@ -189,6 +200,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
       <AnimatePresence>
         {isNavOpen && (
           <motion.nav
+            ref={navRef}
             className="mob-right-nav open-nav"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
@@ -221,24 +233,11 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
                 >
                   <span style={{ flex: 1, textAlign: "left" }}>
                     Services{" "}
-                    <svg
-                      className={`menu-arrow${
-                        isMobileServicesOpen ? " open" : ""
-                      }`}
-                      width="18"
-                      height="18"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M4 6L8 10L12 6"
-                        stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      />
-                    </svg>
+                    <ChevronDown
+                      className={`menu-arrow${isMobileServicesOpen ? " open" : ""}`}
+                      size={18}
+                      strokeWidth={2}
+                    />
                   </span>
                 </button>
                 <AnimatePresence>

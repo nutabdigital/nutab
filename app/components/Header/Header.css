@@ -12,7 +12,6 @@
 .header-container {
   margin: 0 auto;
   padding: 1rem;
-  padding-right: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -70,18 +69,8 @@
 .menu-arrow {
   display: inline-block;
   margin-left: 0.5em;
-  width: 0;
-  height: 0;
   vertical-align: middle;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 6px solid currentColor; /* Uses current text color */
   transition: transform 0.2s;
-}
-
-.nav-link-dropdown:hover .menu-arrow,
-.nav-link-dropdown:focus .menu-arrow {
-  transform: rotate(180deg);
 }
 
 .menu-arrow.open {
@@ -118,11 +107,12 @@
 .dropdown-item:hover {
   background: #0067e7;
   color: #fff;
+  transition: background 0.2s, color 0.2s;
 }
 
 /* Ensure dropdown-item text color stays as per theme on hover */
 .nav-link-dropdown .dropdown-menu .dropdown-item:hover {
-  color: inherit !important;
+  color: #fff !important;
 }
 
 /* Dark mode dropdown */
@@ -179,6 +169,10 @@
   .menu-button:hover {
     color: #0067e7;
     outline: none;
+  }
+
+  .mobile-controls{
+    margin-right: 3rem;
   }
 
   .mob-right-nav {
@@ -388,5 +382,21 @@
     margin-left: 8px;
     padding: 0.25rem 0.5rem;
   }
+}
+
+/* Ensure mobile-services-link wraps */
+.mobile-services-link {
+  white-space: normal;
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  max-width: 50vw;
+  display: block;
+}
+
+.mob-right-nav ul,
+.mobile-services-sublist,
+.mob-right-nav {
+  white-space: normal !important;
+  overflow: visible !important;
 }
 

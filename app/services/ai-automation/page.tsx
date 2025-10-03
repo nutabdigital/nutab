@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import "./page.css";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { Brain, Zap, ShieldCheck } from "lucide-react";
+import GetQuoteButton from "@/app/components/GetQuoteButton/GetQuoteButton";
 
 const SectionWrapper = dynamic(
   () => import("../../components/SectionWrapper/SectionWrapper"),
@@ -123,7 +124,6 @@ const AIAutomation: React.FC = () => {
 
       {/* Hero Section */}
       <SectionWrapper className="section-wrapper--no-padding">
-        <h1>AI & Automation Solutions in Calgary</h1>
         <HeroSection
           title="AI & Automation Solutions in Calgary"
           subtitle={
@@ -256,6 +256,7 @@ const AIAutomation: React.FC = () => {
         <p>
           Ready to transform your business with <strong>AI & automation?</strong> Contact us to discuss your goals and discover how NuTab Digital can help you work smarter.
         </p>
+        <GetQuoteButton />
       </SectionWrapper>
 
       {/* FAQ */}

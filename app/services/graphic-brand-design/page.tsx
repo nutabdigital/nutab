@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import "./page.css";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { PenTool, Palette, Image } from "lucide-react";
+import GetQuoteButton from "@/app/components/GetQuoteButton/GetQuoteButton";
 
 const SectionWrapper = dynamic(
   () => import("../../components/SectionWrapper/SectionWrapper"),
@@ -123,7 +124,6 @@ const GraphicBrandDesign: React.FC = () => {
 
       {/* Hero Section */}
       <SectionWrapper className="section-wrapper--no-padding">
-        <h1>Graphic & Brand Design Services in Calgary</h1>
         <HeroSection
           title="Graphic & Brand Design Services in Calgary"
           subtitle={
@@ -254,6 +254,7 @@ const GraphicBrandDesign: React.FC = () => {
         <p>
           Ready to elevate your brand? Contact us to discuss your <strong>graphic & brand design</strong> needs and discover how NuTab Digital can help you stand out.
         </p>
+        <GetQuoteButton />
       </SectionWrapper>
 
       {/* FAQ */}

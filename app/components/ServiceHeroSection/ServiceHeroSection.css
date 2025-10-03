@@ -6,6 +6,8 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  background: rgba(255,255,255,0.75); /* Add this line to match SectionWrapper */
+  /* Or use the same variable if you want consistency */
 }
 
 /* Overlay update for new design */
@@ -122,6 +124,10 @@
 [data-theme="dark"] .section-wrapper--custom-padding > div {
   background-color: rgba(10, 10, 10, 0);
 }
+
+[data-theme="dark"] .hero-section {
+    background: rgba(10, 10, 10, 0.75);
+  }
 
 /* Responsive and heading tweaks from page.css */
 .section-wrapper h1,

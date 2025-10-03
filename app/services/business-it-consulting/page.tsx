@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import "./page.css";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { Briefcase, Users, Lightbulb } from "lucide-react";
+import GetQuoteButton from "@/app/components/GetQuoteButton/GetQuoteButton";
 
 const SectionWrapper = dynamic(
   () => import("../../components/SectionWrapper/SectionWrapper"),
@@ -123,7 +124,6 @@ const BusinessITConsulting: React.FC = () => {
 
       {/* Hero Section */}
       <SectionWrapper className="section-wrapper--no-padding">
-        <h1>Business & IT Consulting Services in Calgary</h1>
         <HeroSection
           title="Business & IT Consulting Services in Calgary"
           subtitle={
@@ -253,6 +253,7 @@ const BusinessITConsulting: React.FC = () => {
         <p>
           Ready to transform your business? Contact us to discuss your <strong>business & IT consulting</strong> needs and discover how NuTab Digital can help you achieve your goals.
         </p>
+        <GetQuoteButton />
       </SectionWrapper>
 
       {/* FAQ */}

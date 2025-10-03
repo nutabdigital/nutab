@@ -126,7 +126,6 @@ const CustomSoftwareSolutions: React.FC = () => {
       />
 
       <SectionWrapper className="section-wrapper--no-padding">
-        <h1>Custom Software Development Services in Calgary</h1>
         <HeroSection
           title="Custom Software Development Services in Calgary"
           subtitle={

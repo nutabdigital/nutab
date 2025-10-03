@@ -6,6 +6,7 @@ import { Metadata } from "next";
 import dynamic from "next/dynamic";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { MonitorSmartphone, Layers, ShieldCheck } from "lucide-react";
+import GetQuoteButton from "@/app/components/GetQuoteButton/GetQuoteButton";
 
 const SectionWrapper = dynamic(() => import("../../components/SectionWrapper/SectionWrapper"), {
   ssr: false,
@@ -123,7 +124,6 @@ const MobileWebAppDevelopment: React.FC = () => {
 
       {/* Hero Section */}
       <SectionWrapper className="section-wrapper--no-padding">
-        <h1>Mobile & Web App Development Services in Calgary</h1>
         <HeroSection
           title="Mobile & Web App Development Services in Calgary"
           subtitle={
@@ -324,6 +324,7 @@ const MobileWebAppDevelopment: React.FC = () => {
           together to create an application that drives growth and success for
           your business.
         </p>
+        <GetQuoteButton />
       </SectionWrapper>
 
       {/* FAQ */}

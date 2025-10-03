@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import "./page.css";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { Camera, Video, Image } from "lucide-react";
+import GetQuoteButton from "@/app/components/GetQuoteButton/GetQuoteButton";
 
 const SectionWrapper = dynamic(
   () => import("../../components/SectionWrapper/SectionWrapper"),
@@ -123,7 +124,6 @@ const PhotographyMediaProduction: React.FC = () => {
 
       {/* Hero Section */}
       <SectionWrapper className="section-wrapper--no-padding">
-        <h1>Photography & Media Production Services in Calgary</h1>
         <HeroSection
           title="Photography & Media Production Services in Calgary"
           subtitle={
@@ -253,6 +253,7 @@ const PhotographyMediaProduction: React.FC = () => {
         <p>
           Ready to elevate your brand? Contact us to discuss your <strong>photography & media production</strong> needs and discover how NuTab Digital can help you stand out.
         </p>
+        <GetQuoteButton />
       </SectionWrapper>
 
       {/* FAQ */}

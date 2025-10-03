@@ -1,10 +1,8 @@
 .section-wrapper {
-  /* width: 90%; */
   max-width: 1200px;
-  margin: 0 0 0 auto; /* Push to the right */
-  margin-right: 5vw;
+  margin: 0 auto; /* Center horizontally */
   padding: 2rem;
-  background-color: rgb(255, 255, 255, 0.70);
+  background-color: rgb(255, 255, 255, 0.75);
   color: var(--foreground);
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
   border-radius: 8px;
@@ -25,7 +23,7 @@
 }
 
 .section-wrapper + .section-wrapper {
-  margin-top: 5rem; /* Add spacing between sections */
+  margin-top: 30vh; /* Add spacing between sections */
 }
 
 /* Apply shared layout styles to all section wrappers */
@@ -36,14 +34,14 @@
   justify-content: center;
   align-items: center;
   height: fit-content;
-  width: 50vw;
+  width: 75vw;
   box-sizing: border-box;
   caret-color: transparent;
 }
 
 .section-wrapper--custom-padding > div,
 .section-wrapper > div {
-  width: 50vw;
+  width: 75vw;
   max-width: 700px;
   box-sizing: border-box;
   padding: 1.5rem;
@@ -116,11 +114,6 @@
 [data-theme="dark"] .section-wrapper--custom-padding > div {
   background-color: rgba(10, 10, 10, 0.75);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
-}
-
-.section-wrapper:nth-child(15) {
-  width: 90vw;
-  max-width: 100%;
 }
 
 .section-wrapper--no-padding {

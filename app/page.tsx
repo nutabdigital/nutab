@@ -1,15 +1,14 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import Loader from "./components/Loader/Loader";
-import Header from "./components/Header/Header"; //should remove soon
 import Tagline from "./components/Tagline/Tagline";
 import About from "./components/About/About";
 import Services from "./components/ServicesSummary/Services";
-import Team from "./components/Team/Team";
-import Contact from "./components/Contact/Contact";
-import "./styles/page.css";
-import ContactPopup from "./components/ContactPopup/ContactPopup";
+const Team = React.lazy(() => import("./components/Team/Team"));
+const Contact = React.lazy(() => import("./components/Contact/Contact"));
+import "./styles/page.css"; // Only keep if needed for above-the-fold
+const ContactPopup = React.lazy(() => import("./components/ContactPopup/ContactPopup"));
 
 interface Contact {
   name: string;
@@ -81,7 +80,6 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      <Header currentSection={currentSection} />
       <Loader />
       <div className="gradient-background"></div>
 
@@ -117,15 +115,19 @@ const HomePage: React.FC = () => {
             data-section="3"
           >
             {/* Clicking team member passes contact info */}
-            <Team onSelectContact={setSelectedContact} />
+            <Suspense fallback={null}>
+              <Team onSelectContact={setSelectedContact} />
+            </Suspense>
           </section>
 
           {/* Show popup if a contact is selected */}
           {selectedContact && (
-            <ContactPopup
-              contact={selectedContact}
-              onClose={() => setSelectedContact(null)}
-            />
+            <Suspense fallback={null}>
+              <ContactPopup
+                contact={selectedContact}
+                onClose={() => setSelectedContact(null)}
+              />
+            </Suspense>
           )}
 
           <section
@@ -133,7 +135,9 @@ const HomePage: React.FC = () => {
             className="page-section fade-section align-right"
             data-section="4"
           >
-            <Contact />
+            <Suspense fallback={null}>
+              <Contact />
+            </Suspense>
           </section>
         </div>
       </main>

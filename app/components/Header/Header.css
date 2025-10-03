@@ -196,16 +196,14 @@
     position: fixed;
     right: 0;
     top: 66px;
-    /* Gradient from white to brand blue */
-     background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
     height: fit-content;
     width: 100vw;
     max-width: 55vw;
     z-index: 100;
-    transform: translateX(100%);
     will-change: transform;
     overflow-x: hidden;
-    transition: transform 0.5s ease-in-out;
+    transition: none; /* Framer Motion handles transition */
     border-radius: 0 0 0 20px;
   }
 
@@ -236,7 +234,6 @@
   }
 
   .open-nav {
-    transform: translateX(0%);
   }
 
   /* -- MOBILE MENU -- */
@@ -319,16 +316,16 @@
   .mobile-services-sublist {
     margin-top: 0 !important;
     font-size: 0.80rem;
-    max-height: 0;
-    opacity: 0;
+    max-height: none; /* Let Framer Motion handle height */
+    opacity: 1;       /* Let Framer Motion handle opacity */
     overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+    transition: none;  /* Framer Motion handles transition */
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
   } 
   .mobile-services-sublist.open {
-    max-height: 400px; /* Large enough for all items */
+    max-height: 650px; /* Large enough for all items */
     opacity: 1;
     overflow: visible;
   }

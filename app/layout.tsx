@@ -196,9 +196,7 @@ export default function RootLayout({
         <ThemeProvider>
           <SectionProvider>
             <Header />
-            {/* Render the Model component */}
             <ModelWrapper />
-            {/* Render the page content */}
             {children}
             <Footer />
           </SectionProvider>

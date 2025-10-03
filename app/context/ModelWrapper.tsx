@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, Suspense } from "react";
 import { usePathname } from "next/navigation";
-import Model from "../components/Model/Model";
+const Model = React.lazy(() => import("../components/Model/Model"));
 
 const ModelWrapper: React.FC = () => {
   const pathname = usePathname();
@@ -34,7 +34,11 @@ const ModelWrapper: React.FC = () => {
     }
   }, [pathname]);
 
-  return <Model currentSection={currentSection} />;
+  return (
+    <Suspense fallback={null}>
+      <Model currentSection={currentSection} />
+    </Suspense>
+  );
 };
 
 export default ModelWrapper;

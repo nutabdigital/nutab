@@ -34,8 +34,9 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
-  const router = useRouter(); // Initialize Next.js router
+  const router = useRouter();
   const navRef = useRef<HTMLDivElement>(null);
+  const menuBtnRef = useRef<HTMLButtonElement>(null);
 
   // Function to determine CSS classes for nav links based on the current section
   const navLinkClasses = (sectionIndex: number) =>
@@ -64,16 +65,23 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
     setIsNavOpen(false); // Close the mobile menu if open
   };
 
+  // Reset mobile services sublist when nav closes
+  useEffect(() => {
+    if (!isNavOpen) setIsMobileServicesOpen(false);
+  }, [isNavOpen]);
+
   useEffect(() => {
     if (!isNavOpen) return;
 
     const handleOutsideClick = (event: MouseEvent | TouchEvent) => {
+      // If click is inside nav or menu button, do nothing
       if (
-        navRef.current &&
-        !navRef.current.contains(event.target as Node)
+        (navRef.current && navRef.current.contains(event.target as Node)) ||
+        (menuBtnRef.current && menuBtnRef.current.contains(event.target as Node))
       ) {
-        setIsNavOpen(false);
+        return;
       }
+      setIsNavOpen(false);
     };
 
     document.addEventListener("mousedown", handleOutsideClick);
@@ -95,11 +103,13 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
               src="/icons/logo-light.svg"
               alt="New Tab Digital Light Logo"
               className="logo-light"
+              fetchPriority="high"
             />
             <img
               src="/icons/logo-dark.svg"
               alt="New Tab Digital Dark Logo"
               className="logo-dark"
+              fetchPriority="high"
             />
           </a>
         </div>
@@ -184,6 +194,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
           <DarkModeToggle />
           <button
             className="mobile-menu-btn"
+            ref={menuBtnRef}
             onClick={toggleNav}
             aria-label={isNavOpen ? "Close menu" : "Open menu"}
           >
@@ -204,7 +215,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
             className="mob-right-nav open-nav"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 100 }}
+            exit={{ opacity: 0, x: 100 }} // <-- slide out to right when closing
             transition={{ duration: 0.3 }}
           >
             <ul>
@@ -243,7 +254,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
                 <AnimatePresence>
                   {isMobileServicesOpen && (
                     <motion.ul
-                      className="mobile-services-sublist open"
+                      className="mobile-services-sublist" // <-- REMOVE .open here
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}

@@ -23,6 +23,7 @@ the component folder. */
   align-items: center;
   position: relative; /* Ensure stacking context */
   z-index: 2; /* Higher than the model's z-index */
+  scroll-margin-top: 80px; /* match your header height */
 }
 
 /* Fade-in effect for elements that scroll into view */
@@ -110,5 +111,3 @@ the component folder. */
     ),
     #000000;
 }
-
-

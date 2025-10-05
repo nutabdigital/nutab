@@ -44,30 +44,28 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
       </p>
       <div className="grid-container">
         <div className="team-member" onClick={() => onSelectContact(contacts.navjot)}>
-          <div
+          <img
             className="photo"
-            style={{ backgroundImage: 'url("/photos/nav-headshot.webp")' }}
-            aria-label="Navjot Saran headshot"
-          ></div>
+            src="/photos/nav-headshot.webp"
+            alt="Navjot Saran headshot"
+            loading="lazy"
+          />
           <p className="team-name">Navjot Saran</p>
-          <p className="team-role">
-            Co-Founder
-          </p>
+          <p className="team-role">Co-Founder</p>
           <p className="team-position">Software Developer</p>
           <p className="team-description">
             B.Sc. in Computer Science, University of Calgary
           </p>
         </div>
         <div className="team-member" onClick={() => onSelectContact(contacts.fysal)}>
-          <div
+          <img
             className="photo"
-            style={{ backgroundImage: 'url("/photos/fysal-headshot.webp")' }}
-            aria-label="Fysal Beauferris headshot"
-          ></div>
+            src="/photos/fysal-headshot.webp"
+            alt="Fysal Beauferris headshot"
+            loading="lazy"
+          />
           <p className="team-name">Fysal Beauferris</p>
-          <p className="team-role">
-            Co-Founder
-          </p>
+          <p className="team-role">Co-Founder</p>
           <p className="team-position">Software Developer</p>
           <p className="team-description">
             B.Sc. in Computer Science, University of Calgary

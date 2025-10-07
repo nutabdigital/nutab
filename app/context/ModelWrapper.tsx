@@ -1,12 +1,14 @@
+// ModelWrapper.tsx
 "use client";
 
-import React, { useEffect, useState, Suspense } from "react";
+import React, { useEffect } from "react";
 import { usePathname } from "next/navigation";
-const Model = React.lazy(() => import("../components/Model/Model"));
+import Model from "../components/Model/Model";
+import { useModelState } from "./ModelStateProvider";
 
 const ModelWrapper: React.FC = () => {
   const pathname = usePathname();
-  const [currentSection, setCurrentSection] = useState<number>(0);
+  const { setState } = useModelState();
 
   useEffect(() => {
     if (pathname === "/") {
@@ -18,7 +20,7 @@ const ModelWrapper: React.FC = () => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               const sectionNumber = parseInt(entry.target.getAttribute("data-section") || "0");
-              setCurrentSection(sectionNumber);
+              setState({ currentSection: sectionNumber });
             }
           });
         },
@@ -30,15 +32,11 @@ const ModelWrapper: React.FC = () => {
       return () => observer.disconnect();
     } else {
       // On service pages, set currentSection to 2
-      setCurrentSection(2);
+      setState({ currentSection: 2 });
     }
-  }, [pathname]);
+  }, [pathname, setState]);
 
-  return (
-    <Suspense fallback={null}>
-      <Model currentSection={currentSection} />
-    </Suspense>
-  );
+  return <Model useModelState={useModelState} />;
 };
 
 export default ModelWrapper;

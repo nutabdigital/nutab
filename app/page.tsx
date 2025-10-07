@@ -9,6 +9,7 @@ const Team = React.lazy(() => import("./components/Team/Team"));
 const Contact = React.lazy(() => import("./components/Contact/Contact"));
 import "./styles/page.css"; // Only keep if needed for above-the-fold
 const ContactPopup = React.lazy(() => import("./components/ContactPopup/ContactPopup"));
+import { useModelState } from "./context/ModelStateProvider"; // adjust path if needed
 
 interface Contact {
   name: string;
@@ -43,6 +44,8 @@ const HomePage: React.FC = () => {
   const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
   const [currentSection, setCurrentSection] = useState<number>(0);
 
+  const { state: modelRef, setState } = useModelState();
+
   useEffect(() => {
     const sections = document.querySelectorAll(".page-section");
 
@@ -51,10 +54,13 @@ const HomePage: React.FC = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const sectionNumber = parseInt(
-              entry.target.getAttribute("data-section") || "0" 
+              entry.target.getAttribute("data-section") || "0"
             );
-            setCurrentSection(sectionNumber);
-            // console.log(`Currently in section: ${sectionNumber}`);
+
+            // Directly set currentSection
+            setState({ currentSection: sectionNumber });
+
+            console.log(`Currently in section: ${sectionNumber}`);
             entry.target.classList.add("visible");
           } else {
             entry.target.classList.remove("visible");
@@ -64,19 +70,11 @@ const HomePage: React.FC = () => {
       { threshold: 0.2 }
     );
 
+
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, []);
-
-  // Check URL for NFC contact (only runs once on mount)
-  useEffect(() => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const contactParam = urlParams.get("contact"); // Get "contact" from URL
-    if (contactParam && contacts[contactParam]) {
-      setSelectedContact(contacts[contactParam]); // Show corresponding popup
-    }
-  }, []);
+  }, [setState]);
 
   return (
     <>

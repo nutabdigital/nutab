@@ -1,3 +1,4 @@
+// Model.tsx
 // 3js Particles Model with dynamic positioning and colour mapping, based on
 // oscillating frequency and distance from (0,0,0).
 
@@ -7,10 +8,13 @@ import { useEffect, useRef, useState } from "react";
 import * as THREE from "three";
 import "./Model.css";
 import { gsap } from "gsap";
+import { useModelState } from "../../context/ModelStateProvider";
 
 // currentSection from page.tsx
 interface ModelProps {
-  currentSection: number; // This can be used to control transformations if passed in
+  useModelState: () => {
+    currentSection: number;
+  };
 }
 
 let scene: THREE.Scene,
@@ -51,12 +55,39 @@ const throttle = <T extends (...args: any[]) => void>(
   };
 };
 
-const Model: React.FC<ModelProps> = ({ currentSection }) => {
+const Model: React.FC<ModelProps> = () => {
+  // const { state, setState } = useModelState();
+  const { state, paused } = useModelState();
+
+  // useEffect(() => {
+  //   if (!renderer) return; // don’t run until renderer is set
+
+  //   if (paused) {
+  //     renderer.setAnimationLoop(null);
+  //   } else {
+  //     renderer.setAnimationLoop(() => {
+  //       updateParticles();
+  //       updateCam();
+  //       renderer.render(scene, camera);
+  //     });
+  //   }
+  // }, [paused, renderer]);
+
+
+  // const { state, setState, paused } = useModelState();
+  const [currentSection, setCurrentSection] = useState(state.current.currentSection);
+
+  // Sync ref with local state
   useEffect(() => {
-    // console.log("Current Section in Model:", currentSection);
-    // Perform animations or transformations based on currentSection
-  }, [currentSection]);
-  
+    const interval = setInterval(() => {
+      if (currentSection !== state.current.currentSection) {
+        setCurrentSection(state.current.currentSection);
+      }
+    }, 50); // poll 20fps
+    return () => clearInterval(interval);
+  }, [state, currentSection]);
+
+
   const canvasRef = useRef<HTMLCanvasElement>(null); //client side?
   const [isMobile, setIsMobile] = useState(false);
   const rotationSpeedX = 0.0047; // Adjust to control the speed of horizontal rotation
@@ -66,17 +97,16 @@ const Model: React.FC<ModelProps> = ({ currentSection }) => {
   const frequencyRef = useRef(0);
   const directionRef = useRef(1);
   const burstTimeline = useRef<gsap.core.Timeline | null>(null);
-  const currentSectionRef = useRef(currentSection);
 
   let camera = useRef(
     //client side?
     typeof window !== "undefined"
       ? new THREE.PerspectiveCamera(
-          75,
-          window.innerWidth / window.innerHeight,
-          0.1,
-          1000
-        )
+        75,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        1000
+      )
       : new THREE.PerspectiveCamera(75, 1, 0.1, 1000) // Fallback for SSR
   ).current;
 
@@ -93,8 +123,6 @@ const Model: React.FC<ModelProps> = ({ currentSection }) => {
     renderer = new THREE.WebGLRenderer({
       canvas: canvasRef.current!,
       alpha: true,
-      antialias: true, // Enable antialiasing
-
     });
     renderer.setSize(
       isMobile ? window.innerWidth : window.innerWidth,
@@ -169,7 +197,7 @@ const Model: React.FC<ModelProps> = ({ currentSection }) => {
   // Handle scroll to adjust frequency and camera angle for service section
 
   const onScroll = (event: WheelEvent) => {
-    if (currentSection === 2) {
+    if (state.current.currentSection === 2) {
       let delta = event.deltaY * 0.02; // Adjust burst strength based on scroll
       // console.log("delta: ", delta);
       // console.log("event.delta: ", event.deltaY);
@@ -226,7 +254,7 @@ const Model: React.FC<ModelProps> = ({ currentSection }) => {
     const touchEndY = e.touches[0].clientY;
     const deltaY = touchStartY - touchEndY;
 
-    if (currentSection === 2) {
+    if (state.current.currentSection === 2) {
       let delta = deltaY * 0.02; // Adjust burst strength based on scroll
       // console.log("delta: ", delta);
       // console.log("event.delta: ", deltaY);
@@ -275,8 +303,8 @@ const Model: React.FC<ModelProps> = ({ currentSection }) => {
 
   // Event listeners for scroll and mouse drag
   const attachEventListeners = () => {
-      // Disable manual drag functionality
-      // document.addEventListener("mousedown", onMouseDown);
+    // Disable manual drag functionality
+    // document.addEventListener("mousedown", onMouseDown);
   };
   // Apply left-center-right transformation of whole canvas based on the current section
   const getHorizontalPosition = () => {
@@ -397,36 +425,47 @@ const Model: React.FC<ModelProps> = ({ currentSection }) => {
       );
     };
     updateCamera();
-  }, [isMobile, currentSection]); // dependencies: isMobile and currentSection
+  }, [isMobile, state.current.currentSection]); // dependencies: isMobile and currentSection
 
   // Frequency change loop
-
   useEffect(() => {
-    currentSectionRef.current = currentSection;
-  }, [currentSection]);
+    let frameId: number;
+    let lastTime = performance.now();
 
-  const animateFrequency = () => {
-    if (currentSectionRef.current != 2) {
-      angles.angleX += rotationSpeedX;
-      angles.angleY += rotationSpeedY;
-      frequencyRef.current += directionRef.current * 0.02; // Update frequency
-      if (frequencyRef.current >= 20 || frequencyRef.current <= 0) {
-        directionRef.current *= -1; // Reverse direction at limits
-      }
-    } else {
-      angles.angleX += slowRotationSpeedX;
-      angles.angleY += slowRotationSpeedY;
-      frequencyRef.current += directionRef.current * 0.007; // Update frequency
-      if (frequencyRef.current >= 20 || frequencyRef.current <= 0) {
-        directionRef.current *= -1; // Reverse direction at limits
-      }
-    }
-    requestAnimationFrame(animateFrequency);
-  };
+    const animateFrequency = (time: number) => {
+      const deltaTime = (time - lastTime) / 1000; // seconds
+      lastTime = time;
 
-  useEffect(() => {
-    requestAnimationFrame(animateFrequency);
-  }, []); // Only run once to start the animation loop
+      const speedMultiplier = deltaTime * 60;
+
+      if (state.current.currentSection !== 2) {
+        angles.angleX += 0.0047 * speedMultiplier;
+        angles.angleY += 0.0047 * speedMultiplier;
+        frequencyRef.current += 0.02 * directionRef.current * speedMultiplier;
+      } else {
+        angles.angleX += 0.0007 * speedMultiplier;
+        angles.angleY += 0.0007 * speedMultiplier;
+        frequencyRef.current += 0.0014 * directionRef.current * speedMultiplier;
+      }
+
+      // Reverse direction at bounds
+      if (frequencyRef.current >= 20) {
+        frequencyRef.current = 20;
+        directionRef.current = -1;
+      } else if (frequencyRef.current <= 0) {
+        frequencyRef.current = 0;
+        directionRef.current = 1;
+      }
+
+      frameId = requestAnimationFrame(animateFrequency);
+    };
+
+    frameId = requestAnimationFrame(animateFrequency);
+
+    return () => cancelAnimationFrame(frameId);
+  }, [state.current.currentSection]);
+
+
 
   // Service section scroll effect
   useEffect(() => {
@@ -439,7 +478,7 @@ const Model: React.FC<ModelProps> = ({ currentSection }) => {
       touchScroll(event);
     }, 100);
 
-    if (currentSection === 2) {
+    if (state.current.currentSection === 2) {
       document.addEventListener("wheel", handleScroll);
       document.addEventListener("touchmove", handleTouches, { passive: false });
     }
@@ -448,21 +487,26 @@ const Model: React.FC<ModelProps> = ({ currentSection }) => {
       document.removeEventListener("wheel", handleScroll);
       document.removeEventListener("touchmove", handleTouches);
     };
-  }, [currentSection]); // Rerun whenever currentSection changes
+  }, [state.current.currentSection]); // Rerun whenever currentSection changes
 
   // Model animation loop
   useEffect(() => {
-    window.addEventListener("resize", handleResizeThrottled); // Check for user resizing window
-    // Start the animation loop
+    let frameId: number;
+
     const animate = () => {
-      requestAnimationFrame(animate);
-      updateParticles();
-      updateCam();
-      renderer.render(scene, camera);
+      if (!paused) {
+        updateParticles();
+        updateCam();
+        renderer.render(scene, camera);
+      }
+      frameId = requestAnimationFrame(animate);
     };
+
     animate();
-    return () => cleanup(handleResizeThrottled);
-  }, []);
+
+    return () => cancelAnimationFrame(frameId);
+  }, [paused]);
+
 
   // Throttled resize handler
   const handleResizeThrottled = throttle(handleResize, 100);

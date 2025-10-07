@@ -1,3 +1,4 @@
+"use client";
 /**
  * SectionWrapper Component
  *
@@ -23,7 +24,7 @@
  * - Additional styles can be applied by passing a `className` prop.
  */
 
-import React from "react";
+import React, { useEffect } from "react";
 import "./SectionWrapper.css";
 
 interface SectionWrapperProps {
@@ -32,6 +33,29 @@ interface SectionWrapperProps {
 }
 
 const SectionWrapper: React.FC<SectionWrapperProps> = ({ children, className }) => {
+
+  useEffect(() => {
+    let scrollTimeout: NodeJS.Timeout;
+
+    const handleScroll = () => {
+      document.body.classList.add("scrolling");
+      clearTimeout(scrollTimeout);
+
+      // ⏱ extend this delay from 100 ms → 2000 ms or so
+      scrollTimeout = setTimeout(() => {
+        document.body.classList.remove("scrolling");
+      }, 2000);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearTimeout(scrollTimeout);
+    };
+  }, []);
+
+
+
   return (
     <section className={`section-wrapper ${className || ""}`}>
       {children}

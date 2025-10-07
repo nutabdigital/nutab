@@ -20,14 +20,14 @@
    ========================= */
 .section-wrapper {
   padding: 3rem 1.5rem;
-  background: rgba(255,255,255,0.85);
+  /* background: rgba(255,255,255,0.85); */
   border-radius: 2rem;
   margin-bottom: 2rem;
   box-shadow: none;
 }
 
 .section-wrapper--faq {
-  background: rgba(255,255,255,0.85); /* Match main section bg */
+  /* background: rgba(255,255,255,0.85); Match main section bg */
   border-radius: 2rem;
   box-shadow: none !important;
 }
@@ -175,7 +175,7 @@
 .faq__item {
   margin-bottom: 1.5rem;
   border-radius: 1rem;
-  background: rgba(255,255,255,0.85); /* Match section bg */
+  /* background: rgba(255,255,255,0.85); Match section bg */
   box-shadow: none;
   padding: 0.5rem 1rem;
   border: 1px solid rgba(3,10,30,0.06);
@@ -345,7 +345,7 @@
 [data-theme="dark"] .section-wrapper,
 [data-theme="dark"] .section-wrapper--faq,
 [data-theme="dark"] .faq__item {
-  background: rgba(10, 10, 10, 0.85);
+  /* background: rgba(10, 10, 10, 0.85); */
   color: #d1d5db;
   box-shadow: none;
   border-color: rgba(255,255,255,0.04);
@@ -383,7 +383,7 @@
 
 [data-theme="dark"] .section-wrapper > div,
 [data-theme="dark"] .section-wrapper--custom-padding > div {
-  background-color: rgba(10, 10, 10, 0);
+  /* background-color: rgba(10, 10, 10, 0); */
   box-shadow: none;
 }
 

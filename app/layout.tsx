@@ -165,32 +165,6 @@ export default function RootLayout({
           }}
         />
 
-        {/* Security Meta Tags */}
-
-        {/* Prevent MIME type sniffing */}
-        <meta httpEquiv="X-Content-Type-Options" content="nosniff" />
-
-        {/* Prevent clickjacking by disallowing the site to be embedded in an iframe */}
-        <meta httpEquiv="X-Frame-Options" content="DENY" />
-
-        {/* Enable browser's built-in XSS protection */}
-        <meta httpEquiv="X-XSS-Protection" content="1; mode=block" />
-
-        {/* Enforce HTTPS and prevent protocol downgrade attacks */}
-        <meta httpEquiv="Strict-Transport-Security" content="max-age=63072000; includeSubDomains; preload" />
-
-        {/* <meta
-          http-equiv="Content-Security-Policy"
-          content="
-            default-src 'self'; 
-            script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; 
-            style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; 
-            font-src 'self' https://fonts.gstatic.com; 
-            img-src 'self'; 
-            connect-src 'self' https://www.google-analytics.com; 
-            form-action 'self';
-          "
-        /> */}
       </head>
       <body>
         <ThemeProvider>

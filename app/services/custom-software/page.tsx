@@ -7,7 +7,15 @@ import dynamic from "next/dynamic";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { Code2, Layers, ShieldCheck } from "lucide-react";
-
+import ProcessTimeline, {
+  ProcessStep,
+} from "../../components/ProcessTimeline/ProcessTimeline";
+import IndustryGrid, {
+  IndustryItem,
+} from "../../components/IndustryGrid/IndustryGrid";
+import ServicesGrid, {
+  ServiceItem,
+} from "../../components/ServicesGrid/ServicesGrid";
 const SectionWrapper = dynamic(
   () => import("../../components/SectionWrapper/SectionWrapper"),
   {
@@ -48,7 +56,71 @@ export const generateMetadata = (): Metadata => ({
   },
 });
 
+const services: ServiceItem[] = [
+  {
+    title: "Enterprise Software Development",
+    description: "Build robust, scalable solutions for large-scale operations.",
+  },
+  {
+    title: "Custom SaaS Solutions",
+    description:
+      "Create subscription-based software tailored to your business model.",
+  },
+  {
+    title: "System Integration",
+    description:
+      "Seamlessly integrate new software with your existing systems.",
+  },
+  {
+    title: "Secure Architecture",
+    description:
+      "Ensure your software is built with top-notch security protocols.",
+  },
+  {
+    title: "Ongoing Support",
+    description:
+      "Receive continuous updates and maintenance to keep your software running smoothly.",
+  },
+];
+
+const industries: IndustryItem[] = [
+  { name: "Healthcare" },
+  { name: "Finance" },
+  { name: "Retail and E-Commerce" },
+  { name: "Education" },
+  { name: "Manufacturing" },
+  { name: "Logistics and Supply Chain" },
+  { name: "Real Estate" },
+];
+
 const CustomSoftwareSolutions: React.FC = () => {
+  const processSteps: ProcessStep[] = [
+    {
+      title: "Consultation",
+      description: "We start by understanding your business needs and goals.",
+    },
+    {
+      title: "Design",
+      description:
+        "Our team creates a detailed plan and wireframes for your approval.",
+    },
+    {
+      title: "Development",
+      description:
+        "We build your software using the latest technologies and best practices.",
+    },
+    {
+      title: "Testing",
+      description:
+        "Rigorous testing ensures your software is bug-free and ready for deployment.",
+    },
+    {
+      title: "Deployment and Support",
+      description:
+        "We launch your software and provide ongoing support to ensure its success.",
+    },
+  ];
+
   return (
     <>
       <Loader />
@@ -134,7 +206,7 @@ const CustomSoftwareSolutions: React.FC = () => {
               <span className="accent"> tailored software solutions </span>
               that streamline operations, boost efficiency, and drive business growth.
               Whether you need a <span className="accent">bespoke application</span>, 
-              <span className="accent">enterprise-grade software</span>, or a 
+              <span className="accent">enterprise-grade software</span>, or a
               <span className="accent">custom SaaS platform</span>, our team delivers future-ready results.
             </>
           }
@@ -174,31 +246,16 @@ const CustomSoftwareSolutions: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <h2 className="gradient-title">
-          Our Custom Software Development Services
-        </h2>
-        <ul className="styled-list">
-          <li>
-            <span className="accent">Enterprise Software Development:</span>{" "}
-            Build robust, scalable solutions for large-scale operations.
-          </li>
-          <li>
-            <span className="accent">Custom SaaS Solutions:</span> Create
-            subscription-based software tailored to your business model.
-          </li>
-          <li>
-            <span className="accent">System Integration:</span> Seamlessly
-            integrate new software with your existing systems.
-          </li>
-          <li>
-            <span className="accent">Secure Architecture:</span> Ensure your
-            software is built with top-notch security protocols.
-          </li>
-          <li>
-            <span className="accent">Ongoing Support:</span> Receive continuous
-            updates and maintenance to keep your software running smoothly.
-          </li>
-        </ul>
+        <ServicesGrid
+          services={services}
+          title="Our Custom Software Development Services"
+          subtitle="Explore our full range of custom software solutions designed to fit your business needs."
+          layout="grid"
+          columns={2}
+          theme="gradient"
+          animated={true}
+          showIcons={false}
+        />
       </SectionWrapper>
 
       <SectionWrapper>
@@ -236,53 +293,26 @@ const CustomSoftwareSolutions: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <h2 className="gradient-title">Industries We Serve</h2>
-        <p className="section-text">
-          Our <span className="highlight">custom software solutions</span> cater
-          to a wide range of industries, including:
-        </p>
-        <ul
-          className="styled-list"
-          style={{ listStyleType: "disc", paddingLeft: "2rem" }}
-        >
-          <li>Healthcare</li>
-          <li>Finance</li>
-          <li>Retail and E-Commerce</li>
-          <li>Education</li>
-          <li>Manufacturing</li>
-          <li>Logistics and Supply Chain</li>
-          <li>Real Estate</li>
-        </ul>
+        <IndustryGrid
+          items={industries}
+          title="Industries We Serve"
+          subtitle="Our custom software solutions cater to a wide range of industries."
+          layout="pills" // or "cards", "compact"
+          theme="gradient" // or "light", "dark"
+          animated={true}
+          columns={3} // Adjust columns as needed
+        />
       </SectionWrapper>
 
       <SectionWrapper>
-        <h2 className="gradient-title">Our Development Process</h2>
-        <p className="section-text">
-          At NuTab Digital, we follow a proven process to ensure the success of
-          your custom software project:
-        </p>
-        <ol className="styled-list">
-          <li>
-            <span className="accent">Consultation:</span> We start by
-            understanding your business needs and goals.
-          </li>
-          <li>
-            <span className="accent">Design:</span> Our team creates a detailed
-            plan and wireframes for your approval.
-          </li>
-          <li>
-            <span className="accent">Development:</span> We build your software
-            using the latest technologies and best practices.
-          </li>
-          <li>
-            <span className="accent">Testing:</span> Rigorous testing ensures
-            your software is bug-free and ready for deployment.
-          </li>
-          <li>
-            <span className="accent">Deployment and Support:</span> We launch
-            your software and provide ongoing support to ensure its success.
-          </li>
-        </ol>
+        <ProcessTimeline
+          steps={processSteps}
+          title="Our Development Process"
+          subtitle="At NuTab Digital, we follow a proven process to ensure the success of your custom software project."
+          orientation="vertical"
+          theme="gradient"
+          animated={true}
+        />
       </SectionWrapper>
 
       <SectionWrapper>
@@ -327,10 +357,14 @@ const CustomSoftwareSolutions: React.FC = () => {
             <a href="/services/ai-automation">AI & Automation Solutions</a>
           </li>
           <li>
-            <a href="/services/business-it-consulting">Business IT Consulting</a>
+            <a href="/services/business-it-consulting">
+              Business IT Consulting
+            </a>
           </li>
           <li>
-            <a href="/services/seo-digital-marketing">SEO & Digital Marketing</a>
+            <a href="/services/seo-digital-marketing">
+              SEO & Digital Marketing
+            </a>
           </li>
         </ul>
       </SectionWrapper>

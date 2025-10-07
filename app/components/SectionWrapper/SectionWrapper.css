@@ -42,9 +42,8 @@
 .section-wrapper--custom-padding > div,
 .section-wrapper > div {
   width: 75vw;
-  max-width: 700px;
+  max-width: 800px;
   box-sizing: border-box;
-  padding: 1.5rem;
   margin-left: 2.5vw;
   margin-right: 2.5vw;
   background-color: rgba(255, 255, 255, 0.75);
@@ -98,9 +97,7 @@
 
   .section-wrapper > div,
   .section-wrapper--custom-padding > div {
-    width: 85vw;
-    margin-left: 0;
-    margin-right: 0;
+    width: 75vw;
   }
 }
 

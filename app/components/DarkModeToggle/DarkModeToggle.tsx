@@ -11,8 +11,7 @@ export default function DarkModeToggle() {
     setMounted(true);
   }, []);
 
-  // Optionally, avoid rendering until theme is set
-  if (!mounted) return null; // Prevent hydration mismatch
+  if (!mounted) return null;
 
   return (
     <button

@@ -432,36 +432,23 @@ const Model: React.FC<ModelProps> = () => {
     let frameId: number;
     let lastTime = performance.now();
 
-    // capture the current section when the effect runs
-    const currentSection = state.current.currentSection;
-
     const animateFrequency = (time: number) => {
-      const deltaTime = (time - lastTime) / 1000;
+      const deltaTime = (time - lastTime) / 1000; // seconds
       lastTime = time;
+
       const speedMultiplier = deltaTime * 60;
 
-      const slowSections = [2];
-      const fastSections = [0, 3];
-
-      // Adjust rotation and frequency speed based on section
-      if (fastSections.includes(currentSection)) {
-        // Tagline and Team Sections - fast rotation and frequency change
+      if (state.current.currentSection !== 2) {
         angles.angleX += 0.0047 * speedMultiplier;
         angles.angleY += 0.0047 * speedMultiplier;
-        frequencyRef.current += 0.04 * directionRef.current * speedMultiplier;
-      } else if (slowSections.includes(currentSection)) {
-        // Service Section and Pages - slow rotation and frequency change
+        frequencyRef.current += 0.02 * directionRef.current * speedMultiplier;
+      } else {
         angles.angleX += 0.0007 * speedMultiplier;
         angles.angleY += 0.0007 * speedMultiplier;
         frequencyRef.current += 0.0014 * directionRef.current * speedMultiplier;
-      } else {
-        // Zoomed in and slower rotation and frequency change
-        angles.angleX += 0.002 * speedMultiplier;
-        angles.angleY += 0.002 * speedMultiplier;
-        frequencyRef.current += 0.015 * directionRef.current * speedMultiplier;
       }
 
-      // reverse bounds
+      // Reverse direction at bounds
       if (frequencyRef.current >= 20) {
         frequencyRef.current = 20;
         directionRef.current = -1;
@@ -474,14 +461,10 @@ const Model: React.FC<ModelProps> = () => {
     };
 
     frameId = requestAnimationFrame(animateFrequency);
+
     return () => cancelAnimationFrame(frameId);
   }, [state.current.currentSection]);
 
-  // Handle window resize
-  useEffect(() => {
-    window.addEventListener("resize", handleResizeThrottled);
-    return () => cleanup(handleResizeThrottled);
-  }, [isMobile]);
 
 
   // Service section scroll effect

@@ -16,6 +16,13 @@ import IndustryGrid, {
 import ServicesGrid, {
   ServiceItem,
 } from "../../components/ServicesGrid/ServicesGrid";
+import FeatureGrid, {
+  FeatureItem,
+} from "../../components/FeatureGrid/FeatureGrid";
+import RelatedServicesSection, {
+  RelatedServiceItem,
+} from "../../components/RelatedServicesSection/RelatedServicesSection";
+
 const SectionWrapper = dynamic(
   () => import("../../components/SectionWrapper/SectionWrapper"),
   {
@@ -93,6 +100,21 @@ const industries: IndustryItem[] = [
   { name: "Real Estate" },
 ];
 
+const relatedServices: RelatedServiceItem[] = [
+  {
+    label: "AI & Automation Solutions",
+    link: "/services/ai-automation",
+  },
+  {
+    label: "Business IT Consulting",
+    link: "/services/business-it-consulting",
+  },
+  {
+    label: "SEO & Digital Marketing",
+    link: "/services/seo-digital-marketing",
+  },
+];
+
 const CustomSoftwareSolutions: React.FC = () => {
   const processSteps: ProcessStep[] = [
     {
@@ -118,6 +140,33 @@ const CustomSoftwareSolutions: React.FC = () => {
       title: "Deployment and Support",
       description:
         "We launch your software and provide ongoing support to ensure its success.",
+    },
+  ];
+
+  const features: FeatureItem[] = [
+    {
+      title: "Transparency",
+      description:
+        "We value open communication and keep you informed at every stage of development.",
+      // icon: <YourIconComponent />, // Optional: add icons if desired
+    },
+    {
+      title: "Scalability",
+      description: "Our solutions are designed to grow with your business.",
+    },
+    {
+      title: "Local Expertise",
+      description:
+        "Based in Calgary, we understand the unique challenges and opportunities of Canadian businesses.",
+    },
+    {
+      title: "Future-Ready Solutions",
+      description:
+        "We use the latest technologies to ensure your software stays relevant.",
+    },
+    {
+      title: "Customer-Centric Approach",
+      description: "Your satisfaction is our top priority.",
     },
   ];
 
@@ -151,48 +200,48 @@ const CustomSoftwareSolutions: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
+            mainEntity: [
               {
                 "@type": "Question",
-                "name": "What is custom software development?",
-                "acceptedAnswer": {
+                name: "What is custom software development?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "Custom software development involves creating software applications tailored to meet the specific needs of a business or organization. Unlike off-the-shelf software, custom solutions are designed to address unique challenges and workflows."
-                }
+                  text: "Custom software development involves creating software applications tailored to meet the specific needs of a business or organization. Unlike off-the-shelf software, custom solutions are designed to address unique challenges and workflows.",
+                },
               },
               {
                 "@type": "Question",
-                "name": "How long does it take to develop custom software?",
-                "acceptedAnswer": {
+                name: "How long does it take to develop custom software?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "The timeline for custom software development depends on the complexity of the project. On average, it can take anywhere from a few weeks to several months. We work closely with you to establish a realistic timeline based on your requirements."
-                }
+                  text: "The timeline for custom software development depends on the complexity of the project. On average, it can take anywhere from a few weeks to several months. We work closely with you to establish a realistic timeline based on your requirements.",
+                },
               },
               {
                 "@type": "Question",
-                "name": "How much does custom software development cost?",
-                "acceptedAnswer": {
+                name: "How much does custom software development cost?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "The cost of custom software development varies depending on the scope and complexity of the project. Contact us for a free consultation and quote tailored to your needs."
-                }
+                  text: "The cost of custom software development varies depending on the scope and complexity of the project. Contact us for a free consultation and quote tailored to your needs.",
+                },
               },
               {
                 "@type": "Question",
-                "name": "Can you integrate custom software with our existing systems?",
-                "acceptedAnswer": {
+                name: "Can you integrate custom software with our existing systems?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "Yes, we specialize in system integration to ensure your new software works seamlessly with your existing tools and platforms."
-                }
+                  text: "Yes, we specialize in system integration to ensure your new software works seamlessly with your existing tools and platforms.",
+                },
               },
               {
                 "@type": "Question",
-                "name": "Do you provide ongoing support after deployment?",
-                "acceptedAnswer": {
+                name: "Do you provide ongoing support after deployment?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "Absolutely! We offer ongoing support and maintenance to ensure your software continues to perform optimally."
-                }
-              }
-            ]
+                  text: "Absolutely! We offer ongoing support and maintenance to ensure your software continues to perform optimally.",
+                },
+              },
+            ],
           }),
         }}
       />
@@ -204,10 +253,12 @@ const CustomSoftwareSolutions: React.FC = () => {
             <>
               At <span className="highlight">NuTab Digital</span>, we build
               <span className="accent"> tailored software solutions </span>
-              that streamline operations, boost efficiency, and drive business growth.
-              Whether you need a <span className="accent">bespoke application</span>, 
+              that streamline operations, boost efficiency, and drive business
+              growth. Whether you need a{" "}
+              <span className="accent">bespoke application</span>,
               <span className="accent">enterprise-grade software</span>, or a
-              <span className="accent">custom SaaS platform</span>, our team delivers future-ready results.
+              <span className="accent">custom SaaS platform</span>, our team
+              delivers future-ready results.
             </>
           }
           icons={[
@@ -316,57 +367,42 @@ const CustomSoftwareSolutions: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <h2 className="gradient-title">Why Partner with NuTab Digital?</h2>
-        <p className="section-text">
-          At NuTab Digital, we pride ourselves on being a{" "}
-          <span className="highlight">
-            trusted software development partner
-          </span>
-          . Here’s why businesses choose us:
-        </p>
-        <ul className="styled-list">
-          <li>
-            <span className="accent">Transparency:</span> We value open
-            communication and keep you informed at every stage of development.
-          </li>
-          <li>
-            <span className="accent">Scalability:</span> Our solutions are
-            designed to grow with your business.
-          </li>
-          <li>
-            <span className="accent">Local Expertise:</span> Based in Calgary,
-            we understand the unique challenges and opportunities of Canadian
-            businesses.
-          </li>
-          <li>
-            <span className="accent">Future-Ready Solutions:</span> We use the
-            latest technologies to ensure your software stays relevant.
-          </li>
-          <li>
-            <span className="accent">Customer-Centric Approach:</span> Your
-            satisfaction is our top priority.
-          </li>
-        </ul>
+        <FeatureGrid
+          title="Why Partner with NuTab Digital?"
+          subtitle={
+            <>
+              At NuTab Digital, we pride ourselves on being a{" "}
+              <span className="highlight">
+                trusted software development partner
+              </span>
+              . Here’s why businesses choose us:
+            </>
+          }
+          features={features}
+          columns={2}
+          variant="gradient"
+          theme="gradient"
+          animated={true}
+          interactive={false}
+          showIcons={false}
+          size="md"
+          iconPosition="top"
+        />
       </SectionWrapper>
 
       {/* Internal Links for SEO */}
       <SectionWrapper>
-        <h2 className="gradient-title">Related Services</h2>
-        <ul className="styled-list">
-          <li>
-            <a href="/services/ai-automation">AI & Automation Solutions</a>
-          </li>
-          <li>
-            <a href="/services/business-it-consulting">
-              Business IT Consulting
-            </a>
-          </li>
-          <li>
-            <a href="/services/seo-digital-marketing">
-              SEO & Digital Marketing
-            </a>
-          </li>
-        </ul>
+        <RelatedServicesSection
+          title="Related Services"
+          services={relatedServices}
+          variant="gradient"
+          theme="gradient"
+          animated={true}
+          interactive={true}
+          layout="centered"
+          columns={3}
+          showIcons={false}
+        />
       </SectionWrapper>
 
       <SectionWrapper>

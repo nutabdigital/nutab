@@ -128,7 +128,6 @@
 
 .accent {
   font-weight: 600;
-  color: #c084fc;
 }
 
 /* =========================
@@ -371,10 +370,6 @@
 
 [data-theme="dark"] .highlight {
   color: #fff;
-}
-
-[data-theme="dark"] .accent {
-  color: #c084fc;
 }
 
 [data-theme="dark"] .faq__summary::after {

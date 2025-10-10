@@ -8,6 +8,8 @@
   overflow: hidden;
   background: rgba(255,255,255,0.75); /* Add this line to match SectionWrapper */
   /* Or use the same variable if you want consistency */
+  border-radius: 1.5rem;
+
 }
 
 /* Overlay update for new design */
@@ -49,9 +51,7 @@
 }
 
 .accent {
-  font-weight: 600;
-  color: #c084fc;
-}
+  font-weight: 600;}
 
 .icon-row {
   display: flex;

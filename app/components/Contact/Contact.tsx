@@ -33,6 +33,9 @@ const Contact: React.FC = () => {
       </div>
       {/* Right Column */}
       <div className="contact-right">
+        <div className="overlay"></div>
+
+
         <form
           action="https://formsubmit.co/7757f614a3d5884564ea3b58f465f7b1"
           method="POST"

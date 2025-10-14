@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 import "./ServiceHeroSection.css";
 import GetQuoteButton from "../GetQuoteButton/GetQuoteButton";
 
@@ -22,19 +23,43 @@ export default function HeroSection({
   icons,
   showCTA = true,
 }: HeroSectionProps) {
+  const [showOrbs, setShowOrbs] = useState<boolean>(true);
+
+  useEffect(() => {
+    if (window.innerWidth <= 700) {
+      // Hide orbs initially on mobile
+      setShowOrbs(false);
+
+      const handleScroll = () => {
+        setShowOrbs(true);
+        window.removeEventListener("scroll", handleScroll);
+      };
+
+      window.addEventListener("scroll", handleScroll);
+
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
+  }, []);
+
   return (
     <section className="hero-section">
       <div className="overlay"></div>
-      <motion.div
-        className="floating-orb orb-purple"
-        animate={{ y: [0, -20, 0], opacity: [0.6, 1, 0.6] }}
-        transition={{ duration: 6, repeat: Infinity }}
-      ></motion.div>
-      <motion.div
-        className="floating-orb orb-blue"
-        animate={{ y: [0, 30, 0], opacity: [0.5, 1, 0.5] }}
-        transition={{ duration: 8, repeat: Infinity }}
-      ></motion.div>
+
+      {showOrbs && (
+        <>
+          <motion.div
+            className="floating-orb orb-purple"
+            animate={{ y: [0, -20, 0], opacity: [0.6, 1, 0.6] }}
+            transition={{ duration: 6, repeat: Infinity }}
+          ></motion.div>
+          <motion.div
+            className="floating-orb orb-blue"
+            animate={{ y: [0, 30, 0], opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 8, repeat: Infinity }}
+          ></motion.div>
+        </>
+      )}
+
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -43,6 +68,7 @@ export default function HeroSection({
       >
         <h1 className="hero-title">{title}</h1>
         <p className="hero-subtext">{subtitle}</p>
+
         {icons && (
           <div className="icon-row">
             {icons.map(({ icon, label }, idx) => (
@@ -53,6 +79,7 @@ export default function HeroSection({
             ))}
           </div>
         )}
+
         {showCTA && (
           <motion.div whileHover={{ scale: 1.05 }} className="cta-container">
             <GetQuoteButton />

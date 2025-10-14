@@ -230,7 +230,23 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
                 {/* Services with expandable sublist */}
                 <button
                   className="mobile-services-toggle"
-                  onClick={() => setIsMobileServicesOpen((open) => !open)}
+                  onClick={(e) => {
+                    e.preventDefault();
+
+                    // Toggle the sublist
+                    setIsMobileServicesOpen((open) => !open);
+
+                    if (!isMobileServicesOpen) {
+                      // Only scroll if we're opening the menu
+                      if (window.location.pathname === "/") {
+                        scrollToSection("services", 10);
+                      } else {
+                        router.push("/#services");
+                        setTimeout(() => scrollToSection("services", 10), 200);
+                      }
+                    }
+                    // If sublist was already open, clicking again just closes it
+                  }}
                   aria-expanded={isMobileServicesOpen}
                   style={{
                     display: "flex",
@@ -253,6 +269,8 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
                     />
                   </span>
                 </button>
+
+
                 <AnimatePresence>
                   {isMobileServicesOpen && (
                     <motion.ul

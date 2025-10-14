@@ -4,6 +4,22 @@ If a component (e.g., Tagline, About, etc.) needs internal styles—like fonts, 
 or component-specific padding—it’s better to define those in separate CSS files within 
 the component folder. */
 
+html {
+  scroll-behavior: smooth; /* optional: JS smooth scroll already used */
+}
+
+/* Allow the JS offset to take effect; remove forced centering offsets */
+.page-section {
+  scroll-margin-top: 0;
+}
+
+/* If header is fixed, ensure content not hidden behind it */
+/* .content-wrapper {
+  if your header is fixed, you can add top padding equal to header height
+  padding-top: 80px;
+} */
+
+
 /* Main home page styling */
 .home-page {
   position: relative; /* For positioning child elements */
@@ -16,15 +32,15 @@ the component folder. */
 
 /* Styling for each section */
 .page-section {
-  height: fit-content;
   min-height: 100vh;
   margin-bottom: 10vh;
   display: flex;
   align-items: center;
-  position: relative; /* Ensure stacking context */
-  z-index: 2; /* Higher than the model's z-index */
-  scroll-margin-top: 80px; /* match your header height */
+  position: relative;
+  z-index: 2;
+  scroll-margin-top: 100px; /* buffer for header + mobile browser bars */
 }
+
 
 /* Fade-in effect for elements that scroll into view */
 .fade-section {

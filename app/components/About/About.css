@@ -178,6 +178,17 @@
 
 }
 
+/* Mobile fix: align About section content to top instead of center */
+@media (max-width: 600px) {
+  .about-section {
+    align-items: flex-start;   /* top-align content instead of centering */
+    justify-content: flex-start; /* optional: ensures content starts from top */
+    padding-top: 2rem;         /* optional spacing from very top */
+    height: auto;              /* remove full viewport height on mobile */
+  }
+}
+
+
 
 
 

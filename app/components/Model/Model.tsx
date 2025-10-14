@@ -438,7 +438,8 @@ const Model: React.FC<ModelProps> = () => {
 
       const speedMultiplier = deltaTime * 60;
 
-      if (state.current.currentSection !== 2) {
+      const slowSections = [1, 2, 4];
+      if (!slowSections.includes(state.current.currentSection)) {
         angles.angleX += 0.0047 * speedMultiplier;
         angles.angleY += 0.0047 * speedMultiplier;
         frequencyRef.current += 0.02 * directionRef.current * speedMultiplier;

@@ -8,6 +8,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import "./Header.css";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
+import { scrollToSection } from "@/app/utils/scrollToSection";
 
 // Interface defining props for the Header component
 interface HeaderProps {
@@ -27,7 +28,7 @@ const servicesDropdown = [
   { name: "Business & IT Consulting", link: "/services/business-it-consulting" },
   { name: "Graphic & Brand Design", link: "/services/graphic-brand-design" },
   { name: "Photography & Media Production", link: "/services/photography-media-production" }, // Added new service
- // Added new service
+  // Added new service
 ];
 
 const Header: React.FC<HeaderProps> = ({ currentSection }) => {
@@ -46,24 +47,25 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
 
   // Scrolls smoothly to a specific section of the page or redirects to the main page
   const handleScroll = (
-    e: React.MouseEvent<HTMLAnchorElement>,
+    e: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLButtonElement>,
     sectionId: string
   ) => {
     e.preventDefault();
 
-    if (window.location.pathname !== "/") {
-      // If not on the main page, redirect to the main page with a hash for the section
-      router.push(`/#${sectionId}`);
-    } else {
-      // If already on the main page, scroll to the section
-      const section = document.getElementById(sectionId);
-      if (section) {
-        section.scrollIntoView({ behavior: "smooth" });
-      }
-    }
+    setIsNavOpen(false); // close menu early
 
-    setIsNavOpen(false); // Close the mobile menu if open
+    if (window.location.pathname !== "/") {
+      // push to index with hash then scroll after navigation
+      // Next.js app-router's router.push returns void, so use a timeout fallback
+      router.push(`/#${sectionId}`);
+      // small timeout to let the new page render, then scroll
+      setTimeout(() => scrollToSection(sectionId, 10), 200);
+    } else {
+      // already on homepage — scroll straight away
+      scrollToSection(sectionId, 10);
+    }
   };
+
 
   // Reset mobile services sublist when nav closes
   useEffect(() => {

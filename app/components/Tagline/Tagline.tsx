@@ -1,13 +1,11 @@
 // Tagline.tsx
 import React from "react";
 import "./Tagline.css";
+import { scrollToSection } from "@/app/utils/scrollToSection";
 
 const Tagline: React.FC = () => {
-  // Smooth scroll to the 'About' section when the button is clicked
-  const scrollToSection = (sectionId: string) => {
-    const section = document.getElementById(sectionId);
-    section?.scrollIntoView({ behavior: "smooth" });
-  };
+  
+
 
   return (
     <section className="tagline-section">
@@ -27,7 +25,7 @@ const Tagline: React.FC = () => {
         <div className="tag-buttons">
           <button
             className="learn-more-button"
-            onClick={() => scrollToSection("about")}
+            onClick={() => scrollToSection("about", 10)} // optional small offset
           >
             Learn More
           </button>

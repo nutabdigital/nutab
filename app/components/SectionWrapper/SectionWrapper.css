@@ -24,6 +24,11 @@
 
 .section-wrapper + .section-wrapper {
   margin-top: 30vh; /* Add spacing between sections */
+  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
+}
+
+[data-theme="dark"] .section-wrapper + .section-wrapper {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
 }
 
 /* Apply shared layout styles to all section wrappers */

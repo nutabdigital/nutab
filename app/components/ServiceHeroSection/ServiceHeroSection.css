@@ -9,7 +9,11 @@
   background: rgba(255,255,255,0.75); /* Add this line to match SectionWrapper */
   /* Or use the same variable if you want consistency */
   border-radius: 1.5rem;
+  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
+}
 
+[data-theme="dark"] .hero-section {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
 }
 
 /* Overlay update for new design */

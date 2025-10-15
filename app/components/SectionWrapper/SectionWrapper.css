@@ -198,9 +198,6 @@ html[data-theme="dark"] body.scrolling .section-wrapper {
     width: 85vw;
   }
 
-  .section-wrapper > div,
-  .section-wrapper--custom-padding > div {
-    width: 75vw;
   .section-wrapper>div,
   .section-wrapper--custom-padding>div {
     width: 85vw;

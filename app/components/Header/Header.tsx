@@ -288,9 +288,10 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
                           exit={{ opacity: 0, y: -10 }}
                           transition={{ delay: 0.07 * idx }}
                         >
-                          <a href={service.link} className="mobile-services-link">
+                          <Link href={service.link} className="mobile-services-link" onClick={() => setIsNavOpen(false)}>
                             {service.name}
-                          </a>
+                          </Link>
+
                         </motion.li>
                       ))}
                     </motion.ul>

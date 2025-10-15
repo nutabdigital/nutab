@@ -186,10 +186,17 @@ textarea {
   color: #fff;
 }
 
-/* Dark mode override for right column */
+/* Fix for two-column layout: make parent transparent so child opacity works */
+[data-theme="dark"] .contact-two-col {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Ensure .contact-right is semi-transparent */
 [data-theme="dark"] .contact-right {
-  background-color: rgba(10, 10, 10, 0);
+  background-color: rgba(10, 10, 10, 0.7);
   color: var(--foreground);
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
-
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }

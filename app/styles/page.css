@@ -23,7 +23,9 @@ the component folder. */
   align-items: center;
   position: relative; /* Ensure stacking context */
   z-index: 2; /* Higher than the model's z-index */
-  scroll-margin-top: 80px; /* match your header height */
+  /* scroll-margin-top: 80px; match your header height */
+
+  border: 2px solid red;
 }
 
 /* Fade-in effect for elements that scroll into view */
@@ -65,13 +67,16 @@ the component folder. */
 }
 
 @media (max-width:600px) {
-  .page-section{
-    height: inherit;
+  .page-section {
+    margin-top: 0 !important;      /* Reset any top margin */
+    margin-bottom: 20vh !important; /* Flat margin after each section */
+    min-height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: stretch;
   }
 
-  #tagline{
+  /* #tagline{
     margin-bottom: 40vh;
   }
 
@@ -89,7 +94,7 @@ the component folder. */
 
   #contact{
     margin-bottom: 5vh;
-  }
+  } */
 }
 
 /* Dark mode adjustment for smoother blending */

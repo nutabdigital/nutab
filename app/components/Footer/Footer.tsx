@@ -8,13 +8,28 @@ const Footer: React.FC = () => {
       <div className="footer-content">
         <div className="footer-sections">
           <div className="socials-icons">
-            <a href="https://www.linkedin.com/company/nutab-digital-inc/posts/?feedView=all" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.linkedin.com/company/nutab-digital-inc/posts/?feedView=all"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="NuTab Digital LinkedIn"
+            >
               <FaLinkedin size={24} />
             </a>
-            <a href="https://www.instagram.com/nutab_digital/" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.instagram.com/nutab_digital/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="NuTab Digital Instagram"
+            >
               <FaInstagram size={24} />
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61575073651409" target="_blank" rel="noopener noreferrer">
+            <a
+              href="https://www.facebook.com/profile.php?id=61575073651409"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="NuTab Digital Facebook"
+            >
               <FaFacebook size={24} />
             </a>
           </div>

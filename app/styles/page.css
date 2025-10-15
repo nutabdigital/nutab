@@ -81,13 +81,16 @@ html {
 }
 
 @media (max-width:600px) {
-  .page-section{
-    height: inherit;
+  .page-section {
+    margin-top: 0 !important;      /* Reset any top margin */
+    margin-bottom: 20vh !important; /* Flat margin after each section */
+    min-height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: stretch;
   }
 
-  #tagline{
+  /* #tagline{
     margin-bottom: 40vh;
   }
 
@@ -105,7 +108,7 @@ html {
 
   #contact{
     margin-bottom: 5vh;
-  }
+  } */
 }
 
 /* Dark mode adjustment for smoother blending */

@@ -3,7 +3,7 @@ import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import dynamic from "next/dynamic";
 import "./page.css";
-import Hero from "../../components/Hero/Hero"; // <-- Use your new reusable Hero component
+import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { Briefcase, Users, Lightbulb } from "lucide-react";
 import GetQuoteButton from "@/app/components/GetQuoteButton/GetQuoteButton";
 
@@ -124,7 +124,7 @@ const BusinessITConsulting: React.FC = () => {
 
       {/* Hero Section */}
       <SectionWrapper className="section-wrapper--no-padding">
-        <Hero
+        <HeroSection
           title="Business & IT Consulting Services in Calgary"
           subtitle={
             <>
@@ -134,7 +134,7 @@ const BusinessITConsulting: React.FC = () => {
               Our team delivers actionable strategies tailored to your unique business needs.
             </>
           }
-          features={[
+          icons={[
             {
               icon: <Briefcase className="icon purple" />,
               label: "Business Strategy",
@@ -148,8 +148,8 @@ const BusinessITConsulting: React.FC = () => {
               label: "Digital Innovation",
             },
           ]}
+          showCTA={true}
         />
-        <GetQuoteButton />
       </SectionWrapper>
 
       {/* Why Choose This Service */}

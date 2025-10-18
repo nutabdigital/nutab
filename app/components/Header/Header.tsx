@@ -101,18 +101,50 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
         {/* Logo on the left */}
         <div className="logo">
           <a href="/" onClick={(e) => handleScroll(e, "tagline")}>
-            <img
-              src="/icons/logo-light.svg"
-              alt="New Tab Digital Light Logo"
+            {/* Inline SVG for logo-light */}
+            <svg
               className="logo-light"
-              fetchPriority="high"
-            />
-            <img
-              src="/icons/logo-dark.svg"
-              alt="New Tab Digital Dark Logo"
+              aria-label="New Tab Digital Light Logo"
+              width="110"
+              height="34"
+              viewBox="0 0 110 34"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M0.1 33.5V11.39H6.22L13.66 24.65V11.39H18.88V33.5H13.66L6.4 20.54H5.32V33.5H0.1ZM25.9488 33.53L22.6188 30.2V17.84H28.2288V29.3L29.2788 30.35H30.5088L33.5388 27.77V17.84H39.1488V33.5H33.5388V31.4L30.9288 33.53H25.9488ZM45.1113 33.5V15.95H38.9313V11.39H56.9013V15.95H50.7213V33.5H45.1113ZM57.982 33.5L54.652 30.17V26.84L57.982 23.51H65.452V22.46L64.372 21.38H56.512V17.84H67.702L71.062 21.17V33.5H65.452V31.37L63.382 33.5H57.982ZM61.282 30.44H62.902L65.452 27.89V26.3H61.282L60.232 27.35V29.39L61.282 30.44ZM74.657 33.5V11.39H80.267V19.76L82.517 17.81H88.157L91.487 21.17V30.17L88.157 33.5H82.547L80.267 31.61V33.5H74.657ZM82.937 30.29H85.307L86.027 29.54V21.83L85.307 21.02H82.907L80.267 23.33V27.98L82.937 30.29Z"
+                fill="black"
+              />
+              <path
+                d="M99.524 16.172V10.628H93.98V5.876H99.524V0.332H104.276V5.876H109.82V10.628H104.276V16.172H99.524Z"
+                fill="#0067e7"
+              />
+            </svg>
+            {/* Inline SVG for logo-dark */}
+            <svg
               className="logo-dark"
-              fetchPriority="high"
-            />
+              aria-label="New Tab Digital Dark Logo"
+              width="110"
+              height="34"
+              viewBox="0 0 110 34"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="plus-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#a78bfa" />
+                  <stop offset="100%" stopColor="#60a5fa" />
+                </linearGradient>
+              </defs>
+              <path
+                d="M0.1 33.5V11.39H6.22L13.66 24.65V11.39H18.88V33.5H13.66L6.4 20.54H5.32V33.5H0.1ZM25.9488 33.53L22.6188 30.2V17.84H28.2288V29.3L29.2788 30.35H30.5088L33.5388 27.77V17.84H39.1488V33.5H33.5388V31.4L30.9288 33.53H25.9488ZM45.1113 33.5V15.95H38.9313V11.39H56.9013V15.95H50.7213V33.5H45.1113ZM57.982 33.5L54.652 30.17V26.84L57.982 23.51H65.452V22.46L64.372 21.38H56.512V17.84H67.702L71.062 21.17V33.5H65.452V31.37L63.382 33.5H57.982ZM61.282 30.44H62.902L65.452 27.89V26.3H61.282L60.232 27.35V29.39L61.282 30.44ZM74.657 33.5V11.39H80.267V19.76L82.517 17.81H88.157L91.487 21.17V30.17L88.157 33.5H82.547L80.267 31.61V33.5H74.657ZM82.937 30.29H85.307L86.027 29.54V21.83L85.307 21.02H82.907L80.267 23.33V27.98L82.937 30.29Z"
+                fill="white"
+              />
+              <path
+                d="M99.524 16.172V10.628H93.98V5.876H99.524V0.332H104.276V5.876H109.82V10.628H104.276V16.172H99.524Z"
+                fill="url(#plus-gradient)"
+              />
+            </svg>
           </a>
         </div>
 

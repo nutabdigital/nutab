@@ -1,154 +1,129 @@
-.hero-section {
+/* Font fallback uses Tomorrow if present; otherwise Inter/system */
+.nt-hero {
+  font-family: "Tomorrow", Inter, ui-sans-serif, system-ui, -apple-system,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #fff;
   position: relative;
-  color: white;
+  overflow: hidden;
   padding: 6rem 1.5rem;
   display: flex;
-  justify-content: center;
   align-items: center;
-  overflow: hidden;
-  /* background: rgba(255,255,255,0.75); Add this line to match SectionWrapper */
-  /* Or use the same variable if you want consistency */
-  border-radius: 1.5rem;
-  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
+  justify-content: center;
+  min-height: 68vh;
+  border-radius: 1rem;
 }
 
-[data-theme="dark"] .hero-section {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
+/* inner container constrains text width */
+.nt-hero-inner {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  z-index: 5;
 }
 
-/* Overlay update for new design */
-.overlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0); /* transparent overlay for new style */
-  z-index: 0;
-}
-
-.hero-content {
-  max-width: 100%;
+/* content wrapper */
+.nt-hero-content {
   text-align: center;
-  position: relative;
-  z-index: 10;
 }
 
-.hero-title {
-  font-size: 2rem;
+/* title */
+.nt-hero-title {
   font-weight: 800;
-  line-height: 1.2;
-  background: linear-gradient(to right, #a78bfa, #60a5fa);
+  margin: 0 0 1rem;
+  /* increased responsive scale */
+  font-size: clamp(2.8rem, 7vw, 6rem); /* larger on desktop, valid clamp() */
+  line-height: 1.02;
+  background: linear-gradient(90deg, #60a5fa, #a78bfa);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-align: center !important; 
+  letter-spacing: -0.01em;
 }
 
-.hero-subtext {
-  margin-top: 1.5rem;
-  font-size: 1.125rem;
-  color: #081024;
-
+/* subtitle / paragraph */
+.nt-hero-sub {
+  margin: 0 auto 1.75rem;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 62ch;
+  font-size: clamp(1rem, 1.25rem, 1.15rem);
+  line-height: 1.6;
+  font-weight: 400;
 }
 
-.highlight {
-  font-weight: 700;
-  color: #081024;
-}
-
-.accent {
-  font-weight: 600;}
-
-.icon-row {
-  display: flex;
-  justify-content: center;
+/* features grid */
+.nt-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
   gap: 2rem;
-  margin-top: 2.5rem;
+  margin: 2rem 0 2.5rem;
+  align-items: start;
 }
 
-.icon-box {
+/* feature card */
+.nt-feature {
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #081024;  
-  font-size: 0.875rem;
+  text-align: center;
+  gap: 0.75rem;
 }
 
-.icon {
-  width: 2.5rem;
-  height: 2.5rem;
-  margin-bottom: 0.5rem;
+/* icon circle */
+.nt-feature-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 24px rgba(3, 7, 18, 0.2);
+  font-size: 20px;
 }
 
-.icon.purple { color: #a78bfa; }
-.icon.blue { color: #60a5fa; }
-.icon.pink { color: #f472b6; }
+/* icon bg variants */
+.nt-feature-icon.bg-blue { background: rgba(96,165,250,0.08); color: #60a5fa; }
+.nt-feature-icon.bg-purple { background: rgba(167,139,250,0.08); color: #a78bfa; }
+.nt-feature-icon.bg-pink { background: rgba(244,114,182,0.08); color: #f472b6; }
 
-.cta-container {
-  margin-top: 2.5rem;
+.nt-feature-title { margin: 0; font-size: 1.05rem; font-weight: 600; }
+.nt-feature-desc { margin: 0; color: rgba(255,255,255,0.8); font-size: 0.92rem; max-width: 28ch; }
+
+/* CTA */
+.nt-cta-wrap { display: flex; justify-content: center; margin-top: 0.5rem; }
+.nt-cta {
+  padding: 0.95rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1.03rem;
+  background: linear-gradient(90deg,#2563eb 0%, #7c3aed 100%);
+  color: #fff;
+  box-shadow: 0 12px 34px rgba(37,99,235,0.14);
+  border: none;
+  cursor: pointer;
 }
 
-.cta-button {
-  padding: 1rem 2rem;
-  font-size: 1.125rem;
-  font-weight: 600;
-  border-radius: 1rem;
-  background: linear-gradient(to right, #9333ea, #3b82f6);
-  color: white;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-  transition: background 0.3s ease;
-}
-
-.cta-button:hover {
-  background: linear-gradient(to right, #a855f7, #60a5fa);
-}
-
-.floating-orb {
+/* background radial glow */
+.nt-hero-bg {
   position: absolute;
-  border-radius: 9999px;
-  filter: blur(40px);
+  inset: 0;
+  background: radial-gradient(circle at 15% 10%, rgba(255,255,255,0.04), transparent 18%),
+              radial-gradient(circle at 85% 80%, rgba(168,85,247,0.05), transparent 20%),
+              linear-gradient(180deg, var(--bg-1), var(--bg-2), var(--bg-3));
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(0.3px);
 }
 
-.orb-purple {
-  top: 2.5rem;
-  left: 2.5rem;
-  width: 5rem;
-  height: 5rem;
-  background: rgba(168, 85, 247, 0.4);
+/* responsive */
+@media (max-width: 900px) {
+  .nt-features { grid-template-columns: 1fr; gap: 1.25rem; }
+  .nt-feature-desc { max-width: 40ch; }
+  .nt-hero { padding: 4.25rem 1rem; min-height: auto; }
+  /* bump mobile title size to match new scale */
+  .nt-hero-title { font-size: clamp(2rem, 8.5vw, 3.6rem); }
 }
 
-.orb-blue {
-  bottom: 5rem;
-  right: 4rem;
-  width: 7rem;
-  height: 7rem;
-  background: rgba(59, 130, 246, 0.3);
-}
-
-/* Dark theme support for section wrapper backgrounds */
-[data-theme="dark"] .section-wrapper > div,
-[data-theme="dark"] .section-wrapper--custom-padding > div {
-  background-color: rgba(10, 10, 10, 0);
-}
-/* 
-[data-theme="dark"] .hero-section {
-    background: rgba(10, 10, 10, 0.75);
-  }
-
-/* Responsive and heading tweaks from page.css */
-.section-wrapper h1,
-.section-wrapper h2,
-.section-wrapper--custom-padding h1,
-.section-wrapper--custom-padding h2 {
-  font-size: clamp(2.0rem, 2.0rem, 2.0rem);
-}
-
-[data-theme="dark"] .hero-subtext {
-    color: #d1d5db;
-}
-
-[data-theme="dark"] .highlight{
-    color:white;
-}
-
-[data-theme="dark"] .icon-box{
-    color: #d1d5db;
+/* reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .nt-hero-content, .nt-features, .nt-cta { transition: none !important; animation: none !important; }
 }

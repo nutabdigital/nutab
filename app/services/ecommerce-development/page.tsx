@@ -126,7 +126,7 @@ const EcommerceDevelopment: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <SectionWrapper className="section-wrapper--no-padding">
+      <SectionWrapper>
         <HeroSection
           title="E-Commerce Development Services in Calgary"
           subtitle={

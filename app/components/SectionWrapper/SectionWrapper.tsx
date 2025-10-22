@@ -34,6 +34,9 @@ interface SectionWrapperProps {
 
 const SectionWrapper: React.FC<SectionWrapperProps> = ({ children, className }) => {
 
+  // Scrolling effect disabled by commenting out the effect.
+  // If you want to re-enable, remove the comment markers below.
+  /*
   useEffect(() => {
     let scrollTimeout: NodeJS.Timeout;
 
@@ -53,8 +56,7 @@ const SectionWrapper: React.FC<SectionWrapperProps> = ({ children, className }) 
       clearTimeout(scrollTimeout);
     };
   }, []);
-
-
+  */
 
   return (
     <section className={`section-wrapper ${className || ""}`}>

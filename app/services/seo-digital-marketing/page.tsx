@@ -126,7 +126,7 @@ const SEODigitalMarketing: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <SectionWrapper className="section-wrapper--no-padding">
+      <SectionWrapper>
         <HeroSection
           title="SEO & Digital Marketing Services in Calgary"
           subtitle={

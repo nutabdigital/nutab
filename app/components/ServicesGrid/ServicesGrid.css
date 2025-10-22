@@ -68,14 +68,17 @@
   padding: 1.5rem;
   border-radius: 1rem;
   background: linear-gradient(
-    135deg,
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(255, 255, 255, 0.008) 100%
+    to bottom right,
+    rgba(168, 85, 247, 0.05) 0%,
+    rgba(255, 255, 255, 0.008) 50%,
+    rgba(59, 130, 246, 0.05) 100%
   );
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
   transform: translateY(20px);
+  color: inherit;
 }
 
 .service-card--visible {
@@ -88,14 +91,13 @@
 }
 
 .service-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(168, 85, 247, 0.5);
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 12px 30px rgba(168, 85, 247, 0.12);
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.08) 0%,
     rgba(255, 255, 255, 0.02) 100%
   );
-  box-shadow: 0 10px 30px rgba(168, 85, 247, 0.2);
 }
 
 /* List Layout Cards */
@@ -156,9 +158,16 @@
   align-items: center;
   justify-content: center;
   border-radius: 0.75rem;
-  background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
+  background: linear-gradient(
+    to bottom right,
+    rgba(168, 85, 247, 0.2) 0%,
+    rgba(168, 85, 247, 0.1) 50%,
+    rgba(59, 130, 246, 0.2) 100%
+  );
+  border: 1px solid rgba(192, 132, 252, 0.3);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+  color: rgb(192, 132, 252);
   margin-bottom: 1rem;
-  color: white;
   flex-shrink: 0;
 }
 
@@ -191,6 +200,11 @@
   font-weight: 600;
   color: #a855f7;
   margin-bottom: 0.5rem;
+  background: linear-gradient(to right, rgb(192, 132, 252), rgb(147, 197, 253));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
 .services-grid--list .service-card-title {
@@ -212,6 +226,7 @@
   color: #9ca3af;
   line-height: 1.6;
   margin: 0;
+  color: rgb(156, 163, 175);
 }
 
 .services-grid--list .service-card-description {
@@ -319,6 +334,36 @@
   }
 }
 
+/* Mobile: force single-column stack (overrides inline grid styles) */
+@media (max-width: 767px) {
+  .services-grid,
+  .services-grid--grid,
+  .services-grid--compact,
+  .services-grid--list,
+  .services-grid--feature {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+
+  .service-card {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 1.25rem;
+  }
+
+  .services-grid--list .service-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .services-grid--list .service-card-image {
+    width: 100%;
+    height: 150px;
+  }
+}
+
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   .service-card,
@@ -346,4 +391,106 @@
     break-inside: avoid;
     border: 1px solid #e5e7eb;
   }
+}
+
+/* Apply ServicesWhySection visual treatment to Feature/Service cards:
+   - similar soft gradient background
+   - subtle purple/blue border
+   - title gradient text
+   - muted description color
+   - matching icon container and icon color
+*/
+.service-card {
+  /* keep layout but update visuals to match ServicesWhySection cards */
+  background: linear-gradient(
+    to bottom right,
+    rgba(168, 85, 247, 0.05) 0%,
+    rgba(255, 255, 255, 0.008) 50%,
+    rgba(59, 130, 246, 0.05) 100%
+  );
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(20px);
+  color: inherit;
+}
+
+.service-card--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.service-card--animated {
+  animation: slideInUp 0.5s ease forwards;
+}
+
+/* Hover: stronger accent like ServicesWhySection */
+.service-card:hover {
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 12px 30px rgba(168, 85, 247, 0.12);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+}
+
+/* Title: gradient text like ServicesWhySection */
+.service-card-title {
+  background: linear-gradient(to right, rgb(192, 132, 252), rgb(147, 197, 253));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-weight: 600;
+}
+
+/* Description: use the slightly muted tone used in ServicesWhySection cards */
+.service-card-description {
+  color: rgb(156, 163, 175);
+}
+
+/* Icon container: adopt the same purple/blue subtle gradient + border */
+.service-card-icon {
+  background: linear-gradient(
+    to bottom right,
+    rgba(168, 85, 247, 0.2) 0%,
+    rgba(168, 85, 247, 0.1) 50%,
+    rgba(59, 130, 246, 0.2) 100%
+  );
+  border: 1px solid rgba(192, 132, 252, 0.3);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+  color: rgb(192, 132, 252);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ensure SVG/icon elements inherit sizing and color */
+.service-card-icon svg,
+.service-card-icon > * {
+  width: 2.5rem !important; /* 40px */
+  height: 2.5rem !important; /* 40px */
+  color: inherit;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+/* Preserve existing dark-theme behavior — keep previous dark colors in dark mode */
+[data-theme="dark"] .services-grid--dark .service-card {
+  /* keep darker background and border defined elsewhere; augment only text colors */
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .services-grid--dark .service-card-title {
+  /* In dark mode keep readable light title color (remove gradient text) */
+  background: none;
+  -webkit-text-fill-color: initial;
+  color: rgb(216, 180, 254);
+}
+
+[data-theme="dark"] .services-grid--dark .service-card-description {
+  color: rgb(156, 163, 175);
 }

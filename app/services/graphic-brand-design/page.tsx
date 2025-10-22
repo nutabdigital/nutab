@@ -123,7 +123,7 @@ const GraphicBrandDesign: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <SectionWrapper className="section-wrapper--no-padding">
+      <SectionWrapper>
         <HeroSection
           title="Graphic & Brand Design Services in Calgary"
           subtitle={

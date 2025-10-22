@@ -447,18 +447,21 @@
 }
 
 @media (max-width: 768px) {
-  .feature-grid-section {
-    padding: 3.5rem 1rem;
-  }
-
+  /* Force single-column stack on small screens (overrides inline grid styles) */
+  .feature-grid,
+  .feature-grid--1col,
   .feature-grid--2col,
   .feature-grid--3col,
   .feature-grid--4col {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
   }
 
-  .feature-grid {
-    gap: 1rem;
+  .feature-item {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 1rem;
   }
 
   .feature-grid-title {

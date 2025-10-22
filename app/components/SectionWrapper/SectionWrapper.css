@@ -1,4 +1,4 @@
-@keyframes section-pulse {
+/* @keyframes section-pulse {
   0% {
     backdrop-filter: blur(12px);
     opacity: 1;
@@ -63,15 +63,15 @@
     backdrop-filter: blur(9px);
     opacity: 1;
   }
-}
+} */
 
 
 /* Scroll active */
-body.scrolling .section-wrapper {
+/* body.scrolling .section-wrapper {
   animation: section-pulse 3s ease-in-out infinite;
   background: rgba(255, 255, 255, 0.7);
   transition: background 3s ease;
-}
+} */
 
 /* Idle */
 /* body:not(.scrolling) .section-wrapper {
@@ -81,11 +81,11 @@ body.scrolling .section-wrapper {
 } */
 
 /* Dark mode */
-html[data-theme="dark"] body.scrolling .section-wrapper {
+/* html[data-theme="dark"] body.scrolling .section-wrapper {
   animation: section-pulse 3s ease-in-out infinite;
   background: rgba(10, 10, 10, 0.5);
   transition: background 3s ease;
-}
+} */
 
 /* html[data-theme="dark"] body:not(.scrolling) .section-wrapper {
   backdrop-filter: blur(12px);
@@ -109,7 +109,7 @@ html[data-theme="dark"] body.scrolling .section-wrapper {
   position: relative;
   z-index: 1;
   opacity: 1;
-  background: rgba(255, 255, 255, 0.6);
+  background-color: rgba(255, 255, 255, 0.85);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(9px);
 }
@@ -121,6 +121,10 @@ html[data-theme="dark"] body.scrolling .section-wrapper {
 
 .section-wrapper + .section-wrapper {
   margin-top: 30vh; /* Add spacing between sections */
+  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
+}
+
+section.section-wrapper:nth-child(7) {
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
 }
 
@@ -148,7 +152,6 @@ html[data-theme="dark"] body.scrolling .section-wrapper {
   box-sizing: border-box;
   margin-left: 2.5vw;
   margin-right: 2.5vw;
-  background-color: rgba(255, 255, 255, 0.75);
   color: var(--foreground);
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
   border-radius: 8px;
@@ -208,16 +211,11 @@ html[data-theme="dark"] body.scrolling .section-wrapper {
 
 /* Dark Mode */
 [data-theme="dark"] .section-wrapper {
-  /* background-color: rgba(10, 10, 10, 0.70); */
-  background: rgba(10, 10, 10, 0.7);
+  background: rgba(10, 10, 10, 0.85);
 }
 
 [data-theme="dark"] .section-wrapper>div,
 [data-theme="dark"] .section-wrapper--custom-padding>div {
-  background-color: rgba(10, 10, 10, 0.9);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
 }
 
-.section-wrapper--no-padding {
-  padding: 0 !important;
-}

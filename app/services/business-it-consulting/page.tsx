@@ -123,7 +123,7 @@ const BusinessITConsulting: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <SectionWrapper className="section-wrapper--no-padding">
+      <SectionWrapper>
         <HeroSection
           title="Business & IT Consulting Services in Calgary"
           subtitle={

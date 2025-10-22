@@ -123,7 +123,7 @@ const AIAutomation: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <SectionWrapper className="section-wrapper--no-padding">
+      <SectionWrapper>
         <HeroSection
           title="AI & Automation Solutions in Calgary"
           subtitle={

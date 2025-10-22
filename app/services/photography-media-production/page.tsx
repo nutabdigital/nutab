@@ -123,7 +123,7 @@ const PhotographyMediaProduction: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <SectionWrapper className="section-wrapper--no-padding">
+      <SectionWrapper>
         <HeroSection
           title="Photography & Media Production Services in Calgary"
           subtitle={

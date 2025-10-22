@@ -123,7 +123,7 @@ const MobileWebAppDevelopment: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <SectionWrapper className="section-wrapper--no-padding">
+      <SectionWrapper>
         <HeroSection
           title="Mobile & Web App Development Services in Calgary"
           subtitle={

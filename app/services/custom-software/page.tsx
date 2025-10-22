@@ -24,13 +24,7 @@ import RelatedServicesSection, {
 } from "../../components/RelatedServicesSection/RelatedServicesSection";
 import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
 import ServicesWhySection, { WhySolution } from "../../components/ServicesWhySection/ServicesWhySection";
-
-const SectionWrapper = dynamic(
-  () => import("../../components/SectionWrapper/SectionWrapper"),
-  {
-    ssr: false,
-  }
-);
+import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
 
 export const generateMetadata = (): Metadata => ({
   title: "Custom Software Development Services in Calgary - NuTab Digital",

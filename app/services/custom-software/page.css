@@ -9,12 +9,6 @@
   margin-top: 10vh; /* Add custom margin-top padding */
 }
 
-.section-wrapper--no-padding {
-  padding: 0;
-  background: none;
-  box-shadow: none;
-}
-
 /* =========================
    SECTION WRAPPER STYLES
    ========================= */
@@ -128,6 +122,7 @@
 
 .accent {
   font-weight: 600;
+  color: #c084fc;
 }
 
 /* =========================
@@ -370,6 +365,10 @@
 
 [data-theme="dark"] .highlight {
   color: #fff;
+}
+
+[data-theme="dark"] .accent {
+  color: #c084fc;
 }
 
 [data-theme="dark"] .faq__summary::after {

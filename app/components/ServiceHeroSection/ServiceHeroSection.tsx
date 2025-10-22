@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Shield, Layers, Code2 } from "lucide-react";
 import GetQuoteButton from "../GetQuoteButton/GetQuoteButton";
@@ -13,83 +13,77 @@ type HeroSectionProps = {
 };
 
 export default function HeroSection(props: HeroSectionProps) {
-  useEffect(() => {
-    if (typeof document === "undefined") return;
-    const id = "nt-tomorrow-font";
-    if (document.getElementById(id)) return;
+  const { title, subtitle, icons, showCTA } = props;
+  const [showOrbs, setShowOrbs] = useState<boolean>(true);
 
-    const link = document.createElement("link");
-    link.id = id;
-    link.rel = "stylesheet";
-    link.href =
-      "https://fonts.googleapis.com/css2?family=Tomorrow:wght@400;600;700&display=swap";
-    document.head.appendChild(link);
-    // keep stylesheet persistent
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+
+    if (window.innerWidth <= 700) {
+      // Hide orbs initially on mobile
+      setShowOrbs(false);
+
+      const handleScroll = () => {
+        setShowOrbs(true);
+        window.removeEventListener("scroll", handleScroll);
+      };
+
+      window.addEventListener("scroll", handleScroll);
+
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
   }, []);
 
   return (
-    <section className="nt-hero">
-      <div className="nt-hero-inner">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="nt-hero-content"
-        >
-          <h1 className="nt-hero-title">
-            Transform Your Ideas into Intelligent Software
-          </h1>
+    <section className="services-hero">
+      <div className="overlay" />
 
-          <p className="nt-hero-sub">
-            NuTab Digital engineers{" "}
-            <strong>high-performance custom software</strong> that fuels innovation
-            and drives results. Whether it’s a{" "}
-            <strong>custom-built app</strong>, <strong>enterprise-grade solution</strong>, or{" "}
-            <strong>SaaS platform</strong>, we turn complexity into clarity — and
-            ideas into reality.
-          </p>
+      {showOrbs && (
+        <>
+          <motion.div
+            className="floating-orb orb-purple"
+            animate={{ y: [0, -20, 0], opacity: [0.6, 1, 0.6] }}
+            transition={{ duration: 6, repeat: Infinity }}
+          />
+          <motion.div
+            className="floating-orb orb-blue"
+            animate={{ y: [0, 30, 0], opacity: [0.5, 1, 0.5] }}
+            transition={{ duration: 8, repeat: Infinity }}
+          />
+        </>
+      )}
 
-          <div className="nt-features">
-            <div className="nt-feature">
-              <div className="nt-feature-icon bg-blue">
-                <Code2 />
-              </div>
-              <h3 className="nt-feature-title">Custom Development</h3>
-              <p className="nt-feature-desc">
-                Tailored applications designed to solve your toughest business
-                challenges.
-              </p>
+      <div className="services-hero-container">
+        <div className="services-hero-content">
+          <h1 className="services-hero-title">{title}</h1>
+          <p className="services-hero-subtitle">{subtitle}</p>
+
+          {icons && (
+            <div className="services-hero-features">
+              {icons.map(({ icon, label }, idx) => (
+                <motion.div
+                  whileHover={{ scale: 1.1 }}
+                  className="services-hero-feature-item"
+                  key={idx}
+                >
+                  <div className="services-hero-feature-icon">
+                    <span className="services-hero-icon">{icon}</span>
+                  </div>
+                  <p className="services-hero-feature-label">{label}</p>
+                </motion.div>
+              ))}
             </div>
+          )}
 
-            <div className="nt-feature">
-              <div className="nt-feature-icon bg-purple">
-                <Layers />
-              </div>
-              <h3 className="nt-feature-title">Enterprise Integration</h3>
-              <p className="nt-feature-desc">
-                Robust systems that connect, automate, and scale seamlessly.
-              </p>
+          {showCTA && (
+            <div className="services-hero-buttons">
+              <motion.div whileHover={{ scale: 1.05 }} className="cta-container">
+                <GetQuoteButton />
+              </motion.div>
             </div>
-
-            <div className="nt-feature">
-              <div className="nt-feature-icon bg-pink">
-                <Shield />
-              </div>
-              <h3 className="nt-feature-title">Security by Design</h3>
-              <p className="nt-feature-desc">
-                Every layer of your software is protected with advanced security
-                principles.
-              </p>
-            </div>
-          </div>
-
-          <div className="nt-cta-wrap">
-            <GetQuoteButton/>
-          </div>
-        </motion.div>
+          )}
+        </div>
       </div>
-
-      <div className="nt-hero-bg" aria-hidden="true" />
     </section>
   );
 }

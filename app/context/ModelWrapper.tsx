@@ -3,8 +3,11 @@
 
 import React, { useEffect } from "react";
 import { usePathname } from "next/navigation";
-import Model from "../components/Model/Model";
+import dynamic from "next/dynamic";
 import { useModelState } from "./ModelStateProvider";
+
+// lazy-load the heavy Model component (code-split, client-only)
+const Model = dynamic(() => import("../components/Model/Model"), { ssr: false, loading: () => null });
 
 const ModelWrapper: React.FC = () => {
   const pathname = usePathname();
@@ -12,9 +15,7 @@ const ModelWrapper: React.FC = () => {
 
   useEffect(() => {
     if (pathname === "/") {
-      // On the homepage, dynamically update the currentSection
       const sections = document.querySelectorAll(".page-section");
-
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
@@ -28,10 +29,8 @@ const ModelWrapper: React.FC = () => {
       );
 
       sections.forEach((section) => observer.observe(section));
-
       return () => observer.disconnect();
     } else {
-      // On service pages, set currentSection to 2
       setState({ currentSection: 2 });
     }
   }, [pathname, setState]);

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 
 const tomorrow = Tomorrow({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "900"],
+  weight: ["100", "300", "400", "500", "700", "900"], // Can optimize by deleting unused
   display: "swap",
 });
 

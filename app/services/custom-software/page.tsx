@@ -275,7 +275,7 @@ const CustomSoftwareSolutions: React.FC = () => {
         }}
       />
 
-
+{/* 
       <SectionWrapper>
         <HeroSection
           title="Custom Software Development Services in Calgary"
@@ -307,7 +307,7 @@ const CustomSoftwareSolutions: React.FC = () => {
           ]}
           showCTA={true}
         />
-      </SectionWrapper>
+      </SectionWrapper> */}
 
       <SectionWrapper>
         <ServicesWhySection

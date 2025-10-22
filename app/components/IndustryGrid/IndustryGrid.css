@@ -23,7 +23,7 @@
 
 .industry-grid-subtitle {
   font-size: 1rem;
-  color: #9ca3af;
+  color: rgba(192, 132, 252, 0.8);
   line-height: 1.6;
   max-width: 700px;
   margin: 0 auto;
@@ -172,8 +172,9 @@
 
 .industry-item-name {
   font-size: 1rem;
-  font-weight: 500;
-  color: #e5e7eb;
+  font-weight: 400;
+  /* light mode: use black with 0.9 opacity */
+  color: rgba(0, 0, 0, 0.9);
   margin: 0;
 }
 
@@ -238,6 +239,16 @@
 .industry-grid--dark .industry-item:hover {
   border-color: rgba(168, 85, 247, 0.5);
   background: rgba(0, 0, 0, 0.6);
+}
+
+/* Dark theme: use the previous highlighted/light-gray color as the dark-mode text (0.9 opacity) */
+[data-theme="dark"] .industry-item-name {
+  color: rgba(229, 231, 235, 0.9); /* #e5e7eb @ 0.9 */
+}
+
+/* Ensure card variant also shows the highlighted color in dark mode */
+[data-theme="dark"] .industry-grid--cards .industry-item_name {
+  color: rgba(168, 85, 247, 0.9);
 }
 
 /* Animations */

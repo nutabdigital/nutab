@@ -14,12 +14,6 @@
   padding: 2rem;
 }
 
-@media (min-width: 768px) {
-  .services-why-container {
-    padding: 3rem;
-  }
-}
-
 /* Header */
 .services-why-header {
   margin-bottom: 3rem;
@@ -39,7 +33,8 @@
 
 @media (min-width: 768px) {
   .services-why-title {
-    font-size: 2.5rem;
+    /* fluid size: min 2.0rem (mobile) → max 2.5rem (desktop) */
+  font-size: clamp(2rem, 2rem + 1vw, 2.5rem);
     line-height: 1;
   }
 }

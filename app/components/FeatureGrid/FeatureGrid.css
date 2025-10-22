@@ -28,7 +28,8 @@
 }
 
 .feature-grid-title {
-  font-size: 2.5rem;
+  /* fluid size: min 2.0rem (mobile) → max 2.5rem (desktop) */
+  font-size: clamp(2rem, 2rem + 1vw, 2.5rem);
   font-weight: 600;
   margin-bottom: 1rem;
   background: linear-gradient(135deg, #a855f7 0%, #3b82f6 100%);
@@ -270,7 +271,7 @@
 /* Feature Title */
 .feature-title {
   font-size: 1.125rem;
-  font-weight: 600;
+  font-weight: 400;
   color: #a855f7;
   margin: 0;
   line-height: 1.4;

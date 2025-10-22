@@ -23,7 +23,7 @@
 
 .services-grid-subtitle {
   font-size: 1rem;
-  color: #9ca3af;
+  color: rgba(192, 132, 252, 0.8);
   line-height: 1.6;
   max-width: 700px;
   margin: 0 auto;
@@ -197,7 +197,6 @@
 
 .service-card-title {
   font-size: 1.125rem;
-  font-weight: 600;
   color: #a855f7;
   margin-bottom: 0.5rem;
   background: linear-gradient(to right, rgb(192, 132, 252), rgb(147, 197, 253));
@@ -223,10 +222,9 @@
 
 .service-card-description {
   font-size: 0.938rem;
-  color: #9ca3af;
+  color: black;
   line-height: 1.6;
   margin: 0;
-  color: rgb(156, 163, 175);
 }
 
 .services-grid--list .service-card-description {
@@ -343,13 +341,16 @@
   .services-grid--feature {
     grid-template-columns: 1fr !important;
     gap: 1rem;
+    justify-items: center; /* center grid items so narrower cards are centered */
   }
 
+  /* Make each card take 85% of the outer container and center it */
   .service-card {
-    width: 100%;
-    max-width: 100%;
+    width: 85%;
+    max-width: 85%;
     box-sizing: border-box;
     padding: 1.25rem;
+    margin: 0 auto;
   }
 
   .services-grid--list .service-card {
@@ -361,6 +362,15 @@
   .services-grid--list .service-card-image {
     width: 100%;
     height: 150px;
+  }
+
+  .services-grid-title,
+  .services-grid-subtitle {
+    width: 85%;
+    max-width: 85%;
+    margin: 0 auto;
+    box-sizing: border-box;
+    text-align: center;
   }
 }
 
@@ -443,7 +453,6 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
-  font-weight: 600;
 }
 
 /* Description: use the slightly muted tone used in ServicesWhySection cards */
@@ -493,4 +502,8 @@
 
 [data-theme="dark"] .services-grid--dark .service-card-description {
   color: rgb(156, 163, 175);
+}
+
+[data-theme="dark"] .service-card-description {
+  color: rgba(156, 163, 175, 0.9);
 }

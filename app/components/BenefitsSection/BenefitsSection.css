@@ -22,7 +22,7 @@
 
 /* Subtitle */
 .benefits-subtitle {
-  color: rgb(209, 213, 219);
+  color: rgba(192, 132, 252, 0.8);
   text-align: center;
   margin-bottom: 3rem;
 }
@@ -38,6 +38,21 @@
 @media (min-width: 768px) {
   .benefits-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  /* Center grid items and make each benefit card 85% of the outer container */
+  .benefits-grid {
+    justify-items: center;
+  }
+
+  /* Make the .benefits-card (inner content) 85% width and centered on mobile */
+  .benefits-card {
+    width: 85%;
+    max-width: 85%;
+    margin: 0 auto;
+    box-sizing: border-box;
   }
 }
 

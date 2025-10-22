@@ -4,18 +4,32 @@
   width: 50vw; /* Always start with 50% of the viewport width */
   max-width: 50vw; /* Ensure it never exceeds 50% of the viewport width */
   height: auto; /* Maintain aspect ratio */
-  transition: transform 0.75s ease-in-out; /* Smooth transition */
-  inset: 0px; /* Equivalent to setting top, bottom, left, right properties to 0px */
+  transition: transform 0.6s ease-in-out; /* keep smooth movement */
+  inset: 0;
+  /* Put the model behind page content (content-wrapper already uses z-index:3) */
   z-index: 1;
+  pointer-events: none; /* ensure page interactions aren't blocked */
+  will-change: transform, opacity;
 }
 
-.model{
+/* canvas is initially hidden (avoids flash). When ready we fade it in. */
+.model {
   position: fixed;
   z-index: 1;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 280ms ease;
+  will-change: opacity, transform;
 }
 
+/* When the model libs are loaded and scene initialized, add `.model-ready` to fade in */
+.model.model-ready {
+  opacity: 1;
+}
+
+/* keep mobile width behaviour */
 @media (max-width:600px) {
-  .model-container{
-    width:100vw;
+  .model-container {
+    width: 100vw;
   }
 }

@@ -2,6 +2,7 @@ import type { Metadata } from "next"; // Type import from Next.js to type-check 
 import "./styles/globals.css";
 import dynamic from "next/dynamic";
 import AppClientProviders from "./AppClientProviders";
+import { Tomorrow } from "next/font/google";
 
 // Dynamically import the ModelWrapper component
 const ModelWrapper = dynamic(() => import("./context/ModelWrapper"), { ssr: false });
@@ -14,6 +15,13 @@ export const metadata: Metadata = {
     "custom software solutions, mobile app development, web app development, SEO, digital marketing, e-commerce development, Calgary, Alberta, NuTab Digital, software company Calgary, software development Calgary",
   robots: "index, follow",
 };
+
+const tomorrow = Tomorrow({
+  subsets: ["latin"],
+  weight: ["100", "300", "400", "500", "700", "900"], // Can optimize by deleting unused
+  display: "swap",
+});
+
 
 // Define structured data as a JavaScript object
 const structuredData = {
@@ -68,12 +76,12 @@ const structuredData = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   // structuredData and other server-side logic here
 
-// export default function RootLayout({
-//   children,
-// }: Readonly<{
-//   children: React.ReactNode;
-// }>) {
-  
+  // export default function RootLayout({
+  //   children,
+  // }: Readonly<{
+  //   children: React.ReactNode;
+  // }>) {
+
   return (
     <html lang="en">
       <head>
@@ -83,10 +91,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="image/png"
           sizes="32x32"
           href="/icons/favicon-32x32.png"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Tomorrow:wght@100;300;400;500;700;900&display=swap"
-          rel="stylesheet"
         />
         <meta
           name="description"
@@ -132,9 +136,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
 
       </head>
-      <body>
+      <body className={tomorrow.className}>
         <AppClientProviders>{children}</AppClientProviders>
       </body>
+
     </html>
   );
 }

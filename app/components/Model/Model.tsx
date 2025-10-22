@@ -5,39 +5,33 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import * as THREE from "three";
 import "./Model.css";
-import { gsap } from "gsap";
 import { useModelState } from "../../context/ModelStateProvider";
 
 // currentSection from page.tsx
 interface ModelProps {
-  useModelState: () => {
+  useModelState?: () => {
     currentSection: number;
   };
 }
 
-let scene: THREE.Scene,
-  camera: THREE.PerspectiveCamera,
-  renderer: THREE.WebGLRenderer;
-let particleSystem: THREE.Points;
+// libs previously top-level (three, gsap) are now loaded dynamically
+let scene: any,
+  camera: any,
+  renderer: any;
+let particleSystem: any;
 const angles = { angleX: 0, angleY: 0 }; // Wrap angles in an object
 let isDragging = false;
 let camDistance = 50;
-let targetDistance;
+let targetDistance: number | undefined;
 let isScroll = false;
 let touchStartY = 0;
 
 const previousMousePosition = { x: 0, y: 0 };
-const particleCount = 10000;
-const particleSize = 0.25;
-const particleData = new Array(particleCount).fill(null).map(() => {
-  const theta = Math.random() * Math.PI * 2;
-  const phi = Math.acos(2 * Math.random() - 1);
-  return { theta, phi };
-});
+// removed top-level particleCount & particleData to compute per-device
+// ...existing code...
 
-// Throttle function for windowlistener
+// Throttle function for window listener
 const throttle = <T extends (...args: any[]) => void>(
   func: T,
   limit: number
@@ -56,28 +50,10 @@ const throttle = <T extends (...args: any[]) => void>(
 };
 
 const Model: React.FC<ModelProps> = () => {
-  // const { state, setState } = useModelState();
   const { state, paused } = useModelState();
-
-  // useEffect(() => {
-  //   if (!renderer) return; // don’t run until renderer is set
-
-  //   if (paused) {
-  //     renderer.setAnimationLoop(null);
-  //   } else {
-  //     renderer.setAnimationLoop(() => {
-  //       updateParticles();
-  //       updateCam();
-  //       renderer.render(scene, camera);
-  //     });
-  //   }
-  // }, [paused, renderer]);
-
-
-  // const { state, setState, paused } = useModelState();
   const [currentSection, setCurrentSection] = useState(state.current.currentSection);
 
-  // Sync ref with local state
+  // Sync ref with local state (polling kept but could be optimized)
   useEffect(() => {
     const interval = setInterval(() => {
       if (currentSection !== state.current.currentSection) {
@@ -87,31 +63,34 @@ const Model: React.FC<ModelProps> = () => {
     return () => clearInterval(interval);
   }, [state, currentSection]);
 
-
-  const canvasRef = useRef<HTMLCanvasElement>(null); //client side?
+  const canvasRef = useRef<HTMLCanvasElement>(null);
   const [isMobile, setIsMobile] = useState(false);
-  const rotationSpeedX = 0.0047; // Adjust to control the speed of horizontal rotation
-  const rotationSpeedY = 0.0047; // Adjust to control the speed of vertical rotation
+  const rotationSpeedX = 0.0047;
+  const rotationSpeedY = 0.0047;
   const slowRotationSpeedX = 0.002;
   const slowRotationSpeedY = 0.002;
   const frequencyRef = useRef(0);
   const directionRef = useRef(1);
-  const burstTimeline = useRef<gsap.core.Timeline | null>(null);
+  const burstTimeline = useRef<any | null>(null);
 
-  let camera = useRef(
-    //client side?
-    typeof window !== "undefined"
-      ? new THREE.PerspectiveCamera(
-        75,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        1000
-      )
-      : new THREE.PerspectiveCamera(75, 1, 0.1, 1000) // Fallback for SSR
-  ).current;
+  // dynamic library refs
+  const THREERef = useRef<any>(null);
+  const gsapRef = useRef<any>(null);
+  const [libsLoaded, setLibsLoaded] = useState(false);
 
-  // Initialize Three.js scene
+  // particle data kept in refs so other functions can access
+  const particleCountRef = useRef<number>(0);
+  const particleDataRef = useRef<{ theta: number; phi: number }[]>([]);
+  const particleSize = useRef<number>(0);
+
+  // user / device preferences
+  const prefersReducedMotionRef = useRef<boolean>(false);
+  const deviceLowEndRef = useRef<boolean>(false);
+
+  // Initialize Three.js scene (uses THREERef.current)
   const initializeScene = () => {
+    const THREE = THREERef.current;
+    if (!THREE) return;
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(
       75,
@@ -124,107 +103,127 @@ const Model: React.FC<ModelProps> = () => {
       canvas: canvasRef.current!,
       alpha: true,
     });
-    renderer.setSize(
-      isMobile ? window.innerWidth : window.innerWidth,
-      window.innerHeight
-    );
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
   };
 
-  // Generate the particle system
+  // Generate the particle system (uses THREERef.current)
   const createParticles = () => {
+    const THREE = THREERef.current;
+    if (!THREE) return;
+
+    // Determine device capability & motion preferences at creation time
+    const prefersReducedMotion =
+      typeof window !== "undefined" &&
+      !!(window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches);
+    prefersReducedMotionRef.current = prefersReducedMotion;
+
+    const deviceMemory = (navigator as any).deviceMemory || 4;
+    const hwConcurrency = navigator.hardwareConcurrency || 4;
+    const isMobileLocal = window.innerWidth < 700;
+    setIsMobile(isMobileLocal);
+
+    const lowEndDevice = deviceMemory <= 2 || hwConcurrency <= 2;
+    deviceLowEndRef.current = lowEndDevice;
+
+    // Compute particle count based on device and user preference
+    let particleCount = 10000;
+    let particleSize = 0.25;
+    if (prefersReducedMotion || lowEndDevice || isMobileLocal) {
+      particleCount = 5000; // much lighter on low-end / mobile / reduced-motion
+      particleSize = 0.5;
+    } else if (deviceMemory <= 4) {
+      particleCount = 7000; // medium devices
+      particleSize = 0.3;
+    } else {
+      particleCount = 15000; // full experience
+      particleSize = 0.2;
+    }
+
+    // Store chosen count for updates
+    particleCountRef.current = particleCount;
+
+    // Clean up previous system if present
+    if (particleSystem) {
+      try {
+        if (particleSystem.geometry) particleSystem.geometry.dispose();
+        if (particleSystem.material) particleSystem.material.dispose();
+        scene.remove(particleSystem);
+      } catch (e) {
+        /* ignore */
+      }
+      particleSystem = null;
+    }
+
+    // build particleData for chosen count
+    const particleData: { theta: number; phi: number }[] = new Array(particleCount)
+      .fill(null)
+      .map(() => {
+        const theta = Math.random() * Math.PI * 2;
+        const phi = Math.acos(2 * Math.random() - 1);
+        return { theta, phi };
+      });
+
+    particleDataRef.current = particleData;
+
     const geometry = new THREE.BufferGeometry();
-    const vertices = [];
-    const colors = [];
+    const vertices = new Float32Array(particleCount * 3);
+    const colors = new Float32Array(particleCount * 3);
 
     // Neutral coloured sphere shape to start
+    const radius = 30;
     for (let i = 0; i < particleCount; i++) {
-      const theta = Math.random() * Math.PI * 2;
-      const phi = Math.acos(2 * Math.random() - 1);
-      const radius = 30;
-
+      const { theta, phi } = particleData[i];
       const x = radius * Math.sin(phi) * Math.cos(theta);
       const y = radius * Math.sin(phi) * Math.sin(theta);
       const z = radius * Math.cos(phi);
-      vertices.push(x, y, z);
-      colors.push(0.5, 0.5, 0.5);
+
+      const idx = i * 3;
+      vertices[idx] = x;
+      vertices[idx + 1] = y;
+      vertices[idx + 2] = z;
+
+      colors[idx] = 0.5;
+      colors[idx + 1] = 0.5;
+      colors[idx + 2] = 0.5;
     }
 
-    geometry.setAttribute(
-      "position",
-      new THREE.Float32BufferAttribute(vertices, 3)
-    );
-    geometry.setAttribute("color", new THREE.Float32BufferAttribute(colors, 3));
+    geometry.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
+    geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
     const material = new THREE.PointsMaterial({
       vertexColors: true,
-      size: particleSize,
+      size: prefersReducedMotion ? particleSize * 0.8 : particleSize,
     });
+
     particleSystem = new THREE.Points(geometry, material);
     scene.add(particleSystem);
   };
 
-  // // frequency change and allow manual orbit with mouse drag
-  // const onMouseDown = (event: MouseEvent) => {
-  //   isDragging = true;
-  //   previousMousePosition.x = event.clientX;
-  //   previousMousePosition.y = event.clientY;
-  //   document.addEventListener("mousemove", onMouseMove);
-  //   document.addEventListener("mouseup", onMouseUp);
-  // };
-
-  // // Manual camera orbit around the model with mouse click + drag
-  // const onMouseMove = (event: MouseEvent) => {
-  //   if (!isDragging) return;
-
-  //   const deltaX = event.clientX - previousMousePosition.x;
-  //   const deltaY = event.clientY - previousMousePosition.y;
-  //   const sensitivity = 0.005;
-
-  //   angles.angleX += deltaX * sensitivity;
-  //   angles.angleY -= deltaY * sensitivity;
-
-  //   previousMousePosition.x = event.clientX;
-  //   previousMousePosition.y = event.clientY;
-  // };
-
-  // // Resume frequency changes and block manual orbit
-  // const onMouseUp = () => {
-  //   isDragging = false;
-  //   document.removeEventListener("mousemove", onMouseMove);
-  //   document.removeEventListener("mouseup", onMouseUp);
-  // };
-
   // Handle scroll to adjust frequency and camera angle for service section
-
   const onScroll = (event: WheelEvent) => {
+    const gsap = gsapRef.current;
+    if (!gsap) return;
     if (state.current.currentSection === 2) {
-      let delta = event.deltaY * 0.02; // Adjust burst strength based on scroll
-      // console.log("delta: ", delta);
-      // console.log("event.delta: ", event.deltaY);
       isScroll = true;
 
-      // Cancel any ongoing animation and create a new burst effect
       if (burstTimeline.current) {
         burstTimeline.current.kill();
       }
       burstTimeline.current = gsap.timeline();
 
-      // Adjust frequency and reverse direction if needed
       let newFrequency = frequencyRef.current + 2 * directionRef.current;
 
-      // Reverse direction if hitting upper or lower bounds
       if (newFrequency >= 20) {
-        newFrequency = 20; // Prevent overshooting
-        directionRef.current = -1; // Reverse direction
+        newFrequency = 20;
+        directionRef.current = -1;
       } else if (newFrequency <= 0) {
-        newFrequency = 0; // Prevent overshooting
-        directionRef.current = 1; // Reverse direction
+        newFrequency = 0;
+        directionRef.current = 1;
       }
 
-      // Update angles
-      const newAngleY = angles.angleY + 2 * 0.2; // Modify angleY based on scroll
+      const newAngleY = angles.angleY + 2 * 0.2;
 
-      // Animate frequencyRef and angles
       burstTimeline.current
         .to(frequencyRef, {
           current: newFrequency,
@@ -232,13 +231,13 @@ const Model: React.FC<ModelProps> = () => {
           ease: "power2.out",
         })
         .to(
-          angles, // Target angles object
+          angles,
           {
-            angleY: newAngleY, // End value for angleY
+            angleY: newAngleY,
             duration: 2.5,
             ease: "power2.out",
           },
-          "<" // Align animations to run concurrently
+          "<"
         );
     }
     isScroll = false;
@@ -251,37 +250,31 @@ const Model: React.FC<ModelProps> = () => {
   };
 
   const touchScroll = (e: TouchEvent) => {
+    const gsap = gsapRef.current;
+    if (!gsap) return;
     const touchEndY = e.touches[0].clientY;
     const deltaY = touchStartY - touchEndY;
 
     if (state.current.currentSection === 2) {
-      let delta = deltaY * 0.02; // Adjust burst strength based on scroll
-      // console.log("delta: ", delta);
-      // console.log("event.delta: ", deltaY);
       isScroll = true;
 
-      // Cancel any ongoing animation and create a new burst effect
       if (burstTimeline.current) {
         burstTimeline.current.kill();
       }
       burstTimeline.current = gsap.timeline();
 
-      // Adjust frequency and reverse direction if needed
       let newFrequency = frequencyRef.current + 2 * directionRef.current;
 
-      // Reverse direction if hitting upper or lower bounds
       if (newFrequency >= 20) {
-        newFrequency = 20; // Prevent overshooting
-        directionRef.current = -1; // Reverse direction
+        newFrequency = 20;
+        directionRef.current = -1;
       } else if (newFrequency <= 0) {
-        newFrequency = 0; // Prevent overshooting
-        directionRef.current = 1; // Reverse direction
+        newFrequency = 0;
+        directionRef.current = 1;
       }
 
-      // Update angles
-      const newAngleY = angles.angleY + 2 * 0.2; // Modify angleY based on scroll
+      const newAngleY = angles.angleY + 2 * 0.2;
 
-      // Animate frequencyRef and angles
       burstTimeline.current
         .to(frequencyRef, {
           current: newFrequency,
@@ -289,44 +282,50 @@ const Model: React.FC<ModelProps> = () => {
           ease: "power2.out",
         })
         .to(
-          angles, // Target angles object
+          angles,
           {
-            angleY: newAngleY, // End value for angleY
+            angleY: newAngleY,
             duration: 2.5,
             ease: "power2.out",
           },
-          "<" // Align animations to run concurrently
+          "<"
         );
     }
     isScroll = false;
   };
 
-  // Event listeners for scroll and mouse drag
+  // Event listeners for scroll and mouse drag (attach no-op drag)
   const attachEventListeners = () => {
-    // Disable manual drag functionality
-    // document.addEventListener("mousedown", onMouseDown);
+    // intentionally left for future manual drag (disabled)
   };
+
   // Apply left-center-right transformation of whole canvas based on the current section
   const getHorizontalPosition = () => {
     if (isMobile || currentSection === 1 || currentSection === 2 || currentSection === 4) {
-      return "0%"; // Center the canvas horizontally on mobile or for sections 1, 2, 4
+      return "0%";
     }
     const position = currentSection % 2 === 0 ? "left" : "right";
-    return position === "left" ? "-50%" : "50%"; // Left and
+    return position === "left" ? "-50%" : "50%";
   };
 
   // Handle resize events
   const handleResize = () => {
     setIsMobile(window.innerWidth < 600);
-    const width = isMobile ? window.innerWidth : window.innerWidth;
+    const width = window.innerWidth;
     const height = window.innerHeight;
-    renderer.setSize(width, height);
-    camera.aspect = width / height;
-    camera.updateProjectionMatrix();
+    if (renderer && camera) {
+      renderer.setSize(width, height);
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+    }
   };
 
-  // Update particle positions and colors
+  // Update particle positions and colors (uses THREERef.current)
   const updateParticles = () => {
+    if (!particleSystem) return;
+    const THREE = THREERef.current;
+    if (!THREE) return;
+
     const positions = particleSystem.geometry.attributes.position
       .array as Float32Array;
     const colors = particleSystem.geometry.attributes.color
@@ -334,30 +333,28 @@ const Model: React.FC<ModelProps> = () => {
     const minHeight = -30,
       maxHeight = 30;
 
-    for (let i = 0; i < positions.length; i += 3) {
-      const { theta, phi } = particleData[i / 3]; // Retrieve precomputed theta and phi
-      const radius = Math.sqrt(
-        positions[i] ** 2 + positions[i + 1] ** 2 + positions[i + 2] ** 2
-      );
+    const particleCount = particleCountRef.current;
+    const particleData = particleDataRef.current;
+
+    for (let i = 0; i < particleCount; i++) {
+      const idx = i * 3;
+      const { theta, phi } = particleData[i];
       const newRadius = 20 + Math.sin(frequencyRef.current * phi + theta) * 5;
 
-      // Update particle positions using the stored theta and phi
-      positions[i] = newRadius * Math.sin(phi) * Math.cos(theta);
-      positions[i + 1] = newRadius * Math.sin(phi) * Math.sin(theta);
-      positions[i + 2] = newRadius * Math.cos(phi);
+      positions[idx] = newRadius * Math.sin(phi) * Math.cos(theta);
+      positions[idx + 1] = newRadius * Math.sin(phi) * Math.sin(theta);
+      positions[idx + 2] = newRadius * Math.cos(phi);
 
-      // Map height to color
       const height = Math.sqrt(
-        positions[i] ** 2 + positions[i + 1] ** 2 + positions[i + 2] ** 2
+        positions[idx] ** 2 + positions[idx + 1] ** 2 + positions[idx + 2] ** 2
       );
       const normalizedHeight = (height - minHeight) / (maxHeight - minHeight);
       const color = new THREE.Color();
       color.setHSL(normalizedHeight * 0.7, 1.0, 0.4);
 
-      // Update color attributes
-      colors[i] = color.r;
-      colors[i + 1] = color.g;
-      colors[i + 2] = color.b;
+      colors[idx] = color.r;
+      colors[idx + 1] = color.g;
+      colors[idx + 2] = color.b;
     }
 
     particleSystem.geometry.attributes.position.needsUpdate = true;
@@ -366,6 +363,7 @@ const Model: React.FC<ModelProps> = () => {
 
   // Update the camera's position
   const updateCam = () => {
+    if (!camera) return;
     camera.position.x = camDistance * Math.sin(angles.angleX);
     camera.position.y = camDistance * Math.sin(angles.angleY);
     camera.position.z =
@@ -376,23 +374,56 @@ const Model: React.FC<ModelProps> = () => {
   // Cleanup function to remove listeners and dispose of the renderer
   const cleanup = (handleResizeThrottled: () => void) => {
     window.removeEventListener("resize", handleResizeThrottled);
-    // document.removeEventListener("mousedown", onMouseDown);
-    // document.removeEventListener("mousemove", onMouseMove);
-    // document.removeEventListener("mouseup", onMouseUp);
-    if (renderer) renderer.dispose();
+    if (renderer && renderer.dispose) renderer.dispose();
   };
 
-  // Initialize Scene and Model Particles
+  // Dynamic import of heavy libs (three + gsap)
   useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      try {
+        const [threeModule, gsapModule] = await Promise.all([
+          import("three"),
+          import("gsap"),
+        ]);
+        if (cancelled) return;
+        THREERef.current = threeModule;
+        // gsap may export default or named
+        gsapRef.current = (gsapModule && (gsapModule.gsap || gsapModule.default || gsapModule));
+        setLibsLoaded(true);
+      } catch (err) {
+        // silent fail — keep model disabled
+        console.error("Failed to load 3D libs:", err);
+      }
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  // Initialize Scene and Model Particles only after libs are loaded
+  useEffect(() => {
+    if (!libsLoaded) return;
     initializeScene();
     createParticles();
     attachEventListeners();
     handleResizeThrottled(); // Adjust initial layout
-  }, []);
+
+    // add resize listener (passive)
+    window.addEventListener("resize", handleResizeThrottled);
+
+    return () => {
+      cleanup(handleResizeThrottled);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [libsLoaded]);
 
   // Update camera distance from model whenever `isMobile` or `currentSection` changes
   useEffect(() => {
-    // (x,y,z) camera coordinate value for 'z' distance from (0,0,0)
+    if (!libsLoaded) return;
+    const gsap = gsapRef.current;
+    if (!gsap) return;
+
     const updateCamera = () => {
       if (isMobile) {
         targetDistance = 85;
@@ -405,30 +436,33 @@ const Model: React.FC<ModelProps> = () => {
       } else {
         targetDistance = 60;
       }
-      // Eased camera movement for smooth effect
+
       gsap.to(
         { value: camDistance },
         {
           value: targetDistance,
-          duration: 1, // Adjust duration for desired smoothness
-          ease: "expo.inOut", // Optional easing
+          duration: 1,
+          ease: "expo.inOut",
           onUpdate: function () {
-            camDistance = this.targets()[0].value; // Update camDistance as it animates
-            // Update camera position based on the new camDistance
-            camera.position.x = camDistance * Math.sin(angles.angleX);
-            camera.position.y = camDistance * Math.sin(angles.angleY);
-            camera.position.z =
-              camDistance * Math.cos(angles.angleX) * Math.cos(angles.angleY);
-            camera.lookAt(0, 0, 0);
+            camDistance = (this as any).targets()[0].value;
+            if (camera) {
+              camera.position.x = camDistance * Math.sin(angles.angleX);
+              camera.position.y = camDistance * Math.sin(angles.angleY);
+              camera.position.z =
+                camDistance * Math.cos(angles.angleX) * Math.cos(angles.angleY);
+              camera.lookAt(0, 0, 0);
+            }
           },
         }
       );
     };
     updateCamera();
-  }, [isMobile, state.current.currentSection]); // dependencies: isMobile and currentSection
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isMobile, state.current.currentSection, libsLoaded]);
 
   // Frequency change loop
   useEffect(() => {
+    if (!libsLoaded) return;
     let frameId: number;
     let lastTime = performance.now();
 
@@ -463,15 +497,16 @@ const Model: React.FC<ModelProps> = () => {
     frameId = requestAnimationFrame(animateFrequency);
 
     return () => cancelAnimationFrame(frameId);
-  }, [state.current.currentSection]);
-
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.current.currentSection, libsLoaded]);
 
   // Service section scroll effect
   useEffect(() => {
+    if (!libsLoaded) return;
+
     const handleScroll = throttle((event: WheelEvent) => {
       onScroll(event);
-    }, 100); // Adjust throttle limit as needed
+    }, 100);
 
     const handleTouches = throttle((event: TouchEvent) => {
       touchStartHandler(event);
@@ -479,41 +514,48 @@ const Model: React.FC<ModelProps> = () => {
     }, 100);
 
     if (state.current.currentSection === 2) {
-      document.addEventListener("wheel", handleScroll);
-      document.addEventListener("touchmove", handleTouches, { passive: false });
+      document.addEventListener("wheel", handleScroll, { passive: true });
+      document.addEventListener("touchmove", handleTouches, { passive: true });
     }
 
     return () => {
       document.removeEventListener("wheel", handleScroll);
       document.removeEventListener("touchmove", handleTouches);
     };
-  }, [state.current.currentSection]); // Rerun whenever currentSection changes
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.current.currentSection, libsLoaded]);
 
   // Model animation loop
   useEffect(() => {
+    if (!libsLoaded) return;
     let frameId: number;
+    let lastTime = performance.now();
 
-    const animate = () => {
-      if (!paused) {
-        updateParticles();
-        updateCam();
-        renderer.render(scene, camera);
+    const animate = (time?: number) => {
+      // if user prefers reduced motion, update less frequently or skip heavy updates
+      if (!prefersReducedMotionRef.current) {
+        if (!paused) {
+          updateParticles();
+          updateCam();
+          if (renderer && scene && camera) renderer.render(scene, camera);
+        }
+      } else {
+        // light rendering for reduced motion: render but skip particle updates
+        if (!paused) {
+          if (renderer && scene && camera) renderer.render(scene, camera);
+        }
       }
       frameId = requestAnimationFrame(animate);
     };
 
-    animate();
+    frameId = requestAnimationFrame(animate);
 
     return () => cancelAnimationFrame(frameId);
-  }, [paused]);
-
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [paused, libsLoaded]);
 
   // Throttled resize handler
   const handleResizeThrottled = throttle(handleResize, 100);
-
-  // useEffect(() => {
-  //   console.log("Model component is mounted");
-  // }, []);
 
   return (
     <div

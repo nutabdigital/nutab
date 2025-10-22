@@ -23,6 +23,7 @@ import RelatedServicesSection, {
   RelatedServiceItem,
 } from "../../components/RelatedServicesSection/RelatedServicesSection";
 import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
+import ServicesWhySection, { WhySolution } from "../../components/ServicesWhySection/ServicesWhySection";
 
 const SectionWrapper = dynamic(
   () => import("../../components/SectionWrapper/SectionWrapper"),
@@ -200,6 +201,12 @@ const CustomSoftwareSolutions: React.FC = () => {
     },
   ];
 
+  const whySolutions: WhySolution[] = [
+    { icon: "Code2", title: "Bespoke Applications", description: "Build applications tailored exactly to your workflows and business needs." },
+    { icon: "Layers", title: "Enterprise-grade Software", description: "Design and implement scalable systems that support large-scale operations." },
+    { icon: "ShieldCheck", title: "Secure Architecture", description: "Ensure your software is built with robust security and best practices." },
+  ];
+
   return (
     <>
       <Loader />
@@ -276,7 +283,7 @@ const CustomSoftwareSolutions: React.FC = () => {
       />
 
 
-      <SectionWrapper className="section-wrapper--no-padding">
+      <SectionWrapper>
         <HeroSection
           title="Custom Software Development Services in Calgary"
           subtitle={
@@ -310,20 +317,27 @@ const CustomSoftwareSolutions: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <h2 className="gradient-title">
-          Why Choose Custom Software Development?
-        </h2>
-        <p className="section-text">
-          Off-the-shelf software often falls short of meeting the specific
-          requirements of growing businesses. With{" "}
-          <span className="highlight">custom software development</span>, you
-          gain a solution that is designed exclusively for your workflows,
-          ensuring seamless integration and maximum efficiency. Whether you need
-          a <span className="accent">bespoke application</span>,{" "}
-          <span className="accent">enterprise-grade software</span>, or a{" "}
-          <span className="accent">custom SaaS platform</span>, we’ve got you
-          covered.
-        </p>
+        <ServicesWhySection
+          title="Why Choose Custom Software Development?"
+          description={
+            <>
+              Off-the-shelf software often falls short of meeting the specific
+              requirements of growing businesses. With{" "}
+              <span className="highlight">custom software development</span>, you
+              gain a solution that is designed exclusively for your workflows,
+              ensuring seamless integration and maximum efficiency. Whether you need
+              a <span className="accent">bespoke application</span>,{" "}
+              <span className="accent">enterprise-grade software</span>, or a{" "}
+              <span className="accent">custom SaaS platform</span>, we’ve got you
+              covered.
+            </>
+          }
+          solutions={whySolutions}
+          theme="gradient"
+          animated={true}
+          interactive={false}
+          columns={3}
+        />
       </SectionWrapper>
 
       <SectionWrapper>

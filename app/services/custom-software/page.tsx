@@ -23,6 +23,7 @@ import RelatedServicesSection, {
   RelatedServiceItem,
 } from "../../components/RelatedServicesSection/RelatedServicesSection";
 import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
+import FAQSection, { FAQ } from "../../components/FAQSection/FAQSection"; // <-- Import FAQSection
 
 const SectionWrapper = dynamic(
   () => import("../../components/SectionWrapper/SectionWrapper"),
@@ -145,6 +146,35 @@ const benefits: Benefit[] = [
   },
 ];
 
+// FAQ data for FAQSection and SEO structured data
+const faqs: FAQ[] = [
+  {
+    question: "What is custom software development?",
+    answer:
+      "Custom software development involves creating software applications tailored to meet the specific needs of a business or organization. Unlike off-the-shelf software, custom solutions are designed to address unique challenges and workflows.",
+  },
+  {
+    question: "How long does it take to develop custom software?",
+    answer:
+      "The timeline for custom software development depends on the complexity of the project. On average, it can take anywhere from a few weeks to several months. We work closely with you to establish a realistic timeline based on your requirements.",
+  },
+  {
+    question: "How much does custom software development cost?",
+    answer:
+      "The cost of custom software development varies depending on the scope and complexity of the project. Contact us for a free consultation and quote tailored to your needs.",
+  },
+  {
+    question: "Can you integrate custom software with our existing systems?",
+    answer:
+      "Yes, we specialize in system integration to ensure your new software works seamlessly with your existing tools and platforms.",
+  },
+  {
+    question: "Do you provide ongoing support after deployment?",
+    answer:
+      "Absolutely! We offer ongoing support and maintenance to ensure your software continues to perform optimally.",
+  },
+];
+
 const CustomSoftwareSolutions: React.FC = () => {
   const processSteps: ProcessStep[] = [
     {
@@ -205,6 +235,7 @@ const CustomSoftwareSolutions: React.FC = () => {
       <Loader />
       <Background />
 
+      {/* Structured Data Script: Service & FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -241,7 +272,6 @@ const CustomSoftwareSolutions: React.FC = () => {
           }),
         }}
       />
-
 
       <SectionWrapper className="section-wrapper--no-padding">
         <HeroSection

@@ -564,7 +564,12 @@ const Model: React.FC<ModelProps> = () => {
         transform: `translateX(${getHorizontalPosition()})`,
       }}
     >
-      <canvas ref={canvasRef} className="model" />
+      {/* hide canvas until libs loaded to prevent flash-on-top */}
+      <canvas
+        ref={canvasRef}
+        className={`model ${libsLoaded ? "model-ready" : "model-loading"}`}
+        aria-hidden="true"
+      />
     </div>
   );
 };

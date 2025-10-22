@@ -5,7 +5,14 @@ import { Shield, Layers, Code2 } from "lucide-react";
 import GetQuoteButton from "../GetQuoteButton/GetQuoteButton";
 import "./ServiceHeroSection.css";
 
-export default function HeroSection() {
+type HeroSectionProps = {
+  title: string;
+  subtitle: React.ReactElement;
+  icons: { icon: React.ReactElement; label: string }[];
+  showCTA: boolean;
+};
+
+export default function HeroSection(props: HeroSectionProps) {
   useEffect(() => {
     if (typeof document === "undefined") return;
     const id = "nt-tomorrow-font";

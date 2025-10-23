@@ -4,8 +4,6 @@ import "./Tagline.css";
 import { scrollToSection } from "@/app/utils/scrollToSection";
 
 const Tagline: React.FC = () => {
-  
-
 
   return (
     <section className="tagline-section">

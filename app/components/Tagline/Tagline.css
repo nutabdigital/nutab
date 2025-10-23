@@ -13,46 +13,44 @@
 .tagline-container {
   position: relative;
   width: 50vw;
-  max-width:700px;
+  max-width: 700px;
   box-sizing: border-box;
   padding: 1.5rem;
   margin-left: 2.5vw;
   margin-right: 2.5vw;
-  background-color: rgb(255, 255, 255, 0.75);
+  background-color: rgba(255, 255, 255, 0.75);
   color: var(--foreground);
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 1.5rem;
   z-index: 10;
+  will-change: transform, opacity;
 }
 
-/* Tagline Title */
-.tagline-title {
-  font-size: clamp(2.0rem, 2.0rem, 2rem);  /* property: clamp(MIN, PREFERRED, MAX); */
+/* Tagline Titles */
+.tagline-title,
+.gradient-title {
+  font-size: clamp(2rem, 2rem, 2rem);
   font-weight: 400;
-  text-align: start;
-  margin-bottom: 0.5rem;
   text-align: center;
+  margin-bottom: 0.5rem;
+  will-change: opacity, transform;
 }
 
 /* Gradient Title */
 .gradient-title {
-  background: linear-gradient(to right, #a78bfa, #60a5fa); /* Sets a horizontal gradient background from purple (#a78bfa) to blue (#60a5fa) */
-  -webkit-background-clip: text; /* For WebKit browsers (Chrome, Safari): clips the background to the text, so the gradient only appears on the text */
-  background-clip: text; /* Standard property: clips the background to the text (not supported in all browsers) */
-  text-fill-color: transparent; /* For non-webkit browsers */
-  -webkit-text-fill-color: transparent; /* For WebKit browsers: makes the text itself transparent, so only the background gradient shows through */
-  text-align: center;
-  font-size: clamp(2.0rem, 2.0rem, 2rem);  /* property: clamp(MIN, PREFERRED, MAX); */
-  margin-bottom: 0.5rem;
-  /* More subtle glow effect */
+  background: linear-gradient(to right, #a78bfa, #60a5fa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
   text-shadow:
-    0 1px 6px #a78bfa33,   /* lighter, softer purple glow */
-    0 1px 10px #60a5fa22;  /* lighter, softer blue glow */
+    0 1px 6px #a78bfa33,
+    0 1px 10px #60a5fa22;
 }
 
-/* Tagline Description */
+/* Description */
 .tagline-description {
   font-size: 1.125rem;
   font-weight: 400;
@@ -60,40 +58,66 @@
   margin-bottom: 2rem;
   opacity: 0.85;
   text-align: center;
+  will-change: opacity, transform;
 }
 
-/* Button alignment */
+/* Buttons Container */
 .tag-buttons {
   display: flex;
   gap: 1rem;
   justify-content: center;
 }
 
-/* Learn More Button */
+/* ✅ Optimized GPU-accelerated Learn More Button */
 .learn-more-button {
+  position: relative;
+  overflow: hidden;
   padding: 1rem 2.5rem;
   width: fit-content;
   font-size: 1.15rem;
   font-weight: 400;
   border-radius: 1.5rem;
-  background: linear-gradient(to right, #9333ea, #3b82f6);
-  color: white;
-  box-shadow: 0 4px 20px rgba(96,165,250,0.18);
   border: none;
-  transition: background 0.3s, transform 0.15s;
+  color: white;
+  background: linear-gradient(to right, #9333ea, #3b82f6);
+  box-shadow: 0 4px 20px rgba(96,165,250,0.18);
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+  will-change: transform, opacity;
+}
+
+.learn-more-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #a855f7, #60a5fa);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  will-change: opacity;
+  z-index: 0;
+}
+
+.learn-more-button:hover::after {
+  opacity: 1;
 }
 
 .learn-more-button:hover {
-  background: linear-gradient(to right, #a855f7, #60a5fa);
   transform: translateY(-2px) scale(1.05);
 }
 
+.learn-more-button span {
+  position: relative;
+  z-index: 1;
+}
+
+/* Floating orbs */
 .floating-orb.tagline-orb {
   position: absolute;
   border-radius: 9999px;
   filter: blur(32px);
   z-index: 1;
   pointer-events: none;
+  transform: translateZ(0);
 }
 
 .orb-purple.tagline-orb {
@@ -112,30 +136,28 @@
   background: rgba(59, 130, 246, 0.3);
 }
 
-@media (max-width:600px) {
+/* Mobile */
+@media (max-width: 600px) {
   .tagline-section {
     width: 85vw;
   }
 
   .tagline-container {
     width: 85vw;
-    margin-left:0vw;
-    margin-right: 0vw;
+    margin: 0;
   }
 }
 
-/* Dark Mode Styling */
+/* Dark Mode */
 [data-theme="dark"] .tagline-container {
-  background-color: rgba(10, 10, 10, 0.75); /* Dark mode background with 75% opacity */
+  background-color: rgba(10, 10, 10, 0.75);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
 }
 
 [data-theme="dark"] .learn-more-button {
-  background-color: #3f37c9;
-  color: #ffffff;
+  background: linear-gradient(to right, #9333ea, #3b82f6);
 }
 
-[data-theme="dark"] .learn-more-button:hover {
-  background-color: #0067e7;
+[data-theme="dark"] .learn-more-button::after {
+  background: linear-gradient(to right, #a855f7, #60a5fa);
 }
-

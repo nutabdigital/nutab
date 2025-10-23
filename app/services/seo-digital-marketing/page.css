@@ -133,6 +133,15 @@
     font-size: 1.35rem;
   }
   .section-wrapper--faq .faq-question { font-size: 0.98rem; }
+
+  /* Center FAQ header and list and constrain to 85% width on mobile */
+  .faq__header,
+  .faq__list {
+    width: 85%;
+    max-width: 85%;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
 }
 
 /* Dark mode support */

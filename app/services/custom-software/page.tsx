@@ -269,13 +269,21 @@ const CustomSoftwareSolutions: React.FC = () => {
                   "@type": "Answer",
                   "text": "Absolutely! We offer ongoing support and maintenance to ensure your software continues to perform optimally."
                 }
+              },
+              {
+                "@type": "Question",
+                "name": "Do you work with startups or small businesses?",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "Yes! We specialize in helping startups and small to mid-sized businesses turn their ideas into scalable custom software solutions."
+                }
               }
             ]
           }),
         }}
       />
 
-{/* 
+
       <SectionWrapper>
         <HeroSection
           title="Custom Software Development Services in Calgary"
@@ -307,7 +315,7 @@ const CustomSoftwareSolutions: React.FC = () => {
           ]}
           showCTA={true}
         />
-      </SectionWrapper> */}
+      </SectionWrapper>
 
       <SectionWrapper>
         <ServicesWhySection
@@ -516,6 +524,19 @@ const CustomSoftwareSolutions: React.FC = () => {
                 <p>
                   Absolutely! We offer ongoing support and maintenance to ensure
                   your software continues to perform optimally.
+                </p>
+              </div>
+            </details>
+
+            <details className="faq__item">
+              <summary className="faq__summary">
+                <h3 className="faq-question">
+                  Do you work with startups or small businesses?
+                </h3>
+              </summary>
+              <div className="faq-answer section-text">
+                <p>
+                  Yes! We specialize in helping startups and small to mid-sized businesses turn their ideas into scalable custom software solutions.
                 </p>
               </div>
             </details>

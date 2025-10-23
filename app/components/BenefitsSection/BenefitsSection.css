@@ -58,21 +58,93 @@
 
 /* Benefit Item */
 .benefit-item {
+  /* match ServicesGrid .service-card visuals */
   padding: 1.5rem;
   border-radius: 1rem;
   background: linear-gradient(
     to bottom right,
-    rgba(168, 85, 247, 0.1),
-    rgba(59, 130, 246, 0.1)
+    rgba(168, 85, 247, 0.05) 0%,
+    rgba(255, 255, 255, 0.008) 50%,
+    rgba(59, 130, 246, 0.05) 100%
   );
   border: 1px solid rgba(168, 85, 247, 0.2);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: inherit;
 }
 
+/* Hover state (same as services) */
+.benefit-item:hover {
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 12px 30px rgba(168, 85, 247, 0.12);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+}
+
+/* Title: gradient like service-card-title */
 .benefit-title {
-  color: rgb(192, 132, 252);
+  font-weight: 600;
   margin-bottom: 0.5rem;
+  background: linear-gradient(to right, rgb(192, 132, 252), rgb(147, 197, 253));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
 }
 
+/* Description: muted tone to match service-card-description */
 .benefit-description {
   color: rgb(156, 163, 175);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Icon container (if used) — same visual treatment as service-card-icon */
+.benefit-icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(
+    to bottom right,
+    rgba(168, 85, 247, 0.2) 0%,
+    rgba(168, 85, 247, 0.1) 50%,
+    rgba(59, 130, 246, 0.2) 100%
+  );
+  border: 1px solid rgba(192, 132, 252, 0.3);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+  color: rgb(192, 132, 252);
+}
+
+/* Ensure svg/icon elements inherit sizing and color */
+.benefit-icon svg,
+.benefit-icon > * {
+  width: 2.5rem !important; /* 40px */
+  height: 2.5rem !important;
+  color: inherit;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+/* Dark theme: keep previous dark overrides readable */
+[data-theme="dark"] .benefit-item {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: none;
+}
+
+[data-theme="dark"] .benefit-title {
+  background: none;
+  -webkit-text-fill-color: initial;
+  color: rgb(216, 180, 254);
+}
+
+[data-theme="dark"] .benefit-description {
+  color: rgb(156, 163, 175);
+  opacity: 1;
 }

@@ -206,10 +206,20 @@
 
   .process-timeline--horizontal {
     flex-direction: column;
+    align-items: center;
   }
 
+  .process-step {
+    width: 85%;
+    max-width: 85%;
+    box-sizing: border-box;
+    margin: 0 auto;
+  }
+
+  /* Ensure horizontal variant steps adopt the same width rule */
   .process-timeline--horizontal .process-step {
-    min-width: 100%;
+    min-width: auto;
+    width: 85%;
   }
 }
 

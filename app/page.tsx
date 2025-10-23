@@ -81,6 +81,12 @@ const HomePage: React.FC = () => {
       <Loader />
       <div className="gradient-background"></div>
 
+      {/* === Hero placeholder for LCP === */}
+      <section className="hero-placeholder" aria-hidden="false">
+        <h1 className="seo-lcp-text">Custom Software Solutions | Nutab</h1>
+      </section>
+      {/* === End Hero === */}
+
       <main className="home-page">
         <div className="content-wrapper">
           <section
@@ -113,14 +119,14 @@ const HomePage: React.FC = () => {
             data-section="3"
           >
             {/* Clicking team member passes contact info */}
-            <Suspense fallback={null}>
+            <Suspense fallback={<h2>Our Team</h2>}>
               <Team onSelectContact={setSelectedContact} />
             </Suspense>
           </section>
 
           {/* Show popup if a contact is selected */}
           {selectedContact && (
-            <Suspense fallback={null}>
+            <Suspense fallback={<h2>Co-Founder</h2>}>
               <ContactPopup
                 contact={selectedContact}
                 onClose={() => setSelectedContact(null)}
@@ -133,7 +139,7 @@ const HomePage: React.FC = () => {
             className="page-section fade-section align-right"
             data-section="4"
           >
-            <Suspense fallback={null}>
+            <Suspense fallback={<h2>Contact Us</h2>}>
               <Contact />
             </Suspense>
           </section>

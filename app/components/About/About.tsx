@@ -12,10 +12,10 @@ const About: React.FC = () => {
           <div className="about-cols">
             <img
               src="/icons/maple-leaf-icon.svg"
-              alt="mapleleaf"
+              alt="Canadian maple leaf icon representing local service"
               className="iconcan"
             />
-            <h1>Built in Canada, Designed for Growth</h1>
+            <h2>Built in Canada, Designed for Growth</h2>
           </div>
           <h2 className="about-subtitle">
             Your Digital Partner from Coast to Coast

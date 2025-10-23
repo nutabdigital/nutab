@@ -26,7 +26,7 @@ const GetQuoteButton: React.FC = () => {
 
   return (
     <button className="get-quote-button" onClick={handleClick}>
-      Get a Quote Today
+      <span>Get a Quote Today</span>
     </button>
   );
 };

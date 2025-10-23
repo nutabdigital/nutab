@@ -96,9 +96,8 @@ const Contact: React.FC = () => {
           </div>
 
           {/* Submit button to send the form */}
-          <button type="submit" className="submit-button">
-            Send
-          </button>
+          <button className="submit-button"><span>Send</span></button>
+
         </form>
       </div>
     </section>

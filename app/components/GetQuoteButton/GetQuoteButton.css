@@ -7,23 +7,29 @@
   font-size: 1rem;
   font-weight: 400;
   cursor: pointer;
-  transition: background 0.15s ease, transform 0.15s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+
+  /* GPU-friendly properties */
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  transition: transform 0.15s ease, opacity 0.15s ease;
 }
 
 .get-quote-button:hover {
-  background: linear-gradient(to right, #a855f7, #60a5fa); /* brighter purple → lighter blue */
-  color: #ffffff;
-  transform: translateY(-2px);
+  background: linear-gradient(to right, #a855f7, #60a5fa);
+  transform: translate3d(0, -2px, 0);
+  opacity: 0.95; /* smooths hover without heavy gradient repaint */
 }
 
-
 [data-theme="dark"] .get-quote-button {
-  background: linear-gradient(to right, #9333ea, #3b82f6); /* purple → blue */ 
+  background: linear-gradient(to right, #9333ea, #3b82f6);
   color: #ffffff;
 }
 
 [data-theme="dark"] .get-quote-button:hover {
-  background: linear-gradient(to right, #a855f7, #60a5fa); /* brighter purple → lighter blue */
+  background: linear-gradient(to right, #a855f7, #60a5fa);
+  transform: translate3d(0, -2px, 0);
+  opacity: 0.95;
 }

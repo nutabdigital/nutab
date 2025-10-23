@@ -1,8 +1,9 @@
 .contact-container {
   width: 50vw;
-  max-width: 700px;;
-  box-sizing: border-box; 
-  padding: 1rem; 
+  max-width: 700px;
+  ;
+  box-sizing: border-box;
+  padding: 1rem;
   padding-left: 2rem;
   padding-right: 2rem;
   padding-bottom: 2rem;
@@ -14,7 +15,7 @@
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-radius: 1.5rem;
-  opacity: 1; 
+  opacity: 1;
   z-index: 10;
 }
 
@@ -43,6 +44,7 @@ textarea {
 }
 
 .submit-button {
+  position: relative;
   width: 100%;
   padding: 10px;
   background: linear-gradient(to right, #9333ea, #3b82f6);
@@ -52,26 +54,51 @@ textarea {
   cursor: pointer;
   font-size: 16px;
   font-weight: 400;
-  transition: background-color 0.15s ease, transform 0.15s ease;
+  overflow: hidden;
+  transition: transform 0.15s ease;
   margin-top: 0.5rem;
+  will-change: transform;
+}
+
+.submit-button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, #a855f7, #60a5fa);
+  opacity: 0;
+  /* hidden by default */
+  transition: opacity 0.25s ease;
+  will-change: opacity;
+  z-index: 0;
+}
+
+.submit-button:hover::after {
+  opacity: 1;
+  /* fades in on hover */
 }
 
 .submit-button:hover {
-  background: linear-gradient(to right, #a855f7, #60a5fa);
   transform: translateY(-2px);
 }
 
+.submit-button span {
+  position: relative;
+  z-index: 1;
+  /* keeps text visible above overlay */
+}
+
+
 @media (max-width: 600px) {
-  .contact-container{
+  .contact-container {
     width: 85vw;
     margin-bottom: 10vh;
   }
-  
+
 }
 
 /* Dark Mode Styling */
 [data-theme="dark"] .contact-container {
-  background-color: rgba(10, 10, 10, 0.70); 
+  background-color: rgba(10, 10, 10, 0.70);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
 }
 
@@ -80,13 +107,14 @@ textarea {
 }
 
 [data-theme="dark"] .submit-button:hover {
-   background: linear-gradient(to right, #a855f7, #60a5fa);
+  background: linear-gradient(to right, #a855f7, #60a5fa);
 }
 
 [data-theme="dark"] .name-textarea,
 [data-theme="dark"] .email-textarea,
 [data-theme="dark"] .message-textarea {
-  color: black; /* Text color inside textareas */
+  color: black;
+  /* Text color inside textareas */
 }
 
 .contact-two-col {
@@ -132,8 +160,10 @@ textarea {
 .contact-right {
   flex: 1.2;
   padding: 2rem 2rem;
-  background-color: rgb(255, 255, 255, 0.75); /* Matches light mode container */
-  color: #222; /* Use a dark text for readability in light mode */
+  background-color: rgb(255, 255, 255, 0.75);
+  /* Matches light mode container */
+  color: #222;
+  /* Use a dark text for readability in light mode */
   /* Remove left box-shadow only in two-column layout */
   box-shadow: 4px 0 12px rgba(3, 3, 3, 0.198), 0 4px 12px rgba(3, 3, 3, 0.198);
   backdrop-filter: blur(12px);
@@ -146,7 +176,8 @@ textarea {
 
 /* Remove left-side box-shadow when in two-column layout */
 .contact-two-col .contact-right {
-  box-shadow: 4px 0 12px rgba(3, 3, 3, 0.198); /* Only right shadow */
+  box-shadow: 4px 0 12px rgba(3, 3, 3, 0.198);
+  /* Only right shadow */
 }
 
 /* Ensure form fields look good in light mode */
@@ -166,14 +197,19 @@ textarea {
     width: 85vw;
     margin: 0 auto;
   }
+
   .contact-left {
-    border-radius: 1.5rem 1.5rem 0 0; /* Top left & right: 1.5rem, bottom: 0 */
+    border-radius: 1.5rem 1.5rem 0 0;
+    /* Top left & right: 1.5rem, bottom: 0 */
     padding: 1.5rem 1rem;
   }
+
   .contact-right {
-    border-radius: 0 0 1.5rem 1.5rem; /* Top left & right: 0, bottom left & right: 1.5rem */
+    border-radius: 0 0 1.5rem 1.5rem;
+    /* Top left & right: 0, bottom left & right: 1.5rem */
     padding: 1.5rem 1rem;
   }
+
   /* .contact-left {
     margin-bottom: 1rem;
   } */

@@ -24,9 +24,7 @@ const Tagline: React.FC = () => {
           <button
             className="learn-more-button"
             onClick={() => scrollToSection("about", 10)} // optional small offset
-          >
-            Learn More
-          </button>
+          ><span>Learn More</span></button>
         </div>
       </div>
     </section>

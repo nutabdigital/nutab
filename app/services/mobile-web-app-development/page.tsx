@@ -128,11 +128,7 @@ const MobileWebAppDevelopment: React.FC = () => {
           title="Mobile & Web App Development Services in Calgary"
           subtitle={
             <>
-              At <span className="highlight">NuTab Digital</span>, we specialize in creating
-              <span className="accent"> custom mobile and web applications </span>
-              that deliver seamless user experiences and help businesses thrive in the digital age.
-              Whether you need a <span className="accent">mobile app</span> for iOS or Android,
-              or a <span className="accent">responsive web application</span>, our team is here to bring your vision to life.
+              At NuTab Digital, we specialize in creating custom mobile and web applications that deliver seamless user experiences and help businesses thrive in the digital age. Whether you need a mobile app for iOS or Android, or a responsive web application, our team is here to bring your vision to life.
             </>
           }
           icons={[

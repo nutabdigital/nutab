@@ -289,14 +289,11 @@ const CustomSoftwareSolutions: React.FC = () => {
           title="Custom Software Development Services in Calgary"
           subtitle={
             <>
-              At <span className="highlight">NuTab Digital</span>, we build
-              <span className="accent"> tailored software solutions </span>
-              that streamline operations, boost efficiency, and drive business
-              growth. Whether you need a{" "}
-              <span className="accent">bespoke application</span>,
-              <span className="accent">enterprise-grade software</span>, or a
-              <span className="accent">custom SaaS platform</span>, our team
-              delivers future-ready results.
+              At NuTab Digital, we build tailored software solutions that
+              streamline operations, boost efficiency, and drive business
+              growth. Whether you need a bespoke application, enterprise-grade
+              software, or a custom SaaS platform, our team delivers
+              future-ready results.
             </>
           }
           icons={[
@@ -323,14 +320,11 @@ const CustomSoftwareSolutions: React.FC = () => {
           description={
             <>
               Off-the-shelf software often falls short of meeting the specific
-              requirements of growing businesses. With{" "}
-              <span className="highlight">custom software development</span>, you
-              gain a solution that is designed exclusively for your workflows,
-              ensuring seamless integration and maximum efficiency. Whether you need
-              a <span className="accent">bespoke application</span>,{" "}
-              <span className="accent">enterprise-grade software</span>, or a{" "}
-              <span className="accent">custom SaaS platform</span>, we’ve got you
-              covered.
+              requirements of growing businesses. With custom software
+              development, you gain a solution that is designed exclusively for
+              your workflows, ensuring seamless integration and maximum
+              efficiency. Whether you need a bespoke application, enterprise-grade
+              software, or a custom SaaS platform, we’ve got you covered.
             </>
           }
           solutions={whySolutions}
@@ -392,11 +386,7 @@ const CustomSoftwareSolutions: React.FC = () => {
           title="Why Partner with NuTab Digital?"
           subtitle={
             <>
-              At NuTab Digital, we pride ourselves on being a{" "}
-              <span className="highlight">
-                trusted software development partner
-              </span>
-              . Here’s why businesses choose us:
+              At NuTab Digital, we pride ourselves on being a trusted software development partner. Here’s why businesses choose us:
             </>
           }
           features={features}
@@ -430,11 +420,7 @@ const CustomSoftwareSolutions: React.FC = () => {
         <h2 className="gradient-title">Get Started Today</h2>
         <p className="section-text">
           Ready to take your business to the next level? Contact us today to
-          learn more about our{" "}
-          <span className="highlight">
-            custom software development services
-          </span>{" "}
-          and how we can help you achieve your goals.
+          learn more about our custom software development services and how we can help you achieve your goals.
         </p>
 
         <GetQuoteButton />

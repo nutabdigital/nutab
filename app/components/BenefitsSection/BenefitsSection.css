@@ -86,7 +86,7 @@
 
 /* Title: gradient like service-card-title */
 .benefit-title {
-  font-weight: 600;
+  font-weight: 400; /* reverted to original */
   margin-bottom: 0.5rem;
   background: linear-gradient(to right, rgb(192, 132, 252), rgb(147, 197, 253));
   -webkit-background-clip: text;
@@ -129,22 +129,4 @@
   color: inherit;
   stroke: currentColor;
   fill: currentColor;
-}
-
-/* Dark theme: keep previous dark overrides readable */
-[data-theme="dark"] .benefit-item {
-  background: rgba(0, 0, 0, 0.4);
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: none;
-}
-
-[data-theme="dark"] .benefit-title {
-  background: none;
-  -webkit-text-fill-color: initial;
-  color: rgb(216, 180, 254);
-}
-
-[data-theme="dark"] .benefit-description {
-  color: rgb(156, 163, 175);
-  opacity: 1;
 }

@@ -141,6 +141,18 @@
   line-height: 1;
 }
 
+/* Ensure lucide SVG icons in the hero use the requested size */
+.services-hero-icon > svg,
+.services-hero-icon svg[class^="lucide"],
+.services-hero-icon svg.lucide,
+.services-hero-icon svg.lucide-code-xml {
+  width: 2.5rem;
+  height: 2.5rem;
+  min-width: 2.5rem;
+  min-height: 2.5rem;
+  display: inline-block;
+}
+
 /* Slightly increase label size for visual balance */
 .services-hero-feature-label {
   color: rgb(209, 213, 219);

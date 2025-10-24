@@ -131,10 +131,7 @@ const EcommerceDevelopment: React.FC = () => {
           title="E-Commerce Development Services in Calgary"
           subtitle={
             <>
-              At <span className="highlight">NuTab Digital</span>, we specialize in creating
-              <span className="accent"> custom e-commerce platforms </span>
-              that deliver seamless shopping experiences and help businesses thrive in the digital marketplace.
-              Whether you need a <span className="accent">Shopify store</span>, <span className="accent">WooCommerce site</span>, or a fully custom solution, our team is here to bring your vision to life.
+              At NuTab Digital, we specialize in creating custom e-commerce platforms that deliver seamless shopping experiences and help businesses thrive in the digital marketplace. Whether you need a Shopify store, WooCommerce site, or a fully custom solution, our team is here to bring your vision to life.
             </>
           }
           icons={[

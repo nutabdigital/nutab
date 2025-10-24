@@ -131,8 +131,7 @@ const SEODigitalMarketing: React.FC = () => {
           title="SEO & Digital Marketing Services in Calgary"
           subtitle={
             <>
-              At <span className="highlight">NuTab Digital</span>, we specialize in delivering{" "}
-              <span className="accent">SEO and digital marketing solutions</span> that help
+              At NuTab Digital, we specialize in delivering SEO and digital marketing solutions that help
               businesses enhance their online visibility, attract more customers,
               and achieve sustainable growth. Whether you’re looking to improve your
               search engine rankings or run targeted ad campaigns, our team is here

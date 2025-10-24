@@ -128,9 +128,7 @@ const PhotographyMediaProduction: React.FC = () => {
           title="Photography & Media Production Services in Calgary"
           subtitle={
             <>
-              At <span className="highlight">NuTab Digital</span>, we help brands tell their story with
-              <span className="accent"> professional photography and media production </span>
-              for websites, marketing campaigns, and digital content. Our creative team brings your vision to life with stunning visuals.
+              At NuTab Digital, we help brands tell their story with professional photography and media production for websites, marketing campaigns, and digital content. Our creative team brings your vision to life with stunning visuals.
             </>
           }
           icons={[

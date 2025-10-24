@@ -243,6 +243,7 @@
   font-size: 1rem;
   font-weight: 500;
   line-height: 1.4;
+  color: #222; /* light mode / default */
 }
 
 .related-service-item--sm .related-service-label {
@@ -251,6 +252,18 @@
 
 .related-service-item--lg .related-service-label {
   font-size: 1.125rem;
+}
+
+/* Light-theme explicit override (for sections that use .related-services-section--light) */
+.related-services-section--light .related-service-label {
+  color: #222;
+}
+
+/* Dark theme: preserve the current light-text color used across the component */
+[data-theme="dark"] .related-service-label,
+.related-services-list--gradient .related-service-item, /* keep compatibility with existing gradient rules */
+.related-services-list--default .related-service-item {
+  color: #e5e7eb;
 }
 
 /* Service Description */

@@ -128,10 +128,7 @@ const GraphicBrandDesign: React.FC = () => {
           title="Graphic & Brand Design Services in Calgary"
           subtitle={
             <>
-              At <span className="highlight">NuTab Digital</span>, we help businesses stand out with
-              <span className="accent"> creative graphic and brand design </span>
-              solutions. From <span className="accent">logo design</span> and <span className="accent">visual identity</span> to
-              <span className="accent"> digital graphics</span>, our team brings your brand vision to life.
+              At NuTab Digital, we help businesses stand out with creative graphic and brand design solutions. From logo design and visual identity to digital graphics, our team brings your brand vision to life.
             </>
           }
           icons={[

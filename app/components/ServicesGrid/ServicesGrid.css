@@ -67,13 +67,14 @@
   flex-direction: column;
   padding: 1.5rem;
   border-radius: 1rem;
+  /* slightly darker purple-styled background */
   background: linear-gradient(
     to bottom right,
-    rgba(168, 85, 247, 0.05) 0%,
-    rgba(255, 255, 255, 0.008) 50%,
-    rgba(59, 130, 246, 0.05) 100%
+    rgba(168, 85, 247, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(59, 130, 246, 0.08) 100%
   );
-  border: 1px solid rgba(168, 85, 247, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.28);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
@@ -91,11 +92,11 @@
 }
 
 .service-card:hover {
-  border-color: rgba(168, 85, 247, 0.6);
-  box-shadow: 0 12px 30px rgba(168, 85, 247, 0.12);
+  border-color: rgba(168, 85, 247, 0.7);
+  box-shadow: 0 12px 30px rgba(168, 85, 247, 0.16);
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.06) 0%,
     rgba(255, 255, 255, 0.02) 100%
   );
 }
@@ -222,7 +223,7 @@
 
 .service-card-description {
   font-size: 0.938rem;
-  color: black;
+  color: #222; /* dark text for light mode */
   line-height: 1.6;
   margin: 0;
 }
@@ -411,14 +412,14 @@
    - matching icon container and icon color
 */
 .service-card {
-  /* keep layout but update visuals to match ServicesWhySection cards */
+  /* keep layout but update visuals to match ServicesWhySection cards (darker) */
   background: linear-gradient(
     to bottom right,
-    rgba(168, 85, 247, 0.05) 0%,
-    rgba(255, 255, 255, 0.008) 50%,
-    rgba(59, 130, 246, 0.05) 100%
+    rgba(168, 85, 247, 0.08) 0%,
+    rgba(255, 255, 255, 0.02) 50%,
+    rgba(59, 130, 246, 0.08) 100%
   );
-  border: 1px solid rgba(168, 85, 247, 0.2);
+  border: 1px solid rgba(168, 85, 247, 0.28);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.06), 0 4px 6px -2px rgba(0, 0, 0, 0.03);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   opacity: 0;
@@ -426,22 +427,13 @@
   color: inherit;
 }
 
-.service-card--visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.service-card--animated {
-  animation: slideInUp 0.5s ease forwards;
-}
-
 /* Hover: stronger accent like ServicesWhySection */
 .service-card:hover {
-  border-color: rgba(168, 85, 247, 0.6);
-  box-shadow: 0 12px 30px rgba(168, 85, 247, 0.12);
+  border-color: rgba(168, 85, 247, 0.7);
+  box-shadow: 0 12px 30px rgba(168, 85, 247, 0.16);
   background: linear-gradient(
     135deg,
-    rgba(255, 255, 255, 0.08) 0%,
+    rgba(255, 255, 255, 0.06) 0%,
     rgba(255, 255, 255, 0.02) 100%
   );
 }
@@ -457,7 +449,7 @@
 
 /* Description: use the slightly muted tone used in ServicesWhySection cards */
 .service-card-description {
-  color: rgb(156, 163, 175);
+  color: #222; /* dark text for light mode */
 }
 
 /* Icon container: adopt the same purple/blue subtle gradient + border */
@@ -500,10 +492,7 @@
   color: rgb(216, 180, 254);
 }
 
-[data-theme="dark"] .services-grid--dark .service-card-description {
-  color: rgb(156, 163, 175);
-}
-
+/* ensure description in dark theme stays the muted tone */
 [data-theme="dark"] .service-card-description {
   color: rgba(156, 163, 175, 0.9);
 }

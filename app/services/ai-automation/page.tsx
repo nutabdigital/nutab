@@ -128,11 +128,7 @@ const AIAutomation: React.FC = () => {
           title="AI & Automation Solutions in Calgary"
           subtitle={
             <>
-              At <span className="highlight">NuTab Digital</span>, we help businesses unlock the power of
-              <span className="accent"> artificial intelligence and automation </span>
-              to streamline operations, reduce manual tasks, and make smarter decisions.
-              From <span className="accent">machine learning</span> to <span className="accent">workflow automation</span>,
-              our team delivers future-ready solutions tailored to your needs.
+              At NuTab Digital, we help businesses unlock the power of artificial intelligence and automation to streamline operations, reduce manual tasks, and make smarter decisions. From machine learning to workflow automation, our team delivers future-ready solutions tailored to your needs.
             </>
           }
           icons={[

@@ -40,7 +40,7 @@
 
 .feature-grid-subtitle {
   font-size: 1.125rem;
-  color: #9ca3af;
+  color: rgba(192, 132, 252, 0.8);
   line-height: 1.6;
   max-width: 800px;
   margin: 0 auto;
@@ -418,6 +418,16 @@
 
 .feature-grid-section--light .feature-icon {
   color: #7c3aed;
+}
+
+/* Specific item overrides: ensure these feature items share the subtle default visual */
+div.feature-item:nth-child(1),
+div.feature-item:nth-child(2),
+div.feature-item:nth-child(3),
+div.feature-item:nth-child(4),
+div.feature-item:nth-child(5) {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(168, 85, 247, 0.2);
 }
 
 /* Animations */

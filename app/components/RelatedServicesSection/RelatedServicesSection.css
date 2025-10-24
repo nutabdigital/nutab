@@ -119,11 +119,6 @@
 
 /* Variant: Gradient */
 .related-services-list--gradient .related-service-item {
-  background: linear-gradient(
-    135deg,
-    rgba(168, 85, 247, 0.2) 0%,
-    rgba(59, 130, 246, 0.2) 100%
-  );
   border: 1px solid rgba(168, 85, 247, 0.3);
   color: #e5e7eb;
 }

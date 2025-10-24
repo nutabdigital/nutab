@@ -3,14 +3,17 @@ import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import "./page.css";
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { MonitorSmartphone, Layers, ShieldCheck } from "lucide-react";
-import GetQuoteButton from "@/app/components/GetQuoteButton/GetQuoteButton";
-
-const SectionWrapper = dynamic(() => import("../../components/SectionWrapper/SectionWrapper"), {
-  ssr: false,
-});
+import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
+import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
+import ServicesWhySection, { WhySolution } from "../../components/ServicesWhySection/ServicesWhySection";
+import ServicesGrid, { ServiceItem } from "../../components/ServicesGrid/ServicesGrid";
+import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
+import IndustryGrid, { IndustryItem } from "../../components/IndustryGrid/IndustryGrid";
+import ProcessTimeline, { ProcessStep } from "../../components/ProcessTimeline/ProcessTimeline";
+import FeatureGrid, { FeatureItem } from "../../components/FeatureGrid/FeatureGrid";
+import RelatedServicesSection, { RelatedServiceItem } from "../../components/RelatedServicesSection/RelatedServicesSection";
 
 export const generateMetadata = (): Metadata => ({
   title: "Mobile & Web App Development Services in Calgary - NuTab Digital",
@@ -45,28 +48,78 @@ export const generateMetadata = (): Metadata => ({
   },
 });
 
+const services: ServiceItem[] = [
+  { title: "Custom Mobile Apps", description: "Feature-rich apps for iOS and Android." },
+  { title: "Responsive Web Apps", description: "Web applications that perform across devices." },
+  { title: "UI/UX Design", description: "User-centered interfaces and workflows." },
+  { title: "API Integration", description: "Connect with third-party services and internal systems." },
+  { title: "Maintenance & Support", description: "Ongoing updates and monitoring." },
+];
+
+const industries: IndustryItem[] = [
+  { name: "Healthcare" },
+  { name: "Finance" },
+  { name: "Retail and E-Commerce" },
+  { name: "Education" },
+  { name: "Travel & Hospitality" },
+];
+
+const relatedServices: RelatedServiceItem[] = [
+  { label: "Custom Software Development", link: "/services/custom-software" },
+  { label: "Business IT Consulting", link: "/services/business-it-consulting" },
+  { label: "SEO & Digital Marketing", link: "/services/seo-digital-marketing" },
+];
+
+const benefits: Benefit[] = [
+  { title: "Improved Engagement", description: "Deliver native-like experiences that keep users coming back." },
+  { title: "Cross-Platform Reach", description: "Reach customers on mobile and web with consistent experiences." },
+  { title: "Faster Time-to-Market", description: "Iterate quickly with pragmatic development workflows." },
+  { title: "Scalable Architecture", description: "Build apps that scale with your user base." },
+  { title: "Ongoing Support", description: "Maintenance and enhancements to keep your app competitive." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Discovery", description: "Define goals, users, and technical constraints." },
+  { title: "Design", description: "Wireframes and prototypes to validate UX." },
+  { title: "Development", description: "Build using best-fit technologies and patterns." },
+  { title: "Testing", description: "QA, performance, and accessibility testing." },
+  { title: "Launch & Support", description: "Deploy, monitor, and iterate post-launch." },
+];
+
+const features: FeatureItem[] = [
+  { title: "Cross-Platform Expertise", description: "Experience building for iOS, Android, and the web." },
+  { title: "Performance Focused", description: "Optimized apps for fast, reliable experiences." },
+  { title: "Secure by Design", description: "Security and privacy considered from day one." },
+  { title: "User-Centered", description: "Designs that prioritize usability and conversion." },
+  { title: "Local Support", description: "Calgary-based team for close collaboration." },
+];
+
+const whySolutions: WhySolution[] = [
+  { icon: "MonitorSmartphone", title: "Mobile Apps", description: "Native and cross-platform apps tailored to your needs." },
+  { icon: "Layers", title: "Web Applications", description: "Robust web apps with responsive design." },
+  { icon: "ShieldCheck", title: "Secure & Scalable", description: "Architectures that protect data and scale with demand." },
+];
+
 const MobileWebAppDevelopment: React.FC = () => {
   return (
     <>
-      <Loader />
       <Background />
+      <Loader />
 
-      {/* Structured Data Script: Service & FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "name": "Mobile & Web App Development",
-            "description":
-              "We create user-friendly mobile and web applications tailored to your business needs.",
-            "provider": {
+            name: "Mobile & Web App Development",
+            description: "We create user-friendly mobile and web applications tailored to your business needs.",
+            provider: {
               "@type": "Organization",
-              "name": "NuTab Digital",
-              "url": "https://nutab.ca",
+              name: "NuTab Digital",
+              url: "https://nutab.ca",
             },
-            "areaServed": "Calgary, Alberta",
+            areaServed: "Calgary, Alberta",
           }),
         }}
       />
@@ -76,45 +129,29 @@ const MobileWebAppDevelopment: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
+            mainEntity: [
               {
                 "@type": "Question",
-                "name": "What is mobile and web app development?",
-                "acceptedAnswer": {
+                name: "What is mobile and web app development?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "Mobile and web app development involves creating applications for mobile devices (iOS and Android) and web browsers. These apps are designed to provide seamless user experiences and meet specific business needs."
+                  text: "Mobile and web app development involves creating applications for mobile devices (iOS and Android) and web browsers with seamless user experiences."
                 }
               },
               {
                 "@type": "Question",
-                "name": "How long does it take to develop an app?",
-                "acceptedAnswer": {
+                name: "How long does it take to develop an app?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "The timeline depends on the complexity of the app. Simple apps can take a few weeks, while more complex apps may take several months. We work with you to create a realistic timeline."
+                  text: "Timelines vary by complexity — simple apps can be completed in weeks, complex projects may take several months."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Can you build apps for both iOS and Android?",
-                "acceptedAnswer": {
+                name: "Do you provide ongoing support?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "Yes, we specialize in building cross-platform apps that work seamlessly on both iOS and Android devices."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do you provide ongoing support for apps?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, we offer ongoing support and maintenance to ensure your app remains up-to-date and performs optimally."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can you integrate third-party APIs into the app?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Absolutely! We can integrate third-party APIs to enhance your app's functionality, such as payment gateways, social media, or analytics tools."
+                  text: "Yes, we offer maintenance, monitoring, and iterative improvements post-launch."
                 }
               }
             ]
@@ -122,215 +159,131 @@ const MobileWebAppDevelopment: React.FC = () => {
         }}
       />
 
-      {/* Hero Section */}
       <SectionWrapper>
         <HeroSection
           title="Mobile & Web App Development Services in Calgary"
           subtitle={
             <>
-              At NuTab Digital, we specialize in creating custom mobile and web applications that deliver seamless user experiences and help businesses thrive in the digital age. Whether you need a mobile app for iOS or Android, or a responsive web application, our team is here to bring your vision to life.
+              At NuTab Digital, we build mobile and web applications that deliver exceptional user experiences and reliable performance. From prototypes to production, we partner with you through the entire product lifecycle.
             </>
           }
           icons={[
-            {
-              icon: <MonitorSmartphone className="icon purple" />,
-              label: "Mobile Apps",
-            },
-            {
-              icon: <Layers className="icon blue" />,
-              label: "Web Applications",
-            },
-            {
-              icon: <ShieldCheck className="icon pink" />,
-              label: "Secure & Scalable",
-            },
+            { icon: <MonitorSmartphone className="icon purple" />, label: "Mobile Apps" },
+            { icon: <Layers className="icon blue" />, label: "Web Apps" },
+            { icon: <ShieldCheck className="icon pink" />, label: "Secure & Scalable" },
           ]}
           showCTA={true}
         />
       </SectionWrapper>
 
-      {/* Why Choose This Service */}
       <SectionWrapper>
-        <h2>Why Choose Mobile & Web App Development?</h2>
-        <p>
-          In today’s fast-paced world, having a{" "}
-          <strong>mobile-friendly</strong> and{" "}
-          <strong>responsive application</strong> is essential for engaging
-          customers and staying ahead of the competition. Our{" "}
-          <strong>mobile and web app development services</strong> focus on
-          creating intuitive, scalable, and secure applications that meet your
-          business goals.
-        </p>
+        <ServicesWhySection
+          title="Why Choose Mobile & Web App Development?"
+          description={
+            <>
+              We blend design, engineering, and product thinking to deliver apps that solve real user problems and drive business outcomes.
+            </>
+          }
+          solutions={whySolutions}
+          theme="gradient"
+          animated={true}
+          interactive={false}
+          columns={3}
+        />
       </SectionWrapper>
 
-      {/* Our Services */}
       <SectionWrapper>
-        <h2>Our Mobile & Web App Development Services</h2>
-        <ul>
-          <li>
-            <strong>Custom Mobile App Development:</strong> Build feature-rich
-            apps for iOS and Android platforms.
-          </li>
-          <li>
-            <strong>Responsive Web Applications:</strong> Create web apps that
-            look and perform flawlessly on all devices.
-          </li>
-          <li>
-            <strong>UI/UX Design:</strong> Deliver intuitive and visually
-            appealing user interfaces.
-          </li>
-          <li>
-            <strong>API Integration:</strong> Seamlessly connect your app with
-            third-party services and tools.
-          </li>
-          <li>
-            <strong>Scalable Architecture:</strong> Ensure your app can grow
-            with your business.
-          </li>
-        </ul>
+        <ServicesGrid
+          services={services}
+          title="Our App Development Services"
+          subtitle="End-to-end mobile and web app development services to bring your product to market."
+          layout="grid"
+          columns={2}
+          theme="gradient"
+          animated={true}
+          showIcons={false}
+        />
       </SectionWrapper>
 
-      {/* Benefits of the Service */}
       <SectionWrapper>
-        <h2>Benefits of Mobile & Web App Development</h2>
-        <p>
-          Investing in <strong>mobile and web app development</strong> offers
-          numerous advantages for your business:
-        </p>
-        <ul>
-          <li>
-            <strong>Enhanced Customer Engagement:</strong> Provide a seamless
-            user experience to keep your customers engaged.
-          </li>
-          <li>
-            <strong>Increased Accessibility:</strong> Reach your audience on
-            their preferred devices, anytime, anywhere.
-          </li>
-          <li>
-            <strong>Improved Efficiency:</strong> Automate processes and
-            streamline workflows with custom applications.
-          </li>
-          <li>
-            <strong>Scalability:</strong> Build apps that grow with your
-            business and adapt to changing needs.
-          </li>
-          <li>
-            <strong>Competitive Advantage:</strong> Stand out in your industry
-            with innovative and user-friendly applications.
-          </li>
-        </ul>
+        <BenefitsSection
+          title="Benefits of Mobile & Web App Development"
+          subtitle="Quality applications deliver measurable improvements in engagement, retention, and revenue."
+          benefits={benefits}
+        />
       </SectionWrapper>
 
-      {/* Industries We Serve */}
       <SectionWrapper>
-        <h2>Industries We Serve</h2>
-        <p>
-          Our <strong>mobile and web app development services</strong> cater to
-          a wide range of industries, including:
-        </p>
-        <ul style={{ listStyleType: "disc", paddingLeft: "2rem" }}>
-          <li>Healthcare</li>
-          <li>Finance</li>
-          <li>Retail and E-Commerce</li>
-          <li>Education</li>
-          <li>Travel and Hospitality</li>
-        </ul>
+        <IndustryGrid
+          items={industries}
+          title="Industries We Serve"
+          subtitle="We build apps for a variety of industries and use-cases."
+          layout="pills"
+          theme="gradient"
+          animated={true}
+          columns={3}
+        />
       </SectionWrapper>
 
-      {/* How We Work */}
       <SectionWrapper>
-        <h2>Our Development Process</h2>
-        <p>
-          Our development process ensures your satisfaction at every step:
-        </p>
-        <ol>
-          <li>
-            <strong>Consultation:</strong> We start by understanding your
-            business goals and target audience.
-          </li>
-          <li>
-            <strong>Design:</strong> Our team creates wireframes and prototypes
-            for your approval.
-          </li>
-          <li>
-            <strong>Development:</strong> We build your app using the latest
-            technologies and best practices.
-          </li>
-          <li>
-            <strong>Testing:</strong> Rigorous testing ensures your app is
-            bug-free and ready for launch.
-          </li>
-          <li>
-            <strong>Launch and Support:</strong> We deploy your app and provide
-            ongoing support to ensure its success.
-          </li>
-        </ol>
+        <ProcessTimeline
+          steps={processSteps}
+          title="Our Development Process"
+          subtitle="A structured process to ensure product-market fit and technical quality."
+          orientation="vertical"
+          theme="gradient"
+          animated={true}
+        />
       </SectionWrapper>
 
-      {/* Why Partner with NuTab Digital */}
       <SectionWrapper>
-        <h2>Why Partner with NuTab Digital?</h2>
-        <p>
-          At NuTab Digital, we pride ourselves on delivering{" "}
-          <strong>future-ready mobile and web applications</strong>. Here’s why
-          businesses choose us:
-        </p>
-        <ul>
-          <li>
-            <strong>Expertise:</strong> Our team has extensive experience in
-            mobile and web app development.
-          </li>
-          <li>
-            <strong>Customization:</strong> We tailor every solution to meet
-            your specific needs.
-          </li>
-          <li>
-            <strong>Local Expertise:</strong> Based in Calgary, we understand
-            the unique challenges of Canadian businesses.
-          </li>
-          <li>
-            <strong>Ongoing Support:</strong> We provide continuous updates and
-            maintenance to keep your app running smoothly.
-          </li>
-        </ul>
+        <FeatureGrid
+          title="Why Partner with NuTab Digital?"
+          subtitle={
+            <>
+              We combine deep engineering experience with practical product thinking to deliver apps that matter.
+            </>
+          }
+          features={features}
+          columns={2}
+          variant="gradient"
+          theme="gradient"
+          animated={true}
+          interactive={false}
+          showIcons={false}
+          size="md"
+          iconPosition="top"
+        />
       </SectionWrapper>
 
-      {/* Internal Links for SEO */}
       <SectionWrapper>
-        <h2>Related Services</h2>
-        <ul>
-          <li>
-            <a href="/services/custom-software">Custom Software Development</a>
-          </li>
-          <li>
-            <a href="/services/business-it-consulting">Business IT Consulting</a>
-          </li>
-          <li>
-            <a href="/services/seo-digital-marketing">SEO & Digital Marketing</a>
-          </li>
-        </ul>
+        <RelatedServicesSection
+          title="Related Services"
+          services={relatedServices}
+          variant="gradient"
+          theme="gradient"
+          animated={true}
+          interactive={true}
+          layout="centered"
+          columns={3}
+          showIcons={false}
+        />
       </SectionWrapper>
 
-      {/* Get Started Today */}
       <SectionWrapper>
         <h2>Get Started Today</h2>
         <p>
-          Ready to build your app? Contact us today to discuss your{" "}
-          <strong>mobile and web app development</strong> needs. Let’s work
-          together to create an application that drives growth and success for
-          your business.
+          Ready to build your mobile or web app? Contact us to discuss your project and get a tailored plan to launch fast and scale safely.
         </p>
         <GetQuoteButton />
       </SectionWrapper>
 
-      {/* FAQ */}
       <SectionWrapper className="section-wrapper--faq">
         <div className="faq">
           <header className="faq__header">
             <h2>Frequently Asked Questions</h2>
             <p className="faq__lead">Quick answers to common questions about our mobile & web app development services.</p>
           </header>
-
           <div className="faq__list">
             <details className="faq__item">
               <summary className="faq__summary">
@@ -338,61 +291,24 @@ const MobileWebAppDevelopment: React.FC = () => {
               </summary>
               <div className="faq-answer">
                 <p>
-                  Mobile and web app development involves creating applications for
-                  mobile devices (iOS and Android) and web browsers. These apps are
-                  designed to provide seamless user experiences and meet specific
-                  business needs.
+                  Mobile and web app development involves creating applications for mobile devices and web browsers with a focus on usability, performance, and security.
                 </p>
               </div>
             </details>
-
             <details className="faq__item">
               <summary className="faq__summary">
                 <h3 className="faq-question">How long does it take to develop an app?</h3>
               </summary>
               <div className="faq-answer">
-                <p>
-                  The timeline depends on the complexity of the app. Simple apps can
-                  take a few weeks, while more complex apps may take several months. We
-                  work with you to create a realistic timeline.
-                </p>
+                <p>Timelines depend on scope — simple projects in weeks, complex platforms in months.</p>
               </div>
             </details>
-
             <details className="faq__item">
               <summary className="faq__summary">
-                <h3 className="faq-question">Can you build apps for both iOS and Android?</h3>
+                <h3 className="faq-question">Do you provide ongoing support?</h3>
               </summary>
               <div className="faq-answer">
-                <p>
-                  Yes, we specialize in building cross-platform apps that work
-                  seamlessly on both iOS and Android devices.
-                </p>
-              </div>
-            </details>
-
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Do you provide ongoing support for apps?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>
-                  Yes, we offer ongoing support and maintenance to ensure your app
-                  remains up-to-date and performs optimally.
-                </p>
-              </div>
-            </details>
-
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Can you integrate third-party APIs into the app?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>
-                  Absolutely! We can integrate third-party APIs to enhance your app's
-                  functionality, such as payment gateways, social media, or analytics
-                  tools.
-                </p>
+                <p>Yes — we offer maintenance, monitoring, and iterative improvements post-launch.</p>
               </div>
             </details>
           </div>

@@ -3,17 +3,17 @@ import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import "./page.css";
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { ShoppingCart, Layers, ShieldCheck } from "lucide-react";
-
-const SectionWrapper = dynamic(
-  () => import("../../components/SectionWrapper/SectionWrapper"),
-  {
-    ssr: false,
-  }
-);
+import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
+import ServicesWhySection, { WhySolution } from "../../components/ServicesWhySection/ServicesWhySection";
+import ServicesGrid, { ServiceItem } from "../../components/ServicesGrid/ServicesGrid";
+import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
+import IndustryGrid, { IndustryItem } from "../../components/IndustryGrid/IndustryGrid";
+import ProcessTimeline, { ProcessStep } from "../../components/ProcessTimeline/ProcessTimeline";
+import FeatureGrid, { FeatureItem } from "../../components/FeatureGrid/FeatureGrid";
+import RelatedServicesSection, { RelatedServiceItem } from "../../components/RelatedServicesSection/RelatedServicesSection";
 
 export const generateMetadata = (): Metadata => ({
   title: "E-Commerce Development Services in Calgary - NuTab Digital",
@@ -48,13 +48,64 @@ export const generateMetadata = (): Metadata => ({
   },
 });
 
+const services: ServiceItem[] = [
+  { title: "Custom Online Stores", description: "Feature-rich, tailored e-commerce platforms." },
+  { title: "Shopify & WooCommerce", description: "Platform-specific builds and migrations." },
+  { title: "Payment Integration", description: "Secure payment gateways and checkout flows." },
+  { title: "Performance Optimization", description: "Fast, SEO-friendly storefronts that convert." },
+  { title: "Ongoing Support", description: "Maintenance, analytics, and feature improvements." },
+];
+
+const industries: IndustryItem[] = [
+  { name: "Retail" },
+  { name: "Fashion" },
+  { name: "Electronics" },
+  { name: "Health & Beauty" },
+  { name: "Food & Beverage" },
+];
+
+const relatedServices: RelatedServiceItem[] = [
+  { label: "Custom Software Development", link: "/services/custom-software" },
+  { label: "Business IT Consulting", link: "/services/business-it-consulting" },
+  { label: "SEO & Digital Marketing", link: "/services/seo-digital-marketing" },
+];
+
+const benefits: Benefit[] = [
+  { title: "Higher Conversions", description: "Optimized UX and checkout to increase sales." },
+  { title: "Scalability", description: "Architecture designed to handle growth." },
+  { title: "Secure Payments", description: "PCI-compliant integrations and fraud protection." },
+  { title: "Better UX", description: "User-centric design for improved engagement." },
+  { title: "Analytics & Insights", description: "Data-driven improvements to maximize ROI." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Discovery", description: "Understand products, audience, and business goals." },
+  { title: "Design", description: "Wireframes and UI/UX tailored to your brand." },
+  { title: "Development", description: "Build storefront, integrations, and admin tools." },
+  { title: "Testing", description: "QA, performance, and payment validation." },
+  { title: "Launch & Support", description: "Deploy, monitor, and iterate post-launch." },
+];
+
+const features: FeatureItem[] = [
+  { title: "Conversion Focused", description: "Designs and flows that drive purchases." },
+  { title: "Secure Checkout", description: "Best practices for safe transactions." },
+  { title: "Headless Options", description: "Flexible architectures for custom experiences." },
+  { title: "Platform Migrations", description: "Move stores with minimal downtime." },
+  { title: "Local Support", description: "Calgary-based team for responsive service." },
+];
+
+const whySolutions: WhySolution[] = [
+  { icon: "ShoppingCart", title: "Seamless Shopping", description: "Smooth customer journeys from product to checkout." },
+  { icon: "Layers", title: "Scalable Platforms", description: "Solutions that grow with your catalog and traffic." },
+  { icon: "ShieldCheck", title: "Secure Payments", description: "Reliable integrations and fraud protection." },
+];
+
 const EcommerceDevelopment: React.FC = () => {
   return (
     <>
       <Background />
       <Loader />
 
-      {/* Structured Data Script: Service & FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -79,326 +130,184 @@ const EcommerceDevelopment: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
+            mainEntity: [
               {
                 "@type": "Question",
-                "name": "What is e-commerce development?",
-                "acceptedAnswer": {
+                name: "What is e-commerce development?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "E-commerce development involves creating online stores and platforms that allow businesses to sell products or services online. This includes features like product catalogs, shopping carts, and payment gateways."
-                }
+                  text: "E-commerce development involves creating online stores and platforms that allow businesses to sell products or services online, including catalogs, carts, and payment gateways.",
+                },
               },
               {
                 "@type": "Question",
-                "name": "How long does it take to build an e-commerce website?",
-                "acceptedAnswer": {
+                name: "How long does it take to build an e-commerce site?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "The timeline depends on the complexity of the website. Simple e-commerce sites can take a few weeks, while more complex platforms may take several months."
-                }
+                  text: "Timelines depend on complexity; simple stores can be delivered in weeks, complex platforms in months.",
+                },
               },
               {
                 "@type": "Question",
-                "name": "Can you integrate payment gateways?",
-                "acceptedAnswer": {
+                name: "Can you integrate payment gateways?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "Yes, we can integrate secure payment gateways like PayPal, Stripe, or custom solutions to ensure smooth transactions for your customers."
-                }
+                  text: "Yes — we integrate gateways like Stripe, PayPal, and enterprise payment providers.",
+                },
               },
-              {
-                "@type": "Question",
-                "name": "Do you provide ongoing support for e-commerce websites?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, we offer ongoing support and maintenance to ensure your e-commerce platform runs smoothly and stays up-to-date."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can you customize the design of the e-commerce site?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Absolutely! We create custom designs tailored to your brand and business needs to provide a unique shopping experience for your customers."
-                }
-              }
-            ]
+            ],
           }),
         }}
       />
 
-      {/* Hero Section */}
       <SectionWrapper>
         <HeroSection
           title="E-Commerce Development Services in Calgary"
           subtitle={
             <>
-              At NuTab Digital, we specialize in creating custom e-commerce platforms that deliver seamless shopping experiences and help businesses thrive in the digital marketplace. Whether you need a Shopify store, WooCommerce site, or a fully custom solution, our team is here to bring your vision to life.
+              At NuTab Digital, we build custom e-commerce platforms that deliver fast, secure, and conversion-optimized shopping experiences. From Shopify and WooCommerce builds to fully custom headless stores, we create solutions that scale.
             </>
           }
           icons={[
-            {
-              icon: <ShoppingCart className="icon purple" />,
-              label: "Seamless Shopping",
-            },
-            {
-              icon: <Layers className="icon blue" />,
-              label: "Scalable Platforms",
-            },
-            {
-              icon: <ShieldCheck className="icon pink" />,
-              label: "Secure Payments",
-            },
+            { icon: <ShoppingCart className="icon purple" />, label: "Seamless Shopping" },
+            { icon: <Layers className="icon blue" />, label: "Scalable Platforms" },
+            { icon: <ShieldCheck className="icon pink" />, label: "Secure Payments" },
           ]}
           showCTA={true}
         />
       </SectionWrapper>
 
-      {/* Why Choose This Service */}
       <SectionWrapper>
-        <h2>Why Choose E-Commerce Development?</h2>
-        <p>
-          In today’s competitive market, having a <strong>user-friendly</strong>{" "}
-          and <strong>scalable e-commerce platform</strong> is essential for
-          engaging customers and driving sales. Our{" "}
-          <strong>e-commerce development services</strong> focus on creating
-          intuitive, secure, and high-performing online stores that meet your
-          business goals.
-        </p>
+        <ServicesWhySection
+          title="Why Choose E-Commerce Development?"
+          description={
+            <>
+              We focus on building stores that convert, perform, and scale while providing a great experience for both customers and store admins.
+            </>
+          }
+          solutions={whySolutions}
+          theme="gradient"
+          animated={true}
+          interactive={false}
+          columns={3}
+        />
       </SectionWrapper>
 
-      {/* Our Services */}
       <SectionWrapper>
-        <h2>Our E-Commerce Development Services</h2>
-        <ul>
-          <li>
-            <strong>Custom Online Store Development:</strong> Build feature-rich
-            e-commerce platforms tailored to your needs.
-          </li>
-          <li>
-            <strong>Shopify and WooCommerce Development:</strong> Leverage
-            popular platforms to create scalable online stores.
-          </li>
-          <li>
-            <strong>UI/UX Design:</strong> Deliver intuitive and visually
-            appealing shopping experiences.
-          </li>
-          <li>
-            <strong>Payment Gateway Integration:</strong> Seamlessly integrate
-            secure payment solutions.
-          </li>
-          <li>
-            <strong>Scalable Architecture:</strong> Ensure your store can grow
-            with your business.
-          </li>
-        </ul>
+        <ServicesGrid
+          services={services}
+          title="Our E-Commerce Services"
+          subtitle="End-to-end e-commerce development services to launch and grow your online store."
+          layout="grid"
+          columns={2}
+          theme="gradient"
+          animated={true}
+          showIcons={false}
+        />
       </SectionWrapper>
 
-      {/* Benefits of the Service */}
       <SectionWrapper>
-        <h2>Benefits of E-Commerce Development</h2>
-        <p>
-          Investing in <strong>e-commerce development</strong> offers numerous
-          advantages for your business:
-        </p>
-        <ul>
-          <li>
-            <strong>Enhanced Customer Engagement:</strong> Provide a seamless
-            shopping experience to keep your customers engaged.
-          </li>
-          <li>
-            <strong>Increased Sales:</strong> Reach a wider audience and boost
-            your revenue with an online store.
-          </li>
-          <li>
-            <strong>Improved Efficiency:</strong> Automate processes and
-            streamline workflows with custom e-commerce solutions.
-          </li>
-          <li>
-            <strong>Scalability:</strong> Build platforms that grow with your
-            business and adapt to changing needs.
-          </li>
-          <li>
-            <strong>Competitive Advantage:</strong> Stand out in your industry
-            with innovative and user-friendly e-commerce platforms.
-          </li>
-        </ul>
+        <BenefitsSection
+          title="Benefits of E-Commerce Development"
+          subtitle="Investing in a quality e-commerce platform delivers measurable business benefits."
+          benefits={benefits}
+        />
       </SectionWrapper>
 
-      {/* Industries We Serve */}
       <SectionWrapper>
-        <h2>Industries We Serve</h2>
-        <p>
-          Our <strong>e-commerce development services</strong> cater to a wide
-          range of industries, including:
-        </p>
-        <ul style={{ listStyleType: "disc", paddingLeft: "2rem" }}>
-          <li>Retail</li>
-          <li>Fashion</li>
-          <li>Electronics</li>
-          <li>Health and Beauty</li>
-          <li>Food and Beverage</li>
-        </ul>
+        <IndustryGrid
+          items={industries}
+          title="Industries We Serve"
+          subtitle="We build e-commerce solutions for a variety of industries."
+          layout="pills"
+          theme="gradient"
+          animated={true}
+          columns={3}
+        />
       </SectionWrapper>
 
-      {/* How We Work */}
       <SectionWrapper>
-        <h2>Our Development Process</h2>
-        <p>Our development process ensures your satisfaction at every step:</p>
-        <ol>
-          <li>
-            <strong>Consultation:</strong> We start by understanding your
-            business goals and target audience.
-          </li>
-          <li>
-            <strong>Design:</strong> Our team creates wireframes and prototypes
-            for your approval.
-          </li>
-          <li>
-            <strong>Development:</strong> We build your e-commerce platform
-            using the latest technologies and best practices.
-          </li>
-          <li>
-            <strong>Testing:</strong> Rigorous testing ensures your platform is
-            bug-free and ready for launch.
-          </li>
-          <li>
-            <strong>Launch and Support:</strong> We deploy your platform and
-            provide ongoing support to ensure its success.
-          </li>
-        </ol>
+        <ProcessTimeline
+          steps={processSteps}
+          title="Our Development Process"
+          subtitle="A proven process to deliver robust, high-performing e-commerce platforms."
+          orientation="vertical"
+          theme="gradient"
+          animated={true}
+        />
       </SectionWrapper>
 
-      {/* Why Partner with NuTab Digital */}
       <SectionWrapper>
-        <h2>Why Partner with NuTab Digital?</h2>
-        <p>
-          At NuTab Digital, we pride ourselves on delivering{" "}
-          <strong>future-ready e-commerce platforms</strong>. Here’s why
-          businesses choose us:
-        </p>
-        <ul>
-          <li>
-            <strong>Expertise:</strong> Our team has extensive experience in
-            e-commerce development.
-          </li>
-          <li>
-            <strong>Customization:</strong> We tailor every solution to meet
-            your specific needs.
-          </li>
-          <li>
-            <strong>Local Expertise:</strong> Based in Calgary, we understand
-            the unique challenges of Canadian businesses.
-          </li>
-          <li>
-            <strong>Ongoing Support:</strong> We provide continuous updates and
-            maintenance to keep your platform running smoothly.
-          </li>
-        </ul>
+        <FeatureGrid
+          title="Why Partner with NuTab Digital?"
+          subtitle={
+            <>
+              We combine e-commerce expertise, strong technical delivery, and a focus on measurable results to help your store succeed.
+            </>
+          }
+          features={features}
+          columns={2}
+          variant="gradient"
+          theme="gradient"
+          animated={true}
+          interactive={false}
+          showIcons={false}
+          size="md"
+          iconPosition="top"
+        />
       </SectionWrapper>
 
-      {/* Internal Links for SEO */}
       <SectionWrapper>
-        <h2>Related Services</h2>
-        <ul>
-          <li>
-            <a href="/services/custom-software">Custom Software Development</a>
-          </li>
-          <li>
-            <a href="/services/business-it-consulting">Business IT Consulting</a>
-          </li>
-          <li>
-            <a href="/services/seo-digital-marketing">SEO & Digital Marketing</a>
-          </li>
-        </ul>
+        <RelatedServicesSection
+          title="Related Services"
+          services={relatedServices}
+          variant="gradient"
+          theme="gradient"
+          animated={true}
+          interactive={true}
+          layout="centered"
+          columns={3}
+          showIcons={false}
+        />
       </SectionWrapper>
 
-      {/* Get Started Today */}
       <SectionWrapper>
         <h2>Ready to Build Your Online Store?</h2>
         <p>
-          Contact us today to discuss your{" "}
-          <strong>e-commerce development</strong> needs. Let’s work together to
-          create a platform that drives growth and success for your business.
+          Contact us to discuss your e-commerce project and get a tailored plan to grow your online sales.
         </p>
         <GetQuoteButton />
       </SectionWrapper>
 
-      {/* FAQ */}
       <SectionWrapper className="section-wrapper--faq">
         <div className="faq">
           <header className="faq__header">
             <h2>Frequently Asked Questions</h2>
-            <p className="faq__lead">
-              Quick answers to common questions about our e‑commerce development
-              services.
-            </p>
+            <p className="faq__lead">Quick answers to common questions about our e‑commerce development services.</p>
           </header>
-
           <div className="faq__list">
             <details className="faq__item">
               <summary className="faq__summary">
                 <h3 className="faq-question">What is e-commerce development?</h3>
               </summary>
               <div className="faq-answer">
-                <p>
-                  E-commerce development involves creating online stores and platforms
-                  that allow businesses to sell products or services online. This
-                  includes features like product catalogs, shopping carts, and payment
-                  gateways.
-                </p>
+                <p>E-commerce development involves creating online stores and platforms that allow businesses to sell products or services online. This includes features like product catalogs, shopping carts, and payment gateways.</p>
               </div>
             </details>
-
             <details className="faq__item">
               <summary className="faq__summary">
-                <h3 className="faq-question">
-                  How long does it take to build an e-commerce website?
-                </h3>
+                <h3 className="faq-question">How long does it take to build an e-commerce site?</h3>
               </summary>
               <div className="faq-answer">
-                <p>
-                  The timeline depends on the complexity of the website. Simple
-                  e-commerce sites can take a few weeks, while more complex platforms
-                  may take several months.
-                </p>
+                <p>Timelines vary based on complexity — simple stores in weeks, complex platforms in months.</p>
               </div>
             </details>
-
             <details className="faq__item">
               <summary className="faq__summary">
                 <h3 className="faq-question">Can you integrate payment gateways?</h3>
               </summary>
               <div className="faq-answer">
-                <p>
-                  Yes, we can integrate secure payment gateways like PayPal, Stripe, or
-                  custom solutions to ensure smooth transactions for your customers.
-                </p>
-              </div>
-            </details>
-
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">
-                  Do you provide ongoing support for e-commerce websites?
-                </h3>
-              </summary>
-              <div className="faq-answer">
-                <p>
-                  Yes, we offer ongoing support and maintenance to ensure your
-                  e-commerce platform runs smoothly and stays up-to-date.
-                </p>
-              </div>
-            </details>
-
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Can you customize the design of the e-commerce site?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>
-                  Absolutely! We create custom designs tailored to your brand and
-                  business needs to provide a unique shopping experience for your
-                  customers.
-                </p>
+                <p>Yes — we can integrate Stripe, PayPal, and other secure payment providers.</p>
               </div>
             </details>
           </div>

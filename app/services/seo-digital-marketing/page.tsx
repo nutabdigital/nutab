@@ -3,17 +3,17 @@ import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import "./page.css";
 import { Metadata } from "next";
-import dynamic from "next/dynamic";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { LineChart, Megaphone, Users } from "lucide-react";
-
-const SectionWrapper = dynamic(
-  () => import("../../components/SectionWrapper/SectionWrapper"),
-  {
-    ssr: false,
-  }
-);
+import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
+import ServicesWhySection, { WhySolution } from "../../components/ServicesWhySection/ServicesWhySection";
+import ServicesGrid, { ServiceItem } from "../../components/ServicesGrid/ServicesGrid";
+import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
+import IndustryGrid, { IndustryItem } from "../../components/IndustryGrid/IndustryGrid";
+import ProcessTimeline, { ProcessStep } from "../../components/ProcessTimeline/ProcessTimeline";
+import FeatureGrid, { FeatureItem } from "../../components/FeatureGrid/FeatureGrid";
+import RelatedServicesSection, { RelatedServiceItem } from "../../components/RelatedServicesSection/RelatedServicesSection";
 
 export const generateMetadata = (): Metadata => ({
   title: "SEO & Digital Marketing Services in Calgary - NuTab Digital",
@@ -48,13 +48,65 @@ export const generateMetadata = (): Metadata => ({
   },
 });
 
+const services: ServiceItem[] = [
+  { title: "Search Engine Optimization (SEO)", description: "On-page, technical, and local SEO to improve organic visibility." },
+  { title: "Content Marketing", description: "Strategy and content creation that attracts and converts your audience." },
+  { title: "Paid Advertising (PPC)", description: "Targeted ad campaigns to drive traffic and conversions." },
+  { title: "Social Media Marketing", description: "Build your brand and engage audiences across platforms." },
+  { title: "Analytics & Reporting", description: "Data-driven insights to measure performance and optimize campaigns." },
+];
+
+const industries: IndustryItem[] = [
+  { name: "Retail & E-Commerce" },
+  { name: "Healthcare" },
+  { name: "Finance" },
+  { name: "Education" },
+  { name: "Real Estate" },
+];
+
+const relatedServices: RelatedServiceItem[] = [
+  { label: "Custom Software Development", link: "/services/custom-software" },
+  { label: "Business IT Consulting", link: "/services/business-it-consulting" },
+  { label: "AI & Automation Solutions", link: "/services/ai-automation" },
+];
+
+const benefits: Benefit[] = [
+  { title: "Increased Visibility", description: "Improve search rankings to attract more organic traffic." },
+  { title: "Better Conversions", description: "Optimize funnels and content to turn visitors into customers." },
+  { title: "Cost-Effective Growth", description: "Long-term value through organic channels and optimized ad spend." },
+  { title: "Audience Insights", description: "Use analytics to inform strategy and creative decisions." },
+  { title: "Brand Authority", description: "Build trust and relevance through consistent, high-quality content." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Discovery", description: "Audit current performance, competitors, and goals." },
+  { title: "Strategy", description: "Create an SEO and marketing plan aligned to your objectives." },
+  { title: "Implementation", description: "Execute technical fixes, content, and campaigns." },
+  { title: "Optimize", description: "Iterate based on data, tests, and performance." },
+  { title: "Report & Scale", description: "Deliver insights and scale successful tactics." },
+];
+
+const features: FeatureItem[] = [
+  { title: "Data-Driven", description: "Decisions backed by analytics and A/B testing." },
+  { title: "Content-first", description: "High-quality content to attract and retain users." },
+  { title: "Local Expertise", description: "Strategies tailored for Calgary and Canadian markets." },
+  { title: "Transparent Reporting", description: "Clear metrics and regular updates on campaign performance." },
+  { title: "Integrated Approach", description: "SEO, content, ads, and social working together." },
+];
+
+const whySolutions: WhySolution[] = [
+  { icon: "LineChart", title: "SEO Strategies", description: "Sustained organic growth through technical and content improvements." },
+  { icon: "Megaphone", title: "Advertising", description: "Targeted paid campaigns to accelerate results." },
+  { icon: "Users", title: "Audience Growth", description: "Build and nurture audiences across channels." },
+];
+
 const SEODigitalMarketing: React.FC = () => {
   return (
     <>
       <Background />
       <Loader />
 
-      {/* Structured Data Script: Service & FAQPage */}
+      {/* Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -79,325 +131,184 @@ const SEODigitalMarketing: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
+            mainEntity: [
               {
                 "@type": "Question",
-                "name": "What is SEO?",
-                "acceptedAnswer": {
+                name: "What is SEO?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "SEO (Search Engine Optimization) is the process of optimizing your website to rank higher in search engine results, making it easier for potential customers to find you online."
+                  text: "SEO (Search Engine Optimization) is the process of optimizing your website to rank higher in search engine results, making it easier for potential customers to find you online."
                 }
               },
               {
                 "@type": "Question",
-                "name": "How long does it take to see results from SEO?",
-                "acceptedAnswer": {
+                name: "How long does it take to see SEO results?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "SEO is a long-term strategy, and results typically take 3-6 months to become noticeable. However, the timeline can vary depending on your industry and competition."
+                  text: "SEO is a medium-to-long term strategy; meaningful results commonly appear in 3–6 months depending on competition and site health."
                 }
               },
               {
                 "@type": "Question",
-                "name": "What is digital marketing?",
-                "acceptedAnswer": {
+                name: "Do you offer content creation?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "Digital marketing involves promoting your business online through channels like social media, email, search engines, and paid advertising to reach your target audience."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do you provide content creation services?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, we offer content marketing services, including blog posts, social media content, and website copy, to help engage your audience and improve your SEO."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can you manage our social media accounts?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Absolutely! We provide social media management services to help you build your brand and connect with your audience on platforms like Facebook, Instagram, and LinkedIn."
+                  text: "Yes — we provide content strategy and production to support SEO and audience engagement."
                 }
               }
-            ]
+            ],
           }),
         }}
       />
 
-      {/* Hero Section */}
       <SectionWrapper>
         <HeroSection
           title="SEO & Digital Marketing Services in Calgary"
           subtitle={
             <>
-              At NuTab Digital, we specialize in delivering SEO and digital marketing solutions that help
-              businesses enhance their online visibility, attract more customers,
-              and achieve sustainable growth. Whether you’re looking to improve your
-              search engine rankings or run targeted ad campaigns, our team is here
-              to help.
+              At NuTab Digital, we deliver SEO and digital marketing that helps businesses increase visibility, attract qualified traffic, and convert visitors into customers across organic and paid channels.
             </>
           }
           icons={[
-            {
-              icon: <LineChart className="icon purple" />,
-              label: "SEO Strategies",
-            },
-            {
-              icon: <Megaphone className="icon blue" />,
-              label: "Digital Campaigns",
-            },
-            {
-              icon: <Users className="icon pink" />,
-              label: "Audience Growth",
-            },
+            { icon: <LineChart className="icon purple" />, label: "SEO Strategies" },
+            { icon: <Megaphone className="icon blue" />, label: "Digital Campaigns" },
+            { icon: <Users className="icon pink" />, label: "Audience Growth" },
           ]}
           showCTA={true}
         />
       </SectionWrapper>
 
-      {/* Why Choose This Service */}
       <SectionWrapper>
-        <h2>Why Choose SEO & Digital Marketing?</h2>
-        <p>
-          In today’s digital-first world, having a strong online presence is
-          essential for success. Our{" "}
-          <strong>SEO and digital marketing services</strong> are designed to
-          help your business stand out in search results, engage your target
-          audience, and drive measurable results.
-        </p>     
+        <ServicesWhySection
+          title="Why Choose SEO & Digital Marketing?"
+          description={
+            <>
+              We combine technical SEO, strategic content, and targeted campaigns to drive measurable growth for your business.
+            </>
+          }
+          solutions={whySolutions}
+          theme="gradient"
+          animated={true}
+          interactive={false}
+          columns={3}
+        />
       </SectionWrapper>
 
-      {/* Our Services */}
       <SectionWrapper>
-        <h2>Our SEO & Digital Marketing Services</h2>
-        <ul>
-          <li>
-            <strong>Search Engine Optimization (SEO):</strong> Improve your
-            website’s visibility on search engines like Google and Bing.
-          </li>
-          <li>
-            <strong>Content Marketing:</strong> Create high-quality, engaging
-            content that resonates with your audience.
-          </li>
-          <li>
-            <strong>Social Media Marketing:</strong> Build your brand and
-            connect with customers on platforms like Facebook, Instagram, and
-            LinkedIn.
-          </li>
-          <li>
-            <strong>Pay-Per-Click (PPC) Advertising:</strong> Run targeted ad
-            campaigns to drive traffic and conversions.
-          </li>
-          <li>
-            <strong>Email Marketing:</strong> Nurture leads and retain customers
-            with personalized email campaigns.
-          </li>
-        </ul>
+        <ServicesGrid
+          services={services}
+          title="Our SEO & Digital Marketing Services"
+          subtitle="Comprehensive services designed to grow your online presence and conversions."
+          layout="grid"
+          columns={2}
+          theme="gradient"
+          animated={true}
+          showIcons={false}
+        />
       </SectionWrapper>
 
-      {/* Benefits of the Service */}
       <SectionWrapper>
-        <h2>Benefits of SEO & Digital Marketing</h2>
-        <p>
-          Investing in <strong>SEO and digital marketing</strong> offers
-          numerous advantages for your business:
-        </p>
-        <ul>
-          <li>
-            <strong>Increased Online Visibility:</strong> Ensure your business
-            appears at the top of search results.
-          </li>
-          <li>
-            <strong>Higher Website Traffic:</strong> Attract more visitors to
-            your website with targeted strategies.
-          </li>
-          <li>
-            <strong>Improved Customer Engagement:</strong> Build meaningful
-            connections with your audience.
-          </li>
-          <li>
-            <strong>Better ROI:</strong> Achieve measurable results with
-            cost-effective marketing campaigns.
-          </li>
-          <li>
-            <strong>Competitive Advantage:</strong> Stay ahead of your
-            competitors with innovative marketing strategies.
-          </li>
-        </ul>
+        <BenefitsSection
+          title="Benefits of SEO & Digital Marketing"
+          subtitle="Invest in channels that deliver sustained growth and measurable outcomes."
+          benefits={benefits}
+        />
       </SectionWrapper>
 
-      {/* Industries We Serve */}
       <SectionWrapper>
-        <h2>Industries We Serve</h2>
-        <p>
-          Our <strong>SEO and digital marketing services</strong> cater to a
-          wide range of industries, including:
-        </p>
-        <ul style={{ listStyleType: "disc", paddingLeft: "2rem" }}>
-          <li>Retail and E-Commerce</li>
-          <li>Healthcare</li>
-          <li>Finance</li>
-          <li>Education</li>
-          <li>Real Estate</li>
-        </ul>
+        <IndustryGrid
+          items={industries}
+          title="Industries We Serve"
+          subtitle="Proven digital strategies across a range of industries."
+          layout="pills"
+          theme="gradient"
+          animated={true}
+          columns={3}
+        />
       </SectionWrapper>
 
-      {/* How We Work */}
       <SectionWrapper>
-        <h2>How We Work</h2>
-        <p>Our process ensures your satisfaction at every step:</p>
-        <ol>
-          <li>
-            <strong>Consultation:</strong> We start by understanding your
-            business goals and target audience.
-          </li>
-          <li>
-            <strong>Strategy Development:</strong> Our team creates a customized
-            marketing plan tailored to your needs.
-          </li>
-          <li>
-            <strong>Implementation:</strong> We execute your campaigns using the
-            latest tools and techniques.
-          </li>
-          <li>
-            <strong>Monitoring and Optimization:</strong> We track performance
-            and make data-driven adjustments to maximize results.
-          </li>
-          <li>
-            <strong>Reporting:</strong> Receive detailed reports to measure the
-            success of your campaigns.
-          </li>
-        </ol>
+        <ProcessTimeline
+          steps={processSteps}
+          title="How We Work"
+          subtitle="A data-driven process to plan, execute, and optimize marketing performance."
+          orientation="vertical"
+          theme="gradient"
+          animated={true}
+        />
       </SectionWrapper>
 
-      {/* Why Partner with NuTab Digital */}
       <SectionWrapper>
-        <h2>Why Partner with NuTab Digital?</h2>
-        <p>
-          At NuTab Digital, we pride ourselves on delivering{" "}
-          <strong>results-driven SEO and digital marketing solutions</strong>.
-          Here’s why businesses choose us:
-        </p>
-        <ul>
-          <li>
-            <strong>Expertise:</strong> Our team has extensive experience in SEO
-            and digital marketing.
-          </li>
-          <li>
-            <strong>Customization:</strong> We tailor every strategy to meet
-            your specific needs.
-          </li>
-          <li>
-            <strong>Transparency:</strong> We provide clear and detailed
-            reporting on campaign performance.
-          </li>
-          <li>
-            <strong>Ongoing Support:</strong> We offer continuous support and
-            optimization to ensure long-term success.
-          </li>
-        </ul>
+        <FeatureGrid
+          title="Why Partner with NuTab Digital?"
+          subtitle={
+            <>
+              We deliver transparent, measurable digital marketing that aligns with your business goals.
+            </>
+          }
+          features={features}
+          columns={2}
+          variant="gradient"
+          theme="gradient"
+          animated={true}
+          interactive={false}
+          showIcons={false}
+          size="md"
+          iconPosition="top"
+        />
       </SectionWrapper>
 
-      {/* Internal Links for SEO */}
       <SectionWrapper>
-        <h2>Related Services</h2>
-        <ul>
-          <li>
-            <a href="/services/custom-software">Custom Software Development</a>
-          </li>
-          <li>
-            <a href="/services/business-it-consulting">Business IT Consulting</a>
-          </li>
-          <li>
-            <a href="/services/ai-automation">AI & Automation Solutions</a>
-          </li>
-        </ul>
+        <RelatedServicesSection
+          title="Related Services"
+          services={relatedServices}
+          variant="gradient"
+          theme="gradient"
+          animated={true}
+          interactive={true}
+          layout="centered"
+          columns={3}
+          showIcons={false}
+        />
       </SectionWrapper>
 
-      {/* Get Started Today */}
       <SectionWrapper>
         <h2>Get Started Today</h2>
         <p>
-          Ready to enhance your online presence? <br />
-          Contact us today to learn more about our{" "}
-          <strong>SEO and digital marketing services</strong> and how we can
-          help your business grow.
+          Ready to grow your online presence? Contact us to discuss a tailored SEO and digital marketing plan for your business.
         </p>
         <GetQuoteButton />
       </SectionWrapper>
 
-      {/* FAQ */}
       <SectionWrapper className="section-wrapper--faq">
         <div className="faq">
           <header className="faq__header">
             <h2>Frequently Asked Questions</h2>
             <p className="faq__lead">Quick answers to common questions about our SEO & digital marketing services.</p>
           </header>
-
           <div className="faq__list">
             <details className="faq__item">
               <summary className="faq__summary">
                 <h3 className="faq-question">What is SEO?</h3>
               </summary>
               <div className="faq-answer">
-                <p>
-                  SEO (Search Engine Optimization) is the process of optimizing your
-                  website to rank higher in search engine results, making it easier for
-                  potential customers to find you online.
-                </p>
+                <p>SEO (Search Engine Optimization) improves your website’s visibility in search engine results to help potential customers find you.</p>
               </div>
             </details>
-
             <details className="faq__item">
               <summary className="faq__summary">
-                <h3 className="faq-question">How long does it take to see results from SEO?</h3>
+                <h3 className="faq-question">How long does it take to see results?</h3>
               </summary>
               <div className="faq-answer">
-                <p>
-                  SEO is a long-term strategy, and results typically take 3-6 months to
-                  become noticeable. However, the timeline can vary depending on your
-                  industry and competition.
-                </p>
+                <p>Results depend on competition and the current state of your site, but noticeable improvements often appear within 3–6 months.</p>
               </div>
             </details>
-
             <details className="faq__item">
               <summary className="faq__summary">
-                <h3 className="faq-question">What is digital marketing?</h3>
+                <h3 className="faq-question">Do you offer content creation?</h3>
               </summary>
               <div className="faq-answer">
-                <p>
-                  Digital marketing involves promoting your business online through
-                  channels like social media, email, search engines, and paid
-                  advertising to reach your target audience.
-                </p>
-              </div>
-            </details>
-
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Do you provide content creation services?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>
-                  Yes, we offer content marketing services, including blog posts, social
-                  media content, and website copy, to help engage your audience and
-                  improve your SEO.
-                </p>
-              </div>
-            </details>
-
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Can you manage our social media accounts?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>
-                  Absolutely! We provide social media management services to help you
-                  build your brand and connect with your audience on platforms like
-                  Facebook, Instagram, and LinkedIn.
-                </p>
+                <p>Yes — we offer content strategy and production to support SEO and audience engagement.</p>
               </div>
             </details>
           </div>

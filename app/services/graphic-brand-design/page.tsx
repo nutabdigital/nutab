@@ -1,18 +1,21 @@
 import React from "react";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
-import dynamic from "next/dynamic";
 import "./page.css";
+import { Metadata } from "next";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { PenTool, Palette, Image } from "lucide-react";
-import GetQuoteButton from "@/app/components/GetQuoteButton/GetQuoteButton";
+import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
+import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
+import ServicesWhySection, { WhySolution } from "../../components/ServicesWhySection/ServicesWhySection";
+import ServicesGrid, { ServiceItem } from "../../components/ServicesGrid/ServicesGrid";
+import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
+import IndustryGrid, { IndustryItem } from "../../components/IndustryGrid/IndustryGrid";
+import ProcessTimeline, { ProcessStep } from "../../components/ProcessTimeline/ProcessTimeline";
+import FeatureGrid, { FeatureItem } from "../../components/FeatureGrid/FeatureGrid";
+import RelatedServicesSection, { RelatedServiceItem } from "../../components/RelatedServicesSection/RelatedServicesSection";
 
-const SectionWrapper = dynamic(
-  () => import("../../components/SectionWrapper/SectionWrapper"),
-  { ssr: false }
-);
-
-export const generateMetadata = (): import("next").Metadata => ({
+export const generateMetadata = (): Metadata => ({
   title: "Graphic & Brand Design Services in Calgary - NuTab Digital",
   description:
     "NuTab Digital offers graphic and brand design services in Calgary, Alberta. Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
@@ -45,13 +48,64 @@ export const generateMetadata = (): import("next").Metadata => ({
   },
 });
 
+const services: ServiceItem[] = [
+  { title: "Logo Design", description: "Custom logos that reflect your brand identity." },
+  { title: "Visual Identity", description: "Color systems, typography, and brand guidelines." },
+  { title: "Digital Graphics", description: "Assets for web, social, and marketing." },
+  { title: "Print Collateral", description: "Business cards, brochures, and packaging." },
+  { title: "Brand Refresh", description: "Modernize and align your brand across touchpoints." },
+];
+
+const industries: IndustryItem[] = [
+  { name: "Retail" },
+  { name: "Healthcare" },
+  { name: "Finance" },
+  { name: "Education" },
+  { name: "Professional Services" },
+];
+
+const relatedServices: RelatedServiceItem[] = [
+  { label: "Custom Software Development", link: "/services/custom-software" },
+  { label: "Business IT Consulting", link: "/services/business-it-consulting" },
+  { label: "SEO & Digital Marketing", link: "/services/seo-digital-marketing" },
+];
+
+const benefits: Benefit[] = [
+  { title: "Memorable Branding", description: "Create a strong visual identity that resonates with customers." },
+  { title: "Professional Appearance", description: "Build trust with polished, consistent design." },
+  { title: "Cross-Channel Consistency", description: "Ensure your brand looks great across digital and print." },
+  { title: "Creative Impact", description: "Stand out in competitive markets with unique visuals." },
+  { title: "Reusable Assets", description: "Receive files and guidelines for long-term use." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Discovery", description: "Understand your brand, goals, and audience." },
+  { title: "Concept", description: "Develop initial concepts and direction." },
+  { title: "Design", description: "Refine and finalize brand assets." },
+  { title: "Delivery", description: "Provide production-ready files and guidelines." },
+  { title: "Support", description: "Ongoing design support as your brand evolves." },
+];
+
+const features: FeatureItem[] = [
+  { title: "Creative Expertise", description: "Experienced designers focused on brand impact." },
+  { title: "Tailored Solutions", description: "Designs crafted to your unique needs." },
+  { title: "Local Support", description: "Calgary-based team for responsive collaboration." },
+  { title: "Full-Service", description: "From logo to launch-ready brand systems." },
+  { title: "File Handover", description: "You receive all assets and guidelines for future use." },
+];
+
+const whySolutions: WhySolution[] = [
+  { icon: "PenTool", title: "Logo & Identity", description: "Distinctive logos and cohesive visual systems." },
+  { icon: "Palette", title: "Creative Direction", description: "Strategic design that communicates brand value." },
+  { icon: "Image", title: "Digital & Print", description: "Assets optimized for every channel." },
+];
+
 const GraphicBrandDesign: React.FC = () => {
   return (
     <>
       <Background />
       <Loader />
 
-      {/* Structured Data Script: Service & FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -76,185 +130,155 @@ const GraphicBrandDesign: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
+            mainEntity: [
               {
                 "@type": "Question",
-                "name": "What is brand design?",
-                "acceptedAnswer": {
+                name: "What is brand design?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "Brand design is the process of creating a visual identity for your business, including logos, colors, fonts, and style guidelines."
+                  text: "Brand design is the process of creating a visual identity for your business, including logos, colors, fonts, and style guidelines."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Do you offer logo design?",
-                "acceptedAnswer": {
+                name: "Do you offer logo design?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "Yes, we specialize in creating custom logos that reflect your brand’s personality and values."
+                  text: "Yes, we create custom logos that reflect your brand’s personality and values."
                 }
               },
               {
                 "@type": "Question",
-                "name": "Can you design graphics for social media?",
-                "acceptedAnswer": {
+                name: "Can you design graphics for social media?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "Absolutely! We create digital graphics for social media, websites, and marketing campaigns."
+                  text: "Absolutely — we design assets optimized for web and social platforms."
                 }
               },
-              {
-                "@type": "Question",
-                "name": "Do you provide print design services?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, we design business cards, brochures, packaging, and other print materials."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Will I get all the design files?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, you’ll receive all final design files and brand guidelines for your use."
-                }
-              }
-            ]
+            ],
           }),
         }}
       />
 
-      {/* Hero Section */}
       <SectionWrapper>
         <HeroSection
           title="Graphic & Brand Design Services in Calgary"
           subtitle={
             <>
-              At NuTab Digital, we help businesses stand out with creative graphic and brand design solutions. From logo design and visual identity to digital graphics, our team brings your brand vision to life.
+              At NuTab Digital, we help businesses stand out with creative graphic and brand design solutions. From logo design and visual identity to digital graphics and print collateral, our team brings your brand vision to life.
             </>
           }
           icons={[
-            {
-              icon: <PenTool className="icon purple" />,
-              label: "Logo Design",
-            },
-            {
-              icon: <Palette className="icon blue" />,
-              label: "Brand Identity",
-            },
-            {
-              icon: <Image className="icon pink" />,
-              label: "Digital Graphics",
-            },
+            { icon: <PenTool className="icon purple" />, label: "Logo Design" },
+            { icon: <Palette className="icon blue" />, label: "Brand Identity" },
+            { icon: <Image className="icon pink" />, label: "Digital Graphics" },
           ]}
           showCTA={true}
         />
       </SectionWrapper>
 
-      {/* Why Choose This Service */}
       <SectionWrapper>
-        <h2>Why Choose Graphic & Brand Design?</h2>
-        <p>
-          <strong>Graphic and brand design</strong> is essential for building a memorable and impactful brand. Our creative team helps you communicate your values and connect with your audience through stunning visuals.
-        </p>
+        <ServicesWhySection
+          title="Why Choose Graphic & Brand Design?"
+          description={
+            <>
+              Strong brand design builds recognition and trust. We create strategic, memorable visuals that communicate your values and help you connect with your audience.
+            </>
+          }
+          solutions={whySolutions}
+          theme="gradient"
+          animated={true}
+          interactive={false}
+          columns={3}
+        />
       </SectionWrapper>
 
-      {/* Our Services */}
       <SectionWrapper>
-        <h2>Our Design Services</h2>
-        <ul>
-          <li>
-            <strong>Logo Design:</strong> Create a unique and professional logo for your business.
-          </li>
-          <li>
-            <strong>Brand Identity:</strong> Develop a cohesive visual identity, including colors, fonts, and style guides.
-          </li>
-          <li>
-            <strong>Digital Graphics:</strong> Design graphics for websites, social media, and marketing materials.
-          </li>
-          <li>
-            <strong>Print Design:</strong> Produce business cards, brochures, and other print collateral.
-          </li>
-          <li>
-            <strong>Packaging Design:</strong> Create eye-catching packaging for your products.
-          </li>
-        </ul>
+        <ServicesGrid
+          services={services}
+          title="Our Design Services"
+          subtitle="Logo design, brand systems, digital assets, and print collateral."
+          layout="grid"
+          columns={2}
+          theme="gradient"
+          animated={true}
+          showIcons={false}
+        />
       </SectionWrapper>
 
-      {/* Benefits of the Service */}
       <SectionWrapper>
-        <h2>Benefits of Graphic & Brand Design</h2>
-        <ul>
-          <li><strong>Memorable Branding:</strong> Make a lasting impression on your customers.</li>
-          <li><strong>Professional Appearance:</strong> Build trust and credibility with polished visuals.</li>
-          <li><strong>Consistency:</strong> Ensure your brand looks great across all platforms.</li>
-          <li><strong>Creative Impact:</strong> Stand out in a crowded market with unique designs.</li>
-          <li><strong>Versatility:</strong> Use your brand assets for digital and print needs.</li>
-        </ul>
+        <BenefitsSection
+          title="Benefits of Professional Design"
+          subtitle="Investing in quality design delivers measurable brand benefits."
+          benefits={benefits}
+        />
       </SectionWrapper>
 
-      {/* Industries We Serve */}
       <SectionWrapper>
-        <h2>Industries We Serve</h2>
-        <p>
-          Our <strong>graphic & brand design services</strong> support a wide range of industries:
-        </p>
-        <ul style={{ listStyleType: "disc", paddingLeft: "2rem" }}>
-          <li>Retail</li>
-          <li>Healthcare</li>
-          <li>Finance</li>
-          <li>Education</li>
-          <li>Professional Services</li>
-        </ul>
+        <IndustryGrid
+          items={industries}
+          title="Industries We Serve"
+          subtitle="Branding and design for a wide range of industries."
+          layout="pills"
+          theme="gradient"
+          animated={true}
+          columns={3}
+        />
       </SectionWrapper>
 
-      {/* How We Work */}
       <SectionWrapper>
-        <h2>How We Work</h2>
-        <ol>
-          <li><strong>Discovery:</strong> We learn about your brand and goals.</li>
-          <li><strong>Concept:</strong> Our designers create initial concepts for your review.</li>
-          <li><strong>Design:</strong> We refine and finalize your brand assets.</li>
-          <li><strong>Delivery:</strong> You receive all files and guidelines for use.</li>
-          <li><strong>Support:</strong> Ongoing design support as your brand evolves.</li>
-        </ol>
+        <ProcessTimeline
+          steps={processSteps}
+          title="Our Creative Process"
+          subtitle="A collaborative process to define and deliver your brand."
+          orientation="vertical"
+          theme="gradient"
+          animated={true}
+        />
       </SectionWrapper>
 
-      {/* Why Partner with NuTab Digital */}
       <SectionWrapper>
-        <h2>Why Partner with NuTab Digital?</h2>
-        <ul>
-          <li><strong>Creative Expertise:</strong> Experienced designers with a passion for branding.</li>
-          <li><strong>Tailored Solutions:</strong> Every project is customized to your needs.</li>
-          <li><strong>Local Support:</strong> Calgary-based team for responsive service.</li>
-          <li><strong>Long-Term Partnership:</strong> We’re committed to your brand’s success.</li>
-        </ul>
+        <FeatureGrid
+          title="Why Partner with NuTab Digital?"
+          subtitle={
+            <>
+              We combine creative expertise with practical delivery to produce brand systems that perform across channels.
+            </>
+          }
+          features={features}
+          columns={2}
+          variant="gradient"
+          theme="gradient"
+          animated={true}
+          interactive={false}
+          showIcons={false}
+          size="md"
+          iconPosition="top"
+        />
       </SectionWrapper>
 
-      {/* Internal Links for SEO */}
       <SectionWrapper>
-        <h2>Related Services</h2>
-        <ul>
-          <li>
-            <a href="/services/custom-software">Custom Software Development</a>
-          </li>
-          <li>
-            <a href="/services/business-it-consulting">Business IT Consulting</a>
-          </li>
-          <li>
-            <a href="/services/seo-digital-marketing">SEO & Digital Marketing</a>
-          </li>
-        </ul>
+        <RelatedServicesSection
+          title="Related Services"
+          services={relatedServices}
+          variant="gradient"
+          theme="gradient"
+          animated={true}
+          interactive={true}
+          layout="centered"
+          columns={3}
+          showIcons={false}
+        />
       </SectionWrapper>
 
-      {/* Get Started Today */}
       <SectionWrapper>
         <h2>Get Started Today</h2>
         <p>
-          Ready to elevate your brand? Contact us to discuss your <strong>graphic & brand design</strong> needs and discover how NuTab Digital can help you stand out.
+          Ready to elevate your brand? Contact us to discuss your graphic & brand design needs and discover how NuTab Digital can help you stand out.
         </p>
         <GetQuoteButton />
       </SectionWrapper>
 
-      {/* FAQ */}
       <SectionWrapper className="section-wrapper--faq">
         <div className="faq">
           <header className="faq__header">
@@ -267,9 +291,7 @@ const GraphicBrandDesign: React.FC = () => {
                 <h3 className="faq-question">What is brand design?</h3>
               </summary>
               <div className="faq-answer">
-                <p>
-                  Brand design is the process of creating a visual identity for your business, including logos, colors, fonts, and style guidelines.
-                </p>
+                <p>Brand design is the process of creating a visual identity for your business, including logos, colors, fonts, and style guidelines.</p>
               </div>
             </details>
             <details className="faq__item">
@@ -277,9 +299,7 @@ const GraphicBrandDesign: React.FC = () => {
                 <h3 className="faq-question">Do you offer logo design?</h3>
               </summary>
               <div className="faq-answer">
-                <p>
-                  Yes, we specialize in creating custom logos that reflect your brand’s personality and values.
-                </p>
+                <p>Yes, we create custom logos that reflect your brand’s personality and values.</p>
               </div>
             </details>
             <details className="faq__item">
@@ -287,29 +307,7 @@ const GraphicBrandDesign: React.FC = () => {
                 <h3 className="faq-question">Can you design graphics for social media?</h3>
               </summary>
               <div className="faq-answer">
-                <p>
-                  Absolutely! We create digital graphics for social media, websites, and marketing campaigns.
-                </p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Do you provide print design services?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>
-                  Yes, we design business cards, brochures, packaging, and other print materials.
-                </p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Will I get all the design files?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>
-                  Yes, you’ll receive all final design files and brand guidelines for your use.
-                </p>
+                <p>Absolutely — we design assets optimized for web and social platforms.</p>
               </div>
             </details>
           </div>

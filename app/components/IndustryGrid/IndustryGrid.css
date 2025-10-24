@@ -5,6 +5,22 @@
   margin: 0 auto;
 }
 
+/* Constrain inner content to 85% of the outer container and center it */
+.industry-grid-wrapper > .industry-grid,
+.industry-grid-wrapper > .industry-grid-header {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Responsive: use a slightly larger percentage on small screens */
+@media (max-width: 768px) {
+  .industry-grid-wrapper > .industry-grid,
+  .industry-grid-wrapper > .industry-grid-header {
+    width: 85%;
+  }
+}
+
 /* Header */
 .industry-grid-header {
   text-align: center;

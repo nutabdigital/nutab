@@ -1,16 +1,18 @@
 import React from "react";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
-import dynamic from "next/dynamic";
 import "./page.css";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { Brain, Zap, ShieldCheck } from "lucide-react";
-import GetQuoteButton from "@/app/components/GetQuoteButton/GetQuoteButton";
-
-const SectionWrapper = dynamic(
-  () => import("../../components/SectionWrapper/SectionWrapper"),
-  { ssr: false }
-);
+import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
+import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
+import ProcessTimeline, { ProcessStep } from "../../components/ProcessTimeline/ProcessTimeline";
+import IndustryGrid, { IndustryItem } from "../../components/IndustryGrid/IndustryGrid";
+import ServicesGrid, { ServiceItem } from "../../components/ServicesGrid/ServicesGrid";
+import FeatureGrid, { FeatureItem } from "../../components/FeatureGrid/FeatureGrid";
+import RelatedServicesSection, { RelatedServiceItem } from "../../components/RelatedServicesSection/RelatedServicesSection";
+import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
+import ServicesWhySection, { WhySolution } from "../../components/ServicesWhySection/ServicesWhySection";
 
 export const generateMetadata = (): import("next").Metadata => ({
   title: "AI & Automation Solutions in Calgary - NuTab Digital",
@@ -27,7 +29,7 @@ export const generateMetadata = (): import("next").Metadata => ({
     siteName: "NuTab Digital",
     images: [
       {
-        url: "https://nutab.ca/photos/3d-nutab-logo.webp", // updated to webp
+        url: "https://nutab.ca/photos/3d-nutab-logo.webp",
         width: 600,
         height: 600,
         alt: "AI & Automation Solutions in Calgary",
@@ -41,9 +43,61 @@ export const generateMetadata = (): import("next").Metadata => ({
     title: "AI & Automation Solutions in Calgary - NuTab Digital",
     description:
       "NuTab Digital offers AI and automation solutions in Calgary, Alberta. Leverage artificial intelligence and automation to improve efficiency, reduce manual tasks, and make smarter decisions.",
-    images: ["https://nutab.ca/photos/3d-nutab-logo.webp"], // updated to webp
+    images: ["https://nutab.ca/photos/3d-nutab-logo.webp"],
   },
 });
+
+const services: ServiceItem[] = [
+  { title: "Machine Learning Models", description: "Custom ML models for prediction, classification, and recommendations." },
+  { title: "Workflow Automation", description: "Automate repetitive business processes and reduce manual work." },
+  { title: "AI-Powered Chatbots", description: "Conversational assistants to enhance customer support and engagement." },
+  { title: "Data Engineering", description: "Pipeline design, ETL, and data preparation for reliable AI." },
+  { title: "Integration & APIs", description: "Integrate AI capabilities into existing systems and applications." },
+];
+
+const industries: IndustryItem[] = [
+  { name: "Healthcare" },
+  { name: "Finance" },
+  { name: "Retail" },
+  { name: "Manufacturing" },
+  { name: "Professional Services" },
+];
+
+const relatedServices: RelatedServiceItem[] = [
+  { label: "Custom Software Development", link: "/services/custom-software" },
+  { label: "Business IT Consulting", link: "/services/business-it-consulting" },
+  { label: "SEO & Digital Marketing", link: "/services/seo-digital-marketing" },
+];
+
+const benefits: Benefit[] = [
+  { title: "Efficiency", description: "Automate repetitive tasks and free up valuable time." },
+  { title: "Accuracy", description: "Reduce errors and improve consistency with data-driven decisions." },
+  { title: "Scalability", description: "AI solutions that grow with your business." },
+  { title: "Cost Savings", description: "Lower operational costs by automating manual processes." },
+  { title: "Competitive Edge", description: "Adopt innovative technology to stay ahead." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Discovery", description: "Assess needs, data, and opportunities for AI & automation." },
+  { title: "Design", description: "Prototype, model selection, and architecture planning." },
+  { title: "Implementation", description: "Develop, integrate, and deploy AI systems." },
+  { title: "Testing", description: "Validate performance, reliability, and safety." },
+  { title: "Support", description: "Ongoing monitoring, maintenance, and optimization." },
+];
+
+const features: FeatureItem[] = [
+  { title: "Automation Expertise", description: "Streamline operations with reliable automation." },
+  { title: "Secure Deployments", description: "Security-first approach for all AI solutions." },
+  { title: "Data-Driven Insights", description: "Turn data into actionable business intelligence." },
+  { title: "Custom Integrations", description: "Seamless integration with existing systems." },
+  { title: "Local Support", description: "Calgary-based team for responsive service." },
+];
+
+const whySolutions: WhySolution[] = [
+  { icon: "Brain", title: "AI Strategy", description: "Roadmaps and plans to adopt AI responsibly and effectively." },
+  { icon: "Zap", title: "Automation", description: "End-to-end automation for improved throughput." },
+  { icon: "ShieldCheck", title: "Security & Compliance", description: "Design that meets security and regulatory needs." },
+];
 
 const AIAutomation: React.FC = () => {
   return (
@@ -51,7 +105,6 @@ const AIAutomation: React.FC = () => {
       <Background />
       <Loader />
 
-      {/* Structured Data Script: Service & FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -76,53 +129,52 @@ const AIAutomation: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
+            mainEntity: [
               {
                 "@type": "Question",
-                "name": "What is AI & automation?",
-                "acceptedAnswer": {
+                name: "What is AI & automation?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "AI (Artificial Intelligence) uses computer systems to perform tasks that normally require human intelligence. Automation uses technology to perform tasks with minimal human intervention."
-                }
+                  text: "AI (Artificial Intelligence) uses computer systems to perform tasks that normally require human intelligence. Automation uses technology to perform tasks with minimal human intervention.",
+                },
               },
               {
                 "@type": "Question",
-                "name": "How can AI help my business?",
-                "acceptedAnswer": {
+                name: "How can AI help my business?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "AI can help you analyze data, automate decisions, improve customer service, and optimize operations for better results."
-                }
+                  text: "AI can help you analyze data, automate decisions, improve customer service, and optimize operations for better results.",
+                },
               },
               {
                 "@type": "Question",
-                "name": "Is automation expensive?",
-                "acceptedAnswer": {
+                name: "Is automation expensive?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "Automation can reduce costs over time by saving labor and improving efficiency. We offer solutions for businesses of all sizes."
-                }
+                  text: "Automation can reduce costs over time by saving labor and improving efficiency. We offer solutions for businesses of all sizes.",
+                },
               },
               {
                 "@type": "Question",
-                "name": "Do you provide ongoing support?",
-                "acceptedAnswer": {
+                name: "Do you provide ongoing support?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "Yes, we provide ongoing support and optimization to ensure your AI and automation solutions continue to deliver value."
-                }
+                  text: "Yes, we provide ongoing support and optimization to ensure your AI and automation solutions continue to deliver value.",
+                },
               },
               {
                 "@type": "Question",
-                "name": "Can you integrate AI with my existing systems?",
-                "acceptedAnswer": {
+                name: "Can you integrate AI with my existing systems?",
+                acceptedAnswer: {
                   "@type": "Answer",
-                  "text": "Absolutely! We specialize in integrating AI and automation tools with your current business software and workflows."
-                }
-              }
-            ]
+                  text: "Absolutely! We specialize in integrating AI and automation tools with your current business software and workflows.",
+                },
+              },
+            ],
           }),
         }}
       />
 
-      {/* Hero Section */}
       <SectionWrapper>
         <HeroSection
           title="AI & Automation Solutions in Calgary"
@@ -132,121 +184,108 @@ const AIAutomation: React.FC = () => {
             </>
           }
           icons={[
-            {
-              icon: <Brain className="icon purple" />,
-              label: "AI Tools",
-            },
-            {
-              icon: <Zap className="icon blue" />,
-              label: "Automation",
-            },
-            {
-              icon: <ShieldCheck className="icon pink" />,
-              label: "Secure & Reliable",
-            },
+            { icon: <Brain className="icon purple" />, label: "AI Tools" },
+            { icon: <Zap className="icon blue" />, label: "Automation" },
+            { icon: <ShieldCheck className="icon pink" />, label: "Secure & Reliable" },
           ]}
           showCTA={true}
         />
       </SectionWrapper>
 
-      {/* Why Choose This Service */}
       <SectionWrapper>
-        <h2>Why Choose AI & Automation?</h2>
-        <p>
-          <strong>AI and automation</strong> empower your business to work smarter, not harder.
-          Automate repetitive tasks, gain insights from data, and improve decision-making with intelligent solutions.
-        </p>
+        <ServicesWhySection
+          title="Why Choose AI & Automation?"
+          description={
+            <>
+              AI and automation empower your business to work smarter, not harder. Automate repetitive tasks, gain insights from data, and improve decision-making with intelligent solutions.
+            </>
+          }
+          solutions={whySolutions}
+          theme="gradient"
+          animated={true}
+          interactive={false}
+          columns={3}
+        />
       </SectionWrapper>
 
-      {/* Our Services */}
       <SectionWrapper>
-        <h2>Our AI & Automation Services</h2>
-        <ul>
-          <li>
-            <strong>Machine Learning Solutions:</strong> Predict trends and automate decisions with custom ML models.
-          </li>
-          <li>
-            <strong>Workflow Automation:</strong> Streamline business processes and reduce manual work.
-          </li>
-          <li>
-            <strong>Chatbots & Virtual Assistants:</strong> Enhance customer service with AI-powered bots.
-          </li>
-          <li>
-            <strong>Data Analytics & Insights:</strong> Unlock actionable insights from your business data.
-          </li>
-          <li>
-            <strong>Integration & Customization:</strong> Connect AI tools with your existing systems.
-          </li>
-        </ul>
+        <ServicesGrid
+          services={services}
+          title="Our AI & Automation Services"
+          subtitle="Explore how our AI & automation services can help your organization."
+          layout="grid"
+          columns={2}
+          theme="gradient"
+          animated={true}
+          showIcons={false}
+        />
       </SectionWrapper>
 
-      {/* Benefits of the Service */}
       <SectionWrapper>
-        <h2>Benefits of AI & Automation</h2>
-        <ul>
-          <li><strong>Efficiency:</strong> Automate repetitive tasks and free up valuable time.</li>
-          <li><strong>Accuracy:</strong> Reduce errors and improve consistency.</li>
-          <li><strong>Scalability:</strong> Grow your business with solutions that adapt to your needs.</li>
-          <li><strong>Cost Savings:</strong> Lower operational costs by automating manual processes.</li>
-          <li><strong>Competitive Edge:</strong> Stay ahead with innovative technology.</li>
-        </ul>
+        <BenefitsSection
+          title="Benefits of AI & Automation"
+          subtitle="Investing in AI and automation delivers measurable benefits to your business."
+          benefits={benefits}
+        />
       </SectionWrapper>
 
-      {/* Industries We Serve */}
       <SectionWrapper>
-        <h2>Industries We Serve</h2>
-        <p>
-          Our <strong>AI & automation solutions</strong> support a wide range of industries:
-        </p>
-        <ul style={{ listStyleType: "disc", paddingLeft: "2rem" }}>
-          <li>Healthcare</li>
-          <li>Finance</li>
-          <li>Retail</li>
-          <li>Manufacturing</li>
-          <li>Professional Services</li>
-        </ul>
+        <IndustryGrid
+          items={industries}
+          title="Industries We Serve"
+          subtitle="Our AI & automation solutions support a wide range of industries."
+          layout="pills"
+          theme="gradient"
+          animated={true}
+          columns={3}
+        />
       </SectionWrapper>
 
-      {/* How We Work */}
       <SectionWrapper>
-        <h2>How We Work</h2>
-        <ol>
-          <li><strong>Discovery:</strong> We assess your business needs and goals.</li>
-          <li><strong>Design:</strong> Our team creates a tailored AI/automation strategy.</li>
-          <li><strong>Implementation:</strong> We build and integrate your solution.</li>
-          <li><strong>Testing:</strong> Rigorous testing ensures reliability and security.</li>
-          <li><strong>Support:</strong> Ongoing optimization and support for long-term success.</li>
-        </ol>
+        <ProcessTimeline
+          steps={processSteps}
+          title="How We Work"
+          subtitle="We follow a proven process to deliver reliable AI and automation solutions."
+          orientation="vertical"
+          theme="gradient"
+          animated={true}
+        />
       </SectionWrapper>
 
-      {/* Why Partner with NuTab Digital */}
       <SectionWrapper>
-        <h2>Why Partner with NuTab Digital?</h2>
-        <ul>
-          <li><strong>Expertise:</strong> Experienced in AI, automation, and business transformation.</li>
-          <li><strong>Customization:</strong> Solutions tailored to your unique needs.</li>
-          <li><strong>Local Support:</strong> Calgary-based team for responsive service.</li>
-          <li><strong>Continuous Improvement:</strong> We help you stay ahead with ongoing updates.</li>
-        </ul>
+        <FeatureGrid
+          title="Why Partner with NuTab Digital?"
+          subtitle={
+            <>
+              At NuTab Digital, we pride ourselves on being a trusted AI and automation partner. Here’s why businesses choose us:
+            </>
+          }
+          features={features}
+          columns={2}
+          variant="gradient"
+          theme="gradient"
+          animated={true}
+          interactive={false}
+          showIcons={false}
+          size="md"
+          iconPosition="top"
+        />
       </SectionWrapper>
 
-      {/* Internal Links for SEO */}
       <SectionWrapper>
-        <h2>Related Services</h2>
-        <ul>
-          <li>
-            <a href="/services/business-it-consulting">Business IT Consulting</a>
-          </li>
-          <li>
-            <a href="/services/custom-software">Custom Software Development</a>
-          </li>
-          <li>
-            <a href="/services/seo-digital-marketing">SEO & Digital Marketing</a>
-          </li>
-        </ul>
+        <RelatedServicesSection
+          title="Related Services"
+          services={relatedServices}
+          variant="gradient"
+          theme="gradient"
+          animated={true}
+          interactive={true}
+          layout="centered"
+          columns={3}
+          showIcons={false}
+        />
       </SectionWrapper>
 
-      {/* Get Started Today */}
       <SectionWrapper>
         <h2>Get Started Today</h2>
         <p>
@@ -255,7 +294,6 @@ const AIAutomation: React.FC = () => {
         <GetQuoteButton />
       </SectionWrapper>
 
-      {/* FAQ */}
       <SectionWrapper className="section-wrapper--faq">
         <div className="faq">
           <header className="faq__header">

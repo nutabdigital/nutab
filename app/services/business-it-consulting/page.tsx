@@ -1,18 +1,21 @@
 import React from "react";
 import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
-import dynamic from "next/dynamic";
 import "./page.css";
+import { Metadata } from "next";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { Briefcase, Users, Lightbulb } from "lucide-react";
-import GetQuoteButton from "@/app/components/GetQuoteButton/GetQuoteButton";
+import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
+import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
+import ProcessTimeline, { ProcessStep } from "../../components/ProcessTimeline/ProcessTimeline";
+import IndustryGrid, { IndustryItem } from "../../components/IndustryGrid/IndustryGrid";
+import ServicesGrid, { ServiceItem } from "../../components/ServicesGrid/ServicesGrid";
+import FeatureGrid, { FeatureItem } from "../../components/FeatureGrid/FeatureGrid";
+import RelatedServicesSection, { RelatedServiceItem } from "../../components/RelatedServicesSection/RelatedServicesSection";
+import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
+import ServicesWhySection, { WhySolution } from "../../components/ServicesWhySection/ServicesWhySection";
 
-const SectionWrapper = dynamic(
-  () => import("../../components/SectionWrapper/SectionWrapper"),
-  { ssr: false }
-);
-
-export const generateMetadata = (): import("next").Metadata => ({
+export const generateMetadata = (): Metadata => ({
   title: "Business & IT Consulting Services in Calgary - NuTab Digital",
   description:
     "NuTab Digital offers business and IT consulting services in Calgary, Alberta. Get expert guidance on digital transformation, technology adoption, and growth strategies tailored to your business.",
@@ -45,13 +48,64 @@ export const generateMetadata = (): import("next").Metadata => ({
   },
 });
 
+const services: ServiceItem[] = [
+  { title: "Digital Transformation Strategy", description: "Roadmaps and plans to modernize systems and processes." },
+  { title: "IT Roadmapping", description: "Align technology with business goals and priorities." },
+  { title: "Cloud Strategy & Migration", description: "Plan and execute secure cloud moves with minimal disruption." },
+  { title: "Security & Compliance", description: "Risk assessments, policies, and controls for regulatory needs." },
+  { title: "Operational Optimization", description: "Improve processes to reduce cost and increase efficiency." },
+];
+
+const industries: IndustryItem[] = [
+  { name: "Healthcare" },
+  { name: "Finance" },
+  { name: "Retail" },
+  { name: "Manufacturing" },
+  { name: "Professional Services" },
+];
+
+const relatedServices: RelatedServiceItem[] = [
+  { label: "AI & Automation Solutions", link: "/services/ai-automation" },
+  { label: "Custom Software Development", link: "/services/custom-software" },
+  { label: "SEO & Digital Marketing", link: "/services/seo-digital-marketing" },
+];
+
+const benefits: Benefit[] = [
+  { title: "Clear Roadmaps", description: "Actionable plans that reduce risk and speed up delivery." },
+  { title: "Cost Efficiency", description: "Optimize spend across people, processes, and platforms." },
+  { title: "Improved Security", description: "Stronger posture and compliance for peace of mind." },
+  { title: "Faster Time-to-Value", description: "Prioritized initiatives that deliver measurable outcomes." },
+  { title: "Scalable Operations", description: "Foundation that grows with your business needs." },
+];
+
+const processSteps: ProcessStep[] = [
+  { title: "Discovery", description: "Understand business objectives, constraints, and opportunities." },
+  { title: "Assessment", description: "Audit current systems, security, and processes." },
+  { title: "Strategy", description: "Develop prioritized roadmap and success metrics." },
+  { title: "Implementation", description: "Deliver projects, integrations, and change management." },
+  { title: "Support", description: "Ongoing monitoring, optimization, and training." },
+];
+
+const features: FeatureItem[] = [
+  { title: "Expert Advisors", description: "Experienced consultants with practical delivery experience." },
+  { title: "Practical Roadmaps", description: "Realistic plans focused on impact and feasibility." },
+  { title: "Vendor Neutral", description: "We recommend best-fit solutions, not vendor lock-in." },
+  { title: "Local Support", description: "Calgary-based team for timely, on-the-ground assistance." },
+  { title: "Outcome Focused", description: "We measure success by real business results." },
+];
+
+const whySolutions: WhySolution[] = [
+  { icon: "Briefcase", title: "Business Strategy", description: "Align IT investments with business outcomes." },
+  { icon: "Users", title: "Team Enablement", description: "Train and enable teams to adopt new tools and processes." },
+  { icon: "Lightbulb", title: "Innovation", description: "Identify opportunities for digital advantage." },
+];
+
 const BusinessITConsulting: React.FC = () => {
   return (
     <>
       <Background />
       <Loader />
 
-      {/* Structured Data Script: Service & FAQPage */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -122,263 +176,174 @@ const BusinessITConsulting: React.FC = () => {
         }}
       />
 
-      {/* Hero Section */}
       <SectionWrapper>
         <HeroSection
           title="Business & IT Consulting Services in Calgary"
           subtitle={
             <>
-              At NuTab Digital, we empower organizations with expert business
-              and IT consulting to drive digital transformation, optimize
-              technology adoption, and accelerate growth. Our team delivers
-              actionable strategies tailored to your unique business needs.
+              At NuTab Digital, we empower organizations with expert business and IT consulting to drive digital transformation, optimize technology adoption, and accelerate growth. Our team delivers actionable strategies tailored to your unique business needs.
             </>
           }
           icons={[
-            {
-              icon: <Briefcase className="icon purple" />,
-              label: "Business Strategy",
-            },
-            {
-              icon: <Users className="icon blue" />,
-              label: "Team Enablement",
-            },
-            {
-              icon: <Lightbulb className="icon pink" />,
-              label: "Digital Innovation",
-            },
+            { icon: <Briefcase className="icon purple" />, label: "Business Strategy" },
+            { icon: <Users className="icon blue" />, label: "Team Enablement" },
+            { icon: <Lightbulb className="icon pink" />, label: "Digital Innovation" },
           ]}
           showCTA={true}
         />
       </SectionWrapper>
 
-      {/* Why Choose This Service */}
       <SectionWrapper>
-        <h2>Why Choose Business & IT Consulting?</h2>
-        <p>
-          <strong>Business and IT consulting</strong> helps you navigate complex
-          technology decisions, streamline operations, and unlock new growth
-          opportunities. Our consultants provide the expertise and insights you
-          need to stay competitive.
-        </p>
+        <ServicesWhySection
+          title="Why Choose Business & IT Consulting?"
+          description={
+            <>
+              Effective consulting combines practical experience with a clear roadmap to deliver measurable outcomes. We prioritize initiatives that reduce risk and accelerate value.
+            </>
+          }
+          solutions={whySolutions}
+          theme="gradient"
+          animated={true}
+          interactive={false}
+          columns={3}
+        />
       </SectionWrapper>
 
-      {/* Our Services */}
       <SectionWrapper>
-        <h2>Our Consulting Services</h2>
-        <ul>
-          <li>
-            <strong>Digital Transformation:</strong> Modernize your business
-            with the latest technologies and processes.
-          </li>
-          <li>
-            <strong>IT Strategy & Planning:</strong> Develop a roadmap for
-            technology adoption and integration.
-          </li>
-          <li>
-            <strong>Process Optimization:</strong> Improve efficiency and reduce
-            costs with streamlined workflows.
-          </li>
-          <li>
-            <strong>Change Management:</strong> Ensure smooth transitions during
-            technology upgrades or business changes.
-          </li>
-          <li>
-            <strong>Risk Assessment:</strong> Identify and mitigate technology
-            and business risks.
-          </li>
-        </ul>
+        <ServicesGrid
+          services={services}
+          title="Our Consulting Services"
+          subtitle="Practical services designed to align technology with business goals."
+          layout="grid"
+          columns={2}
+          theme="gradient"
+          animated={true}
+          showIcons={false}
+        />
       </SectionWrapper>
 
-      {/* Benefits of the Service */}
       <SectionWrapper>
-        <h2>Benefits of Business & IT Consulting</h2>
-        <ul>
-          <li>
-            <strong>Expert Guidance:</strong> Make informed decisions with help
-            from experienced consultants.
-          </li>
-          <li>
-            <strong>Efficiency:</strong> Streamline operations and maximize ROI.
-          </li>
-          <li>
-            <strong>Innovation:</strong> Stay ahead with the latest digital
-            solutions.
-          </li>
-          <li>
-            <strong>Scalability:</strong> Build a foundation for future growth.
-          </li>
-          <li>
-            <strong>Risk Reduction:</strong> Minimize risks and ensure business
-            continuity.
-          </li>
-        </ul>
+        <BenefitsSection
+          title="Benefits of Business & IT Consulting"
+          subtitle="Partnering with consultants can deliver strategic clarity and operational improvements."
+          benefits={benefits}
+        />
       </SectionWrapper>
 
-      {/* Industries We Serve */}
       <SectionWrapper>
-        <h2>Industries We Serve</h2>
-        <p>
-          Our <strong>business & IT consulting services</strong> support a wide
-          range of industries:
-        </p>
-        <ul style={{ listStyleType: "disc", paddingLeft: "2rem" }}>
-          <li>Healthcare</li>
-          <li>Finance</li>
-          <li>Retail</li>
-          <li>Manufacturing</li>
-          <li>Professional Services</li>
-        </ul>
+        <IndustryGrid
+          items={industries}
+          title="Industries We Serve"
+          subtitle="Our consulting services support a wide range of industries."
+          layout="pills"
+          theme="gradient"
+          animated={true}
+          columns={3}
+        />
       </SectionWrapper>
 
-      {/* How We Work */}
       <SectionWrapper>
-        <h2>How We Work</h2>
-        <ol>
-          <li>
-            <strong>Discovery:</strong> We assess your business goals and
-            challenges.
-          </li>
-          <li>
-            <strong>Strategy:</strong> Our team develops a tailored consulting
-            plan.
-          </li>
-          <li>
-            <strong>Implementation:</strong> We guide you through technology
-            adoption and process changes.
-          </li>
-          <li>
-            <strong>Support:</strong> Ongoing advice and optimization for
-            lasting results.
-          </li>
-        </ol>
+        <ProcessTimeline
+          steps={processSteps}
+          title="How We Work"
+          subtitle="A pragmatic, outcome-focused process to deliver results."
+          orientation="vertical"
+          theme="gradient"
+          animated={true}
+        />
       </SectionWrapper>
 
-      {/* Why Partner with NuTab Digital */}
       <SectionWrapper>
-        <h2>Why Partner with NuTab Digital?</h2>
-        <ul>
-          <li>
-            <strong>Experienced Consultants:</strong> Deep expertise in business
-            and IT strategy.
-          </li>
-          <li>
-            <strong>Tailored Solutions:</strong> Every engagement is customized
-            to your needs.
-          </li>
-          <li>
-            <strong>Local Support:</strong> Calgary-based team for responsive
-            service.
-          </li>
-          <li>
-            <strong>Long-Term Partnership:</strong> We’re committed to your
-            ongoing success.
-          </li>
-        </ul>
+        <FeatureGrid
+          title="Why Partner with NuTab Digital?"
+          subtitle={
+            <>
+              We combine strategy, technical expertise, and delivery experience to help organizations achieve their goals.
+            </>
+          }
+          features={features}
+          columns={2}
+          variant="gradient"
+          theme="gradient"
+          animated={true}
+          interactive={false}
+          showIcons={false}
+          size="md"
+          iconPosition="top"
+        />
       </SectionWrapper>
 
-      {/* Internal Links for SEO */}
       <SectionWrapper>
-        <h2>Related Services</h2>
-        <ul>
-          <li>
-            <a href="/services/ai-automation">AI & Automation Solutions</a>
-          </li>
-          <li>
-            <a href="/services/custom-software">Custom Software Development</a>
-          </li>
-          <li>
-            <a href="/services/seo-digital-marketing">
-              SEO & Digital Marketing
-            </a>
-          </li>
-        </ul>
+        <RelatedServicesSection
+          title="Related Services"
+          services={relatedServices}
+          variant="gradient"
+          theme="gradient"
+          animated={true}
+          interactive={true}
+          layout="centered"
+          columns={3}
+          showIcons={false}
+        />
       </SectionWrapper>
 
-      {/* Get Started Today */}
       <SectionWrapper>
-        <h2>Get Started Today</h2>
-        <p>
-          Ready to transform your business? Contact us to discuss your{" "}
-          <strong>business & IT consulting</strong> needs and discover how NuTab
-          Digital can help you achieve your goals.
+        <h2 className="gradient-title">Get Started Today</h2>
+        <p className="section-text">
+          Ready to transform your business? Contact us to discuss your business & IT consulting needs and discover how NuTab Digital can help you achieve your goals.
         </p>
         <GetQuoteButton />
       </SectionWrapper>
 
-      {/* FAQ */}
       <SectionWrapper className="section-wrapper--faq">
         <div className="faq">
           <header className="faq__header">
-            <h2>Frequently Asked Questions</h2>
-            <p className="faq__lead">
-              Quick answers to common questions about our business & IT
-              consulting services.
-            </p>
+            <h2 className="gradient-title">Frequently Asked Questions</h2>
+            <p className="faq__lead section-text">Quick answers to common questions about our business & IT consulting services.</p>
           </header>
           <div className="faq__list">
             <details className="faq__item">
               <summary className="faq__summary">
-                <h3 className="faq-question">
-                  What is business & IT consulting?
-                </h3>
+                <h3 className="faq-question">What is business & IT consulting?</h3>
               </summary>
-              <div className="faq-answer">
-                <p>
-                  Business & IT consulting provides expert advice on technology,
-                  strategy, and operations to help organizations achieve their
-                  goals and solve challenges.
-                </p>
+              <div className="faq-answer section-text">
+                <p>Business & IT consulting provides expert advice on technology, strategy, and operations to help organizations achieve their goals and solve challenges.</p>
               </div>
             </details>
+
             <details className="faq__item">
               <summary className="faq__summary">
-                <h3 className="faq-question">
-                  How can consulting help my business?
-                </h3>
+                <h3 className="faq-question">How can consulting help my business?</h3>
               </summary>
-              <div className="faq-answer">
-                <p>
-                  Consulting helps you make informed decisions, optimize
-                  processes, adopt new technologies, and drive growth.
-                </p>
+              <div className="faq-answer section-text">
+                <p>Consulting helps you make informed decisions, optimize processes, adopt new technologies, and drive growth.</p>
               </div>
             </details>
+
             <details className="faq__item">
               <summary className="faq__summary">
                 <h3 className="faq-question">Do you offer ongoing support?</h3>
               </summary>
-              <div className="faq-answer">
-                <p>
-                  Yes, we provide ongoing advice and optimization to ensure your
-                  business continues to succeed.
-                </p>
+              <div className="faq-answer section-text">
+                <p>Yes, we provide ongoing advice and optimization to ensure your business continues to succeed.</p>
               </div>
             </details>
+
             <details className="faq__item">
               <summary className="faq__summary">
-                <h3 className="faq-question">
-                  Can you help with digital transformation?
-                </h3>
+                <h3 className="faq-question">Can you help with digital transformation?</h3>
               </summary>
-              <div className="faq-answer">
-                <p>
-                  Absolutely! We specialize in guiding organizations through
-                  digital transformation and technology adoption.
-                </p>
+              <div className="faq-answer section-text">
+                <p>Absolutely! We specialize in guiding organizations through digital transformation and technology adoption.</p>
               </div>
             </details>
+
             <details className="faq__item">
               <summary className="faq__summary">
-                <h3 className="faq-question">
-                  Is consulting right for small businesses?
-                </h3>
+                <h3 className="faq-question">Is consulting right for small businesses?</h3>
               </summary>
-              <div className="faq-answer">
-                <p>
-                  Yes, our consulting services are tailored for businesses of
-                  all sizes, including startups and small enterprises.
-                </p>
+              <div className="faq-answer section-text">
+                <p>Yes, our consulting services are tailored for businesses of all sizes, including startups and small enterprises.</p>
               </div>
             </details>
           </div>

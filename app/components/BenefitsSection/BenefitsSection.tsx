@@ -1,6 +1,5 @@
 "use client";
 
-import { motion } from "framer-motion";
 import "./BenefitsSection.css";
 
 export interface Benefit {
@@ -46,30 +45,14 @@ export default function BenefitsSection({
     <section className="benefits-section">
       <div className="benefits-container">
         <div className="benefits-card">
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="benefits-title"
-          >
-            {title}
-          </motion.h2>
-          <p className="benefits-subtitle">
-            {subtitle}
-          </p>
+          <h2 className="benefits-title">{title}</h2>
+          <p className="benefits-subtitle">{subtitle}</p>
           <div className="benefits-grid">
             {benefits.map((benefit, idx) => (
-              <motion.div
-                key={benefit.title}
-                initial={{ opacity: 0, x: idx % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-                className="benefit-item"
-              >
+              <div key={`${benefit.title}-${idx}`} className="benefit-item">
                 <h3 className="benefit-title">{benefit.title}</h3>
                 <p className="benefit-description">{benefit.description}</p>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

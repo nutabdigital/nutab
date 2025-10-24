@@ -96,6 +96,10 @@
   line-height: 1.6;
 }
 
+.section-text{
+  margin-bottom: 2rem;
+}
+
 .faq__lead {
   margin: 0;
   color: rgba(192, 132, 252, 0.8);

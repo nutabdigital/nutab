@@ -199,7 +199,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
                       transition={{ delay: 0.07 * idx }}
                     >
                       <Link href={service.link} className="dropdown-item">
-                        {service.name}
+                        <span className="service-name">{service.name}</span>
                       </Link>
                     </motion.div>
                   ))}
@@ -207,6 +207,9 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
               )}
             </AnimatePresence>
           </div>
+
+          <Link href="/pricing" className="nav-link">Pricing</Link>
+
           <a
             href="#team"
             className={navLinkClasses(3)}
@@ -330,6 +333,13 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
                   )}
                 </AnimatePresence>
               </li>
+
+              <li>
+                <Link href="/pricing" onClick={() => setIsNavOpen(false)}>
+                  Pricing
+                </Link>
+              </li>
+
               <li>
                 <a href="#team" onClick={(e) => handleScroll(e, "team")}>
                   Our Team

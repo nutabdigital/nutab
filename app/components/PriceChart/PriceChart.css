@@ -20,7 +20,7 @@
 }
 
 .price-chart__intro .muted {
-  color: var(--muted, #6b7280);
+  color: var( #2d303a);
   font-weight: 600;
   letter-spacing: 0.02em;
   margin-bottom: 0.5rem;
@@ -32,7 +32,7 @@
 
 .price-intro {
   margin-top: 0.5rem;
-  color: var(--muted, #5b616a);
+  color: var(--muted, #2d303a);
   max-width: 60ch;
 }
 
@@ -77,8 +77,8 @@
   position: absolute;
   top: 12px;
   right: 12px;
-  background: #ffeaeb;
-  color: #b30015;
+  background: #00B388;
+  color: #ffffff;
   padding: 0.25rem 0.5rem;
   border-radius: 999px;
   font-weight: 700;
@@ -96,8 +96,9 @@
 
 .bundle__subtitle {
   margin: 0;
-  color: var(--muted, #6b7280);
+  color: var(--muted, #2d303a);
   font-size: 0.95rem;
+  font-weight: 400;
 }
 
 .bundle__price {
@@ -110,7 +111,7 @@
 
 .bundle__price-from {
   font-size: 0.85rem;
-  color: var(--muted, #6b7280);
+  color: var(--muted, #2d303a);
   font-weight: 700;
 }
 
@@ -121,7 +122,7 @@
 }
 
 .bundle__price-suffix {
-  color: var(--muted, #6b7280);
+  color: var(--muted, #2d303a);
   font-size: 0.95rem;
 }
 
@@ -158,6 +159,7 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
+  font-weight: 500;
 }
 
 /* Scope styles to only the SectionWrapper that contains PriceChart */
@@ -233,6 +235,8 @@
 [data-theme="dark"] .bundle__price-suffix { color: #97a9c6; }
 [data-theme="dark"] .bundle__features li { color: #dfe9fb; }
 [data-theme="dark"] .bundle__features li::before { color: #79a7ff; }
+[data-theme="dark"] .price-intro { color: #9fb0d0; }
+[data-theme="dark"] .price-chart__intro { color: #9fb0d0; }
 
 /* Ensure CTA button visible in dark mode */
 [data-theme="dark"] .price-chart .get-quote-button {

@@ -11,41 +11,44 @@ const bundles = [
 		subtitle: "Ideal for solo entrepreneurs",
 		price: "$899",
 		priceNumber: 899,
-		priceSuffix: "/one-time",
+		priceSuffix: "",
 		features: [
 			"Up to 3 polished pages",
 			"Responsive on all devices",
 			"Contact & inquiry forms",
-			"Basic on-page SEO",
+			"Fundamental SEO",
+			"30 days of post-launch support",
 		],
 	},
 	{
 		id: "growth",
 		title: "Growth Site",
 		subtitle: "For expanding businesses",
-		badge: "Popular",
+		badge: "Optimal",
 		price: "$1,799",
 		priceNumber: 1799,
-		priceSuffix: "/one-time",
+		priceSuffix: "Includes everything from the Essential plan",
 		features: [
 			"Up to 5 content-rich pages",
 			"Simple e‑commerce or shop setup",
 			"Booking / order intake integration",
-			"Enhanced SEO & indexing",
+			"Enhanced SEO",
 			"Basic analytics configuration",
+			"90 days of post-launch support",
 		],
 	},
 	{
 		id: "enterprise-pro",
 		title: "Enterprise Pro",
-		subtitle: "Full-stack digital platform",
+		subtitle: "For market leaders",
 		price: "$3,599",
 		priceNumber: 3599,
-		priceSuffix: "/one-time",
+		priceSuffix: "Includes everything from the Growth and Essential plans",
 		features: [
 			"10+ pages with custom layouts",
 			"Robust e‑commerce platform",
 			"Third‑party integrations & APIs",
+			"Comprehensive SEO strategy",
 			"Advanced analytics & reporting",
 			"Priority onboarding & support",
 		],
@@ -84,8 +87,7 @@ const PriceChart: React.FC = () => {
 				<p className="muted">Clear, predictable pricing</p>
 				<h2 id="pricing-heading">Pick the plan that matches your goals</h2>
 				<p id="pricing-desc" className="price-intro">
-					Starting-from pricing shown below. Each plan is tailored for
-					different stages of growth — contact us for a custom scope and exact
+					Starting-from pricing shown below. Contact us for a custom scope and exact
 					quote.
 				</p>
 			</div>

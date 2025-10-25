@@ -9,8 +9,8 @@ const bundles = [
 		id: "essential",
 		title: "Essential Site",
 		subtitle: "Ideal for solo entrepreneurs",
-		price: "$897",
-		priceNumber: 897,
+		price: "$899",
+		priceNumber: 899,
 		priceSuffix: "/one-time",
 		features: [
 			"Up to 3 polished pages",
@@ -24,8 +24,8 @@ const bundles = [
 		title: "Growth Site",
 		subtitle: "For expanding businesses",
 		badge: "Popular",
-		price: "$1,797",
-		priceNumber: 1797,
+		price: "$1,799",
+		priceNumber: 1799,
 		priceSuffix: "/one-time",
 		features: [
 			"Up to 5 content-rich pages",
@@ -39,8 +39,8 @@ const bundles = [
 		id: "enterprise-pro",
 		title: "Enterprise Pro",
 		subtitle: "Full-stack digital platform",
-		price: "$3,597",
-		priceNumber: 3597,
+		price: "$3,599",
+		priceNumber: 3599,
 		priceSuffix: "/one-time",
 		features: [
 			"10+ pages with custom layouts",

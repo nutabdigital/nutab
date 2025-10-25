@@ -1,8 +1,6 @@
 .price-chart {
-  width: 90%;
   max-width: 1200px;
   box-sizing: border-box;
-  padding: 3rem 2rem;
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -162,6 +160,21 @@
   justify-content: flex-start;
 }
 
+/* Scope styles to only the SectionWrapper that contains PriceChart */
+.section-wrapper:has(.price-chart) {
+  /* Your overrides for the wrapper itself */
+  /* e.g., padding, background, border, max-width, etc. */
+  width:90%;
+  margin-bottom: 20vh;
+}
+
+/* Optional: responsive variants */
+@media (max-width: 768px) {
+  .section-wrapper:has(.price-chart) {
+      width:80%;
+  }
+}
+
 /* Responsive */
 @media (max-width: 960px) {
   .price-chart__grid {
@@ -204,16 +217,6 @@
   .bundle__features li::before {
     font-size: 0.75rem;
   }
-}
-
-/* Dark mode (consistent with app patterns) */
-[data-theme="dark"] .price-chart {
-  background: linear-gradient(180deg, rgba(6,10,20,0.6), rgba(8,12,22,0.55));
-  color: #e6eef8;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
-  border: 1px solid rgba(255,255,255,0.03);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
 
 [data-theme="dark"] .bundle {

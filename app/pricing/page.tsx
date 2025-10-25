@@ -4,6 +4,7 @@ import Loader from "../components/Loader/Loader";
 import SectionWrapper from "../components/SectionWrapper/SectionWrapper";
 import PriceChart from "../components/PriceChart/PriceChart";
 import "./page.css";
+import Background from "../components/Background/Background";
 
 export const metadata: Metadata = {
   title: "Pricing - NuTab Digital",
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
 const PricingPage: React.FC = () => {
   return (
     <>
+      <Background /> 
       <Loader />
       <main className="pricing-main">
         <SectionWrapper className="section-wrapper--custom-padding pricing-section">

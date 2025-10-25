@@ -1,7 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
 import Loader from "../components/Loader/Loader";
-import SectionWrapper from "../components/SectionWrapper/SectionWrapper";
 import PriceChart from "../components/PriceChart/PriceChart";
 import "./page.css";
 import Background from "../components/Background/Background";
@@ -17,9 +16,7 @@ const PricingPage: React.FC = () => {
       <Background /> 
       <Loader />
       <main className="pricing-main">
-        <SectionWrapper className="section-wrapper--custom-padding pricing-section">
           <PriceChart />
-        </SectionWrapper>
       </main>
     </>
   );

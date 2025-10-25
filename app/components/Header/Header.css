@@ -131,7 +131,7 @@
 
 /* Smaller text for service names in dropdown / mobile list */
 .dropdown-item .service-name {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
 }
 
 @media (min-width: 600px) {

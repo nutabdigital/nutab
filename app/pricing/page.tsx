@@ -16,10 +16,6 @@ const PricingPage: React.FC = () => {
       <Loader />
       <main className="pricing-main">
         <SectionWrapper className="section-wrapper--custom-padding pricing-section">
-          <h1 className="pricing-title">Our Pricing</h1>
-          <p className="pricing-lead">
-            Clear, flexible plans tailored to your stage of growth.
-          </p>
           <PriceChart />
         </SectionWrapper>
       </main>

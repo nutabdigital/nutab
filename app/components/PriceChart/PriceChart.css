@@ -18,8 +18,8 @@
     0 8px 32px rgba(0, 0, 0, 0.1),
     inset 0 1px 0 rgba(255, 255, 255, 0.5);
 
-  /* scale entire price chart to 70% of original */
-  transform: scale(0.70);
+  /* scale entire price chart to 90% of original */
+  transform: scale(0.90);
   transform-origin: top center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -41,9 +41,10 @@
 
 .price-chart__intro .muted {
   color: #6b7280;
-  font-weight: 600;
+  font-weight: 400;
   letter-spacing: 0.02em;
   margin-bottom: 0.5rem;
+  font-size: 2rem;
 }
 
 #pricing-heading {
@@ -52,6 +53,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
+  font-size: 1.5rem;
 }
 
 .price-intro {
@@ -163,7 +165,7 @@
 
 .bundle__price-amount {
   font-size: 2rem;
-  font-weight: 800;
+  font-weight: 600;
   background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
   -webkit-background-clip: text;
   background-clip: text;

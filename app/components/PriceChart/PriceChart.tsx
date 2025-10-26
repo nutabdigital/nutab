@@ -61,13 +61,53 @@ const ldJson = {
 	name: "NuTab Digital — Pricing Bundles",
 	itemListElement: bundles.map((b, index) => ({
 		"@type": "Offer",
+		position: index + 1,
 		name: b.title,
-		description: b.subtitle + " — includes: " + b.features.join("; "),
+		description: `${b.subtitle}. Includes: ${b.features.join(", ")}`,
 		price: b.priceNumber,
 		priceCurrency: "CAD",
-		url: "/#contact",
-		position: index + 1,
+		availability: "https://schema.org/InStock",
+		url: `https://nutab.ca/pricing#${b.id}`,
+		seller: {
+			"@type": "Organization",
+			name: "NuTab Digital",
+			url: "https://nutab.ca",
+		},
+		priceSpecification: {
+			"@type": "UnitPriceSpecification",
+			price: b.priceNumber,
+			priceCurrency: "CAD",
+			valueAddedTaxIncluded: false,
+		},
+		itemOffered: {
+			"@type": "Service",
+			name: b.title,
+			serviceType: "Web Design and Development",
+			provider: {
+				"@type": "Organization",
+				name: "NuTab Digital",
+			},
+		},
 	})),
+};
+
+const breadcrumbJson = {
+	"@context": "https://schema.org",
+	"@type": "BreadcrumbList",
+	itemListElement: [
+		{
+			"@type": "ListItem",
+			position: 1,
+			name: "Home",
+			item: "https://nutab.ca",
+		},
+		{
+			"@type": "ListItem",
+			position: 2,
+			name: "Pricing",
+			item: "https://nutab.ca/pricing",
+		},
+	],
 };
 
 const PriceChart: React.FC = () => {
@@ -84,12 +124,12 @@ const PriceChart: React.FC = () => {
 			/>
 
 			<div className="price-chart__intro">
-				<p className="muted">Clear, predictable pricing</p>
-				<h2 id="pricing-heading">Pick the plan that matches your goals</h2>
-				<p id="pricing-desc" className="price-intro">
-					Starting-from pricing shown below. Contact us for a custom scope and exact
-					quote.
-				</p>
+				<h1 className="muted">Simple, transparent pricing</h1>
+				<h2 id="pricing-heading">Find your perfect package</h2>
+				<h3 id="pricing-desc" className="price-intro">
+					All prices are starting points. We'll tailor a solution that matches your
+					exact needs.
+				</h3>
 			</div>
 
 			<div className="price-chart__grid">

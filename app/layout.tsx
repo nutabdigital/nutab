@@ -122,18 +122,34 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
 
-        {/* Google Tag (gtag.js) */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-BSE95BQFCB"></script>
+        {/* Google Tag Manager – deferred load */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-BSE95BQFCB');
-            `,
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    `,
           }}
         />
+
+        {/* Load the GTM script after render */}
+        <script
+          defer
+          src="https://www.googletagmanager.com/gtag/js?id=G-BSE95BQFCB"
+        />
+
+        <script
+          defer
+          dangerouslySetInnerHTML={{
+            __html: `
+      window.addEventListener('load', function() {
+        gtag('config', 'G-BSE95BQFCB', { send_page_view: true });
+      });
+    `,
+          }}
+        />
+
 
       </head>
       <body className={tomorrow.className}>

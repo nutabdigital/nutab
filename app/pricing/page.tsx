@@ -6,32 +6,31 @@ import "./page.css";
 import Background from "../components/Background/Background";
 
 export const metadata: Metadata = {
-  title: "Web Design Pricing | Transparent Packages Starting at $899 | NuTab Digital",
+  title: "Pricing | Web Design Packages | NuTab Digital",
   description:
-    "Professional web design packages for Canadian businesses. Essential ($899), Growth ($1,799), and Enterprise ($3,599) plans with clear deliverables. No hidden fees.",
+    "Transparent web design pricing. Essential ($899), Growth ($1,799), Enterprise Pro ($3,599). Custom solutions with no hidden fees.",
   openGraph: {
-    title: "Web Design Pricing | NuTab Digital",
+    title: "Pricing | Web Design Packages | NuTab Digital",
     description:
-      "Professional web design packages starting at $899. Transparent pricing, clear deliverables, custom solutions for Canadian businesses.",
+      "Web design packages starting at $899. Transparent pricing with clear deliverables.",
     url: "https://nutab.ca/pricing",
     siteName: "NuTab Digital",
     locale: "en_CA",
     type: "website",
     images: [
       {
-        url: "https://nutab.ca/photos/3d-nutab-logo.webp",
-        width: 600,
-        height: 600,
-        alt:
-          "NuTab Digital pricing packages comparison - Essential, Growth, and Enterprise plans",
+        url: "https://nutab.ca/og-pricing.jpg", // Create 1200x630 image, not logo
+        width: 1200,
+        height: 630,
+        alt: "NuTab Digital web design pricing - Essential, Growth, Enterprise Pro packages",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Web Design Pricing | NuTab Digital",
-    description: "Professional web design packages starting at $899. Transparent pricing for Canadian businesses.",
-    images: ["https://nutab.ca/photos/3d-nutab-logo.webp"],
+    title: "Pricing | Web Design Packages | NuTab Digital",
+    description: "Web design packages starting at $899. Transparent pricing with clear deliverables.",
+    images: ["https://nutab.ca/og-pricing.jpg"],
   },
   alternates: {
     canonical: "https://nutab.ca/pricing",

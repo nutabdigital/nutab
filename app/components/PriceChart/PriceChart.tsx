@@ -57,13 +57,14 @@ const bundles = [
 
 const ldJson = {
 	"@context": "https://schema.org",
-	"@type": "OfferCatalog",
-	name: "NuTab Digital — Pricing Bundles",
+	"@type": "ItemList", // Changed from OfferCatalog - better for Google in 2025
+	name: "NuTab Digital Web Design Pricing",
+	description: "Transparent web design packages with clear deliverables",
 	itemListElement: bundles.map((b, index) => ({
 		"@type": "Offer",
 		position: index + 1,
 		name: b.title,
-		description: `${b.subtitle}. Includes: ${b.features.join(", ")}`,
+		description: `${b.subtitle}. ${b.features.join(", ")}`,
 		price: b.priceNumber,
 		priceCurrency: "CAD",
 		availability: "https://schema.org/InStock",
@@ -77,7 +78,7 @@ const ldJson = {
 			"@type": "UnitPriceSpecification",
 			price: b.priceNumber,
 			priceCurrency: "CAD",
-			valueAddedTaxIncluded: false,
+			// REMOVE: valueAddedTaxIncluded - unnecessary
 		},
 		itemOffered: {
 			"@type": "Service",
@@ -110,6 +111,45 @@ const breadcrumbJson = {
 	],
 };
 
+const faqSchema = {
+	"@context": "https://schema.org",
+	"@type": "FAQPage",
+	mainEntity: [
+		{
+			"@type": "Question",
+			name: "How much does a website cost?",
+			acceptedAnswer: {
+				"@type": "Answer",
+				text: "Our web design packages start at $899 for Essential, $1,799 for Growth, and $3,599 for Enterprise Pro. All prices are starting points and can be customized to your specific needs.",
+			},
+		},
+		{
+			"@type": "Question",
+			name: "What's included in each package?",
+			acceptedAnswer: {
+				"@type": "Answer",
+				text: "Each package includes professionally designed pages, mobile optimization, SEO setup, and post-launch support. Higher tiers add e-commerce, analytics, integrations, and extended support periods.",
+			},
+		},
+		{
+			"@type": "Question",
+			name: "Do you offer payment plans?",
+			acceptedAnswer: {
+				"@type": "Answer",
+				text: "Yes, we offer flexible payment options. Contact us to discuss a payment plan that works for your budget.",
+			},
+		},
+		{
+			"@type": "Question",
+			name: "Can I upgrade my package later?",
+			acceptedAnswer: {
+				"@type": "Answer",
+				text: "Absolutely. You can upgrade to a higher tier at any time, and we'll credit your initial investment toward the new package.",
+			},
+		},
+	],
+};
+
 const PriceChart: React.FC = () => {
 	return (
 		<section
@@ -121,6 +161,14 @@ const PriceChart: React.FC = () => {
 				type="application/ld+json"
 				// JSON-LD included for rich snippet guidance
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(ldJson) }}
+			/>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
+			/>
+			<script
+				type="application/ld+json"
+				dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
 			/>
 
 			<div className="price-chart__intro">
@@ -159,16 +207,18 @@ const PriceChart: React.FC = () => {
 						>
 							<span className="bundle__price-from">Starting from</span>
 							<meta itemProp="priceCurrency" content="CAD" />
-							<meta itemProp="url" content="/#contact" />
+							<meta itemProp="url" content="https://nutab.ca/pricing" /> {/* Fixed URL */}
+							<meta itemProp="availability" content="https://schema.org/InStock" />
 							<span
 								className="bundle__price-amount"
 								itemProp="price"
 								content={String(b.priceNumber)}
-								aria-hidden="false"
 							>
 								{b.price}
 							</span>
-							<span className="bundle__price-suffix">{b.priceSuffix}</span>
+							{b.priceSuffix && (
+								<span className="bundle__price-suffix">{b.priceSuffix}</span>
+							)}
 						</div>
 
 						<ul
@@ -176,9 +226,7 @@ const PriceChart: React.FC = () => {
 							aria-label={`${b.title} features`}
 						>
 							{b.features.map((f, i) => (
-								<li key={i} itemProp="serviceOutput">
-									{f}
-								</li>
+								<li key={i}>{f}</li>
 							))}
 						</ul>
 

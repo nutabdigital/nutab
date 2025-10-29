@@ -8,12 +8,30 @@ import { Tomorrow } from "next/font/google";
 const ModelWrapper = dynamic(() => import("./context/ModelWrapper"), { ssr: false });
 
 export const metadata: Metadata = {
-  title: "NuTab Digital - Custom Software Development in Calgary, Alberta",
+  title: "NuTab Digital - Custom Software Development | Calgary",
   description:
-    "NuTab Digital offers custom software solutions, mobile & web app development, SEO & digital marketing, and e-commerce development in Calgary, Alberta. We provide tailored software solutions for businesses and individuals.",
-  keywords:
-    "custom software solutions, mobile app development, web app development, SEO, digital marketing, e-commerce development, Calgary, Alberta, NuTab Digital, software company Calgary, software development Calgary",
+    "Custom software solutions, mobile & web app development, SEO & digital marketing, and e-commerce development in Calgary, Alberta.",
   robots: "index, follow",
+  openGraph: {
+    title: "NuTab Digital - Custom Software Development | Calgary",
+    description: "Custom software solutions, mobile & web app development, SEO & digital marketing in Calgary, Alberta.",
+    url: "https://nutab.ca",
+    siteName: "NuTab Digital",
+    images: [{
+      url: "https://nutab.ca/og-home.jpg", // Create proper 1200x630 image
+      width: 1200,
+      height: 630,
+      alt: "NuTab Digital - Calgary Software Development"
+    }],
+    locale: "en_CA",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "NuTab Digital - Custom Software Development | Calgary",
+    description: "Custom software solutions in Calgary, Alberta.",
+    images: ["https://nutab.ca/og-home.jpg"],
+  },
 };
 
 const tomorrow = Tomorrow({
@@ -74,49 +92,13 @@ const structuredData = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  // structuredData and other server-side logic here
-
-  // export default function RootLayout({
-  //   children,
-  // }: Readonly<{
-  //   children: React.ReactNode;
-  // }>) {
-
   return (
     <html lang="en">
       <head>
+        {/* Keep ONLY these - everything else is in metadata object above */}
         <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
-        <link
-          rel="icon"
-          type="image/png"
-          sizes="32x32"
-          href="/icons/favicon-32x32.png"
-        />
-        <meta
-          name="description"
-          content="NuTab Digital offers custom software solutions, mobile & web app development, SEO & digital marketing, and e-commerce development in Calgary, Alberta. We provide tailored software solutions for businesses and individuals."
-        />
-        <meta
-          name="keywords"
-          content="custom software solutions, mobile app development, web app development, SEO, digital marketing, e-commerce development, Calgary, Alberta, NuTab Digital, software company Calgary, software development Calgary"
-        />
-        <meta name="robots" content="index, follow" />
-
-        {/* Open Graph Meta Tags */}
-        <meta property="og:title" content="NuTab Digital - Custom Software Development in Calgary, Alberta" />
-        <meta property="og:description" content="NuTab Digital offers custom software solutions, mobile & web app development, SEO & digital marketing, and e-commerce development in Calgary, Alberta. We provide tailored software solutions for businesses and individuals." />
-        <meta property="og:image" content="https://nutab.ca/photos/nutab-logo.png" />
-        <meta property="og:url" content="https://nutab.ca" />
-        <meta property="og:type" content="website" />
-        <meta property="og:locale" content="en_US" />
-
-        {/* Twitter Meta Tags */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="NuTab Digital - Custom Software Development in Calgary, Alberta" />
-        <meta name="twitter:description" content="NuTab Digital offers custom software solutions, mobile & web app development, SEO & digital marketing, and e-commerce development in Calgary, Alberta. We provide tailored software solutions for businesses and individuals." />
-        <meta name="twitter:image" content="https://nutab.ca/photos/nutab-logo.png" />
-
-        {/* Properly insert JSON-LD structured data to avoid hydration issues */}
+        <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

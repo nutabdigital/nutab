@@ -19,9 +19,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://nutab.ca/og-pricing.jpg", // Create 1200x630 image, not logo
+        url: "https://nutab.ca/photos/og-pricing.jpg", // Updated path
         width: 1200,
-        height: 630,
+        height: 800,
         alt: "NuTab Digital web design pricing - Essential, Growth, Enterprise Pro packages",
       },
     ],
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pricing | Web Design Packages | NuTab Digital",
     description: "Web design packages starting at $899. Transparent pricing with clear deliverables.",
-    images: ["https://nutab.ca/og-pricing.jpg"],
+    images: ["https://nutab.ca/photos/og-pricing.jpg"], // Updated path
   },
   alternates: {
     canonical: "https://nutab.ca/pricing",

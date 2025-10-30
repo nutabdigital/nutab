@@ -18,9 +18,9 @@ export const metadata: Metadata = {
     url: "https://nutab.ca",
     siteName: "NuTab Digital",
     images: [{
-      url: "https://nutab.ca/og-home.jpg", // Create proper 1200x630 image
+      url: "https://nutab.ca/photos/og-home.jpg", // Updated path
       width: 1200,
-      height: 630,
+      height: 800,
       alt: "NuTab Digital - Calgary Software Development"
     }],
     locale: "en_CA",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "NuTab Digital - Custom Software Development | Calgary",
     description: "Custom software solutions in Calgary, Alberta.",
-    images: ["https://nutab.ca/og-home.jpg"],
+    images: ["https://nutab.ca/photos/og-home.jpg"], // Updated path
   },
 };
 
@@ -44,49 +44,144 @@ const tomorrow = Tomorrow({
 // Define structured data as a JavaScript object
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": ["Organization", "LocalBusiness"],
+  "@id": "https://nutab.ca/#organization",
   "name": "NuTab Digital",
   "url": "https://nutab.ca",
   "logo": "https://nutab.ca/icons/logo-light.svg",
-  "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+1-587-707-2495",
-    "contactType": "Customer Service",
-  },
+  "image": "https://nutab.ca/photos/og-home.jpg",
+  "telephone": "+1-587-707-2495",
   "address": {
     "@type": "PostalAddress",
     "addressLocality": "Calgary",
     "addressRegion": "AB",
     "addressCountry": "CA",
   },
-  "department": [
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+1-587-707-2495",
+    "contactType": "customer service",
+    "areaServed": "CA",
+    "availableLanguage": ["en"],
+  },
+  "sameAs": [],
+  "areaServed": {
+    "@type": "Country",
+    "name": "Canada"
+  },
+  "priceRange": "$$",
+  "makesOffer": [
     {
-      "@type": "Organization",
-      "name": "Custom Software Solutions",
-      "url": "https://nutab.ca#custom-software",
-      "description": "We create custom software that streamlines operations and boosts efficiency, tailored to your business needs.",
-      "keywords": "custom software solutions, enterprise software, SaaS solutions, bespoke applications"
+      "@type": "Offer",
+      "url": "https://nutab.ca/services/custom-software",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Custom Software Development",
+        "description": "Tailored custom software that streamlines operations and boosts efficiency for businesses.",
+        "serviceType": "Software Development",
+        "provider": {
+          "@type": "Organization",
+          "name": "NuTab Digital"
+        }
+      }
     },
     {
-      "@type": "Organization",
-      "name": "Mobile & Web App Development",
-      "url": "https://nutab.ca#app-development",
-      "description": "We create user-friendly apps that provide seamless experiences and help businesses engage customers.",
-      "keywords": "mobile app development, web app development, iOS development, Android development, user engagement, mobile experiences"
+      "@type": "Offer",
+      "url": "https://nutab.ca/services/mobile-web-app-development",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Mobile & Web App Development",
+        "description": "User-friendly mobile and web applications that provide seamless experiences and drive customer engagement.",
+        "serviceType": "Application Development",
+        "provider": {
+          "@type": "Organization",
+          "name": "NuTab Digital"
+        }
+      }
     },
     {
-      "@type": "Organization",
-      "name": "SEO & Digital Marketing",
-      "url": "https://nutab.ca#seo-digital-marketing",
-      "description": "Enhance online visibility and attract customers with SEO and targeted digital marketing strategies.",
-      "keywords": "SEO, digital marketing, online visibility, customer attraction, targeted marketing"
+      "@type": "Offer",
+      "url": "https://nutab.ca/services/seo-digital-marketing",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "SEO & Digital Marketing",
+        "description": "Search engine optimization and targeted digital marketing strategies to enhance online visibility.",
+        "serviceType": "Marketing Services",
+        "provider": {
+          "@type": "Organization",
+          "name": "NuTab Digital"
+        }
+      }
     },
     {
-      "@type": "Organization",
-      "name": "E-Commerce Development",
-      "url": "https://nutab.ca#ecommerce-development",
-      "description": "Build scalable e-commerce sites with seamless shopping experiences, secure payments, and inventory management.",
-      "keywords": "e-commerce development, scalable e-commerce, shopping experiences, secure payments, inventory management"
+      "@type": "Offer",
+      "url": "https://nutab.ca/services/ecommerce-development",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "E-Commerce Development",
+        "description": "Scalable e-commerce websites with secure payments, inventory management, and seamless shopping experiences.",
+        "serviceType": "E-Commerce Development",
+        "provider": {
+          "@type": "Organization",
+          "name": "NuTab Digital"
+        }
+      }
+    },
+    {
+      "@type": "Offer",
+      "url": "https://nutab.ca/services/ai-automation",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "AI & Automation Solutions",
+        "description": "Intelligent automation and AI-powered solutions to optimize business processes and increase efficiency.",
+        "serviceType": "Automation Services",
+        "provider": {
+          "@type": "Organization",
+          "name": "NuTab Digital"
+        }
+      }
+    },
+    {
+      "@type": "Offer",
+      "url": "https://nutab.ca/services/business-it-consulting",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Business & IT Consulting",
+        "description": "Strategic technology consulting to align IT infrastructure with business goals and drive digital transformation.",
+        "serviceType": "Consulting Services",
+        "provider": {
+          "@type": "Organization",
+          "name": "NuTab Digital"
+        }
+      }
+    },
+    {
+      "@type": "Offer",
+      "url": "https://nutab.ca/services/graphic-brand-design",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Graphic & Brand Design",
+        "description": "Creative graphic design and brand identity services to establish strong visual presence and brand recognition.",
+        "serviceType": "Design Services",
+        "provider": {
+          "@type": "Organization",
+          "name": "NuTab Digital"
+        }
+      }
+    },
+    {
+      "@type": "Offer",
+      "url": "https://nutab.ca/services/photography-media-production",
+      "itemOffered": {
+        "@type": "Service",
+        "name": "Photography & Media Production",
+        "description": "Professional photography and media production services for compelling visual content and brand storytelling.",
+        "serviceType": "Media Production",
+        "provider": {
+          "@type": "Organization",
+          "name": "NuTab Digital"
+        }
+      }
     }
   ]
 };

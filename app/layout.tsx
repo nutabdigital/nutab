@@ -31,6 +31,8 @@ export const metadata: Metadata = {
     title: "NuTab Digital - Custom Software Development | Calgary",
     description: "Custom software solutions in Calgary, Alberta.",
     images: ["https://nutab.ca/photos/og-home.jpg"], // Updated path
+    site: "@NuTabDigital",
+    creator: "@NuTabDigital",
   },
 };
 
@@ -64,7 +66,12 @@ const structuredData = {
     "areaServed": "CA",
     "availableLanguage": ["en"],
   },
-  "sameAs": [],
+  "sameAs": [
+    "https://www.instagram.com/nutab_digital/",
+    "https://twitter.com/NuTabDigital",
+    "https://www.facebook.com/profile.php?id=61575073651409",
+    "https://www.linkedin.com/company/nutab-digital-inc/"
+  ],
   "areaServed": {
     "@type": "Country",
     "name": "Canada"
@@ -193,7 +200,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {/* Keep ONLY these - everything else is in metadata object above */}
         <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
-        
+
+        {/* Social verification/SEO */}
+        <link rel="me" href="https://www.instagram.com/nutab_digital/" />
+        <link rel="me" href="https://x.com/NuTabDigital" />
+        <link rel="me" href="https://www.facebook.com/profile.php?id=61575073651409" />
+        <link rel="me" href="https://www.linkedin.com/company/nutab-digital-inc/" />
+
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}

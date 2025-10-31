@@ -1,5 +1,5 @@
 import React from "react";
-import Loader from "../../components/Loader/Loader";
+// import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import "./page.css";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
@@ -103,7 +103,7 @@ const AIAutomation: React.FC = () => {
   return (
     <>
       <Background />
-      <Loader />
+      {/* <Loader /> */}
 
       <script
         type="application/ld+json"

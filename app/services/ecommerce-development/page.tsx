@@ -1,5 +1,5 @@
 import React from "react";
-import Loader from "../../components/Loader/Loader";
+// import dynamic from "next/dynamic";
 import Background from "../../components/Background/Background";
 import "./page.css";
 import { Metadata } from "next";
@@ -14,6 +14,8 @@ import IndustryGrid, { IndustryItem } from "../../components/IndustryGrid/Indust
 import ProcessTimeline, { ProcessStep } from "../../components/ProcessTimeline/ProcessTimeline";
 import FeatureGrid, { FeatureItem } from "../../components/FeatureGrid/FeatureGrid";
 import RelatedServicesSection, { RelatedServiceItem } from "../../components/RelatedServicesSection/RelatedServicesSection";
+
+// const Loader = dynamic(() => import("../../components/Loader/Loader"), { ssr: false });
 
 export const generateMetadata = (): Metadata => ({
   title: "E-Commerce Development Services in Calgary - NuTab Digital",
@@ -30,9 +32,9 @@ export const generateMetadata = (): Metadata => ({
     siteName: "NuTab Digital",
     images: [
       {
-        url: "https://nutab.ca/photos/3d-nutab-logo.png",
-        width: 600,
-        height: 600,
+        url: "https://nutab.ca/photos/og-home.jpg", // 1200x800 existing
+        width: 1200,
+        height: 800,
         alt: "E-Commerce Development Services in Calgary",
       },
     ],
@@ -44,7 +46,7 @@ export const generateMetadata = (): Metadata => ({
     title: "E-Commerce Development Services in Calgary - NuTab Digital",
     description:
       "NuTab Digital offers e-commerce development services in Calgary, Alberta. Build scalable, user-friendly online stores tailored to your business needs.",
-    images: ["https://nutab.ca/photos/3d-nutab-logo.png"],
+    images: ["https://nutab.ca/photos/og-home.jpg"],
   },
 });
 
@@ -104,7 +106,8 @@ const EcommerceDevelopment: React.FC = () => {
   return (
     <>
       <Background />
-      <Loader />
+      {/* Consider moving <Loader /> to the end or remove on service pages */}
+      {/* <Loader /> */}
 
       <script
         type="application/ld+json"
@@ -112,15 +115,24 @@ const EcommerceDevelopment: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
+            "@id": "https://nutab.ca/services/ecommerce-development#service",
+            url: "https://nutab.ca/services/ecommerce-development",
             name: "E-Commerce Development",
+            serviceType: "E-Commerce Development",
             description:
               "We create user-friendly e-commerce platforms tailored to your business needs.",
             provider: {
               "@type": "Organization",
               name: "NuTab Digital",
               url: "https://nutab.ca",
+              sameAs: [
+                "https://www.instagram.com/nutab_digital/",
+                "https://twitter.com/NuTabDigital",
+                "https://www.facebook.com/profile.php?id=61575073651409",
+                "https://www.linkedin.com/company/nutab-digital-inc/"
+              ]
             },
-            areaServed: "Calgary, Alberta",
+            areaServed: { "@type": "AdministrativeArea", name: "Calgary, AB" }
           }),
         }}
       />
@@ -313,6 +325,9 @@ const EcommerceDevelopment: React.FC = () => {
           </div>
         </div>
       </SectionWrapper>
+
+      {/* Render Loader at the end so content is immediately visible */}
+      {/* <Loader /> */}
     </>
   );
 };

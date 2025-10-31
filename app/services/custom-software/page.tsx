@@ -202,7 +202,7 @@ const CustomSoftwareSolutions: React.FC = () => {
 
   return (
     <>
-      <Loader />
+      {/* <Loader /> */}
       <Background />
 
       <script

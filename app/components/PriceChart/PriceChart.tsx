@@ -92,25 +92,6 @@ const ldJson = {
 	})),
 };
 
-const breadcrumbJson = {
-	"@context": "https://schema.org",
-	"@type": "BreadcrumbList",
-	itemListElement: [
-		{
-			"@type": "ListItem",
-			position: 1,
-			name: "Home",
-			item: "https://nutab.ca",
-		},
-		{
-			"@type": "ListItem",
-			position: 2,
-			name: "Pricing",
-			item: "https://nutab.ca/pricing",
-		},
-	],
-};
-
 const faqSchema = {
 	"@context": "https://schema.org",
 	"@type": "FAQPage",
@@ -161,10 +142,6 @@ const PriceChart: React.FC = () => {
 				type="application/ld+json"
 				// JSON-LD included for rich snippet guidance
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(ldJson) }}
-			/>
-			<script
-				type="application/ld+json"
-				dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJson) }}
 			/>
 			<script
 				type="application/ld+json"

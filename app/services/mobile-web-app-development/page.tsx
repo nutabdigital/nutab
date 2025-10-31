@@ -1,5 +1,5 @@
 import React from "react";
-import Loader from "../../components/Loader/Loader";
+// import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import "./page.css";
 import { Metadata } from "next";
@@ -104,7 +104,7 @@ const MobileWebAppDevelopment: React.FC = () => {
   return (
     <>
       <Background />
-      <Loader />
+      {/* <Loader /> */}
 
       <script
         type="application/ld+json"

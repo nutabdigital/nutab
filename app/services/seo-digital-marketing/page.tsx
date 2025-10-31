@@ -1,5 +1,5 @@
 import React from "react";
-import Loader from "../../components/Loader/Loader";
+// import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import "./page.css";
 import { Metadata } from "next";
@@ -104,7 +104,7 @@ const SEODigitalMarketing: React.FC = () => {
   return (
     <>
       <Background />
-      <Loader />
+      {/* <Loader /> */}
 
       {/* Structured Data */}
       <script

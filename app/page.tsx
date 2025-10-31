@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState, Suspense } from "react";
-import Loader from "./components/Loader/Loader";
+// import Loader from "./components/Loader/Loader";
 import Tagline from "./components/Tagline/Tagline";
 import About from "./components/About/About";
 import Services from "./components/ServicesSummary/Services";
@@ -78,7 +78,7 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      <Loader />
+      {/* <Loader /> */}
       <div className="gradient-background"></div>
 
       {/* === Hero placeholder for LCP === */}

@@ -163,16 +163,14 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
             onMouseLeave={() => setIsServicesOpen(false)}
             tabIndex={0}
           >
-            <a
-              href="#services"
+            {/* Navigate to /services when clicked */}
+            <Link
+              href="/services"
               className={navLinkClasses(2)}
-              onClick={(e) => handleScroll(e, "services")}
+              onClick={() => setIsServicesOpen(false)}
               aria-haspopup="true"
               aria-expanded={isServicesOpen}
-              style={{
-                display: "flex",
-                alignItems: "center",
-              }}
+              style={{ display: "flex", alignItems: "center" }}
             >
               <span>Services</span>
               <ChevronDown
@@ -180,7 +178,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
                 size={18}
                 strokeWidth={2}
               />
-            </a>
+            </Link>
             <AnimatePresence>
               {isServicesOpen && (
                 <motion.div
@@ -252,8 +250,9 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
             className="mob-right-nav open-nav"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 100 }} // <-- slide out to right when closing
+            exit={{ opacity: 0, x: 100 }}
             transition={{ duration: 0.3 }}
+            aria-label="Primary" // clarify this is the main nav
           >
             <ul>
               <li>
@@ -268,19 +267,15 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
                   onClick={(e) => {
                     e.preventDefault();
 
-                    // Toggle the sublist
-                    setIsMobileServicesOpen((open) => !open);
-
                     if (!isMobileServicesOpen) {
-                      // Only scroll if we're opening the menu
-                      if (window.location.pathname === "/") {
-                        scrollToSection("services", 10);
-                      } else {
-                        router.push("/#services");
-                        setTimeout(() => scrollToSection("services", 10), 200);
-                      }
+                      // First tap: open sublist only
+                      setIsMobileServicesOpen(true);
+                    } else {
+                      // Second tap: go to Services page and close the drawer
+                      setIsMobileServicesOpen(false);
+                      setIsNavOpen(false);
+                      router.push("/services");
                     }
-                    // If sublist was already open, clicking again just closes it
                   }}
                   aria-expanded={isMobileServicesOpen}
                   style={{

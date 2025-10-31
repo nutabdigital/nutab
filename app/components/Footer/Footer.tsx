@@ -1,5 +1,6 @@
 import React from "react";
 import { FaLinkedin, FaInstagram, FaFacebook } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6"; // X logo
 import "./Footer.css";
 
 const Footer: React.FC = () => {
@@ -31,6 +32,14 @@ const Footer: React.FC = () => {
               aria-label="NuTab Digital Facebook"
             >
               <FaFacebook size={24} />
+            </a>
+            <a
+              href="https://x.com/NuTabDigital"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="NuTab Digital on X (Twitter)"
+            >
+              <FaXTwitter size={24} />
             </a>
           </div>
           <p className="rights-text">

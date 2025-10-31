@@ -237,9 +237,6 @@
     font-weight: bolder;
   }
 
-  .open-nav {
-  }
-
   /* -- MOBILE MENU -- */
 
   .mobile-controls {
@@ -347,10 +344,6 @@
 
   [data-theme="dark"] .mobile-services-toggle{
     color: #fff !important;
-  }
-
-   [data-theme="dark"] .mobile-services-toggle:hover{
-     /* background: linear-gradient(90deg, #9333ea 0%, #312e81 100%) !important; */
   }
 
   [data-theme="dark"] .mob-right-nav a:hover,

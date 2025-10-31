@@ -195,18 +195,30 @@ const structuredData = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
+    <html lang="en" data-theme="dark">
       <head>
-        {/* Keep ONLY these - everything else is in metadata object above */}
+        {/* No-flash of incorrect theme: set data-theme ASAP */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+(function() {
+  try {
+    var t = localStorage.getItem('theme');
+    document.documentElement.setAttribute('data-theme', t || 'dark');
+  } catch (e) {
+    document.documentElement.setAttribute('data-theme','dark');
+  }
+})();`,
+          }}
+        />
+        <meta name="color-scheme" content="dark light" />
         <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
-
         {/* Social verification/SEO */}
         <link rel="me" href="https://www.instagram.com/nutab_digital/" />
         <link rel="me" href="https://x.com/NuTabDigital" />
         <link rel="me" href="https://www.facebook.com/profile.php?id=61575073651409" />
         <link rel="me" href="https://www.linkedin.com/company/nutab-digital-inc/" />
-
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
@@ -245,7 +257,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={tomorrow.className}>
         <AppClientProviders>{children}</AppClientProviders>
       </body>
-
     </html>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import Loader from "../components/Loader/Loader";
+// import Loader from "../components/Loader/Loader";
 import Background from "../components/Background/Background";
 import SectionWrapper from "../components/SectionWrapper/SectionWrapper";
 import PriceChart from "../components/PriceChart/PriceChart";
@@ -12,7 +12,7 @@ export const metadata = {
 
 const PackagesPage: React.FC = () => (
   <>
-    <Loader />
+    {/* <Loader /> */}
     <Background />
     <main className="pricing-main">
       <SectionWrapper className="section-wrapper--custom-padding">

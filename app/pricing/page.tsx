@@ -1,9 +1,10 @@
 import React from "react";
 import type { Metadata } from "next";
-import Loader from "../components/Loader/Loader";
+// import Loader from "../components/Loader/Loader";
 import PriceChart from "../components/PriceChart/PriceChart";
 import "./page.css";
 import Background from "../components/Background/Background";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Pricing | Web Design Packages | NuTab Digital",
@@ -45,7 +46,32 @@ const PricingPage: React.FC = () => {
   return (
     <>
       <Background /> 
-      <Loader />
+      {/* <Loader /> */}
+
+      {/* Visible breadcrumbs (SSR) */}
+      <nav aria-label="Breadcrumb" className="breadcrumbs">
+        <ol>
+          <li><Link href="/">Home</Link></li>
+          <li aria-current="page">Pricing</li>
+        </ol>
+      </nav>
+
+      {/* Breadcrumb JSON-LD (SSR, matches visible trail) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "@id": "https://nutab.ca/pricing#breadcrumb",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://nutab.ca" },
+              { "@type": "ListItem", position: 2, name: "Pricing", item: "https://nutab.ca/pricing" },
+            ],
+          }),
+        }}
+      />
+
       <main className="pricing-main">
           <PriceChart />
       </main>

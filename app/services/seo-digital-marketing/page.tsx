@@ -145,7 +145,7 @@ const SEODigitalMarketing: React.FC = () => {
                 name: "How long does it take to see SEO results?",
                 acceptedAnswer: {
                   "@type": "Answer",
-                  text: "SEO is a medium-to-long term strategy; meaningful results commonly appear in 3–6 months depending on competition and site health."
+                  text: "Results depend on competition and the current state of your site, but noticeable improvements often appear within 3–6 months."
                 }
               },
               {

@@ -57,7 +57,7 @@ const bundles = [
 
 const ldJson = {
 	"@context": "https://schema.org",
-	"@type": "ItemList", // Changed from OfferCatalog - better for Google in 2025
+	"@type": "ItemList",
 	name: "NuTab Digital Web Design Pricing",
 	description: "Transparent web design packages with clear deliverables",
 	itemListElement: bundles.map((b, index) => ({
@@ -131,21 +131,18 @@ const faqSchema = {
 	],
 };
 
-const PriceChart: React.FC = () => {
+export default function PriceChart() {
 	return (
 		<section
 			className="price-chart"
 			aria-labelledby="pricing-heading"
 			aria-describedby="pricing-desc"
 		>
+			{/* JSON-LD (consider SSR on the pricing page for best reliability) */}
 			<script
 				type="application/ld+json"
-				// JSON-LD included for rich snippet guidance
+				suppressHydrationWarning
 				dangerouslySetInnerHTML={{ __html: JSON.stringify(ldJson) }}
-			/>
-			<script
-				type="application/ld+json"
-				dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
 			/>
 
 			<div className="price-chart__intro">
@@ -216,5 +213,3 @@ const PriceChart: React.FC = () => {
 		</section>
 	);
 };
-
-export default PriceChart;

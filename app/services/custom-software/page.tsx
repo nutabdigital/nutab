@@ -201,7 +201,7 @@ const CustomSoftwareSolutions: React.FC = () => {
   ];
 
   return (
-    <>
+    <main id="main-content" role="main" tabIndex={-1}>
       {/* <Loader /> */}
       <Background />
 
@@ -315,6 +315,8 @@ const CustomSoftwareSolutions: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
+        {/* Ensure a proper h2 landmark for heading hierarchy (visually-hidden for layout) */}
+        <h2 className="sr-only">Why Choose Custom Software Development</h2>
         <ServicesWhySection
           title="Why Choose Custom Software Development?"
           description={
@@ -529,7 +531,7 @@ const CustomSoftwareSolutions: React.FC = () => {
           </div>
         </div>
       </SectionWrapper>
-    </>
+    </main>
   );
 };
 

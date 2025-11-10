@@ -81,7 +81,7 @@ export function ServicesWhySection({
               viewport={{ once: true }}
               className="services-why-title"
             >
-              {title}
+              <h2>{title}</h2>
             </MotionDiv>
           )}
 

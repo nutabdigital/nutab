@@ -103,7 +103,7 @@ const whySolutions: WhySolution[] = [
 
 const PhotographyMediaProduction: React.FC = () => {
   return (
-    <>
+    <main id="main-content" role="main" tabIndex={-1}>
       <Background />
       {/* <Loader /> */}
 
@@ -362,7 +362,7 @@ const PhotographyMediaProduction: React.FC = () => {
           </div>
         </div>
       </SectionWrapper>
-    </>
+    </main>
   );
 };
 

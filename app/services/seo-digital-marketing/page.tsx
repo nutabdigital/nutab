@@ -103,7 +103,7 @@ const whySolutions: WhySolution[] = [
 
 const SEODigitalMarketing: React.FC = () => {
   return (
-    <>
+    <main id="main-content" role="main" tabIndex={-1}>
       <Background />
       {/* <Loader /> */}
 
@@ -331,7 +331,7 @@ const SEODigitalMarketing: React.FC = () => {
           </div>
         </div>
       </SectionWrapper>
-    </>
+    </main>
   );
 };
 

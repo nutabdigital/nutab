@@ -105,9 +105,8 @@ const whySolutions: WhySolution[] = [
 
 const EcommerceDevelopment: React.FC = () => {
   return (
-    <>
+    <main id="main-content" role="main" tabIndex={-1}>
       <Background />
-      {/* Consider moving <Loader /> to the end or remove on service pages */}
       {/* <Loader /> */}
 
       {/* Breadcrumbs JSON-LD */}
@@ -126,6 +125,7 @@ const EcommerceDevelopment: React.FC = () => {
         }}
       />
 
+      {/* Service JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -136,8 +136,7 @@ const EcommerceDevelopment: React.FC = () => {
             url: "https://nutab.ca/services/ecommerce-development",
             name: "E-Commerce Development",
             serviceType: "E-Commerce Development",
-            description:
-              "We create user-friendly e-commerce platforms tailored to your business needs.",
+            description: "We create user-friendly e-commerce platforms tailored to your business needs.",
             provider: {
               "@type": "Organization",
               name: "NuTab Digital",
@@ -153,6 +152,8 @@ const EcommerceDevelopment: React.FC = () => {
           }),
         }}
       />
+
+      {/* FAQ JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -345,7 +346,7 @@ const EcommerceDevelopment: React.FC = () => {
 
       {/* Render Loader at the end so content is immediately visible */}
       {/* <Loader /> */}
-    </>
+    </main>
   );
 };
 

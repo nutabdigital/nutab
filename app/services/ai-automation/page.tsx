@@ -102,7 +102,7 @@ const whySolutions: WhySolution[] = [
 
 const AIAutomation: React.FC = () => {
   return (
-    <>
+    <main id="main-content" role="main" tabIndex={-1}>
       <Background />
       {/* <Loader /> */}
 
@@ -371,7 +371,7 @@ const AIAutomation: React.FC = () => {
           </div>
         </div>
       </SectionWrapper>
-    </>
+    </main>
   );
 };
 

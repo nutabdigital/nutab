@@ -191,7 +191,7 @@ const whySolutions: WhySolution[] = [
 
 const BusinessITConsulting: React.FC = () => {
   return (
-    <>
+    <main id="main-content" role="main" tabIndex={-1}>
       <Background />
       {/* <Loader /> */}
 
@@ -510,7 +510,7 @@ const BusinessITConsulting: React.FC = () => {
           </div>
         </div>
       </SectionWrapper>
-    </>
+    </main>
   );
 };
 

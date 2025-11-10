@@ -28,7 +28,8 @@ export const metadata: Metadata = {
 
 export default function ServicesIndex() {
   return (
-    <>
+    <main id="main-content" role="main" tabIndex={-1}>
+      {/* tabIndex={-1} enables programmatic focus; no visual rendering */}
       <Background />
 
       {/* Visible breadcrumbs (SSR) */}
@@ -38,8 +39,7 @@ export default function ServicesIndex() {
           <li aria-current="page">Services</li>
         </ol>
       </nav>
-
-      {/* Breadcrumb JSON-LD (matches visible trail) */}
+      {/* JSON-LD below is machine-readable only; it does not render anything visually */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -58,6 +58,6 @@ export default function ServicesIndex() {
       <div className="services-summary-wrapper">
         <ServicesSummary />
       </div>
-    </>
+    </main>
   );
 }

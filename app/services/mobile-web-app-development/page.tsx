@@ -103,7 +103,7 @@ const whySolutions: WhySolution[] = [
 
 const MobileWebAppDevelopment: React.FC = () => {
   return (
-    <>
+    <main id="main-content" role="main" tabIndex={-1}>
       <Background />
       {/* <Loader /> */}
 
@@ -331,7 +331,7 @@ const MobileWebAppDevelopment: React.FC = () => {
           </div>
         </div>
       </SectionWrapper>
-    </>
+    </main>
   );
 };
 

@@ -103,7 +103,7 @@ const whySolutions: WhySolution[] = [
 
 const GraphicBrandDesign: React.FC = () => {
   return (
-    <>
+    <main id="main-content" role="main" tabIndex={-1}>
       <Background />
       {/* <Loader /> */}
 
@@ -330,7 +330,7 @@ const GraphicBrandDesign: React.FC = () => {
           </div>
         </div>
       </SectionWrapper>
-    </>
+    </main>
   );
 };
 

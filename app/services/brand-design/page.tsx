@@ -151,15 +151,29 @@ const GraphicBrandDesign: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
+            "@id": "https://nutab.ca/services/brand-design#service",
             name: "Graphic & Brand Design",
             description:
               "Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
+            serviceType: "Graphic & Brand Design",
+            url: "https://nutab.ca/services/brand-design",
+            image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            dateModified: "2025-11-10",
             provider: {
-              "@type": "Organization",
-              name: "NuTab Digital",
-              url: "https://nutab.ca",
+              "@id": "https://nutab.ca/#organization"
             },
-            areaServed: "Calgary, Alberta",
+            areaServed: {
+              "@type": "City",
+              name: "Calgary",
+              containedIn: {
+                "@type": "AdministrativeArea",
+                name: "Alberta"
+              }
+            },
+            availableChannel: {
+              "@type": "ServiceChannel",
+              serviceUrl: "https://nutab.ca/services/brand-design"
+            }
           }),
         }}
       />

@@ -151,14 +151,28 @@ const MobileWebAppDevelopment: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
+            "@id": "https://nutab.ca/services/app-development#service",
             name: "Mobile & Web App Development",
             description: "We create user-friendly mobile and web applications tailored to your business needs.",
+            serviceType: "Mobile & Web App Development",
+            url: "https://nutab.ca/services/app-development",
+            image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            dateModified: "2025-11-10",
             provider: {
-              "@type": "Organization",
-              name: "NuTab Digital",
-              url: "https://nutab.ca",
+              "@id": "https://nutab.ca/#organization"
             },
-            areaServed: "Calgary, Alberta",
+            areaServed: {
+              "@type": "City",
+              name: "Calgary",
+              containedIn: {
+                "@type": "AdministrativeArea",
+                name: "Alberta"
+              }
+            },
+            availableChannel: {
+              "@type": "ServiceChannel",
+              serviceUrl: "https://nutab.ca/services/app-development"
+            }
           }),
         }}
       />

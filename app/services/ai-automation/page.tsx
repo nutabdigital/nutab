@@ -158,15 +158,29 @@ const AIAutomation: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
+            "@id": "https://nutab.ca/services/ai-automation#service",
             name: "AI & Automation Solutions",
             description:
               "Leverage artificial intelligence and automation to improve efficiency, reduce manual tasks, and make smarter decisions.",
+            serviceType: "AI & Automation",
+            url: "https://nutab.ca/services/ai-automation",
+            image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            dateModified: "2025-11-10",
             provider: {
-              "@type": "Organization",
-              name: "NuTab Digital",
-              url: "https://nutab.ca",
+              "@id": "https://nutab.ca/#organization"
             },
-            areaServed: "Calgary, Alberta",
+            areaServed: {
+              "@type": "City",
+              name: "Calgary",
+              containedIn: {
+                "@type": "AdministrativeArea",
+                name: "Alberta"
+              }
+            },
+            availableChannel: {
+              "@type": "ServiceChannel",
+              serviceUrl: "https://nutab.ca/services/ai-automation"
+            }
           }),
         }}
       />

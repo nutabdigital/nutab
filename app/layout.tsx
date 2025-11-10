@@ -214,6 +214,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="color-scheme" content="dark light" />
         <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
+        
+        {/* Sitemap reference for SEO */}
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+        
         {/* Social verification/SEO */}
         <link rel="me" href="https://www.instagram.com/nutab_digital/" />
         <link rel="me" href="https://x.com/NuTabDigital" />

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Background from "../components/Background/Background";
 import ServicesSummary from "../components/ServicesSummary/Services";
+import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
 import "./page.css";
-import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Services | NuTab Digital",
@@ -32,13 +32,11 @@ export default function ServicesIndex() {
       {/* tabIndex={-1} enables programmatic focus; no visual rendering */}
       <Background />
 
-      {/* Visible breadcrumbs (SSR) */}
-      <nav aria-label="Breadcrumb" className="breadcrumbs">
-        <ol>
-          <li><Link href="/">Home</Link></li>
-          <li aria-current="page">Services</li>
-        </ol>
-      </nav>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services" }
+      ]} />
+
       {/* JSON-LD below is machine-readable only; it does not render anything visually */}
       <script
         type="application/ld+json"

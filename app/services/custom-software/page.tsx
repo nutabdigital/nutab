@@ -272,11 +272,22 @@ const CustomSoftwareSolutions: React.FC = () => {
             description:
               "NuTab Digital builds bespoke software in Calgary that streamlines operations, integrates with your stack, and scales with your business.",
             image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            dateModified: "2025-11-10",
             provider: {
-              "@type": "Organization",
-              "@id": "https://nutab.ca/#organization" // matches Organization in app/layout.tsx
+              "@id": "https://nutab.ca/#organization"
             },
-            areaServed: "Calgary, Alberta"
+            areaServed: {
+              "@type": "City",
+              name: "Calgary",
+              containedIn: {
+                "@type": "AdministrativeArea",
+                name: "Alberta"
+              }
+            },
+            availableChannel: {
+              "@type": "ServiceChannel",
+              serviceUrl: "https://nutab.ca/services/custom-software"
+            }
           }),
         }}
       />

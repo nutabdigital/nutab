@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import PriceChart from "../components/PriceChart/PriceChart";
 import "./page.css";
 import Background from "../components/Background/Background";
-import Link from "next/link";
+import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
 
 export const metadata: Metadata = {
   title: "Pricing | Web Design Packages | NuTab Digital",
@@ -43,16 +43,13 @@ export const metadata: Metadata = {
 
 const PricingPage: React.FC = () => {
   return (
-    <>
+    <main id="main-content" role="main" tabIndex={-1} className="pricing-main">
       <Background /> 
 
-      {/* Visible breadcrumbs (SSR) */}
-      <nav aria-label="Breadcrumb" className="breadcrumbs">
-        <ol>
-          <li><Link href="/">Home</Link></li>
-          <li aria-current="page">Pricing</li>
-        </ol>
-      </nav>
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Pricing" }
+      ]} />
 
       {/* Breadcrumb JSON-LD (SSR, matches visible trail) */}
       <script
@@ -70,10 +67,8 @@ const PricingPage: React.FC = () => {
         }}
       />
 
-      <main id="main-content" role="main" tabIndex={-1} className="pricing-main">
-        <PriceChart />
-      </main>
-    </>
+      <PriceChart />
+    </main>
   );
 };
 

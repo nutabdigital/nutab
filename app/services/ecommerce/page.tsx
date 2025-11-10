@@ -159,18 +159,23 @@ const EcommerceDevelopment: React.FC = () => {
             name: "E-Commerce Development",
             serviceType: "E-Commerce Development",
             description: "We create user-friendly e-commerce platforms tailored to your business needs.",
+            image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            dateModified: "2025-11-10",
             provider: {
-              "@type": "Organization",
-              name: "NuTab Digital",
-              url: "https://nutab.ca",
-              sameAs: [
-                "https://www.instagram.com/nutab_digital/",
-                "https://twitter.com/NuTabDigital",
-                "https://www.facebook.com/profile.php?id=61575073651409",
-                "https://www.linkedin.com/company/nutab-digital-inc/"
-              ]
+              "@id": "https://nutab.ca/#organization"
             },
-            areaServed: { "@type": "AdministrativeArea", name: "Calgary, AB" }
+            areaServed: {
+              "@type": "City",
+              name: "Calgary",
+              containedIn: {
+                "@type": "AdministrativeArea",
+                name: "Alberta"
+              }
+            },
+            availableChannel: {
+              "@type": "ServiceChannel",
+              serviceUrl: "https://nutab.ca/services/ecommerce"
+            }
           }),
         }}
       />

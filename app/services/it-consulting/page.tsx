@@ -262,15 +262,29 @@ const BusinessITConsulting: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
+            "@id": "https://nutab.ca/services/it-consulting#service",
             name: "Business & IT Consulting",
             description:
               "Expert guidance on digital transformation, technology adoption, and growth strategies tailored to your business.",
+            serviceType: "Business & IT Consulting",
+            url: "https://nutab.ca/services/it-consulting",
+            image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            dateModified: "2025-11-10",
             provider: {
-              "@type": "Organization",
-              name: "NuTab Digital",
-              url: "https://nutab.ca",
+              "@id": "https://nutab.ca/#organization"
             },
-            areaServed: "Calgary, Alberta",
+            areaServed: {
+              "@type": "City",
+              name: "Calgary",
+              containedIn: {
+                "@type": "AdministrativeArea",
+                name: "Alberta"
+              }
+            },
+            availableChannel: {
+              "@type": "ServiceChannel",
+              serviceUrl: "https://nutab.ca/services/it-consulting"
+            }
           }),
         }}
       />

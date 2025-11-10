@@ -23,7 +23,6 @@ export const generateMetadata = (): Metadata => ({
   alternates: {
     canonical: "https://nutab.ca/services/photo-media",
   },
-  robots: { index: true, follow: true },
   openGraph: {
     title: "Photography & Media Production Services in Calgary - NuTab Digital",
     description:

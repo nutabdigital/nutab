@@ -22,7 +22,6 @@ export const generateMetadata = (): import("next").Metadata => ({
   alternates: {
     canonical: "https://nutab.ca/services/ai-automation",
   },
-  robots: { index: true, follow: true },
   openGraph: {
     title: "AI & Automation Solutions in Calgary - NuTab Digital",
     description:

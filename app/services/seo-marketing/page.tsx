@@ -23,7 +23,6 @@ export const generateMetadata = (): Metadata => ({
   alternates: {
     canonical: "https://nutab.ca/services/seo-marketing",
   },
-  robots: { index: true, follow: true },
   openGraph: {
     title: "SEO & Digital Marketing Services in Calgary - NuTab Digital",
     description:

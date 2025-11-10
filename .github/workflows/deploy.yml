@@ -75,6 +75,22 @@ jobs:
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
       - name: Build with Next.js
         run: ${{ steps.detect-package-manager.outputs.runner }} next build
+      - name: Compress static assets
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y brotli
+          
+          # Compress HTML, JS, CSS, JSON, XML with Brotli (best compression)
+          find out -type f \( -name '*.html' -o -name '*.js' -o -name '*.css' -o -name '*.json' -o -name '*.xml' \) -exec brotli -f -k {} \;
+          
+          # Also create gzip versions for older browsers
+          find out -type f \( -name '*.html' -o -name '*.js' -o -name '*.css' -o -name '*.json' -o -name '*.xml' \) -exec gzip -9fk {} \;
+          
+          # Show compression stats
+          echo "Compression complete. Original size:"
+          du -sh out/
+          echo "Compressed files created:"
+          find out -type f \( -name '*.br' -o -name '*.gz' \) | wc -l
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

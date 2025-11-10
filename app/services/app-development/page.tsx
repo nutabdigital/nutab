@@ -23,7 +23,6 @@ export const generateMetadata = (): Metadata => ({
   alternates: {
     canonical: "https://nutab.ca/services/app-development",
   },
-  robots: { index: true, follow: true },
   openGraph: {
     title: "Mobile & Web App Development Services in Calgary - NuTab Digital",
     description:

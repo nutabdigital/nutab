@@ -35,10 +35,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://nutab.ca/pricing",
   },
-  robots: {
-    index: true,
-    follow: true,
-  },
 };
 
 const PricingPage: React.FC = () => {

@@ -8,7 +8,6 @@ export const metadata: Metadata = {
   title: "Services | NuTab Digital",
   description: "Explore NuTab Digital services.",
   alternates: { canonical: "https://nutab.ca/services" },
-  robots: { index: true, follow: true },
   openGraph: {
     title: "Services | NuTab Digital",
     description: "Explore NuTab Digital services.",

@@ -33,7 +33,6 @@ export const generateMetadata = (): Metadata => ({
   alternates: {
     canonical: "https://nutab.ca/services/custom-software",
   },
-  robots: { index: true, follow: true }, // <-- explicit
   openGraph: {
     title: "Custom Software Development Services in Calgary - NuTab Digital",
     description:

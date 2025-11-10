@@ -37,7 +37,6 @@ export const generateMetadata = (): Metadata => ({
   alternates: {
     canonical: "https://nutab.ca/services/it-consulting",
   },
-  robots: { index: true, follow: true },
   openGraph: {
     title: "Business & IT Consulting Services in Calgary - NuTab Digital",
     description:

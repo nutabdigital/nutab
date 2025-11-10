@@ -23,7 +23,6 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://nutab.ca/services/brand-design",
   },
-  robots: { index: true, follow: true },
   openGraph: {
     title: "Graphic & Brand Design Services in Calgary - NuTab Digital",
     description:

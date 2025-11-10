@@ -20,14 +20,14 @@ export const generateMetadata = (): Metadata => ({
   description:
     "NuTab Digital offers photography and media production services in Calgary, Alberta. High-quality photography and media for websites, marketing campaigns, and brand storytelling.",
   alternates: {
-    canonical: "https://nutab.ca/services/photography-media-production",
+    canonical: "https://nutab.ca/services/photo-media",
   },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Photography & Media Production Services in Calgary - NuTab Digital",
     description:
       "NuTab Digital offers photography and media production services in Calgary, Alberta. High-quality photography and media for websites, marketing campaigns, and brand storytelling.",
-    url: "https://nutab.ca/services/photography-media-production",
+    url: "https://nutab.ca/services/photo-media",
     siteName: "NuTab Digital",
     images: [
       {
@@ -67,8 +67,8 @@ const industries: IndustryItem[] = [
 
 const relatedServices: RelatedServiceItem[] = [
   { label: "Custom Software Development", link: "/services/custom-software" },
-  { label: "Business IT Consulting", link: "/services/business-it-consulting" },
-  { label: "SEO & Digital Marketing", link: "/services/seo-digital-marketing" },
+  { label: "Business IT Consulting", link: "/services/it-consulting" },
+  { label: "SEO & Digital Marketing", link: "/services/seo-marketing" },
 ];
 
 const benefits: Benefit[] = [
@@ -117,7 +117,7 @@ const PhotographyMediaProduction: React.FC = () => {
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://nutab.ca" },
               { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services" },
-              { "@type": "ListItem", position: 3, name: "Photography & Media Production", item: "https://nutab.ca/services/photography-media-production" }
+              { "@type": "ListItem", position: 3, name: "Photography & Media Production", item: "https://nutab.ca/services/photo-media" }
             ]
           }),
         }}

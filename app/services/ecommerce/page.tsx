@@ -22,14 +22,14 @@ export const generateMetadata = (): Metadata => ({
   description:
     "NuTab Digital offers e-commerce development services in Calgary, Alberta. Build scalable, user-friendly online stores tailored to your business needs.",
   alternates: {
-    canonical: "https://nutab.ca/services/ecommerce-development",
+    canonical: "https://nutab.ca/services/ecommerce",
   },
   robots: { index: true, follow: true },
   openGraph: {
     title: "E-Commerce Development Services in Calgary - NuTab Digital",
     description:
       "NuTab Digital offers e-commerce development services in Calgary, Alberta. Build scalable, user-friendly online stores tailored to your business needs.",
-    url: "https://nutab.ca/services/ecommerce-development",
+    url: "https://nutab.ca/services/ecommerce",
     siteName: "NuTab Digital",
     images: [
       {
@@ -69,8 +69,8 @@ const industries: IndustryItem[] = [
 
 const relatedServices: RelatedServiceItem[] = [
   { label: "Custom Software Development", link: "/services/custom-software" },
-  { label: "Business IT Consulting", link: "/services/business-it-consulting" },
-  { label: "SEO & Digital Marketing", link: "/services/seo-digital-marketing" },
+  { label: "Business IT Consulting", link: "/services/it-consulting" },
+  { label: "SEO & Digital Marketing", link: "/services/seo-marketing" },
 ];
 
 const benefits: Benefit[] = [
@@ -119,7 +119,7 @@ const EcommerceDevelopment: React.FC = () => {
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://nutab.ca" },
               { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services" },
-              { "@type": "ListItem", position: 3, name: "E-Commerce Development", item: "https://nutab.ca/services/ecommerce-development" }
+              { "@type": "ListItem", position: 3, name: "E-Commerce Development", item: "https://nutab.ca/services/ecommerce" }
             ]
           }),
         }}
@@ -132,8 +132,8 @@ const EcommerceDevelopment: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "@id": "https://nutab.ca/services/ecommerce-development#service",
-            url: "https://nutab.ca/services/ecommerce-development",
+            "@id": "https://nutab.ca/services/ecommerce#service",
+            url: "https://nutab.ca/services/ecommerce",
             name: "E-Commerce Development",
             serviceType: "E-Commerce Development",
             description: "We create user-friendly e-commerce platforms tailored to your business needs.",

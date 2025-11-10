@@ -66,8 +66,8 @@ const industries: IndustryItem[] = [
 
 const relatedServices: RelatedServiceItem[] = [
   { label: "Custom Software Development", link: "/services/custom-software" },
-  { label: "Business IT Consulting", link: "/services/business-it-consulting" },
-  { label: "SEO & Digital Marketing", link: "/services/seo-digital-marketing" },
+  { label: "Business IT Consulting", link: "/services/it-consulting" },
+  { label: "SEO & Digital Marketing", link: "/services/seo-marketing" },
 ];
 
 const benefits: Benefit[] = [

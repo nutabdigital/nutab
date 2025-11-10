@@ -1,6 +1,5 @@
 import React from "react";
 import type { Metadata } from "next";
-// import Loader from "../components/Loader/Loader";
 import PriceChart from "../components/PriceChart/PriceChart";
 import "./page.css";
 import Background from "../components/Background/Background";
@@ -20,7 +19,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://nutab.ca/photos/og-pricing.jpg", // Updated path
+        url: "https://nutab.ca/photos/og-pricing.jpg",
         width: 1200,
         height: 800,
         alt: "NuTab Digital web design pricing - Essential, Growth, Enterprise Pro packages",
@@ -31,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Pricing | Web Design Packages | NuTab Digital",
     description: "Web design packages starting at $899. Transparent pricing with clear deliverables.",
-    images: ["https://nutab.ca/photos/og-pricing.jpg"], // Updated path
+    images: ["https://nutab.ca/photos/og-pricing.jpg"],
   },
   alternates: {
     canonical: "https://nutab.ca/pricing",
@@ -46,7 +45,6 @@ const PricingPage: React.FC = () => {
   return (
     <>
       <Background /> 
-      {/* <Loader /> */}
 
       {/* Visible breadcrumbs (SSR) */}
       <nav aria-label="Breadcrumb" className="breadcrumbs">
@@ -72,8 +70,8 @@ const PricingPage: React.FC = () => {
         }}
       />
 
-      <main className="pricing-main">
-          <PriceChart />
+      <main id="main-content" role="main" tabIndex={-1} className="pricing-main">
+        <PriceChart />
       </main>
     </>
   );

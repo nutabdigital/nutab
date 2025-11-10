@@ -34,14 +34,14 @@ export const generateMetadata = (): Metadata => ({
   description:
     "NuTab Digital offers business and IT consulting services in Calgary, Alberta. Get expert guidance on digital transformation, technology adoption, and growth strategies tailored to your business.",
   alternates: {
-    canonical: "https://nutab.ca/services/business-it-consulting",
+    canonical: "https://nutab.ca/services/it-consulting",
   },
   robots: { index: true, follow: true },
   openGraph: {
     title: "Business & IT Consulting Services in Calgary - NuTab Digital",
     description:
       "NuTab Digital offers business and IT consulting services in Calgary, Alberta. Get expert guidance on digital transformation, technology adoption, and growth strategies tailored to your business.",
-    url: "https://nutab.ca/services/business-it-consulting",
+    url: "https://nutab.ca/services/it-consulting",
     siteName: "NuTab Digital",
     images: [
       {
@@ -96,9 +96,9 @@ const industries: IndustryItem[] = [
 ];
 
 const relatedServices: RelatedServiceItem[] = [
-  { label: "AI & Automation Solutions", link: "/services/ai-automation" },
   { label: "Custom Software Development", link: "/services/custom-software" },
-  { label: "SEO & Digital Marketing", link: "/services/seo-digital-marketing" },
+  { label: "AI & Automation Solutions", link: "/services/ai-automation" },
+  { label: "SEO & Digital Marketing", link: "/services/seo-marketing" },
 ];
 
 const benefits: Benefit[] = [
@@ -219,7 +219,7 @@ const BusinessITConsulting: React.FC = () => {
                 "@type": "ListItem",
                 position: 3,
                 name: "Business IT Consulting",
-                item: "https://nutab.ca/services/business-it-consulting",
+                item: "https://nutab.ca/services/it-consulting",
               },
             ],
           }),

@@ -103,11 +103,11 @@ const relatedServices: RelatedServiceItem[] = [
   },
   {
     label: "Business IT Consulting",
-    link: "/services/business-it-consulting",
+    link: "/services/it-consulting",
   },
   {
     label: "SEO & Digital Marketing",
-    link: "/services/seo-digital-marketing",
+    link: "/services/seo-marketing",
   },
 ];
 

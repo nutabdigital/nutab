@@ -28,7 +28,7 @@ const services = [
 		name: "Mobile & Web App Development",
 		description:
 			"We create user-friendly apps that provide seamless experiences and help businesses engage customers.",
-		link: "/services/mobile-web-app-development",
+		link: "/services/app-development",
 	},
 	{
 		icon: "line-chart",
@@ -36,7 +36,7 @@ const services = [
 		name: "SEO & Digital Marketing",
 		description:
 			"Enhance online visibility and attract customers with SEO and targeted digital marketing strategies.",
-		link: "/services/seo-digital-marketing",
+		link: "/services/seo-marketing",
 	},
 	{
 		icon: "shopping-cart",
@@ -44,7 +44,7 @@ const services = [
 		name: "E-Commerce Development",
 		description:
 			"Build scalable e-commerce sites with seamless shopping experiences, secure payments, and inventory management.",
-		link: "/services/ecommerce-development",
+		link: "/services/ecommerce",
 	},
 	{
 		icon: "brain",
@@ -60,7 +60,7 @@ const services = [
 		name: "Business & IT Consulting",
 		description:
 			"Get expert guidance on digital transformation, technology adoption, and growth strategies tailored to your business.",
-		link: "/services/business-it-consulting",
+		link: "/services/it-consulting",
 	},
 	{
 		icon: "pen-tool",
@@ -68,7 +68,7 @@ const services = [
 		name: "Graphic & Brand Design",
 		description:
 			"Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
-		link: "/services/graphic-brand-design",
+		link: "/services/brand-design",
 	},
 	{
 		icon: "camera",
@@ -76,7 +76,7 @@ const services = [
 		name: "Photography & Media Production",
 		description:
 			"High-quality photography and media services for websites, marketing campaigns, and brand storytelling.",
-		link: "/services/photography-media-production",
+		link: "/services/photo-media",
 	},
 ];
 

@@ -94,7 +94,7 @@ const structuredData = {
     },
     {
       "@type": "Offer",
-      "url": "https://nutab.ca/services/mobile-web-app-development",
+      "url": "https://nutab.ca/services/app-development",
       "itemOffered": {
         "@type": "Service",
         "name": "Mobile & Web App Development",
@@ -108,7 +108,7 @@ const structuredData = {
     },
     {
       "@type": "Offer",
-      "url": "https://nutab.ca/services/seo-digital-marketing",
+      "url": "https://nutab.ca/services/seo-marketing",
       "itemOffered": {
         "@type": "Service",
         "name": "SEO & Digital Marketing",
@@ -122,7 +122,7 @@ const structuredData = {
     },
     {
       "@type": "Offer",
-      "url": "https://nutab.ca/services/ecommerce-development",
+      "url": "https://nutab.ca/services/ecommerce",
       "itemOffered": {
         "@type": "Service",
         "name": "E-Commerce Development",
@@ -150,7 +150,7 @@ const structuredData = {
     },
     {
       "@type": "Offer",
-      "url": "https://nutab.ca/services/business-it-consulting",
+      "url": "https://nutab.ca/services/it-consulting",
       "itemOffered": {
         "@type": "Service",
         "name": "Business & IT Consulting",
@@ -164,7 +164,7 @@ const structuredData = {
     },
     {
       "@type": "Offer",
-      "url": "https://nutab.ca/services/graphic-brand-design",
+      "url": "https://nutab.ca/services/brand-design",
       "itemOffered": {
         "@type": "Service",
         "name": "Graphic & Brand Design",
@@ -178,7 +178,7 @@ const structuredData = {
     },
     {
       "@type": "Offer",
-      "url": "https://nutab.ca/services/photography-media-production",
+      "url": "https://nutab.ca/services/photo-media",
       "itemOffered": {
         "@type": "Service",
         "name": "Photography & Media Production",

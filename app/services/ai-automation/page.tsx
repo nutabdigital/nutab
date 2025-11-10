@@ -185,6 +185,7 @@ const AIAutomation: React.FC = () => {
             serviceType: "AI & Automation",
             url: "https://nutab.ca/services/ai-automation",
             image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            datePublished: "2024-01-15",
             dateModified: "2025-11-10",
             provider: {
               "@id": "https://nutab.ca/#organization"

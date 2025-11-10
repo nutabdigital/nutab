@@ -177,6 +177,7 @@ const MobileWebAppDevelopment: React.FC = () => {
             serviceType: "Mobile & Web App Development",
             url: "https://nutab.ca/services/app-development",
             image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            datePublished: "2024-01-15",
             dateModified: "2025-11-10",
             provider: {
               "@id": "https://nutab.ca/#organization"

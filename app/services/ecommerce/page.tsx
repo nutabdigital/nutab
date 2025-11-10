@@ -180,6 +180,7 @@ const EcommerceDevelopment: React.FC = () => {
             serviceType: "E-Commerce Development",
             description: "We create user-friendly e-commerce platforms tailored to your business needs.",
             image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            datePublished: "2024-01-15",
             dateModified: "2025-11-10",
             provider: {
               "@id": "https://nutab.ca/#organization"

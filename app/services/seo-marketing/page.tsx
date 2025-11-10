@@ -179,6 +179,7 @@ const SEODigitalMarketing: React.FC = () => {
             serviceType: "SEO & Digital Marketing",
             url: "https://nutab.ca/services/seo-marketing",
             image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            datePublished: "2024-01-15",
             dateModified: "2025-11-10",
             provider: {
               "@id": "https://nutab.ca/#organization"

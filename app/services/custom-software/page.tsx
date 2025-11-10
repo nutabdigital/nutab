@@ -292,6 +292,7 @@ const CustomSoftwareSolutions: React.FC = () => {
             description:
               "NuTab Digital builds bespoke software in Calgary that streamlines operations, integrates with your stack, and scales with your business.",
             image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            datePublished: "2024-01-15",
             dateModified: "2025-11-10",
             provider: {
               "@id": "https://nutab.ca/#organization"

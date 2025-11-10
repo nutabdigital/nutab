@@ -1,6 +1,7 @@
 import React from "react";
 // import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import "./page.css";
 import { Metadata } from "next";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
@@ -121,6 +122,11 @@ const MobileWebAppDevelopment: React.FC = () => {
   return (
     <main id="main-content" role="main" tabIndex={-1}>
       <Background />
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Mobile & Web App Development" }
+      ]} />
       {/* <Loader /> */}
 
       {/* Breadcrumbs JSON-LD */}

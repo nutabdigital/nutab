@@ -1,6 +1,7 @@
 import React from "react";
 // import dynamic from "next/dynamic";
 import Background from "../../components/Background/Background";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import "./page.css";
 import { Metadata } from "next";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
@@ -123,6 +124,11 @@ const EcommerceDevelopment: React.FC = () => {
   return (
     <main id="main-content" role="main" tabIndex={-1}>
       <Background />
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "E-Commerce Development" }
+      ]} />
       {/* <Loader /> */}
 
       {/* Breadcrumbs JSON-LD */}

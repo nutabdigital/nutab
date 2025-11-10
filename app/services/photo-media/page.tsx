@@ -1,6 +1,7 @@
 import React from "react";
 // import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
 import "./page.css";
 import { Metadata } from "next";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
@@ -131,6 +132,11 @@ const PhotographyMediaProduction: React.FC = () => {
       <Background />
       {/* <Loader /> */}
 
+      <Breadcrumbs items={[
+        { label: "Home", href: "/" },
+        { label: "Services", href: "/services" },
+        { label: "Photography & Media Production" }
+      ]} />
       {/* Breadcrumbs JSON-LD */}
       <script
         type="application/ld+json"

@@ -1,8 +1,6 @@
 .pricing-main {
   min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block; /* Changed from flex */
   width: 100vw;
   background: transparent;
   position: relative;
@@ -12,4 +10,13 @@
 .pricing-section {
   position: relative;
   z-index: 10;
+  margin-top: 0vh;
+}
+
+/* Add this to ensure PriceChart is centered but breadcrumbs stay at top */
+.pricing-main > :not(.breadcrumbs):not(script) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(80vh - 104px); /* Subtract breadcrumb space (80px margin-top + 24px margin-bottom) */
 }

@@ -44,8 +44,8 @@ export const metadata: Metadata = {
 const PricingPage: React.FC = () => {
   return (
     <main id="main-content" role="main" tabIndex={-1} className="pricing-main">
-      <Background /> 
-
+      <Background />
+      
       <Breadcrumbs items={[
         { label: "Home", href: "/" },
         { label: "Pricing" }

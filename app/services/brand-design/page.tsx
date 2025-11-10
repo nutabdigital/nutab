@@ -16,7 +16,7 @@ import ProcessTimeline, { ProcessStep } from "../../components/ProcessTimeline/P
 import FeatureGrid, { FeatureItem } from "../../components/FeatureGrid/FeatureGrid";
 import RelatedServicesSection, { RelatedServiceItem } from "../../components/RelatedServicesSection/RelatedServicesSection";
 
-export const generateMetadata = (): Metadata => ({
+export const metadata: Metadata = {
   title: "Graphic & Brand Design Services in Calgary - NuTab Digital",
   description:
     "NuTab Digital offers graphic and brand design services in Calgary, Alberta. Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
@@ -48,7 +48,7 @@ export const generateMetadata = (): Metadata => ({
       "NuTab Digital offers graphic and brand design services in Calgary, Alberta. Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
     images: ["https://nutab.ca/photos/3d-nutab-logo.png"],
   },
-});
+};
 
 const services: ServiceItem[] = [
   { title: "Logo Design", description: "Custom logos that reflect your brand identity." },
@@ -118,7 +118,7 @@ const whySolutions: WhySolution[] = [
   { icon: "Image", title: "Digital & Print", description: "Assets optimized for every channel." },
 ];
 
-const GraphicBrandDesign: React.FC = () => {
+export default function GraphicBrandDesign() {
   return (
     <main id="main-content" role="main" tabIndex={-1}>
       <Background />
@@ -177,7 +177,7 @@ const GraphicBrandDesign: React.FC = () => {
           }),
         }}
       />
-            <script
+      <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
@@ -320,7 +320,7 @@ const GraphicBrandDesign: React.FC = () => {
             <h2>Frequently Asked Questions</h2>
             <p className="faq__lead">Quick answers to common questions about our graphic & brand design services.</p>
           </header>
-                    <div className="faq__list">
+          <div className="faq__list">
             {faqs.map((faq, index) => (
               <details key={index} className="faq__item">
                 <summary className="faq__summary">
@@ -336,4 +336,4 @@ const GraphicBrandDesign: React.FC = () => {
       </SectionWrapper>
     </main>
   );
-};
+}

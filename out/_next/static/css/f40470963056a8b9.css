@@ -1,0 +1,1 @@
+.model-container{width:50vw;max-width:50vw;height:auto;transition:transform .6s ease-in-out;inset:0;will-change:transform,opacity}.model,.model-container{position:fixed;z-index:1;pointer-events:none}.model{opacity:0;transition:opacity .28s ease;will-change:opacity,transform}.model.model-ready{opacity:1}@media (max-width:600px){.model-container{width:100vw}}

@@ -1,5 +1,6 @@
 User-agent: *
-Disallow: /private/
+Disallow: /api/
+Disallow: /_next/
 Allow: /
 
 Sitemap: https://nutab.ca/sitemap.xml

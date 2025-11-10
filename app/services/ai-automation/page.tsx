@@ -100,6 +100,27 @@ const faqs = [
     question: "Can you integrate AI with my existing systems?",
     answer: "Absolutely! We specialize in integrating AI and automation tools with your current business software and workflows."
   }
+    // SEO-focused FAQs
+    ,{
+      question: "What are the main benefits of AI automation for businesses?",
+      answer: "AI automation increases efficiency, reduces costs, improves accuracy, and enables smarter decision-making. It helps businesses stay competitive and scale operations easily."
+    }
+    ,{
+      question: "Is AI automation secure for sensitive business data?",
+      answer: "Yes, our AI automation solutions are designed with robust security protocols to protect your sensitive business data and ensure compliance with industry standards."
+    }
+    ,{
+      question: "How do I get started with AI automation in my company?",
+      answer: "Start by scheduling a consultation with our experts. We assess your needs, recommend the best AI automation strategies, and guide you through implementation."
+    }
+    ,{
+      question: "Can small businesses benefit from AI automation?",
+      answer: "Absolutely. AI automation is scalable and can help small businesses save time, reduce manual work, and improve customer service without large investments."
+    }
+    ,{
+      question: "How long does it take to implement AI automation?",
+      answer: "Implementation time varies based on project scope, but most businesses see results within weeks. We provide clear timelines and ongoing support throughout the process."
+    }
 ];
 
 const processSteps: ProcessStep[] = [

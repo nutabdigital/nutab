@@ -93,6 +93,27 @@ const faqs = [
     question: "Do you offer content creation?",
     answer: "Yes — we provide content strategy and production to support SEO and audience engagement."
   }
+    // SEO-focused FAQs
+    ,{
+      question: "How does SEO help my business grow?",
+      answer: "SEO increases your website’s visibility, drives organic traffic, and helps convert visitors into customers, leading to sustainable business growth."
+    }
+    ,{
+      question: "Do you offer local SEO for Calgary businesses?",
+      answer: "Yes, we specialize in local SEO strategies to help Calgary businesses attract nearby customers and improve local search rankings."
+    }
+    ,{
+      question: "Can you manage Google Ads and paid campaigns?",
+      answer: "Absolutely. We manage Google Ads, PPC, and paid social campaigns to complement your SEO and maximize ROI."
+    }
+    ,{
+      question: "Is SEO a one-time or ongoing process?",
+      answer: "SEO is an ongoing process. We provide continuous optimization, reporting, and strategy updates to keep your site competitive."
+    }
+    ,{
+      question: "Will I receive regular reports on my SEO performance?",
+      answer: "Yes, we provide transparent reporting and analytics so you can track progress and results every month."
+    }
 ];
 
 const processSteps: ProcessStep[] = [

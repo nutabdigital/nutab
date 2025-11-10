@@ -146,6 +146,27 @@ const faqs = [
     question: "Is consulting right for small businesses?",
     answer: "Yes, our consulting services are tailored for businesses of all sizes, including startups and small enterprises."
   }
+    // SEO-focused FAQs
+    ,{
+      question: "What are the benefits of hiring an IT consultant?",
+      answer: "IT consultants provide expert guidance, help reduce costs, improve security, and ensure your technology aligns with business goals."
+    }
+    ,{
+      question: "How do I choose the right IT consulting firm?",
+      answer: "Look for experience, proven results, and a collaborative approach. We offer free consultations to discuss your needs and goals."
+    }
+    ,{
+      question: "Can you help with cloud migration and strategy?",
+      answer: "Yes, we plan and execute secure cloud migrations, ensuring minimal disruption and maximum value."
+    }
+    ,{
+      question: "Is IT consulting confidential?",
+      answer: "We treat all client information with strict confidentiality and can sign NDAs for sensitive projects."
+    }
+    ,{
+      question: "How quickly can I see results from consulting?",
+      answer: "Many clients see improvements within weeks. We provide clear roadmaps and measurable outcomes for every engagement."
+    }
 ];
 
 const processSteps: ProcessStep[] = [

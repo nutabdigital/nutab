@@ -95,6 +95,27 @@ const faqs = [
     question: "Can you integrate payment gateways?",
     answer: "Yes — we integrate gateways like Stripe, PayPal, and enterprise payment providers."
   }
+    // SEO-focused FAQs
+    ,{
+      question: "How much does it cost to build an e-commerce website?",
+      answer: "Costs vary based on features, platform, and design. We offer solutions for every budget and provide transparent quotes."
+    }
+    ,{
+      question: "Will my online store be optimized for SEO?",
+      answer: "Yes, we build e-commerce sites with SEO best practices to help your products rank higher and attract more customers."
+    }
+    ,{
+      question: "Can you migrate my existing store to Shopify or WooCommerce?",
+      answer: "Absolutely. We handle migrations to Shopify, WooCommerce, and other platforms with minimal downtime and data loss."
+    }
+    ,{
+      question: "Is my e-commerce site secure for customer payments?",
+      answer: "We implement PCI-compliant payment integrations and security protocols to protect customer data and transactions."
+    }
+    ,{
+      question: "Do you provide ongoing support and updates?",
+      answer: "Yes, we offer maintenance, analytics, and feature improvements to keep your store competitive and running smoothly."
+    }
 ];
 
 const processSteps: ProcessStep[] = [

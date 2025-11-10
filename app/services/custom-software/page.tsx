@@ -166,6 +166,27 @@ const faqs = [
     question: "Do you work with startups or small businesses?",
     answer: "Yes! We specialize in helping startups and small to mid-sized businesses turn their ideas into scalable custom software solutions."
   }
+    // SEO-focused FAQs
+    ,{
+      question: "What are the benefits of custom software over off-the-shelf solutions?",
+      answer: "Custom software is tailored to your business needs, offers greater flexibility, scalability, and can provide a competitive edge compared to generic off-the-shelf products."
+    }
+    ,{
+      question: "Is custom software secure?",
+      answer: "We build custom software with robust security features to protect your data and ensure compliance with industry standards."
+    }
+    ,{
+      question: "How do I start a custom software project?",
+      answer: "Contact us for a free consultation. We’ll help you define requirements, set goals, and create a roadmap for your custom software project."
+    }
+    ,{
+      question: "Can custom software grow with my business?",
+      answer: "Yes, our solutions are designed to be scalable and adaptable as your business evolves and expands."
+    }
+    ,{
+      question: "Do you sign NDAs for confidential projects?",
+      answer: "We are happy to sign non-disclosure agreements to protect your business ideas and sensitive information."
+    }
 ];
 
 const CustomSoftwareSolutions: React.FC = () => {

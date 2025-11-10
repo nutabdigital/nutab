@@ -93,6 +93,27 @@ const faqs = [
     question: "Do you provide ongoing support?",
     answer: "Yes, we offer maintenance, monitoring, and iterative improvements post-launch."
   }
+    // SEO-focused FAQs
+    ,{
+      question: "How much does it cost to develop a mobile or web app?",
+      answer: "App development costs depend on features, platforms, and complexity. We provide transparent quotes and scalable solutions for every budget."
+    }
+    ,{
+      question: "Can you build apps for both iOS and Android?",
+      answer: "Yes, we specialize in cross-platform development, delivering apps that work seamlessly on both iOS and Android devices."
+    }
+    ,{
+      question: "Will my app be optimized for SEO and performance?",
+      answer: "Absolutely. We follow best practices for SEO, speed, and accessibility to ensure your app ranks well and delivers a great user experience."
+    }
+    ,{
+      question: "Do you help with app store submission and launch?",
+      answer: "Yes, we guide you through app store submission, launch, and post-launch support to maximize your app’s success."
+    }
+    ,{
+      question: "Is my app idea safe and confidential?",
+      answer: "We treat every project with strict confidentiality and can sign NDAs to protect your app idea and business information."
+    }
 ];
 
 const processSteps: ProcessStep[] = [

@@ -101,6 +101,27 @@ const faqs = [
     question: "Do you offer editing and post-production?",
     answer: "Yes, our team provides professional editing and post-production for all media projects."
   }
+    // SEO-focused FAQs
+    ,{
+      question: "How does professional photography help my business?",
+      answer: "High-quality photography and video boost brand credibility, increase engagement, and improve marketing results."
+    }
+    ,{
+      question: "Can you create content for social media and websites?",
+      answer: "Yes, we produce visual assets optimized for web, social media, and digital marketing campaigns."
+    }
+    ,{
+      question: "Is my media project confidential?",
+      answer: "We treat all client projects with strict confidentiality and can sign NDAs for sensitive shoots."
+    }
+    ,{
+      question: "How long does a typical photo or video project take?",
+      answer: "Most projects are completed in 1-3 weeks, depending on scope and requirements."
+    }
+    ,{
+      question: "Do you offer creative direction and concept development?",
+      answer: "Yes, our team provides creative direction, storyboarding, and concept development to ensure your media aligns with your brand goals."
+    }
 ];
 
 const processSteps: ProcessStep[] = [

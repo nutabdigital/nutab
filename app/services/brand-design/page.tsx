@@ -93,6 +93,27 @@ const faqs = [
     question: "Can you design graphics for social media?",
     answer: "Absolutely — we design assets optimized for web and social platforms."
   }
+    // SEO-focused FAQs
+    ,{
+      question: "How does professional brand design help my business?",
+      answer: "Professional brand design builds trust, increases recognition, and helps your business stand out in competitive markets."
+    }
+    ,{
+      question: "What is included in a brand identity package?",
+      answer: "Our brand identity packages include logo design, color palettes, typography, brand guidelines, and digital/print assets."
+    }
+    ,{
+      question: "Can you refresh or modernize my existing brand?",
+      answer: "Yes, we offer brand refresh services to update and align your visual identity with current trends and business goals."
+    }
+    ,{
+      question: "Will I own the rights to my brand assets?",
+      answer: "You receive full ownership and usage rights for all brand assets we create for your business."
+    }
+    ,{
+      question: "How long does the brand design process take?",
+      answer: "Most brand design projects are completed in 2-4 weeks, depending on scope and feedback cycles."
+    }
 ];
 
 const processSteps: ProcessStep[] = [

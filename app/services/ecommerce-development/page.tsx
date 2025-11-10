@@ -24,6 +24,7 @@ export const generateMetadata = (): Metadata => ({
   alternates: {
     canonical: "https://nutab.ca/services/ecommerce-development",
   },
+  robots: { index: true, follow: true },
   openGraph: {
     title: "E-Commerce Development Services in Calgary - NuTab Digital",
     description:
@@ -108,6 +109,22 @@ const EcommerceDevelopment: React.FC = () => {
       <Background />
       {/* Consider moving <Loader /> to the end or remove on service pages */}
       {/* <Loader /> */}
+
+      {/* Breadcrumbs JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://nutab.ca" },
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services" },
+              { "@type": "ListItem", position: 3, name: "E-Commerce Development", item: "https://nutab.ca/services/ecommerce-development" }
+            ]
+          }),
+        }}
+      />
 
       <script
         type="application/ld+json"

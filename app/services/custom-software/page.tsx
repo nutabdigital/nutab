@@ -32,6 +32,7 @@ export const generateMetadata = (): Metadata => ({
   alternates: {
     canonical: "https://nutab.ca/services/custom-software",
   },
+  robots: { index: true, follow: true }, // <-- explicit
   openGraph: {
     title: "Custom Software Development Services in Calgary - NuTab Digital",
     description:
@@ -205,24 +206,48 @@ const CustomSoftwareSolutions: React.FC = () => {
       {/* <Loader /> */}
       <Background />
 
+      {/* Breadcrumbs JSON-LD (keep) */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nutab.ca" },
+              { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://nutab.ca/services" },
+              { "@type": "ListItem", "position": 3, "name": "Custom Software", "item": "https://nutab.ca/services/custom-software" }
+            ]
+          }),
+        }}
+      />
+
+      {/* REMOVE the earlier duplicate Service script with description: "..." and aggregateRating */}
+
+      {/* Single consolidated Service JSON-LD (keep one) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
+            "@id": "https://nutab.ca/services/custom-software#service",
             name: "Custom Software Development",
+            serviceType: "Custom Software Development",
+            url: "https://nutab.ca/services/custom-software",
             description:
-              "NuTab Digital offers custom software development services in Calgary, Alberta. We create tailored solutions to streamline operations, enhance efficiency, and drive business growth.",
+              "NuTab Digital builds bespoke software in Calgary that streamlines operations, integrates with your stack, and scales with your business.",
+            image: "https://nutab.ca/photos/3d-nutab-logo.png",
             provider: {
               "@type": "Organization",
-              name: "NuTab Digital",
-              url: "https://nutab.ca",
+              "@id": "https://nutab.ca/#organization" // matches Organization in app/layout.tsx
             },
-            areaServed: "Calgary, Alberta",
+            areaServed: "Calgary, Alberta"
           }),
         }}
       />
+
+      {/* FAQ JSON-LD (keep) */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

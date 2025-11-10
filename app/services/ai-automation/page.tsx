@@ -21,6 +21,7 @@ export const generateMetadata = (): import("next").Metadata => ({
   alternates: {
     canonical: "https://nutab.ca/services/ai-automation",
   },
+  robots: { index: true, follow: true },
   openGraph: {
     title: "AI & Automation Solutions in Calgary - NuTab Digital",
     description:
@@ -104,6 +105,22 @@ const AIAutomation: React.FC = () => {
     <>
       <Background />
       {/* <Loader /> */}
+
+      {/* Breadcrumbs JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://nutab.ca" },
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services" },
+              { "@type": "ListItem", position: 3, name: "AI & Automation", item: "https://nutab.ca/services/ai-automation" }
+            ]
+          }),
+        }}
+      />
 
       <script
         type="application/ld+json"

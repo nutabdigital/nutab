@@ -22,6 +22,7 @@ export const generateMetadata = (): Metadata => ({
   alternates: {
     canonical: "https://nutab.ca/services/graphic-brand-design",
   },
+  robots: { index: true, follow: true },
   openGraph: {
     title: "Graphic & Brand Design Services in Calgary - NuTab Digital",
     description:
@@ -105,6 +106,22 @@ const GraphicBrandDesign: React.FC = () => {
     <>
       <Background />
       {/* <Loader /> */}
+
+      {/* Breadcrumbs JSON-LD */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://nutab.ca" },
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services" },
+              { "@type": "ListItem", position: 3, name: "Graphic & Brand Design", item: "https://nutab.ca/services/graphic-brand-design" }
+            ]
+          }),
+        }}
+      />
 
       <script
         type="application/ld+json"

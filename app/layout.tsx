@@ -195,7 +195,7 @@ const structuredData = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" data-theme="dark">
+    <html lang="en-CA" data-theme="dark">
       <head>
         {/* No-flash of incorrect theme: set data-theme ASAP */}
         <script
@@ -211,6 +211,28 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 })();`,
           }}
         />
+        
+        {/* Preconnect to critical origins for faster resource loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        
+        {/* Preload critical images for LCP optimization */}
+        <link
+          rel="preload"
+          as="image"
+          href="/photos/3d-nutab-logo.png"
+          type="image/png"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/photos/og-home.jpg"
+          type="image/jpeg"
+          fetchPriority="high"
+        />
+        
         <meta name="color-scheme" content="dark light" />
         <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
         <link rel="icon" type="image/png" sizes="32x32" href="/icons/favicon-32x32.png" />
@@ -228,30 +250,30 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
 
-        {/* Google Tag Manager – deferred load */}
+        {/* Optimized Google Analytics - async loading with delayed pageview */}
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-BSE95BQFCB"
+        />
         <script
           dangerouslySetInnerHTML={{
             __html: `
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-    `,
-          }}
-        />
-
-        {/* Load the GTM script after render */}
-        <script
-          defer
-          src="https://www.googletagmanager.com/gtag/js?id=G-BSE95BQFCB"
-        />
-
-        <script
-          defer
-          dangerouslySetInnerHTML={{
-            __html: `
-      window.addEventListener('load', function() {
-        gtag('config', 'G-BSE95BQFCB', { send_page_view: true });
+      gtag('config', 'G-BSE95BQFCB', { 
+        send_page_view: false,
+        anonymize_ip: true
       });
+      
+      // Only send pageview after page is interactive
+      if (document.readyState === 'complete') {
+        gtag('event', 'page_view');
+      } else {
+        window.addEventListener('load', function() {
+          gtag('event', 'page_view');
+        });
+      }
     `,
           }}
         />

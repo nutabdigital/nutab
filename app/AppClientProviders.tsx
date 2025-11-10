@@ -13,7 +13,11 @@ const ModelWrapper = dynamic(() => import("./context/ModelWrapper"), { ssr: fals
 
 function InnerProviders({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  
+  // Only show model on homepage, hide on card-builder pages
+  const isHomePage = pathname === "/";
   const hideModel =
+    !isHomePage ||
     pathname?.startsWith("/card-builder/card-virtual-builder") ||
     pathname?.startsWith("/card-builder/card-nfc-builder");
 

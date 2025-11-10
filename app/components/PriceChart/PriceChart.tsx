@@ -70,23 +70,19 @@ const ldJson = {
 		availability: "https://schema.org/InStock",
 		url: `https://nutab.ca/pricing#${b.id}`,
 		seller: {
-			"@type": "Organization",
-			name: "NuTab Digital",
-			url: "https://nutab.ca",
+			"@id": "https://nutab.ca/#organization" // Reference instead of duplicate
 		},
 		priceSpecification: {
 			"@type": "UnitPriceSpecification",
 			price: b.priceNumber,
 			priceCurrency: "CAD",
-			// REMOVE: valueAddedTaxIncluded - unnecessary
 		},
 		itemOffered: {
 			"@type": "Service",
 			name: b.title,
 			serviceType: "Web Design and Development",
 			provider: {
-				"@type": "Organization",
-				name: "NuTab Digital",
+				"@id": "https://nutab.ca/#organization" // Reference instead of duplicate
 			},
 		},
 	})),

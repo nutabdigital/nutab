@@ -140,6 +140,34 @@ const benefits: Benefit[] = [
   },
 ];
 
+// FAQ data - single source of truth
+const faqs = [
+  {
+    question: "What is custom software development?",
+    answer: "Custom software development involves creating software applications tailored to meet the specific needs of a business or organization. Unlike off-the-shelf software, custom solutions are designed to address unique challenges and workflows."
+  },
+  {
+    question: "How long does it take to develop custom software?",
+    answer: "The timeline for custom software development depends on the complexity of the project. On average, it can take anywhere from a few weeks to several months. We work closely with you to establish a realistic timeline based on your requirements."
+  },
+  {
+    question: "How much does custom software development cost?",
+    answer: "The cost of custom software development varies depending on the scope and complexity of the project. Contact us for a free consultation and quote tailored to your needs."
+  },
+  {
+    question: "Can you integrate custom software with our existing systems?",
+    answer: "Yes, we specialize in system integration to ensure your new software works seamlessly with your existing tools and platforms."
+  },
+  {
+    question: "Do you provide ongoing support after deployment?",
+    answer: "Absolutely! We offer ongoing support and maintenance to ensure your software continues to perform optimally."
+  },
+  {
+    question: "Do you work with startups or small businesses?",
+    answer: "Yes! We specialize in helping startups and small to mid-sized businesses turn their ideas into scalable custom software solutions."
+  }
+];
+
 const CustomSoftwareSolutions: React.FC = () => {
   const processSteps: ProcessStep[] = [
     {
@@ -254,56 +282,14 @@ const CustomSoftwareSolutions: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": [
-              {
-                "@type": "Question",
-                "name": "What is custom software development?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Custom software development involves creating software applications tailored to meet the specific needs of a business or organization. Unlike off-the-shelf software, custom solutions are designed to address unique challenges and workflows."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How long does it take to develop custom software?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "The timeline for custom software development depends on the complexity of the project. On average, it can take anywhere from a few weeks to several months. We work closely with you to establish a realistic timeline based on your requirements."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "How much does custom software development cost?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "The cost of custom software development varies depending on the scope and complexity of the project. Contact us for a free consultation and quote tailored to your needs."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Can you integrate custom software with our existing systems?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes, we specialize in system integration to ensure your new software works seamlessly with your existing tools and platforms."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do you provide ongoing support after deployment?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Absolutely! We offer ongoing support and maintenance to ensure your software continues to perform optimally."
-                }
-              },
-              {
-                "@type": "Question",
-                "name": "Do you work with startups or small businesses?",
-                "acceptedAnswer": {
-                  "@type": "Answer",
-                  "text": "Yes! We specialize in helping startups and small to mid-sized businesses turn their ideas into scalable custom software solutions."
-                }
+            "mainEntity": faqs.map(faq => ({
+              "@type": "Question",
+              "name": faq.question,
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.answer
               }
-            ]
+            }))
           }),
         }}
       />
@@ -464,95 +450,16 @@ const CustomSoftwareSolutions: React.FC = () => {
           </header>
 
           <div className="faq__list">
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">
-                  What is custom software development?
-                </h3>
-              </summary>
-              <div className="faq-answer section-text">
-                <p>
-                  Custom software development involves creating software
-                  applications tailored to meet the specific needs of a business
-                  or organization. Unlike off-the-shelf software, custom
-                  solutions are designed to address unique challenges and
-                  workflows.
-                </p>
-              </div>
-            </details>
-
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">
-                  How long does it take to develop custom software?
-                </h3>
-              </summary>
-              <div className="faq-answer section-text">
-                <p>
-                  The timeline for custom software development depends on the
-                  complexity of the project. On average, it can take anywhere
-                  from a few weeks to several months. We work closely with you
-                  to establish a realistic timeline based on your requirements.
-                </p>
-              </div>
-            </details>
-
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">
-                  How much does custom software development cost?
-                </h3>
-              </summary>
-              <div className="faq-answer section-text">
-                <p>
-                  The cost of custom software development varies depending on
-                  the scope and complexity of the project. Contact us for a free
-                  consultation and quote tailored to your needs.
-                </p>
-              </div>
-            </details>
-
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">
-                  Can you integrate custom software with our existing systems?
-                </h3>
-              </summary>
-              <div className="faq-answer section-text">
-                <p>
-                  Yes, we specialize in system integration to ensure your new
-                  software works seamlessly with your existing tools and
-                  platforms.
-                </p>
-              </div>
-            </details>
-
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">
-                  Do you provide ongoing support after deployment?
-                </h3>
-              </summary>
-              <div className="faq-answer section-text">
-                <p>
-                  Absolutely! We offer ongoing support and maintenance to ensure
-                  your software continues to perform optimally.
-                </p>
-              </div>
-            </details>
-
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">
-                  Do you work with startups or small businesses?
-                </h3>
-              </summary>
-              <div className="faq-answer section-text">
-                <p>
-                  Yes! We specialize in helping startups and small to mid-sized businesses turn their ideas into scalable custom software solutions.
-                </p>
-              </div>
-            </details>
+            {faqs.map((faq, index) => (
+              <details key={index} className="faq__item">
+                <summary className="faq__summary">
+                  <h3 className="faq-question">{faq.question}</h3>
+                </summary>
+                <div className="faq-answer section-text">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </SectionWrapper>

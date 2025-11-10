@@ -124,6 +124,30 @@ const benefits: Benefit[] = [
   },
 ];
 
+// FAQ data - single source of truth
+const faqs = [
+  {
+    question: "What is business & IT consulting?",
+    answer: "Business & IT consulting provides expert advice on technology, strategy, and operations to help organizations achieve their goals and solve challenges."
+  },
+  {
+    question: "How can consulting help my business?",
+    answer: "Consulting helps you make informed decisions, optimize processes, adopt new technologies, and drive growth."
+  },
+  {
+    question: "Do you offer ongoing support?",
+    answer: "Yes, we provide ongoing advice and optimization to ensure your business continues to succeed."
+  },
+  {
+    question: "Can you help with digital transformation?",
+    answer: "Absolutely! We specialize in guiding organizations through digital transformation and technology adoption."
+  },
+  {
+    question: "Is consulting right for small businesses?",
+    answer: "Yes, our consulting services are tailored for businesses of all sizes, including startups and small enterprises."
+  }
+];
+
 const processSteps: ProcessStep[] = [
   {
     title: "Discovery",
@@ -250,48 +274,14 @@ const BusinessITConsulting: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "What is business & IT consulting?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Business & IT consulting provides expert advice on technology, strategy, and operations to help organizations achieve their goals and solve challenges.",
-                },
+            mainEntity: faqs.map(faq => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
               },
-              {
-                "@type": "Question",
-                name: "How can consulting help my business?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Consulting helps you make informed decisions, optimize processes, adopt new technologies, and drive growth.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Do you offer ongoing support?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, we provide ongoing advice and optimization to ensure your business continues to succeed.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Can you help with digital transformation?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Absolutely! We specialize in guiding organizations through digital transformation and technology adoption.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Is consulting right for small businesses?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, our consulting services are tailored for businesses of all sizes, including startups and small enterprises.",
-                },
-              },
-            ],
+            })),
           }),
         }}
       />
@@ -439,74 +429,16 @@ const BusinessITConsulting: React.FC = () => {
             </p>
           </header>
           <div className="faq__list">
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">
-                  What is business & IT consulting?
-                </h3>
-              </summary>
-              <div className="faq-answer section-text">
-                <p>
-                  Business & IT consulting provides expert advice on technology,
-                  strategy, and operations to help organizations achieve their
-                  goals and solve challenges.
-                </p>
-              </div>
-            </details>
-
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">
-                  How can consulting help my business?
-                </h3>
-              </summary>
-              <div className="faq-answer section-text">
-                <p>
-                  Consulting helps you make informed decisions, optimize
-                  processes, adopt new technologies, and drive growth.
-                </p>
-              </div>
-            </details>
-
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Do you offer ongoing support?</h3>
-              </summary>
-              <div className="faq-answer section-text">
-                <p>
-                  Yes, we provide ongoing advice and optimization to ensure your
-                  business continues to succeed.
-                </p>
-              </div>
-            </details>
-
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">
-                  Can you help with digital transformation?
-                </h3>
-              </summary>
-              <div className="faq-answer section-text">
-                <p>
-                  Absolutely! We specialize in guiding organizations through
-                  digital transformation and technology adoption.
-                </p>
-              </div>
-            </details>
-
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">
-                  Is consulting right for small businesses?
-                </h3>
-              </summary>
-              <div className="faq-answer section-text">
-                <p>
-                  Yes, our consulting services are tailored for businesses of
-                  all sizes, including startups and small enterprises.
-                </p>
-              </div>
-            </details>
+            {faqs.map((faq, index) => (
+              <details key={index} className="faq__item">
+                <summary className="faq__summary">
+                  <h3 className="faq-question">{faq.question}</h3>
+                </summary>
+                <div className="faq-answer section-text">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </SectionWrapper>

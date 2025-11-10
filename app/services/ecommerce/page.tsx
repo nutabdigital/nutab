@@ -81,6 +81,22 @@ const benefits: Benefit[] = [
   { title: "Analytics & Insights", description: "Data-driven improvements to maximize ROI." },
 ];
 
+// FAQ data - single source of truth
+const faqs = [
+  {
+    question: "What is e-commerce development?",
+    answer: "E-commerce development involves creating online stores and platforms that allow businesses to sell products or services online, including catalogs, carts, and payment gateways."
+  },
+  {
+    question: "How long does it take to build an e-commerce site?",
+    answer: "Timelines depend on complexity; simple stores can be delivered in weeks, complex platforms in months."
+  },
+  {
+    question: "Can you integrate payment gateways?",
+    answer: "Yes — we integrate gateways like Stripe, PayPal, and enterprise payment providers."
+  }
+];
+
 const processSteps: ProcessStep[] = [
   { title: "Discovery", description: "Understand products, audience, and business goals." },
   { title: "Design", description: "Wireframes and UI/UX tailored to your brand." },
@@ -160,32 +176,14 @@ const EcommerceDevelopment: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "What is e-commerce development?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "E-commerce development involves creating online stores and platforms that allow businesses to sell products or services online, including catalogs, carts, and payment gateways.",
-                },
+            mainEntity: faqs.map(faq => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
               },
-              {
-                "@type": "Question",
-                name: "How long does it take to build an e-commerce site?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Timelines depend on complexity; simple stores can be delivered in weeks, complex platforms in months.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Can you integrate payment gateways?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes — we integrate gateways like Stripe, PayPal, and enterprise payment providers.",
-                },
-              },
-            ],
+            })),
           }),
         }}
       />
@@ -316,30 +314,16 @@ const EcommerceDevelopment: React.FC = () => {
             <p className="faq__lead">Quick answers to common questions about our e‑commerce development services.</p>
           </header>
           <div className="faq__list">
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">What is e-commerce development?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>E-commerce development involves creating online stores and platforms that allow businesses to sell products or services online. This includes features like product catalogs, shopping carts, and payment gateways.</p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">How long does it take to build an e-commerce site?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>Timelines vary based on complexity — simple stores in weeks, complex platforms in months.</p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Can you integrate payment gateways?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>Yes — we can integrate Stripe, PayPal, and other secure payment providers.</p>
-              </div>
-            </details>
+            {faqs.map((faq, index) => (
+              <details key={index} className="faq__item">
+                <summary className="faq__summary">
+                  <h3 className="faq-question">{faq.question}</h3>
+                </summary>
+                <div className="faq-answer">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </SectionWrapper>

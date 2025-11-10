@@ -79,6 +79,22 @@ const benefits: Benefit[] = [
   { title: "Ongoing Support", description: "Maintenance and enhancements to keep your app competitive." },
 ];
 
+// FAQ data - single source of truth
+const faqs = [
+  {
+    question: "What is mobile and web app development?",
+    answer: "Mobile and web app development involves creating applications for mobile devices (iOS and Android) and web browsers with seamless user experiences."
+  },
+  {
+    question: "How long does it take to develop an app?",
+    answer: "Timelines vary by complexity — simple apps can be completed in weeks, complex projects may take several months."
+  },
+  {
+    question: "Do you provide ongoing support?",
+    answer: "Yes, we offer maintenance, monitoring, and iterative improvements post-launch."
+  }
+];
+
 const processSteps: ProcessStep[] = [
   { title: "Discovery", description: "Define goals, users, and technical constraints." },
   { title: "Design", description: "Wireframes and prototypes to validate UX." },
@@ -146,32 +162,14 @@ const MobileWebAppDevelopment: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "What is mobile and web app development?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Mobile and web app development involves creating applications for mobile devices (iOS and Android) and web browsers with seamless user experiences."
-                }
-              },
-              {
-                "@type": "Question",
-                name: "How long does it take to develop an app?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Timelines vary by complexity — simple apps can be completed in weeks, complex projects may take several months."
-                }
-              },
-              {
-                "@type": "Question",
-                name: "Do you provide ongoing support?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, we offer maintenance, monitoring, and iterative improvements post-launch."
-                }
+            mainEntity: faqs.map(faq => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer
               }
-            ]
+            }))
           }),
         }}
       />
@@ -302,32 +300,16 @@ const MobileWebAppDevelopment: React.FC = () => {
             <p className="faq__lead">Quick answers to common questions about our mobile & web app development services.</p>
           </header>
           <div className="faq__list">
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">What is mobile and web app development?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>
-                  Mobile and web app development involves creating applications for mobile devices and web browsers with a focus on usability, performance, and security.
-                </p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">How long does it take to develop an app?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>Timelines depend on scope — simple projects in weeks, complex platforms in months.</p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Do you provide ongoing support?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>Yes — we offer maintenance, monitoring, and iterative improvements post-launch.</p>
-              </div>
-            </details>
+            {faqs.map((faq, index) => (
+              <details key={index} className="faq__item">
+                <summary className="faq__summary">
+                  <h3 className="faq-question">{faq.question}</h3>
+                </summary>
+                <div className="faq-answer">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </SectionWrapper>

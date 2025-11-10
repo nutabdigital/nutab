@@ -79,6 +79,30 @@ const benefits: Benefit[] = [
   { title: "Creative Impact", description: "Stand out with memorable media." },
 ];
 
+// FAQ data - single source of truth
+const faqs = [
+  {
+    question: "What types of photography do you offer?",
+    answer: "We offer commercial, product, lifestyle, event, and business photography tailored to your needs."
+  },
+  {
+    question: "Do you provide video production?",
+    answer: "Yes, we produce promotional videos, interviews, and brand stories for marketing and web."
+  },
+  {
+    question: "Can you cover events?",
+    answer: "Absolutely! We offer professional event photography and videography services."
+  },
+  {
+    question: "Will I get all the media files?",
+    answer: "Yes, you'll receive all final edited images and videos for your use."
+  },
+  {
+    question: "Do you offer editing and post-production?",
+    answer: "Yes, our team provides professional editing and post-production for all media projects."
+  }
+];
+
 const processSteps: ProcessStep[] = [
   { title: "Discovery", description: "We learn about your brand, goals and content needs." },
   { title: "Planning", description: "Develop shot lists, scripts and production plan." },
@@ -147,48 +171,14 @@ const PhotographyMediaProduction: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "What types of photography do you offer?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "We offer commercial, product, lifestyle, event, and business photography tailored to your needs."
-                }
-              },
-              {
-                "@type": "Question",
-                name: "Do you provide video production?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, we produce promotional videos, interviews, and brand stories for marketing and web."
-                }
-              },
-              {
-                "@type": "Question",
-                name: "Can you cover events?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Absolutely! We offer professional event photography and videography services."
-                }
-              },
-              {
-                "@type": "Question",
-                name: "Will I get all the media files?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, you’ll receive all final edited images and videos for your use."
-                }
-              },
-              {
-                "@type": "Question",
-                name: "Do you offer editing and post-production?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, our team provides professional editing and post-production for all media projects."
-                }
+            mainEntity: faqs.map(faq => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer
               }
-            ],
+            })),
           }),
         }}
       />
@@ -319,46 +309,16 @@ const PhotographyMediaProduction: React.FC = () => {
             <p className="faq__lead">Quick answers to common questions about our photography & media production services.</p>
           </header>
           <div className="faq__list">
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">What types of photography do you offer?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>We offer commercial, product, lifestyle, event, and business photography tailored to your needs.</p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Do you provide video production?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>Yes, we produce promotional videos, interviews, and brand stories for marketing and web.</p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Can you cover events?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>Absolutely! We offer professional event photography and videography services.</p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Will I get all the media files?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>Yes, you’ll receive all final edited images and videos for your use.</p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Do you offer editing and post-production?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>Yes, our team provides professional editing and post-production for all media projects.</p>
-              </div>
-            </details>
+            {faqs.map((faq, index) => (
+              <details key={index} className="faq__item">
+                <summary className="faq__summary">
+                  <h3 className="faq-question">{faq.question}</h3>
+                </summary>
+                <div className="faq-answer">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </SectionWrapper>

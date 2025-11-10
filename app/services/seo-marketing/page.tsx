@@ -79,6 +79,22 @@ const benefits: Benefit[] = [
   { title: "Brand Authority", description: "Build trust and relevance through consistent, high-quality content." },
 ];
 
+// FAQ data - single source of truth
+const faqs = [
+  {
+    question: "What is SEO?",
+    answer: "SEO (Search Engine Optimization) is the process of optimizing your website to rank higher in search engine results, making it easier for potential customers to find you online."
+  },
+  {
+    question: "How long does it take to see SEO results?",
+    answer: "Results depend on competition and the current state of your site, but noticeable improvements often appear within 3–6 months."
+  },
+  {
+    question: "Do you offer content creation?",
+    answer: "Yes — we provide content strategy and production to support SEO and audience engagement."
+  }
+];
+
 const processSteps: ProcessStep[] = [
   { title: "Discovery", description: "Audit current performance, competitors, and goals." },
   { title: "Strategy", description: "Create an SEO and marketing plan aligned to your objectives." },
@@ -148,32 +164,14 @@ const SEODigitalMarketing: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "What is SEO?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "SEO (Search Engine Optimization) is the process of optimizing your website to rank higher in search engine results, making it easier for potential customers to find you online."
-                }
-              },
-              {
-                "@type": "Question",
-                name: "How long does it take to see SEO results?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Results depend on competition and the current state of your site, but noticeable improvements often appear within 3–6 months."
-                }
-              },
-              {
-                "@type": "Question",
-                name: "Do you offer content creation?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes — we provide content strategy and production to support SEO and audience engagement."
-                }
+            mainEntity: faqs.map(faq => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer
               }
-            ],
+            })),
           }),
         }}
       />
@@ -297,37 +295,23 @@ const SEODigitalMarketing: React.FC = () => {
         <GetQuoteButton />
       </SectionWrapper>
 
-      <SectionWrapper className="section-wrapper--faq">
+            <SectionWrapper className="section-wrapper--faq">
         <div className="faq">
           <header className="faq__header">
             <h2>Frequently Asked Questions</h2>
             <p className="faq__lead">Quick answers to common questions about our SEO & digital marketing services.</p>
           </header>
           <div className="faq__list">
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">What is SEO?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>SEO (Search Engine Optimization) improves your website’s visibility in search engine results to help potential customers find you.</p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">How long does it take to see results?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>Results depend on competition and the current state of your site, but noticeable improvements often appear within 3–6 months.</p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Do you offer content creation?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>Yes — we offer content strategy and production to support SEO and audience engagement.</p>
-              </div>
-            </details>
+            {faqs.map((faq, index) => (
+              <details key={index} className="faq__item">
+                <summary className="faq__summary">
+                  <h3 className="faq-question">{faq.question}</h3>
+                </summary>
+                <div className="faq-answer">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </SectionWrapper>

@@ -79,6 +79,22 @@ const benefits: Benefit[] = [
   { title: "Reusable Assets", description: "Receive files and guidelines for long-term use." },
 ];
 
+// FAQ data - single source of truth
+const faqs = [
+  {
+    question: "What is brand design?",
+    answer: "Brand design is the process of creating a visual identity for your business, including logos, colors, fonts, and style guidelines."
+  },
+  {
+    question: "Do you offer logo design?",
+    answer: "Yes, we create custom logos that reflect your brand's personality and values."
+  },
+  {
+    question: "Can you design graphics for social media?",
+    answer: "Absolutely — we design assets optimized for web and social platforms."
+  }
+];
+
 const processSteps: ProcessStep[] = [
   { title: "Discovery", description: "Understand your brand, goals, and audience." },
   { title: "Concept", description: "Develop initial concepts and direction." },
@@ -141,38 +157,20 @@ const GraphicBrandDesign: React.FC = () => {
           }),
         }}
       />
-      <script
+            <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "What is brand design?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Brand design is the process of creating a visual identity for your business, including logos, colors, fonts, and style guidelines."
-                }
-              },
-              {
-                "@type": "Question",
-                name: "Do you offer logo design?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, we create custom logos that reflect your brand’s personality and values."
-                }
-              },
-              {
-                "@type": "Question",
-                name: "Can you design graphics for social media?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Absolutely — we design assets optimized for web and social platforms."
-                }
-              },
-            ],
+            mainEntity: faqs.map(faq => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer
+              }
+            })),
           }),
         }}
       />
@@ -302,36 +300,20 @@ const GraphicBrandDesign: React.FC = () => {
             <h2>Frequently Asked Questions</h2>
             <p className="faq__lead">Quick answers to common questions about our graphic & brand design services.</p>
           </header>
-          <div className="faq__list">
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">What is brand design?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>Brand design is the process of creating a visual identity for your business, including logos, colors, fonts, and style guidelines.</p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Do you offer logo design?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>Yes, we create custom logos that reflect your brand’s personality and values.</p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Can you design graphics for social media?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>Absolutely — we design assets optimized for web and social platforms.</p>
-              </div>
-            </details>
+                    <div className="faq__list">
+            {faqs.map((faq, index) => (
+              <details key={index} className="faq__item">
+                <summary className="faq__summary">
+                  <h3 className="faq-question">{faq.question}</h3>
+                </summary>
+                <div className="faq-answer">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </SectionWrapper>
     </main>
   );
 };
-
-export default GraphicBrandDesign;

@@ -78,6 +78,30 @@ const benefits: Benefit[] = [
   { title: "Competitive Edge", description: "Adopt innovative technology to stay ahead." },
 ];
 
+// FAQ data - single source of truth
+const faqs = [
+  {
+    question: "What is AI & automation?",
+    answer: "AI (Artificial Intelligence) uses computer systems to perform tasks that normally require human intelligence. Automation uses technology to perform tasks with minimal human intervention."
+  },
+  {
+    question: "How can AI help my business?",
+    answer: "AI can help you analyze data, automate decisions, improve customer service, and optimize operations for better results."
+  },
+  {
+    question: "Is automation expensive?",
+    answer: "Automation can reduce costs over time by saving labor and improving efficiency. We offer solutions for businesses of all sizes."
+  },
+  {
+    question: "Do you provide ongoing support?",
+    answer: "Yes, we provide ongoing support and optimization to ensure your AI and automation solutions continue to deliver value."
+  },
+  {
+    question: "Can you integrate AI with my existing systems?",
+    answer: "Absolutely! We specialize in integrating AI and automation tools with your current business software and workflows."
+  }
+];
+
 const processSteps: ProcessStep[] = [
   { title: "Discovery", description: "Assess needs, data, and opportunities for AI & automation." },
   { title: "Design", description: "Prototype, model selection, and architecture planning." },
@@ -146,48 +170,14 @@ const AIAutomation: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            mainEntity: [
-              {
-                "@type": "Question",
-                name: "What is AI & automation?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "AI (Artificial Intelligence) uses computer systems to perform tasks that normally require human intelligence. Automation uses technology to perform tasks with minimal human intervention.",
-                },
+            mainEntity: faqs.map(faq => ({
+              "@type": "Question",
+              name: faq.question,
+              acceptedAnswer: {
+                "@type": "Answer",
+                text: faq.answer,
               },
-              {
-                "@type": "Question",
-                name: "How can AI help my business?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "AI can help you analyze data, automate decisions, improve customer service, and optimize operations for better results.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Is automation expensive?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Automation can reduce costs over time by saving labor and improving efficiency. We offer solutions for businesses of all sizes.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Do you provide ongoing support?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Yes, we provide ongoing support and optimization to ensure your AI and automation solutions continue to deliver value.",
-                },
-              },
-              {
-                "@type": "Question",
-                name: "Can you integrate AI with my existing systems?",
-                acceptedAnswer: {
-                  "@type": "Answer",
-                  text: "Absolutely! We specialize in integrating AI and automation tools with your current business software and workflows.",
-                },
-              },
-            ],
+            })),
           }),
         }}
       />
@@ -318,56 +308,16 @@ const AIAutomation: React.FC = () => {
             <p className="faq__lead">Quick answers to common questions about our AI & automation solutions.</p>
           </header>
           <div className="faq__list">
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">What is AI & automation?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>
-                  AI (Artificial Intelligence) uses computer systems to perform tasks that normally require human intelligence. Automation uses technology to perform tasks with minimal human intervention.
-                </p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">How can AI help my business?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>
-                  AI can help you analyze data, automate decisions, improve customer service, and optimize operations for better results.
-                </p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Is automation expensive?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>
-                  Automation can reduce costs over time by saving labor and improving efficiency. We offer solutions for businesses of all sizes.
-                </p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Do you provide ongoing support?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>
-                  Yes, we provide ongoing support and optimization to ensure your AI and automation solutions continue to deliver value.
-                </p>
-              </div>
-            </details>
-            <details className="faq__item">
-              <summary className="faq__summary">
-                <h3 className="faq-question">Can you integrate AI with my existing systems?</h3>
-              </summary>
-              <div className="faq-answer">
-                <p>
-                  Absolutely! We specialize in integrating AI and automation tools with your current business software and workflows.
-                </p>
-              </div>
-            </details>
+            {faqs.map((faq, index) => (
+              <details key={index} className="faq__item">
+                <summary className="faq__summary">
+                  <h3 className="faq-question">{faq.question}</h3>
+                </summary>
+                <div className="faq-answer">
+                  <p>{faq.answer}</p>
+                </div>
+              </details>
+            ))}
           </div>
         </div>
       </SectionWrapper>

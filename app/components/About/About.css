@@ -178,6 +178,19 @@
 
 }
 
+/* Mirror hover styles via `.inview` class for JS toggling (mobile only) */
+@media (max-width:600px) {
+  .about-item.inview {
+    transform: scale(1.05);
+    background-color: #0067e7;
+    color: white;
+  }
+
+  .about-item.inview .about-icon {
+    filter: brightness(0) invert(1);
+  }
+}
+
 /* Mobile fix: align About section content to top instead of center */
 @media (max-width: 600px) {
   .about-section {

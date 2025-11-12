@@ -182,6 +182,34 @@
 
 }
 
+/* Mirror hover styles via `.inview` class for JS toggling (mobile only) */
+@media (max-width:600px) {
+  .service-box.inview{
+    background-color: #0067e7;
+    transform: scale(1.05);
+    height: fit-content;
+  }
+
+  .service-box.inview .service-icon {
+    filter: brightness(0) invert(1);
+  }
+
+  .service-box.inview .service-name,
+  .service-box.inview .service-description {
+    color: #ffffff;
+  }
+
+  .service-box.inview .learn-more-wrapper {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .service-box.inview .learn-more-icon {
+    color: #ffffff;
+    filter: brightness(0) invert(1);
+  }
+}
+
 /* Dark theme styles */
 [data-theme="dark"] .services-section {
   background-color: rgba(10, 10, 10, 0.70);

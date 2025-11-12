@@ -1,9 +1,57 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import "./About.css";
 import { Wrench, HeartHandshake, Globe } from "lucide-react";
 
-
 const About: React.FC = () => {
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mm = window.matchMedia("(max-width: 600px)");
+    if (!mm.matches) return; // only run on mobile
+
+    const elements = Array.from(
+      document.querySelectorAll<HTMLElement>(".about-item")
+    );
+    if (!elements.length) return;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const el = entry.target as HTMLElement;
+          if (entry.isIntersecting) {
+            el.classList.add("inview");
+          } else {
+            el.classList.remove("inview");
+          }
+        });
+      },
+      { root: null, rootMargin: "-50% 0px -50% 0px", threshold: 0 }
+    );
+
+    elements.forEach((el) => observer.observe(el));
+
+    const mqListener = (e: MediaQueryListEvent | MediaQueryList) => {
+      // if leaving mobile, cleanup classes and observer
+      if (!("matches" in e ? e.matches : (e as MediaQueryList).matches)) {
+        observer.disconnect();
+        document
+          .querySelectorAll(".about-item.inview")
+          .forEach((n) => n.classList.remove("inview"));
+      }
+    };
+
+    // attach listener (support older addListener fallback)
+    if ((mm as any).addEventListener)
+      (mm as any).addEventListener("change", mqListener);
+    else (mm as any).addListener(mqListener);
+
+    return () => {
+      observer.disconnect();
+      if ((mm as any).removeEventListener)
+        (mm as any).removeEventListener("change", mqListener);
+      else (mm as any).removeListener(mqListener);
+    };
+  }, []);
 
   return (
     <section className="about-section">
@@ -27,17 +75,25 @@ const About: React.FC = () => {
               <Wrench className="about-icon" aria-label="wrench" size={38} />
               <h3>What We Do</h3>
             </div>
-            <p>We create tailored solutions for businesses—whether it’s building a custom website,
-              improving your SEO, or developing mobile apps to engage your customers.
+            <p>
+              We create tailored solutions for businesses—whether it’s building
+              a custom website, improving your SEO, or developing mobile apps to
+              engage your customers.
             </p>
           </div>
           <div className="about-item">
             <div className="about-cols">
-              <HeartHandshake className="about-icon" aria-label="handshake" size={38} />
+              <HeartHandshake
+                className="about-icon"
+                aria-label="handshake"
+                size={38}
+              />
               <h3>Why Choose Us</h3>
             </div>
-            <p>Our team works face-to-face with Canadian businesses to understand their needs
-              and deliver results that drive growth. We build long-term relationships, not just solutions.
+            <p>
+              Our team works face-to-face with Canadian businesses to understand
+              their needs and deliver results that drive growth. We build
+              long-term relationships, not just solutions.
             </p>
           </div>
           <div className="about-item">
@@ -45,8 +101,10 @@ const About: React.FC = () => {
               <Globe className="about-icon" aria-label="globeicon" size={38} />
               <h3>Our Vision</h3>
             </div>
-            <p>To empower Canadian businesses with innovative, scalable, and effective digital
-              strategies that boost visibility and success in today’s competitive market.
+            <p>
+              To empower Canadian businesses with innovative, scalable, and
+              effective digital strategies that boost visibility and success in
+              today’s competitive market.
             </p>
           </div>
         </div>

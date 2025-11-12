@@ -25,6 +25,7 @@ import RelatedServicesSection, {
 import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
 import ServicesWhySection, { WhySolution } from "../../components/ServicesWhySection/ServicesWhySection";
 import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
+import FAQ from "../../components/FAQ/FAQ";
 
 export const generateMetadata = (): Metadata => ({
   title: "Custom Software Development Services in Calgary - NuTab Digital",
@@ -477,30 +478,7 @@ const CustomSoftwareSolutions: React.FC = () => {
         <GetQuoteButton />
       </SectionWrapper>
 
-      <SectionWrapper className="section-wrapper--faq">
-        <div className="faq">
-          <header className="faq__header">
-            <h2 className="gradient-title">Frequently Asked Questions</h2>
-            <p className="faq__lead section-text">
-              Quick answers to common questions about our custom software
-              development services.
-            </p>
-          </header>
-
-          <div className="faq__list">
-            {faqs.map((faq, index) => (
-              <details key={index} className="faq__item">
-                <summary className="faq__summary">
-                  <h3 className="faq-question">{faq.question}</h3>
-                </summary>
-                <div className="faq-answer section-text">
-                  <p>{faq.answer}</p>
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </SectionWrapper>
+      <FAQ faqs={faqs} lead="Quick answers to common questions about our custom software development services." />
     </main>
   );
 };

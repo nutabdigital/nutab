@@ -15,6 +15,7 @@ import IndustryGrid, { IndustryItem } from "../../components/IndustryGrid/Indust
 import ProcessTimeline, { ProcessStep } from "../../components/ProcessTimeline/ProcessTimeline";
 import FeatureGrid, { FeatureItem } from "../../components/FeatureGrid/FeatureGrid";
 import RelatedServicesSection, { RelatedServiceItem } from "../../components/RelatedServicesSection/RelatedServicesSection";
+import FAQ from "../../components/FAQ/FAQ";
 
 export const generateMetadata = (): Metadata => ({
   title: "Photography & Media Production Services in Calgary - NuTab Digital",
@@ -343,26 +344,7 @@ const PhotographyMediaProduction: React.FC = () => {
         <GetQuoteButton />
       </SectionWrapper>
 
-      <SectionWrapper className="section-wrapper--faq">
-        <div className="faq">
-          <header className="faq__header">
-            <h2>Frequently Asked Questions</h2>
-            <p className="faq__lead">Quick answers to common questions about our photography & media production services.</p>
-          </header>
-          <div className="faq__list">
-            {faqs.map((faq, index) => (
-              <details key={index} className="faq__item">
-                <summary className="faq__summary">
-                  <h3 className="faq-question">{faq.question}</h3>
-                </summary>
-                <div className="faq-answer">
-                  <p>{faq.answer}</p>
-                </div>
-              </details>
-            ))}
-          </div>
-        </div>
-      </SectionWrapper>
+      <FAQ faqs={faqs} lead="Quick answers to common questions about our photography & media production services." />
     </main>
   );
 };

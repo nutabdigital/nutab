@@ -41,7 +41,7 @@
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .breadcrumbs {
-    margin-top: 60px;  /* Smaller header on mobile */
+    margin-top: 70px;  /* Smaller header on mobile */
     font-size: 0.75rem;
   }
 }

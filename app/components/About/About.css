@@ -14,8 +14,8 @@
   align-items: center;
   box-sizing: border-box;
   width: 75vw;
-  max-width: 1100px;
-  padding: 2rem;
+  max-width: 1200px;
+  padding: 1rem;
   margin: 2vw auto;
   background-color: rgba(255, 255, 255, 0.70);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.425);
@@ -29,14 +29,14 @@
   text-align: center;
 }
 
-.about-title {
-  font-size: clamp(2.0rem, 2.0rem, 2rem);  /* property: clamp(MIN, PREFERRED, MAX); */
+.about-main-title {
+  font-size: clamp(2.0rem, 2.0rem, 2rem);
   font-weight: 400;
   background: linear-gradient(to right, #a78bfa, #60a5fa);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent; /* For non-webkit browsers */
+  text-fill-color: transparent; /* fallback */
   text-shadow:
     0 1px 6px #a78bfa33,   /* lighter, softer purple glow */
     0 1px 10px #60a5fa22;  /* lighter, softer blue glow */
@@ -48,6 +48,9 @@
   text-align: center;
   margin-bottom: 1.5rem;
    opacity: 0.85;
+  color: var(--foreground);             /* explicit color */
+  -webkit-text-fill-color: initial;     /* undo any inherited transparent fill */
+  text-fill-color: initial;
 }
 
 .about-grid {

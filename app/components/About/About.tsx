@@ -63,7 +63,7 @@ const About: React.FC = () => {
               alt="Canadian maple leaf icon representing local service"
               className="iconcan"
             />
-            <h2>Built in Canada, Designed for Growth</h2>
+            <h2 className="about-main-title">Built in Canada, Designed for Growth</h2>
           </div>
           <h2 className="about-subtitle">
             Your Digital Partner from Coast to Coast

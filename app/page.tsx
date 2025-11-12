@@ -60,7 +60,7 @@ const HomePage: React.FC = () => {
             // Directly set currentSection
             setState({ currentSection: sectionNumber });
 
-            console.log(`Currently in section: ${sectionNumber}`);
+            // console.log(`Currently in section: ${sectionNumber}`);
             entry.target.classList.add("visible");
           } else {
             entry.target.classList.remove("visible");

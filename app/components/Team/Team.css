@@ -61,6 +61,13 @@
   transform: scale(1.05);
 }
 
+/* Mobile: mirror hover via .inview when centered in viewport */
+@media (max-width: 600px) {
+  .team-member.inview {
+    transform: scale(1.05);
+  }
+}
+
 .photo {
   width: 200px;
   height: 200px;

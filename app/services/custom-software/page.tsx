@@ -42,9 +42,9 @@ export const generateMetadata = (): Metadata => ({
     siteName: "NuTab Digital",
     images: [
       {
-        url: "https://nutab.ca/photos/3d-nutab-logo.png",
-        width: 600,
-        height: 600,
+        url: "https://nutab.ca/photos/og-custom-software.webp",
+        width: 1200,
+        height: 800,
         alt: "Custom Software Development Services in Calgary",
       },
     ],
@@ -56,7 +56,7 @@ export const generateMetadata = (): Metadata => ({
     title: "Custom Software Development Services in Calgary - NuTab Digital",
     description:
       "NuTab Digital offers custom software development services in Calgary, Alberta. We create tailored solutions to streamline operations, enhance efficiency, and drive business growth.",
-    images: ["https://nutab.ca/photos/3d-nutab-logo.png"],
+    images: ["https://nutab.ca/photos/og-custom-software.webp"],
   },
 });
 

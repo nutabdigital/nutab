@@ -31,9 +31,9 @@ export const generateMetadata = (): import("next").Metadata => ({
     siteName: "NuTab Digital",
     images: [
       {
-        url: "https://nutab.ca/photos/3d-nutab-logo.webp",
-        width: 600,
-        height: 600,
+        url: "https://nutab.ca/photos/og-ai-automation.webp",
+        width: 1200,
+        height: 800,
         alt: "AI & Automation Solutions in Calgary",
       },
     ],
@@ -45,7 +45,7 @@ export const generateMetadata = (): import("next").Metadata => ({
     title: "AI & Automation Solutions in Calgary - NuTab Digital",
     description:
       "NuTab Digital offers AI and automation solutions in Calgary, Alberta. Leverage artificial intelligence and automation to improve efficiency, reduce manual tasks, and make smarter decisions.",
-    images: ["https://nutab.ca/photos/3d-nutab-logo.webp"],
+    images: ["https://nutab.ca/photos/og-ai-automation.webp"],
   },
 });
 

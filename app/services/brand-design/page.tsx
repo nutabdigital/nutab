@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     siteName: "NuTab Digital",
     images: [
       {
-        url: "https://nutab.ca/photos/3d-nutab-logo.png",
-        width: 600,
-        height: 600,
+        url: "https://nutab.ca/photos/og-brand-design.webp",
+        width: 1200,
+        height: 800,
         alt: "Graphic & Brand Design Services in Calgary",
       },
     ],
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     title: "Graphic & Brand Design Services in Calgary - NuTab Digital",
     description:
       "NuTab Digital offers graphic and brand design services in Calgary, Alberta. Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
-    images: ["https://nutab.ca/photos/3d-nutab-logo.png"],
+    images: ["https://nutab.ca/photos/og-brand-design.webp"],
   },
 };
 

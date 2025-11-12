@@ -32,9 +32,9 @@ export const generateMetadata = (): Metadata => ({
     siteName: "NuTab Digital",
     images: [
       {
-        url: "https://nutab.ca/photos/3d-nutab-logo.png",
-        width: 600,
-        height: 600,
+        url: "https://nutab.ca/photos/og-app-development.webp",
+        width: 1200,
+        height: 800,
         alt: "Mobile & Web App Development Services in Calgary",
       },
     ],
@@ -46,7 +46,7 @@ export const generateMetadata = (): Metadata => ({
     title: "Mobile & Web App Development Services in Calgary - NuTab Digital",
     description:
       "NuTab Digital offers mobile and web app development services in Calgary, Alberta. Build scalable, user-friendly apps for iOS, Android, and the web.",
-    images: ["https://nutab.ca/photos/3d-nutab-logo.png"],
+    images: ["https://nutab.ca/photos/og-app-development.webp"],
   },
 });
 

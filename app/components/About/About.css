@@ -36,7 +36,6 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent; /* fallback */
   text-shadow:
     0 1px 6px #a78bfa33,   /* lighter, softer purple glow */
     0 1px 10px #60a5fa22;  /* lighter, softer blue glow */
@@ -50,7 +49,6 @@
    opacity: 0.85;
   color: var(--foreground);             /* explicit color */
   -webkit-text-fill-color: initial;     /* undo any inherited transparent fill */
-  text-fill-color: initial;
 }
 
 .about-grid {

@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     url: "https://nutab.ca",
     siteName: "NuTab Digital",
     images: [{
-      url: "https://nutab.ca/photos/og-home.jpg", // Updated path
+      url: "https://nutab.ca/photos/og-home.webp", 
       width: 1200,
       height: 800,
       alt: "NuTab Digital - Calgary Software Development"
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "NuTab Digital - Custom Software Development | Calgary",
     description: "Custom software solutions in Calgary, Alberta.",
-    images: ["https://nutab.ca/photos/og-home.jpg"], // Updated path
+    images: ["https://nutab.ca/photos/og-home.webp"], 
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
   },
@@ -221,8 +221,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link
           rel="preload"
           as="image"
-          href="/photos/3d-nutab-logo.png"
-          type="image/png"
+          href="/photos/3d-nutab-logo.webp"
+          type="image/webp"
           fetchPriority="high"
         />
         <link

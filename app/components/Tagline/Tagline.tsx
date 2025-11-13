@@ -11,9 +11,9 @@ const Tagline: React.FC = () => {
         {/* Orbs for visual effect */}
         <div className="floating-orb orb-purple tagline-orb"></div>
         <div className="floating-orb orb-blue tagline-orb"></div>
-        <h2 className="tagline-title">
+        <h1 className="tagline-title">
           Open a New Tab,
-        </h2>
+        </h1>
         <h2 className="gradient-title">
           Start Something Extraordinary
         </h2>

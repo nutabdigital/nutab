@@ -33,19 +33,6 @@ html {
   /* Ensures content stays above background */
 }
 
-.seo-lcp-text {
-  position: absolute;
-  top: 0;
-  left: 0;
-  font-size: 1px;
-  /* Very small but still rendered */
-  color: transparent;
-  text-shadow: 0 0 1px transparent;
-  /* Prevents full invisibility flag */
-  user-select: none;
-  pointer-events: none;
-}
-
 /* Styling for each section */
 .page-section {
   min-height: 100vh;

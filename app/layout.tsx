@@ -51,7 +51,7 @@ const structuredData = {
   "name": "NuTab Digital",
   "url": "https://nutab.ca",
   "logo": "https://nutab.ca/icons/logo-light.svg",
-  "image": "https://nutab.ca/photos/og-home.jpg",
+  "image": "https://nutab.ca/photos/og-home.webp",
   "telephone": "+1-587-707-2495",
   "address": {
     "@type": "PostalAddress",
@@ -228,8 +228,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link
           rel="preload"
           as="image"
-          href="/photos/og-home.jpg"
-          type="image/jpeg"
+          href="/photos/og-home.webp"
+          type="image/webp"
           fetchPriority="high"
         />
         

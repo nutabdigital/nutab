@@ -3,8 +3,9 @@
 import React, { useEffect, useState, Suspense } from "react";
 // import Loader from "./components/Loader/Loader";
 import Tagline from "./components/Tagline/Tagline";
-import About from "./components/About/About";
-import Services from "./components/ServicesSummary/Services";
+// Lazy load below-the-fold components for better initial load performance
+const About = React.lazy(() => import("./components/About/About"));
+const Services = React.lazy(() => import("./components/ServicesSummary/Services"));
 const Team = React.lazy(() => import("./components/Team/Team"));
 const Contact = React.lazy(() => import("./components/Contact/Contact"));
 import "./styles/page.css"; // Only keep if needed for above-the-fold
@@ -60,7 +61,7 @@ const HomePage: React.FC = () => {
             // Directly set currentSection
             setState({ currentSection: sectionNumber });
 
-            // console.log(`Currently in section: ${sectionNumber}`);
+            // Removed console.log for production performance
             entry.target.classList.add("visible");
           } else {
             entry.target.classList.remove("visible");
@@ -97,7 +98,9 @@ const HomePage: React.FC = () => {
             className="page-section fade-section align-left"
             data-section="1"
           >
-            <About />
+            <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
+              <About />
+            </Suspense>
           </section>
 
           <section
@@ -105,7 +108,9 @@ const HomePage: React.FC = () => {
             className="page-section fade-section align-right"
             data-section="2"
           >
-            <Services />
+            <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
+              <Services />
+            </Suspense>
           </section>
 
           <section

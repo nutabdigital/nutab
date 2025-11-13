@@ -6,50 +6,51 @@ import { Wrench, HeartHandshake, Globe } from "lucide-react";
 const About: React.FC = () => {
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const mm = window.matchMedia("(max-width: 600px)");
-    if (!mm.matches) return; // only run on mobile
+    
+    // Defer IntersectionObserver setup for better initial load performance
+    const timeoutId = setTimeout(() => {
+      const mm = window.matchMedia("(max-width: 600px)");
+      if (!mm.matches) return; // only run on mobile
 
-    const elements = Array.from(
-      document.querySelectorAll<HTMLElement>(".about-item")
-    );
-    if (!elements.length) return;
+      const elements = Array.from(
+        document.querySelectorAll<HTMLElement>(".about-item")
+      );
+      if (!elements.length) return;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          const el = entry.target as HTMLElement;
-          if (entry.isIntersecting) {
-            el.classList.add("inview");
-          } else {
-            el.classList.remove("inview");
-          }
-        });
-      },
-      { root: null, rootMargin: "-50% 0px -50% 0px", threshold: 0 }
-    );
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            const el = entry.target as HTMLElement;
+            if (entry.isIntersecting) {
+              el.classList.add("inview");
+            } else {
+              el.classList.remove("inview");
+            }
+          });
+        },
+        { root: null, rootMargin: "-50% 0px -50% 0px", threshold: 0 }
+      );
 
-    elements.forEach((el) => observer.observe(el));
+      elements.forEach((el) => observer.observe(el));
 
-    const mqListener = (e: MediaQueryListEvent | MediaQueryList) => {
-      // if leaving mobile, cleanup classes and observer
-      if (!("matches" in e ? e.matches : (e as MediaQueryList).matches)) {
-        observer.disconnect();
-        document
-          .querySelectorAll(".about-item.inview")
-          .forEach((n) => n.classList.remove("inview"));
-      }
-    };
+      const mqListener = (e: MediaQueryListEvent | MediaQueryList) => {
+        // if leaving mobile, cleanup classes and observer
+        if (!("matches" in e ? e.matches : (e as MediaQueryList).matches)) {
+          observer.disconnect();
+          document
+            .querySelectorAll(".about-item.inview")
+            .forEach((n) => n.classList.remove("inview"));
+        }
+      };
 
-    // attach listener (support older addListener fallback)
-    if ((mm as any).addEventListener)
-      (mm as any).addEventListener("change", mqListener);
-    else (mm as any).addListener(mqListener);
+      // attach listener (support older addListener fallback)
+      if ((mm as any).addEventListener)
+        (mm as any).addEventListener("change", mqListener);
+      else (mm as any).addListener(mqListener);
+    }, 100); // Small 100ms delay to prioritize initial render
 
     return () => {
-      observer.disconnect();
-      if ((mm as any).removeEventListener)
-        (mm as any).removeEventListener("change", mqListener);
-      else (mm as any).removeListener(mqListener);
+      clearTimeout(timeoutId);
     };
   }, []);
 
@@ -62,6 +63,9 @@ const About: React.FC = () => {
               src="/icons/maple-leaf-icon.svg"
               alt="Canadian maple leaf icon representing local service"
               className="iconcan"
+              loading="lazy"
+              width="32"
+              height="32"
             />
             <h2 className="about-main-title">Built in Canada, Designed for Growth</h2>
           </div>

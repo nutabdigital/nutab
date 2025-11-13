@@ -220,21 +220,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       unnecessary DNS/connections. */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         
-        {/* Preload critical images for LCP optimization */}
-        <link
-          rel="preload"
-          as="image"
-          href="/photos/3d-nutab-logo.webp"
-          type="image/webp"
-          fetchPriority="high"
-        />
-        <link
-          rel="preload"
-          as="image"
-          href="/photos/og-home.webp"
-          type="image/webp"
-          fetchPriority="high"
-        />
+        {/* Preload critical above-the-fold images only - removed non-LCP images for mobile performance */}
+        {/* The 3D model and OG images are not in the initial viewport on mobile, so no preload needed */}
         
         <meta name="color-scheme" content="dark light" />
         <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />

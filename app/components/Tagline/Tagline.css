@@ -38,6 +38,12 @@
   will-change: opacity, transform;
 }
 
+/* Ensure H1 is immediately visible for LCP (no opacity delay) */
+.tagline-title {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* Gradient Title */
 .gradient-title {
   background: linear-gradient(to right, #a78bfa, #60a5fa);

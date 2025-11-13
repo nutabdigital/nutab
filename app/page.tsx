@@ -84,7 +84,7 @@ const HomePage: React.FC = () => {
         <div className="content-wrapper">
           <section
             id="tagline"
-            className="page-section fade-section align-right"
+            className="page-section align-right"
             data-section="0"
           >
             {/* Ensure Tagline renders a visible <h1>. If it doesn't, add a visible H1 here */}

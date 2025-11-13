@@ -38,9 +38,6 @@ sup{
   color:#0055ff;
 }
 
-/* Remove hidden “LCP hint” text - non-compliant with Google guidelines */
-.seo-lcp-text { display: none !important; }
-
 /* -------------------- Custom Utility Classes -------------------- */
 /* Additional custom utilities for specific needs */
 @layer utilities {

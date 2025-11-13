@@ -80,13 +80,6 @@ const HomePage: React.FC = () => {
     <>
       {/* <Loader /> */}
       <div className="gradient-background"></div>
-
-      {/* === Hero placeholder for LCP === */}
-      <section className="hero-placeholder" aria-hidden="false">
-        <h1 className="seo-lcp-text">Custom Software Solutions | Nutab</h1>
-      </section>
-      {/* === End Hero === */}
-
       <main className="home-page">
         <div className="content-wrapper">
           <section
@@ -94,6 +87,8 @@ const HomePage: React.FC = () => {
             className="page-section fade-section align-right"
             data-section="0"
           >
+            {/* Ensure Tagline renders a visible <h1>. If it doesn't, add a visible H1 here */}
+            {/* <h1>Custom Software Solutions | NuTab</h1> */}
             <Tagline />
           </section>
 

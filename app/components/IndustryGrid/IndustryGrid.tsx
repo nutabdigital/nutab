@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import "./IndustryGrid.css";
+import { PHOTO_SIZES } from "../../../data/photoSizes";
 
 export interface IndustryItem {
   name: string;
@@ -98,7 +99,18 @@ export default function IndustryGrid({
           >
             {item.image && (
               <div className="industry-item-image">
-                <img src={item.image} alt={item.name} />
+                {(() => {
+                  const dims = PHOTO_SIZES[item.image] ?? { width: 480, height: 320 };
+                  return (
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      width={dims.width}
+                      height={dims.height}
+                      style={{ width: "100%", height: "auto", display: "block", objectFit: "cover" }}
+                    />
+                  );
+                })()}
               </div>
             )}
 

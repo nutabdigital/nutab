@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import "./Team.css";
+import { PHOTO_SIZES } from "../../../data/photoSizes";
 
 // Contact structure
 interface Contact {
@@ -133,12 +134,20 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
       </p>
       <div className="grid-container">
         <div className="team-member" onClick={() => onSelectContact(contacts.navjot)}>
-          <img
-            className="photo"
-            src="/photos/nav-headshot.webp"
-            alt="Navjot Saran headshot"
-            loading="lazy"
-          />
+          {(() => {
+            const dims = PHOTO_SIZES[contacts.navjot.photo] ?? { width: 400, height: 400 };
+            return (
+              <img
+                className="photo"
+                src={contacts.navjot.photo}
+                alt="Navjot Saran headshot"
+                loading="lazy"
+                width={dims.width}
+                height={dims.height}
+                style={{ width: "100%", height: "auto", display: "block", objectFit: "cover" }}
+              />
+            );
+          })()}
           <p className="team-name">Navjot Saran</p>
           <p className="team-role">Co-Founder</p>
           <p className="team-position">Software Developer</p>
@@ -147,12 +156,20 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
           </p>
         </div>
         <div className="team-member" onClick={() => onSelectContact(contacts.fysal)}>
-          <img
-            className="photo"
-            src="/photos/fysal-headshot.webp"
-            alt="Fysal Beauferris headshot"
-            loading="lazy"
-          />
+          {(() => {
+            const dims = PHOTO_SIZES[contacts.fysal.photo] ?? { width: 400, height: 400 };
+            return (
+              <img
+                className="photo"
+                src={contacts.fysal.photo}
+                alt="Fysal Beauferris headshot"
+                loading="lazy"
+                width={dims.width}
+                height={dims.height}
+                style={{ width: "100%", height: "auto", display: "block", objectFit: "cover" }}
+              />
+            );
+          })()}
           <p className="team-name">Fysal Beauferris</p>
           <p className="team-role">Co-Founder</p>
           <p className="team-position">Software Developer</p>

@@ -2,6 +2,7 @@
 
 import { useRef, useEffect, useState } from "react";
 import "./ServicesGrid.css";
+import { PHOTO_SIZES } from "../../../data/photoSizes";
 
 export interface ServiceItem {
   title: string;
@@ -98,7 +99,19 @@ export default function ServicesGrid({
           >
             {service.image && (
               <div className="service-card-image">
-                <img src={service.image} alt={service.title} />
+                {/* Use actual image intrinsic sizes when available to avoid CLS */}
+                {(() => {
+                  const dims = PHOTO_SIZES[service.image] ?? { width: 600, height: 400 };
+                  return (
+                    <img
+                      src={service.image}
+                      alt={service.title}
+                      width={dims.width}
+                      height={dims.height}
+                      style={{ width: "100%", height: "auto", display: "block", objectFit: "cover" }}
+                    />
+                  );
+                })()}
               </div>
             )}
 

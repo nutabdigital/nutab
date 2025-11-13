@@ -38,7 +38,9 @@ export const metadata: Metadata = {
 
 const tomorrow = Tomorrow({
   subsets: ["latin"],
-  weight: ["100", "300", "400", "500", "700", "900"], // Can optimize by deleting unused
+  // Reduced font weights to the commonly-used set to avoid emitting many font files
+  // and preloads. Adjust if you need more weights.
+  weight: ["300", "400", "700"],
   display: "swap",
 });
 
@@ -212,9 +214,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
         
-        {/* Preconnect to critical origins for faster resource loading */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+    {/* Preconnect removed for Google Fonts: `next/font/google` serves fonts locally
+      and generates local font files/preloads. Manual preconnect to fonts.googleapis.com
+      and fonts.gstatic.com is therefore redundant and can be removed to avoid
+      unnecessary DNS/connections. */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         
         {/* Preload critical images for LCP optimization */}

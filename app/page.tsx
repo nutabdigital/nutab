@@ -98,7 +98,11 @@ const HomePage: React.FC = () => {
             className="page-section fade-section align-left"
             data-section="1"
           >
-            <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
+            <Suspense fallback={
+              <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ opacity: 0.3 }}>Loading...</div>
+              </div>
+            }>
               <About />
             </Suspense>
           </section>
@@ -108,7 +112,11 @@ const HomePage: React.FC = () => {
             className="page-section fade-section align-right"
             data-section="2"
           >
-            <Suspense fallback={<div style={{ minHeight: '100vh' }} />}>
+            <Suspense fallback={
+              <div style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ opacity: 0.3 }}>Loading...</div>
+              </div>
+            }>
               <Services />
             </Suspense>
           </section>

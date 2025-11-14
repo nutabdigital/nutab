@@ -8,14 +8,14 @@ import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection"
 import { PenTool, Palette, Image } from "lucide-react";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
 import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
-import ServicesWhySection, { WhySolution } from "../../components/ServicesWhySection/ServicesWhySection";
-import ServicesGrid, { ServiceItem } from "../../components/ServicesGrid/ServicesGrid";
-import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
-import IndustryGrid, { IndustryItem } from "../../components/IndustryGrid/IndustryGrid";
-import ProcessTimeline, { ProcessStep } from "../../components/ProcessTimeline/ProcessTimeline";
-import FeatureGrid, { FeatureItem } from "../../components/FeatureGrid/FeatureGrid";
-import RelatedServicesSection, { RelatedServiceItem } from "../../components/RelatedServicesSection/RelatedServicesSection";
-import FAQ from "../../components/FAQ/FAQ";
+import WhyChooseSection, { WhySolution } from "../../components/WhyChooseSection/WhyChooseSection";
+import ServicesList, { ServiceItem } from "../../components/ServicesList/ServicesList";
+import BenefitsOverview, { Benefit } from "../../components/BenefitsOverview/BenefitsOverview";
+import IndustriesServed, { IndustryItem } from "../../components/IndustriesServed/IndustriesServed";
+import HowItWorksTimeline, { ProcessStep } from "../../components/HowItWorksTimeline/HowItWorksTimeline";
+import FeatureHighlights, { FeatureItem } from "../../components/FeatureHighlights/FeatureHighlights";
+import RelatedServices, { RelatedServiceItem } from "../../components/RelatedServices/RelatedServices";
+import FAQSection from "../../components/FAQSection/FAQSection";
 
 export const metadata: Metadata = {
   title: "Graphic & Brand Design Services in Calgary - NuTab Digital",
@@ -235,7 +235,7 @@ export default function GraphicBrandDesign() {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ServicesWhySection
+  <WhyChooseSection
           title="Why Choose Graphic & Brand Design?"
           description={
             <>
@@ -251,7 +251,7 @@ export default function GraphicBrandDesign() {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ServicesGrid
+  <ServicesList
           services={services}
           title="Our Design Services"
           subtitle="Logo design, brand systems, digital assets, and print collateral."
@@ -264,7 +264,7 @@ export default function GraphicBrandDesign() {
       </SectionWrapper>
 
       <SectionWrapper>
-        <BenefitsSection
+  <BenefitsOverview
           title="Benefits of Professional Design"
           subtitle="Investing in quality design delivers measurable brand benefits."
           benefits={benefits}
@@ -272,7 +272,7 @@ export default function GraphicBrandDesign() {
       </SectionWrapper>
 
       <SectionWrapper>
-        <IndustryGrid
+  <IndustriesServed
           items={industries}
           title="Industries We Serve"
           subtitle="Branding and design for a wide range of industries."
@@ -284,7 +284,7 @@ export default function GraphicBrandDesign() {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ProcessTimeline
+  <HowItWorksTimeline
           steps={processSteps}
           title="Our Creative Process"
           subtitle="A collaborative process to define and deliver your brand."
@@ -295,7 +295,7 @@ export default function GraphicBrandDesign() {
       </SectionWrapper>
 
       <SectionWrapper>
-        <FeatureGrid
+  <FeatureHighlights
           title="Why Partner with NuTab Digital?"
           subtitle={
             <>
@@ -315,7 +315,7 @@ export default function GraphicBrandDesign() {
       </SectionWrapper>
 
       <SectionWrapper>
-        <RelatedServicesSection
+  <RelatedServices
           title="Related Services"
           services={relatedServices}
           variant="gradient"
@@ -336,7 +336,7 @@ export default function GraphicBrandDesign() {
         <GetQuoteButton />
       </SectionWrapper>
 
-      <FAQ faqs={faqs} lead="Quick answers to common questions about our graphic & brand design services." />
+  <FAQSection faqs={faqs} lead="Quick answers to common questions about our graphic & brand design services." />
     </main>
   );
 }

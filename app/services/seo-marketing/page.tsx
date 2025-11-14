@@ -8,14 +8,14 @@ import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { LineChart, Megaphone, Users } from "lucide-react";
 import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
-import ServicesWhySection, { WhySolution } from "../../components/ServicesWhySection/ServicesWhySection";
-import ServicesGrid, { ServiceItem } from "../../components/ServicesGrid/ServicesGrid";
-import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
-import IndustryGrid, { IndustryItem } from "../../components/IndustryGrid/IndustryGrid";
-import ProcessTimeline, { ProcessStep } from "../../components/ProcessTimeline/ProcessTimeline";
-import FeatureGrid, { FeatureItem } from "../../components/FeatureGrid/FeatureGrid";
-import RelatedServicesSection, { RelatedServiceItem } from "../../components/RelatedServicesSection/RelatedServicesSection";
-import FAQ from "../../components/FAQ/FAQ";
+import WhyChooseSection, { WhySolution } from "../../components/WhyChooseSection/WhyChooseSection";
+import ServicesList, { ServiceItem } from "../../components/ServicesList/ServicesList";
+import BenefitsOverview, { Benefit } from "../../components/BenefitsOverview/BenefitsOverview";
+import IndustriesServed, { IndustryItem } from "../../components/IndustriesServed/IndustriesServed";
+import HowItWorksTimeline, { ProcessStep } from "../../components/HowItWorksTimeline/HowItWorksTimeline";
+import FeatureHighlights, { FeatureItem } from "../../components/FeatureHighlights/FeatureHighlights";
+import RelatedServices, { RelatedServiceItem } from "../../components/RelatedServices/RelatedServices";
+import FAQSection from "../../components/FAQSection/FAQSection";
 
 export const generateMetadata = (): Metadata => ({
   title: "SEO & Digital Marketing Services in Calgary - NuTab Digital",
@@ -236,7 +236,7 @@ const SEODigitalMarketing: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ServicesWhySection
+  <WhyChooseSection
           title="Why Choose SEO & Digital Marketing?"
           description={
             <>
@@ -252,7 +252,7 @@ const SEODigitalMarketing: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ServicesGrid
+  <ServicesList
           services={services}
           title="Our SEO & Digital Marketing Services"
           subtitle="Comprehensive services designed to grow your online presence and conversions."
@@ -265,7 +265,7 @@ const SEODigitalMarketing: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <BenefitsSection
+  <BenefitsOverview
           title="Benefits of SEO & Digital Marketing"
           subtitle="Invest in channels that deliver sustained growth and measurable outcomes."
           benefits={benefits}
@@ -273,7 +273,7 @@ const SEODigitalMarketing: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <IndustryGrid
+  <IndustriesServed
           items={industries}
           title="Industries We Serve"
           subtitle="Proven digital strategies across a range of industries."
@@ -285,7 +285,7 @@ const SEODigitalMarketing: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ProcessTimeline
+  <HowItWorksTimeline
           steps={processSteps}
           title="How We Work"
           subtitle="A data-driven process to plan, execute, and optimize marketing performance."
@@ -296,7 +296,7 @@ const SEODigitalMarketing: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <FeatureGrid
+  <FeatureHighlights
           title="Why Partner with NuTab Digital?"
           subtitle={
             <>
@@ -316,7 +316,7 @@ const SEODigitalMarketing: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <RelatedServicesSection
+  <RelatedServices
           title="Related Services"
           services={relatedServices}
           variant="gradient"
@@ -337,7 +337,7 @@ const SEODigitalMarketing: React.FC = () => {
         <GetQuoteButton />
       </SectionWrapper>
 
-      <FAQ faqs={faqs} lead="Quick answers to common questions about our SEO & digital marketing services." />
+  <FAQSection faqs={faqs} lead="Quick answers to common questions about our SEO & digital marketing services." />
     </main>
   );
 };

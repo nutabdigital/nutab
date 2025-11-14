@@ -24,7 +24,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent; /* For non-webkit browsers */
+  color: transparent; /* Non-webkit fallback */
   font-size: 2rem;
   font-weight: 400;
   text-align: center;
@@ -104,7 +104,7 @@
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent; /* For non-webkit browsers */
+  color: transparent; /* Non-webkit fallback */
   text-shadow:
     0 1px 6px #a78bfa33,  
     0 1px 10px #60a5fa22;  
@@ -228,9 +228,7 @@
   color:white;
 }
 
-[data-theme="dark"] .service-box {
-  /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752); */
-}
+/* Removed empty ruleset to satisfy CSS linter */
 
 [data-theme="dark"] .service-icon {
   filter: brightness(0) invert(1); 

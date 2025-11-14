@@ -8,14 +8,14 @@ import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection"
 import { MonitorSmartphone, Layers, ShieldCheck } from "lucide-react";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
 import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
-import ServicesWhySection, { WhySolution } from "../../components/ServicesWhySection/ServicesWhySection";
-import ServicesGrid, { ServiceItem } from "../../components/ServicesGrid/ServicesGrid";
-import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
-import IndustryGrid, { IndustryItem } from "../../components/IndustryGrid/IndustryGrid";
-import ProcessTimeline, { ProcessStep } from "../../components/ProcessTimeline/ProcessTimeline";
-import FeatureGrid, { FeatureItem } from "../../components/FeatureGrid/FeatureGrid";
-import RelatedServicesSection, { RelatedServiceItem } from "../../components/RelatedServicesSection/RelatedServicesSection";
-import FAQ from "../../components/FAQ/FAQ";
+import WhyChooseSection, { WhySolution } from "../../components/WhyChooseSection/WhyChooseSection";
+import ServicesList, { ServiceItem } from "../../components/ServicesList/ServicesList";
+import BenefitsOverview, { Benefit } from "../../components/BenefitsOverview/BenefitsOverview";
+import IndustriesServed, { IndustryItem } from "../../components/IndustriesServed/IndustriesServed";
+import HowItWorksTimeline, { ProcessStep } from "../../components/HowItWorksTimeline/HowItWorksTimeline";
+import FeatureHighlights, { FeatureItem } from "../../components/FeatureHighlights/FeatureHighlights";
+import RelatedServices, { RelatedServiceItem } from "../../components/RelatedServices/RelatedServices";
+import FAQSection from "../../components/FAQSection/FAQSection";
 
 export const generateMetadata = (): Metadata => ({
   title: "Mobile & Web App Development Services in Calgary - NuTab Digital",
@@ -234,7 +234,7 @@ const MobileWebAppDevelopment: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ServicesWhySection
+  <WhyChooseSection
           title="Why Choose Mobile & Web App Development?"
           description={
             <>
@@ -250,7 +250,7 @@ const MobileWebAppDevelopment: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ServicesGrid
+  <ServicesList
           services={services}
           title="Our App Development Services"
           subtitle="End-to-end mobile and web app development services to bring your product to market."
@@ -263,7 +263,7 @@ const MobileWebAppDevelopment: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <BenefitsSection
+  <BenefitsOverview
           title="Benefits of Mobile & Web App Development"
           subtitle="Quality applications deliver measurable improvements in engagement, retention, and revenue."
           benefits={benefits}
@@ -271,7 +271,7 @@ const MobileWebAppDevelopment: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <IndustryGrid
+  <IndustriesServed
           items={industries}
           title="Industries We Serve"
           subtitle="We build apps for a variety of industries and use-cases."
@@ -283,7 +283,7 @@ const MobileWebAppDevelopment: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ProcessTimeline
+  <HowItWorksTimeline
           steps={processSteps}
           title="Our Development Process"
           subtitle="A structured process to ensure product-market fit and technical quality."
@@ -294,7 +294,7 @@ const MobileWebAppDevelopment: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <FeatureGrid
+  <FeatureHighlights
           title="Why Partner with NuTab Digital?"
           subtitle={
             <>
@@ -314,7 +314,7 @@ const MobileWebAppDevelopment: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <RelatedServicesSection
+  <RelatedServices
           title="Related Services"
           services={relatedServices}
           variant="gradient"
@@ -335,7 +335,7 @@ const MobileWebAppDevelopment: React.FC = () => {
         <GetQuoteButton />
       </SectionWrapper>
 
-      <FAQ faqs={faqs} lead="Quick answers to common questions about our mobile & web app development services." />
+  <FAQSection faqs={faqs} lead="Quick answers to common questions about our mobile & web app development services." />
     </main>
   );
 };

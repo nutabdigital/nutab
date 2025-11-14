@@ -8,14 +8,14 @@ import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { ShoppingCart, Layers, ShieldCheck } from "lucide-react";
 import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
-import ServicesWhySection, { WhySolution } from "../../components/ServicesWhySection/ServicesWhySection";
-import ServicesGrid, { ServiceItem } from "../../components/ServicesGrid/ServicesGrid";
-import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
-import IndustryGrid, { IndustryItem } from "../../components/IndustryGrid/IndustryGrid";
-import ProcessTimeline, { ProcessStep } from "../../components/ProcessTimeline/ProcessTimeline";
-import FeatureGrid, { FeatureItem } from "../../components/FeatureGrid/FeatureGrid";
-import RelatedServicesSection, { RelatedServiceItem } from "../../components/RelatedServicesSection/RelatedServicesSection";
-import FAQ from "../../components/FAQ/FAQ";
+import WhyChooseSection, { WhySolution } from "../../components/WhyChooseSection/WhyChooseSection";
+import ServicesList, { ServiceItem } from "../../components/ServicesList/ServicesList";
+import BenefitsOverview, { Benefit } from "../../components/BenefitsOverview/BenefitsOverview";
+import IndustriesServed, { IndustryItem } from "../../components/IndustriesServed/IndustriesServed";
+import HowItWorksTimeline, { ProcessStep } from "../../components/HowItWorksTimeline/HowItWorksTimeline";
+import FeatureHighlights, { FeatureItem } from "../../components/FeatureHighlights/FeatureHighlights";
+import RelatedServices, { RelatedServiceItem } from "../../components/RelatedServices/RelatedServices";
+import FAQSection from "../../components/FAQSection/FAQSection";
 
 // const Loader = dynamic(() => import("../../components/Loader/Loader"), { ssr: false });
 
@@ -239,7 +239,7 @@ const EcommerceDevelopment: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ServicesWhySection
+  <WhyChooseSection
           title="Why Choose E-Commerce Development?"
           description={
             <>
@@ -255,7 +255,7 @@ const EcommerceDevelopment: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ServicesGrid
+  <ServicesList
           services={services}
           title="Our E-Commerce Services"
           subtitle="End-to-end e-commerce development services to launch and grow your online store."
@@ -268,7 +268,7 @@ const EcommerceDevelopment: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <BenefitsSection
+  <BenefitsOverview
           title="Benefits of E-Commerce Development"
           subtitle="Investing in a quality e-commerce platform delivers measurable business benefits."
           benefits={benefits}
@@ -276,7 +276,7 @@ const EcommerceDevelopment: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <IndustryGrid
+  <IndustriesServed
           items={industries}
           title="Industries We Serve"
           subtitle="We build e-commerce solutions for a variety of industries."
@@ -288,7 +288,7 @@ const EcommerceDevelopment: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ProcessTimeline
+  <HowItWorksTimeline
           steps={processSteps}
           title="Our Development Process"
           subtitle="A proven process to deliver robust, high-performing e-commerce platforms."
@@ -299,7 +299,7 @@ const EcommerceDevelopment: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <FeatureGrid
+  <FeatureHighlights
           title="Why Partner with NuTab Digital?"
           subtitle={
             <>
@@ -319,7 +319,7 @@ const EcommerceDevelopment: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <RelatedServicesSection
+  <RelatedServices
           title="Related Services"
           services={relatedServices}
           variant="gradient"
@@ -340,7 +340,7 @@ const EcommerceDevelopment: React.FC = () => {
         <GetQuoteButton />
       </SectionWrapper>
 
-      <FAQ faqs={faqs} lead="Quick answers to common questions about our e‑commerce development services." />
+  <FAQSection faqs={faqs} lead="Quick answers to common questions about our e‑commerce development services." />
 
       {/* Render Loader at the end so content is immediately visible */}
       {/* <Loader /> */}

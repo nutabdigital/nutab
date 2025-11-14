@@ -7,25 +7,15 @@ import { Metadata } from "next";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { Code2, Layers, ShieldCheck } from "lucide-react";
-import ProcessTimeline, {
-  ProcessStep,
-} from "../../components/ProcessTimeline/ProcessTimeline";
-import IndustryGrid, {
-  IndustryItem,
-} from "../../components/IndustryGrid/IndustryGrid";
-import ServicesGrid, {
-  ServiceItem,
-} from "../../components/ServicesGrid/ServicesGrid";
-import FeatureGrid, {
-  FeatureItem,
-} from "../../components/FeatureGrid/FeatureGrid";
-import RelatedServicesSection, {
-  RelatedServiceItem,
-} from "../../components/RelatedServicesSection/RelatedServicesSection";
-import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
-import ServicesWhySection, { WhySolution } from "../../components/ServicesWhySection/ServicesWhySection";
+import HowItWorksTimeline, { ProcessStep } from "../../components/HowItWorksTimeline/HowItWorksTimeline";
+import IndustriesServed, { IndustryItem } from "../../components/IndustriesServed/IndustriesServed";
+import ServicesList, { ServiceItem } from "../../components/ServicesList/ServicesList";
+import FeatureHighlights, { FeatureItem } from "../../components/FeatureHighlights/FeatureHighlights";
+import RelatedServices, { RelatedServiceItem } from "../../components/RelatedServices/RelatedServices";
+import BenefitsOverview, { Benefit } from "../../components/BenefitsOverview/BenefitsOverview";
+import WhyChooseSection, { WhySolution } from "../../components/WhyChooseSection/WhyChooseSection";
 import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
-import FAQ from "../../components/FAQ/FAQ";
+import FAQSection from "../../components/FAQSection/FAQSection";
 
 export const generateMetadata = (): Metadata => ({
   title: "Custom Software Development Services in Calgary - NuTab Digital",
@@ -367,7 +357,7 @@ const CustomSoftwareSolutions: React.FC = () => {
       <SectionWrapper>
         {/* Ensure a proper h2 landmark for heading hierarchy (visually-hidden for layout) */}
         <h2 className="sr-only">Why Choose Custom Software Development</h2>
-        <ServicesWhySection
+  <WhyChooseSection
           title="Why Choose Custom Software Development?"
           description={
             <>
@@ -388,7 +378,7 @@ const CustomSoftwareSolutions: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ServicesGrid
+  <ServicesList
           services={services}
           title="Our Custom Software Development Services"
           subtitle="Explore our full range of custom software solutions designed to fit your business needs."
@@ -402,7 +392,7 @@ const CustomSoftwareSolutions: React.FC = () => {
 
       {/* --- Replace the original benefits section with BenefitsSection --- */}
       <SectionWrapper>
-        <BenefitsSection
+  <BenefitsOverview
           title="Benefits of Custom Software Development"
           subtitle="Investing in custom software development offers numerous advantages for your business:"
           benefits={benefits}
@@ -411,7 +401,7 @@ const CustomSoftwareSolutions: React.FC = () => {
       {/* --- End BenefitsSection --- */}
 
       <SectionWrapper>
-        <IndustryGrid
+  <IndustriesServed
           items={industries}
           title="Industries We Serve"
           subtitle="Our custom software solutions cater to a wide range of industries."
@@ -423,7 +413,7 @@ const CustomSoftwareSolutions: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ProcessTimeline
+  <HowItWorksTimeline
           steps={processSteps}
           title="Our Development Process"
           subtitle="At NuTab Digital, we follow a proven process to ensure the success of your custom software project."
@@ -434,7 +424,7 @@ const CustomSoftwareSolutions: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <FeatureGrid
+  <FeatureHighlights
           title="Why Partner with NuTab Digital?"
           subtitle={
             <>
@@ -455,7 +445,7 @@ const CustomSoftwareSolutions: React.FC = () => {
 
       {/* Internal Links for SEO */}
       <SectionWrapper>
-        <RelatedServicesSection
+  <RelatedServices
           title="Related Services"
           services={relatedServices}
           variant="gradient"
@@ -478,7 +468,7 @@ const CustomSoftwareSolutions: React.FC = () => {
         <GetQuoteButton />
       </SectionWrapper>
 
-      <FAQ faqs={faqs} lead="Quick answers to common questions about our custom software development services." />
+  <FAQSection faqs={faqs} lead="Quick answers to common questions about our custom software development services." />
     </main>
   );
 };

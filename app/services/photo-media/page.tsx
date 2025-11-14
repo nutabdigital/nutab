@@ -8,14 +8,14 @@ import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection"
 import { Camera, Video, Image as ImgIcon } from "lucide-react";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
 import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
-import ServicesWhySection, { WhySolution } from "../../components/ServicesWhySection/ServicesWhySection";
-import ServicesGrid, { ServiceItem } from "../../components/ServicesGrid/ServicesGrid";
-import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
-import IndustryGrid, { IndustryItem } from "../../components/IndustryGrid/IndustryGrid";
-import ProcessTimeline, { ProcessStep } from "../../components/ProcessTimeline/ProcessTimeline";
-import FeatureGrid, { FeatureItem } from "../../components/FeatureGrid/FeatureGrid";
-import RelatedServicesSection, { RelatedServiceItem } from "../../components/RelatedServicesSection/RelatedServicesSection";
-import FAQ from "../../components/FAQ/FAQ";
+import WhyChooseSection, { WhySolution } from "../../components/WhyChooseSection/WhyChooseSection";
+import ServicesList, { ServiceItem } from "../../components/ServicesList/ServicesList";
+import BenefitsOverview, { Benefit } from "../../components/BenefitsOverview/BenefitsOverview";
+import IndustriesServed, { IndustryItem } from "../../components/IndustriesServed/IndustriesServed";
+import HowItWorksTimeline, { ProcessStep } from "../../components/HowItWorksTimeline/HowItWorksTimeline";
+import FeatureHighlights, { FeatureItem } from "../../components/FeatureHighlights/FeatureHighlights";
+import RelatedServices, { RelatedServiceItem } from "../../components/RelatedServices/RelatedServices";
+import FAQSection from "../../components/FAQSection/FAQSection";
 
 export const generateMetadata = (): Metadata => ({
   title: "Photography & Media Production Services in Calgary - NuTab Digital",
@@ -243,7 +243,7 @@ const PhotographyMediaProduction: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ServicesWhySection
+  <WhyChooseSection
           title="Why Choose Photography & Media Production?"
           description={
             <>
@@ -259,7 +259,7 @@ const PhotographyMediaProduction: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ServicesGrid
+  <ServicesList
           services={services}
           title="Our Photography & Media Services"
           subtitle="Commercial photography, video production, event coverage and post-production."
@@ -272,7 +272,7 @@ const PhotographyMediaProduction: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <BenefitsSection
+  <BenefitsOverview
           title="Benefits of Photography & Media Production"
           subtitle="High-quality visual content delivers measurable benefits for your brand and campaigns."
           benefits={benefits}
@@ -280,7 +280,7 @@ const PhotographyMediaProduction: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <IndustryGrid
+  <IndustriesServed
           items={industries}
           title="Industries We Serve"
           subtitle="We support a wide range of industries with creative media solutions."
@@ -292,7 +292,7 @@ const PhotographyMediaProduction: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ProcessTimeline
+  <HowItWorksTimeline
           steps={processSteps}
           title="How We Work"
           subtitle="A collaborative, end-to-end production process from concept to delivery."
@@ -303,7 +303,7 @@ const PhotographyMediaProduction: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <FeatureGrid
+  <FeatureHighlights
           title="Why Partner with NuTab Digital?"
           subtitle={
             <>
@@ -323,7 +323,7 @@ const PhotographyMediaProduction: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <RelatedServicesSection
+  <RelatedServices
           title="Related Services"
           services={relatedServices}
           variant="gradient"
@@ -344,7 +344,7 @@ const PhotographyMediaProduction: React.FC = () => {
         <GetQuoteButton />
       </SectionWrapper>
 
-      <FAQ faqs={faqs} lead="Quick answers to common questions about our photography & media production services." />
+  <FAQSection faqs={faqs} lead="Quick answers to common questions about our photography & media production services." />
     </main>
   );
 };

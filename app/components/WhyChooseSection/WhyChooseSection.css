@@ -1,0 +1,367 @@
+/* ===========================
+   Reasons To Choose Services Section Component
+   =========================== */
+
+/* Section Wrapper */
+.services-why-section {
+  width: 100%;
+}
+
+/* Container */
+.services-why-container {
+  max-width: 80rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* Header */
+.services-why-header {
+  margin-bottom: 3rem;
+}
+
+/* Title */
+.services-why-title {
+  text-align: center;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, rgb(192, 132, 252), rgb(147, 197, 253));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+@media (min-width: 768px) {
+  .services-why-title {
+    /* fluid size: min 2.0rem (mobile) → max 2.5rem (desktop) */
+  font-size: clamp(2rem, 2rem + 1vw, 2.5rem);
+    line-height: 1;
+  }
+}
+
+/* Tagline */
+.services-why-tagline {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.services-why-tagline p {
+  color: rgba(192, 132, 252, 0.8);
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
+/* Description */
+.services-why-description {
+  color: rgb(209, 213, 219);
+  max-width: 56rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.services-why-description p {
+  color: rgb(209, 213, 219);
+  line-height: 1.75;
+}
+
+/* Light theme (default) — keep descriptions dark on light backgrounds */
+.services-why-description,
+.services-why-description p,
+.services-why-card-description {
+  color: #000;
+  opacity: 0.95;
+}
+
+/* Dark theme: keep existing dark-theme palette */
+[data-theme="dark"] .services-why-description,
+[data-theme="dark"] .services-why-description p,
+[data-theme="dark"] .services-why-card-description {
+  color: rgb(209, 213, 219);
+  opacity: 1;
+}
+
+/* Content Wrapper */
+.services-why-content {
+  position: relative;
+}
+
+/* Background Glow */
+.services-why-bg-glow {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24rem;
+  height: 24rem;
+  background-color: rgba(168, 85, 247, 0.05);
+  border-radius: 9999px;
+  filter: blur(3rem);
+  z-index: -10;
+}
+
+/* Grid */
+.services-why-grid {
+  display: grid;
+  gap: 2rem;
+  max-width: 72rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .services-why-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Ensure cards stack on small screens (override inline grid styles) */
+@media (max-width: 767px) {
+  .services-why-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem;
+  }
+
+  .services-why-card {
+    padding: 1.25rem;
+  }
+
+  .services-why-card-number {
+    font-size: 2.25rem;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .services-why-icon-container {
+    width: 4.5rem;
+    height: 4.5rem;
+  }
+
+  .services-why-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+}
+
+/* Card Wrapper */
+.services-why-card-wrapper {
+  display: flex;
+}
+
+/* Card */
+.services-why-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(to bottom right, rgba(168, 85, 247, 0.05), transparent, rgba(59, 130, 246, 0.05));
+  border: 1px solid rgba(168, 85, 247, 0.2);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(4px);
+  overflow: hidden;
+  width: 100%;
+  text-decoration: none;
+  color: inherit;
+}
+
+.services-why-card--interactive {
+  cursor: pointer;
+}
+
+.services-why-card--interactive:hover {
+  border-color: rgba(168, 85, 247, 0.6);
+  box-shadow: 0 0 40px rgba(168, 85, 247, 0.15);
+}
+
+/* Card Glow Effect */
+.services-why-card-glow {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(168, 85, 247, 0), rgba(59, 130, 246, 0));
+  transition: all 0.3s ease;
+  border-radius: 1.5rem;
+}
+
+.services-why-card--interactive:hover .services-why-card-glow {
+  background: linear-gradient(to bottom right, rgba(168, 85, 247, 0.1), rgba(59, 130, 246, 0.1));
+}
+
+/* Number Indicator */
+.services-why-card-number {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 3rem;
+  line-height: 1;
+  background: linear-gradient(to bottom right, rgba(168, 85, 247, 0.1), rgba(59, 130, 246, 0.1));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.services-why-card--interactive:hover .services-why-card-number {
+  opacity: 0.5;
+}
+
+/* Icon Wrapper */
+.services-why-icon-wrapper {
+  position: relative;
+  margin-bottom: 1.5rem;
+  z-index: 10;
+}
+
+/* Icon Container */
+.services-why-icon-container {
+  position: relative;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 1.5rem;
+  background: linear-gradient(to bottom right, rgba(168, 85, 247, 0.2), rgba(168, 85, 247, 0.1), rgba(59, 130, 246, 0.2));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(192, 132, 252, 0.3);
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.services-why-card--interactive:hover .services-why-icon-container {
+  border-color: rgba(192, 132, 252, 0.6);
+  box-shadow: 0 0 20px rgba(168, 85, 247, 0.3);
+}
+
+/* Icon Blur */
+.services-why-icon-blur {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom right, rgba(192, 132, 252, 0.2), rgba(147, 197, 253, 0.2));
+  border-radius: 1.5rem;
+  filter: blur(1rem);
+  transition: all 0.3s ease;
+}
+
+.services-why-card--interactive:hover .services-why-icon-blur {
+  filter: blur(2rem);
+}
+
+/* Icon */
+.services-why-icon {
+  position: relative;
+  z-index: 10;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: rgb(192, 132, 252);
+  transition: color 0.3s ease;
+}
+
+.services-why-card--interactive:hover .services-why-icon {
+  color: rgb(216, 180, 254);
+}
+
+/* Card Content */
+.services-why-card-content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+}
+
+/* Card Title */
+.services-why-card-title {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  background: linear-gradient(to right, rgb(192, 132, 252), rgb(147, 197, 253));
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.services-why-card--interactive:hover .services-why-card-title {
+  background: linear-gradient(to right, rgb(216, 180, 254), rgb(186, 230, 253));
+}
+
+/* Card Description */
+.services-why-card-description {
+  color: rgb(156, 163, 175);
+  font-size: 0.875rem;
+  line-height: 1.75;
+  transition: color 0.3s ease;
+}
+
+.services-why-card--interactive:hover .services-why-card-description {
+  color: rgb(209, 213, 219);
+}
+
+/* Card Badge */
+.services-why-card-badge {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  padding: 0.25rem 0.75rem;
+  background: linear-gradient(to right, rgba(168, 85, 247, 0.2), rgba(59, 130, 246, 0.2));
+  border: 1px solid rgba(168, 85, 247, 0.3);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  color: rgb(192, 132, 252);
+  z-index: 10;
+}
+
+/* Bottom Accent Line */
+.services-why-card-accent {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 0.25rem;
+  background: linear-gradient(to right, transparent, rgba(168, 85, 247, 0.5), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.services-why-card--interactive:hover .services-why-card-accent {
+  opacity: 1;
+}
+
+/* Theme Variations */
+
+/* Minimal Theme */
+.services-why-section--minimal .services-why-card {
+  background: rgba(255, 255, 255, 0.02);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.services-why-section--minimal .services-why-card--interactive:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
+}
+
+.services-why-section--minimal .services-why-card-glow {
+  display: none;
+}
+
+.services-why-section--minimal .services-why-bg-glow {
+  display: none;
+}
+
+/* Glass Theme */
+.services-why-section--glass .services-why-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(12px);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+.services-why-section--glass .services-why-card--interactive:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(168, 85, 247, 0.4);
+  box-shadow: 0 8px 32px 0 rgba(168, 85, 247, 0.2);
+}
+
+.services-why-section--glass .services-why-icon-container {
+  background: rgba(168, 85, 247, 0.15);
+  backdrop-filter: blur(8px);
+}

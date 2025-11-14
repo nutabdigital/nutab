@@ -8,28 +8,14 @@ import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection"
 import { Briefcase, Users, Lightbulb } from "lucide-react";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
 import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
-import ProcessTimeline, {
-  ProcessStep,
-} from "../../components/ProcessTimeline/ProcessTimeline";
-import IndustryGrid, {
-  IndustryItem,
-} from "../../components/IndustryGrid/IndustryGrid";
-import ServicesGrid, {
-  ServiceItem,
-} from "../../components/ServicesGrid/ServicesGrid";
-import FeatureGrid, {
-  FeatureItem,
-} from "../../components/FeatureGrid/FeatureGrid";
-import RelatedServicesSection, {
-  RelatedServiceItem,
-} from "../../components/RelatedServicesSection/RelatedServicesSection";
-import BenefitsSection, {
-  Benefit,
-} from "../../components/BenefitsSection/BenefitsSection";
-import ServicesWhySection, {
-  WhySolution,
-} from "../../components/ServicesWhySection/ServicesWhySection";
-import FAQ from "../../components/FAQ/FAQ";
+import HowItWorksTimeline, { ProcessStep } from "../../components/HowItWorksTimeline/HowItWorksTimeline";
+import IndustriesServed, { IndustryItem } from "../../components/IndustriesServed/IndustriesServed";
+import ServicesList, { ServiceItem } from "../../components/ServicesList/ServicesList";
+import FeatureHighlights, { FeatureItem } from "../../components/FeatureHighlights/FeatureHighlights";
+import RelatedServices, { RelatedServiceItem } from "../../components/RelatedServices/RelatedServices";
+import BenefitsOverview, { Benefit } from "../../components/BenefitsOverview/BenefitsOverview";
+import WhyChooseSection, { WhySolution } from "../../components/WhyChooseSection/WhyChooseSection";
+import FAQSection from "../../components/FAQSection/FAQSection";
 
 export const generateMetadata = (): Metadata => ({
   title: "Business & IT Consulting Services in Calgary - NuTab Digital",
@@ -355,7 +341,7 @@ const BusinessITConsulting: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ServicesWhySection
+  <WhyChooseSection
           title="Why Choose Business & IT Consulting?"
           description={
             <>
@@ -373,7 +359,7 @@ const BusinessITConsulting: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ServicesGrid
+  <ServicesList
           services={services}
           title="Our Consulting Services"
           subtitle="Practical services designed to align technology with business goals."
@@ -386,7 +372,7 @@ const BusinessITConsulting: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <BenefitsSection
+  <BenefitsOverview
           title="Benefits of Business & IT Consulting"
           subtitle="Partnering with consultants can deliver strategic clarity and operational improvements."
           benefits={benefits}
@@ -394,7 +380,7 @@ const BusinessITConsulting: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <IndustryGrid
+  <IndustriesServed
           items={industries}
           title="Industries We Serve"
           subtitle="Our consulting services support a wide range of industries."
@@ -406,7 +392,7 @@ const BusinessITConsulting: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ProcessTimeline
+  <HowItWorksTimeline
           steps={processSteps}
           title="How We Work"
           subtitle="A pragmatic, outcome-focused process to deliver results."
@@ -417,7 +403,7 @@ const BusinessITConsulting: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <FeatureGrid
+  <FeatureHighlights
           title="Why Partner with NuTab Digital?"
           subtitle={
             <>
@@ -438,7 +424,7 @@ const BusinessITConsulting: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <RelatedServicesSection
+  <RelatedServices
           title="Related Services"
           services={relatedServices}
           variant="gradient"
@@ -461,7 +447,7 @@ const BusinessITConsulting: React.FC = () => {
         <GetQuoteButton />
       </SectionWrapper>
 
-      <FAQ faqs={faqs} lead="Quick answers to common questions about our business & IT consulting services." />
+  <FAQSection faqs={faqs} lead="Quick answers to common questions about our business & IT consulting services." />
     </main>
   );
 };

@@ -7,14 +7,14 @@ import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection"
 import { Brain, Zap, ShieldCheck } from "lucide-react";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
 import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
-import ProcessTimeline, { ProcessStep } from "../../components/ProcessTimeline/ProcessTimeline";
-import IndustryGrid, { IndustryItem } from "../../components/IndustryGrid/IndustryGrid";
-import ServicesGrid, { ServiceItem } from "../../components/ServicesGrid/ServicesGrid";
-import FeatureGrid, { FeatureItem } from "../../components/FeatureGrid/FeatureGrid";
-import RelatedServicesSection, { RelatedServiceItem } from "../../components/RelatedServicesSection/RelatedServicesSection";
-import BenefitsSection, { Benefit } from "../../components/BenefitsSection/BenefitsSection";
-import ServicesWhySection, { WhySolution } from "../../components/ServicesWhySection/ServicesWhySection";
-import FAQ from "../../components/FAQ/FAQ";
+import HowItWorksTimeline, { ProcessStep } from "../../components/HowItWorksTimeline/HowItWorksTimeline";
+import IndustriesServed, { IndustryItem } from "../../components/IndustriesServed/IndustriesServed";
+import ServicesList, { ServiceItem } from "../../components/ServicesList/ServicesList";
+import FeatureHighlights, { FeatureItem } from "../../components/FeatureHighlights/FeatureHighlights";
+import RelatedServices, { RelatedServiceItem } from "../../components/RelatedServices/RelatedServices";
+import BenefitsOverview, { Benefit } from "../../components/BenefitsOverview/BenefitsOverview";
+import WhyChooseSection, { WhySolution } from "../../components/WhyChooseSection/WhyChooseSection";
+import FAQSection from "../../components/FAQSection/FAQSection";
 
 export const generateMetadata = (): import("next").Metadata => ({
   title: "AI & Automation Solutions in Calgary - NuTab Digital",
@@ -242,7 +242,7 @@ const AIAutomation: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ServicesWhySection
+  <WhyChooseSection
           title="Why Choose AI & Automation?"
           description={
             <>
@@ -258,7 +258,7 @@ const AIAutomation: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ServicesGrid
+  <ServicesList
           services={services}
           title="Our AI & Automation Services"
           subtitle="Explore how our AI & automation services can help your organization."
@@ -271,7 +271,7 @@ const AIAutomation: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <BenefitsSection
+  <BenefitsOverview
           title="Benefits of AI & Automation"
           subtitle="Investing in AI and automation delivers measurable benefits to your business."
           benefits={benefits}
@@ -279,7 +279,7 @@ const AIAutomation: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <IndustryGrid
+  <IndustriesServed
           items={industries}
           title="Industries We Serve"
           subtitle="Our AI & automation solutions support a wide range of industries."
@@ -291,7 +291,7 @@ const AIAutomation: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <ProcessTimeline
+  <HowItWorksTimeline
           steps={processSteps}
           title="How We Work"
           subtitle="We follow a proven process to deliver reliable AI and automation solutions."
@@ -302,7 +302,7 @@ const AIAutomation: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <FeatureGrid
+  <FeatureHighlights
           title="Why Partner with NuTab Digital?"
           subtitle={
             <>
@@ -322,7 +322,7 @@ const AIAutomation: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <RelatedServicesSection
+  <RelatedServices
           title="Related Services"
           services={relatedServices}
           variant="gradient"
@@ -343,7 +343,7 @@ const AIAutomation: React.FC = () => {
         <GetQuoteButton />
       </SectionWrapper>
 
-      <FAQ faqs={faqs} lead="Quick answers to common questions about our AI & automation solutions." />
+  <FAQSection faqs={faqs} lead="Quick answers to common questions about our AI & automation solutions." />
     </main>
   );
 };

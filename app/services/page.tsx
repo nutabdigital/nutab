@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     siteName: "NuTab Digital",
     images: [
       {
-        url: "https://nutab.ca/photos/og-home.jpg",
+        url: "https://nutab.ca/photos/og-services.webp",
         width: 1200,
         height: 800,
         alt: "NuTab Digital services",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Services | NuTab Digital",
     description: "Explore NuTab Digital services.",
-    images: ["https://nutab.ca/photos/og-home.jpg"],
+    images: ["https://nutab.ca/photos/og-services.webp"],
   },
 };
 

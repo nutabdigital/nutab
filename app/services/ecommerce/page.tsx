@@ -34,7 +34,7 @@ export const generateMetadata = (): Metadata => ({
     siteName: "NuTab Digital",
     images: [
       {
-        url: "https://nutab.ca/photos/og-home.jpg", // 1200x800 existing
+        url: "https://nutab.ca/photos/og-ecommerce.webp", // 1200x800 existing
         width: 1200,
         height: 800,
         alt: "E-Commerce Development Services in Calgary",
@@ -48,7 +48,7 @@ export const generateMetadata = (): Metadata => ({
     title: "E-Commerce Development Services in Calgary - NuTab Digital",
     description:
       "NuTab Digital offers e-commerce development services in Calgary, Alberta. Build scalable, user-friendly online stores tailored to your business needs.",
-    images: ["https://nutab.ca/photos/og-home.jpg"],
+    images: ["https://nutab.ca/photos/og-ecommerce.webp"],
   },
 });
 

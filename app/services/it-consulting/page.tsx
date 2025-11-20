@@ -32,9 +32,9 @@ export const generateMetadata = (): Metadata => ({
     siteName: "NuTab Digital",
     images: [
       {
-        url: "https://nutab.ca/photos/3d-nutab-logo.png",
-        width: 600,
-        height: 600,
+        url: "https://nutab.ca/photos/og-it-consulting.webp",
+        width: 1200,
+        height: 800,
         alt: "Business & IT Consulting Services in Calgary",
       },
     ],
@@ -46,7 +46,7 @@ export const generateMetadata = (): Metadata => ({
     title: "Business & IT Consulting Services in Calgary - NuTab Digital",
     description:
       "NuTab Digital offers business and IT consulting services in Calgary, Alberta. Get expert guidance on digital transformation, technology adoption, and growth strategies tailored to your business.",
-    images: ["https://nutab.ca/photos/3d-nutab-logo.png"],
+    images: ["https://nutab.ca/photos/og-it-consulting.webp"],
   },
 });
 

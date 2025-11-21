@@ -99,7 +99,6 @@
   /* Center horizontally */
   padding: 2rem;
   color: var(--foreground);
-  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
   border-radius: 8px;
   display: flex;
   flex-direction: column;
@@ -109,28 +108,12 @@
   position: relative;
   z-index: 1;
   opacity: 1;
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(9px);
+  /* Background and shadow now controlled by variants */
 }
 
-.section-wrapper:first-of-type {
-  margin-top: 20vh;
-  /* Add spacing under navbar */
-}
-
-.section-wrapper + .section-wrapper {
-  margin-top: 30vh; /* Add spacing between sections */
-  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
-}
-
-section.section-wrapper:nth-child(7) {
-  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
-}
-
-[data-theme="dark"] .section-wrapper + .section-wrapper {
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
-}
+/* NOTE: Vertical spacing removed. Use Tailwind margin utilities at usage sites,
+   e.g. <SectionWrapper className="mt-24 md:mt-48">. This keeps layout concerns
+   out of the wrapper component and avoids rigid vh-based gaps. */
 
 /* Apply shared layout styles to all section wrappers */
 .section-wrapper--custom-padding,
@@ -145,17 +128,22 @@ section.section-wrapper:nth-child(7) {
   caret-color: transparent;
 }
 
-.section-wrapper--custom-padding>div,
-.section-wrapper>div {
+/* Stable inner content container for predictable layout */
+.section-wrapper__content {
   width: 75vw;
-  max-width: 800px;
+  max-width: var(--section-content-max, 800px);
   box-sizing: border-box;
   margin-left: 2.5vw;
   margin-right: 2.5vw;
   color: var(--foreground);
-  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
   border-radius: 8px;
   z-index: 10;
+}
+
+/* Back-compat: keep selector but avoid adding extra shadows now handled by variants */
+.section-wrapper--custom-padding>div,
+.section-wrapper>div {
+  /* Intentionally minimal to reduce double-styling */
 }
 
 /* Headings */
@@ -200,6 +188,7 @@ section.section-wrapper:nth-child(7) {
     width: 85vw;
   }
 
+  .section-wrapper__content,
   .section-wrapper>div,
   .section-wrapper--custom-padding>div {
     width: 85vw;
@@ -208,13 +197,32 @@ section.section-wrapper:nth-child(7) {
   }
 }
 
-/* Dark Mode */
-[data-theme="dark"] .section-wrapper {
-  background: rgba(10, 10, 10, 0.85);
+/* Variants */
+/* Frosted (glass) variant: apply background, blur, and elevation to wrapper */
+.section-wrapper--frosted {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
 }
 
-[data-theme="dark"] .section-wrapper>div,
-[data-theme="dark"] .section-wrapper--custom-padding>div {
+[data-theme="dark"] .section-wrapper--frosted {
+  background-color: rgba(10, 10, 10, 0.85);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
+}
+
+/* Flat variant: no background/blur on wrapper; give content a light elevation if desired */
+.section-wrapper--flat {
+  background: transparent;
+  box-shadow: none;
+}
+
+.section-wrapper--frosted .section-wrapper__content {
+  /* Avoid double shadow by default when wrapper has elevation */
+  box-shadow: none;
+}
+
+.section-wrapper--flat .section-wrapper__content {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 

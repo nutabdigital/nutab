@@ -30,9 +30,16 @@ import "./SectionWrapper.css";
 interface SectionWrapperProps {
   children: React.ReactNode; // The content to be rendered inside the section
   className?: string; // Optional: Additional custom classes for styling
+  variant?: "frosted" | "flat"; // Controls background/blur/shadow behavior
+  maxWidth?: number; // Optional: override content max width in px (defaults to 800)
 }
 
-const SectionWrapper: React.FC<SectionWrapperProps> = ({ children, className }) => {
+const SectionWrapper: React.FC<SectionWrapperProps> = ({
+  children,
+  className,
+  variant = "frosted",
+  maxWidth,
+}) => {
 
   // Scrolling effect disabled by commenting out the effect.
   // If you want to re-enable, remove the comment markers below.
@@ -59,8 +66,16 @@ const SectionWrapper: React.FC<SectionWrapperProps> = ({ children, className }) 
   */
 
   return (
-    <section className={`section-wrapper ${className || ""}`}>
-      {children}
+    <section
+      className={`section-wrapper section-wrapper--${variant} ${className || ""}`}
+      style={maxWidth ? ({
+        // Provide a CSS variable for content max width override
+        ["--section-content-max" as any]: `${maxWidth}px`,
+      } as React.CSSProperties) : undefined}
+    >
+      <div className="section-wrapper__content">
+        {children}
+      </div>
     </section>
   );
 };

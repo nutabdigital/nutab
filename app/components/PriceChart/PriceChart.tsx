@@ -8,28 +8,28 @@ const bundles = [
 	{
 		id: "starter",
 		title: "Starter Website",
-		subtitle: "Great for a simple online presence",
+		subtitle: "Clean brochure site for small teams",
 		price: "$800",
 		priceNumber: 800,
 		priceSuffix: "",
 		features: [
 			"Up to 3 pages (Home, About, Contact)",
 			"Mobile-friendly layout",
-			"Contact form",
+			"Contact form & basic CMS",
 			"Basic SEO setup",
 		],
 	},
 	{
 		id: "business",
 		title: "Business Website",
-		subtitle: "Adds selling & booking tools",
+		subtitle: "Adds blog, forms, and integrations",
 		badge: "Popular",
 		price: "$1,600",
 		priceNumber: 1600,
 		priceSuffix: "Includes Starter features",
 		features: [
 			"Up to 6 pages",
-			"Online store or booking setup",
+			"Blog/CMS setup & dynamic content",
 			"Improved SEO & sitemap",
 			"Analytics setup",
 			"60 days support",
@@ -38,13 +38,13 @@ const bundles = [
 	{
 		id: "advanced",
 		title: "Advanced Website",
-		subtitle: "Full custom build & integrations",
+		subtitle: "Full custom build with complex features",
 		price: "$3,200",
 		priceNumber: 3200,
 		priceSuffix: "Includes all Business features",
 		features: [
 			"10–20 custom pages",
-			"Full store + complex features",
+			"Custom components & complex features",
 			"Third-party integrations",
 			"Advanced SEO strategy",
 			"Priority support (90 days)",
@@ -129,12 +129,8 @@ export default function PriceChart() {
 			/>
 
 			<div className="price-chart__intro">
-				<h1 className="muted">Simple, transparent pricing</h1>
-				<h2 id="pricing-heading">Find your perfect package</h2>
-				<h3 id="pricing-desc" className="price-intro">
-					All prices are starting points. We'll tailor a solution that matches your
-					exact needs.
-				</h3>
+				<h2 id="pricing-heading" className="price-muted">Website Design & Development Pricing</h2>
+				<p id="pricing-desc" className="price-intro">Three tiers for modern business websites. Build a fast, accessible site. Not for e‑commerce — see our E‑Commerce pricing below.</p>
 			</div>
 
 			<div className="price-chart__grid">

@@ -1,9 +1,7 @@
 import React from "react";
 import type { Metadata } from "next";
 import PriceChart from "../components/PriceChart/PriceChart";
-import PriceChartSEO from "../components/PriceChartSEO/PriceChartSEO";
-import PriceChartBrandDesign from "../components/PriceChartBrandDesign/PriceChartBrandDesign";
-import PriceChartEcommerce from "../components/PriceChartEcommerce/PriceChartEcommerce";
+import dynamic from "next/dynamic";
 import "./page.css";
 import Background from "../components/Background/Background";
 import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
@@ -40,6 +38,28 @@ export const metadata: Metadata = {
   },
 };
 
+// Defer below-the-fold charts to client to reduce initial payload
+const PriceChartSEO = dynamic(
+  () => import("../components/PriceChartSEO/PriceChartSEO"),
+  { ssr: false, loading: () => <section className="pricing-section" aria-busy="true" aria-label="Loading SEO pricing..." /> }
+);
+const PriceChartBrandDesign = dynamic(
+  () => import("../components/PriceChartBrandDesign/PriceChartBrandDesign"),
+  { ssr: false, loading: () => <section className="pricing-section" aria-busy="true" aria-label="Loading brand design pricing..." /> }
+);
+const PriceChartEcommerce = dynamic(
+  () => import("../components/PriceChartEcommerce/PriceChartEcommerce"),
+  { ssr: false, loading: () => <section className="pricing-section" aria-busy="true" aria-label="Loading e-commerce pricing..." /> }
+);
+const PriceChartPhotoMedia = dynamic(
+  () => import("../components/PriceChartPhotoMedia/PriceChartPhotoMedia"),
+  { ssr: false, loading: () => <section className="pricing-section" aria-busy="true" aria-label="Loading photo and media pricing..." /> }
+);
+const PriceChartAppDev = dynamic(
+  () => import("../components/PriceChartAppDev/PriceChartAppDev"),
+  { ssr: false, loading: () => <section className="pricing-section" aria-busy="true" aria-label="Loading app development pricing..." /> }
+);
+
 const PricingPage: React.FC = () => {
   return (
     <main id="main-content" role="main" tabIndex={-1} className="pricing-main">
@@ -70,6 +90,8 @@ const PricingPage: React.FC = () => {
       <PriceChartSEO />
       <PriceChartBrandDesign />
       <PriceChartEcommerce />
+      <PriceChartPhotoMedia />
+      <PriceChartAppDev />
     </main>
   );
 };

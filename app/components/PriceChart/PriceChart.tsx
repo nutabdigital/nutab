@@ -6,51 +6,48 @@ import GetQuoteButton from "../GetQuoteButton/GetQuoteButton";
 
 const bundles = [
 	{
-		id: "essential",
-		title: "Essential Site",
-		subtitle: "Ideal for solo entrepreneurs",
-		price: "$899",
-		priceNumber: 899,
+		id: "starter",
+		title: "Starter Website",
+		subtitle: "Great for a simple online presence",
+		price: "$800",
+		priceNumber: 800,
 		priceSuffix: "",
 		features: [
-			"Up to 3 professionally designed pages",
-			"Mobile-optimized design",
-			"Contact & inquiry forms",
+			"Up to 3 pages (Home, About, Contact)",
+			"Mobile-friendly layout",
+			"Contact form",
 			"Basic SEO setup",
-			"30 days of post-launch support & bug fixes",
 		],
 	},
 	{
-		id: "growth",
-		title: "Growth Site",
-		subtitle: "For expanding businesses",
-		badge: "Optimal",
-		price: "$1,799",
-		priceNumber: 1799,
-		priceSuffix: "Includes everything from the Essential plan",
+		id: "business",
+		title: "Business Website",
+		subtitle: "Adds selling & booking tools",
+		badge: "Popular",
+		price: "$1,600",
+		priceNumber: 1600,
+		priceSuffix: "Includes Starter features",
 		features: [
-			"Up to 5 content-rich pages",
-			"E-commerce setup with product catalog",
-			"Booking / order intake integration",
-			"SEO optimization & sitemap",
-			"Google Analytics setup",
-			"90 days of post-launch support & bug fixes",
+			"Up to 6 pages",
+			"Online store or booking setup",
+			"Improved SEO & sitemap",
+			"Analytics setup",
+			"60 days support",
 		],
 	},
 	{
-		id: "enterprise-pro",
-		title: "Enterprise Pro",
-		subtitle: "For market leaders",
-		price: "$3,599",
-		priceNumber: 3599,
-		priceSuffix: "Includes everything from the Growth and Essential plans",
+		id: "advanced",
+		title: "Advanced Website",
+		subtitle: "Full custom build & integrations",
+		price: "$3,200",
+		priceNumber: 3200,
+		priceSuffix: "Includes all Business features",
 		features: [
-			"10–20 custom pages with tailored layouts",
-			"Robust e-commerce platform",
-			"Third-party integrations & APIs",
-			"Comprehensive SEO strategy",
-			"Advanced analytics & reporting",
-			"Priority onboarding & support",
+			"10–20 custom pages",
+			"Full store + complex features",
+			"Third-party integrations",
+			"Advanced SEO strategy",
+			"Priority support (90 days)",
 		],
 	},
 ];
@@ -59,33 +56,23 @@ const ldJson = {
 	"@context": "https://schema.org",
 	"@type": "ItemList",
 	name: "NuTab Digital Web Design Pricing",
-	description: "Transparent web design packages with clear deliverables",
-	itemListElement: bundles.map((b, index) => ({
-		"@type": "Offer",
-		position: index + 1,
-		name: b.title,
-		description: `${b.subtitle}. ${b.features.join(", ")}`,
-		price: b.priceNumber,
-		priceCurrency: "CAD",
-		availability: "https://schema.org/InStock",
-		url: `https://nutab.ca/pricing#${b.id}`,
-		seller: {
-			"@id": "https://nutab.ca/#organization" // Reference instead of duplicate
-		},
-		priceSpecification: {
-			"@type": "UnitPriceSpecification",
-			price: b.priceNumber,
-			priceCurrency: "CAD",
-		},
-		itemOffered: {
-			"@type": "Service",
+	description: "Starter, Business, and Advanced web design packages (limited-time 25% discount applied).",
+	itemListElement: bundles.map((b, index) => {
+		const discounted = Math.round(b.priceNumber * 0.75);
+		return {
+			"@type": "Offer",
+			position: index + 1,
 			name: b.title,
-			serviceType: "Web Design and Development",
-			provider: {
-				"@id": "https://nutab.ca/#organization" // Reference instead of duplicate
-			},
-		},
-	})),
+			description: `${b.subtitle}. ${b.features.join(", ")}`,
+			price: discounted,
+			priceCurrency: "CAD",
+			availability: "https://schema.org/InStock",
+			url: `https://nutab.ca/pricing#${b.id}`,
+			seller: {"@id": "https://nutab.ca/#organization"},
+			priceSpecification: {"@type": "UnitPriceSpecification", price: discounted, priceCurrency: "CAD"},
+			itemOffered: {"@type": "Service", name: b.title, serviceType: "Web Design and Development", provider: {"@id": "https://nutab.ca/#organization"}},
+		};
+	}),
 };
 
 const faqSchema = {
@@ -97,7 +84,7 @@ const faqSchema = {
 			name: "How much does a website cost?",
 			acceptedAnswer: {
 				"@type": "Answer",
-				text: "Our web design packages start at $899 for Essential, $1,799 for Growth, and $3,599 for Enterprise Pro. All prices are starting points and can be customized to your specific needs.",
+				text: "Our web design packages start at $800 for Starter, $1,600 for Business, and $3,200 for Advanced before discount. A limited-time 25% off is currently applied to all displayed prices.",
 			},
 		},
 		{
@@ -105,7 +92,7 @@ const faqSchema = {
 			name: "What's included in each package?",
 			acceptedAnswer: {
 				"@type": "Answer",
-				text: "Each package includes professionally designed pages, mobile optimization, SEO setup, and post-launch support. Higher tiers add e-commerce, analytics, integrations, and extended support periods.",
+				text: "Starter includes a simple 3-page mobile-friendly site with a contact form and basic SEO. Business adds more pages, selling or booking tools, improved SEO, analytics and extended support. Advanced adds custom pages, complex store features, integrations, advanced SEO strategy and priority support.",
 			},
 		},
 		{
@@ -151,7 +138,13 @@ export default function PriceChart() {
 			</div>
 
 			<div className="price-chart__grid">
-				{bundles.map((b) => (
+				{bundles.map((b) => {
+					const discountedRaw = Math.round(b.priceNumber * 0.75);
+					const formatPrice = (num: number) =>
+						"$" + num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+					const discountedDisplay = formatPrice(discountedRaw);
+
+					return (
 					<article
 						key={b.id}
 						className={`bundle ${b.badge ? "bundle--popular" : ""}`}
@@ -160,6 +153,7 @@ export default function PriceChart() {
 						itemType="https://schema.org/Service"
 					>
 						{b.badge && <span className="bundle__badge">{b.badge}</span>}
+							<span className="bundle__promo-badge" aria-label="Limited time 25% off">25% OFF</span>
 
 						<h3 id={`${b.id}-title`} className="bundle__title" itemProp="name">
 							{b.title}
@@ -169,27 +163,34 @@ export default function PriceChart() {
 							{b.subtitle}
 						</p>
 
-						<div
-							className="bundle__price"
-							itemProp="offers"
-							itemScope
-							itemType="https://schema.org/Offer"
-						>
-							<span className="bundle__price-from">Starting from</span>
-							<meta itemProp="priceCurrency" content="CAD" />
-							<meta itemProp="url" content="https://nutab.ca/pricing" /> {/* Fixed URL */}
-							<meta itemProp="availability" content="https://schema.org/InStock" />
-							<span
-								className="bundle__price-amount"
-								itemProp="price"
-								content={String(b.priceNumber)}
+							<div
+								className="bundle__price"
+								itemProp="offers"
+								itemScope
+								itemType="https://schema.org/Offer"
 							>
-								{b.price}
-							</span>
-							{b.priceSuffix && (
-								<span className="bundle__price-suffix">{b.priceSuffix}</span>
-							)}
-						</div>
+								<span className="bundle__price-from">Starting from</span>
+								<meta itemProp="priceCurrency" content="CAD" />
+								<meta itemProp="url" content="https://nutab.ca/pricing" />
+								<meta itemProp="availability" content="https://schema.org/InStock" />
+								<span
+									className="bundle__price-amount bundle__price-original"
+									aria-label={`Original price ${b.price}`}
+								>
+									{b.price}
+								</span>
+								<span
+									className="bundle__price-amount bundle__price-discounted"
+									itemProp="price"
+									content={String(discountedRaw)}
+									aria-label={`Discounted price ${discountedDisplay}`}
+								>
+									{discountedDisplay}
+								</span>
+								{b.priceSuffix && (
+									<span className="bundle__price-suffix">{b.priceSuffix}</span>
+								)}
+							</div>
 
 						<ul
 							className="bundle__features"
@@ -203,8 +204,9 @@ export default function PriceChart() {
 						<div className="bundle__cta">
 							<GetQuoteButton />
 						</div>
-					</article>
-				))}
+						</article>
+					);
+					})}
 			</div>
 		</section>
 	);

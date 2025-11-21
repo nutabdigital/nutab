@@ -1,6 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
 import PriceChart from "../components/PriceChart/PriceChart";
+import PriceChartSEO from "../components/PriceChartSEO/PriceChartSEO";
+import PriceChartBrandDesign from "../components/PriceChartBrandDesign/PriceChartBrandDesign";
 import "./page.css";
 import Background from "../components/Background/Background";
 import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
@@ -64,6 +66,8 @@ const PricingPage: React.FC = () => {
       />
 
       <PriceChart />
+      <PriceChartSEO />
+      <PriceChartBrandDesign />
     </main>
   );
 };

@@ -59,6 +59,10 @@ const PriceChartAppDev = dynamic(
   () => import("../components/PriceChartAppDev/PriceChartAppDev"),
   { ssr: false, loading: () => <section className="pricing-section" aria-busy="true" aria-label="Loading app development pricing..." /> }
 );
+const PriceChartITConsulting = dynamic(
+  () => import("../components/PriceChartITConsulting/PriceChartITConsulting"),
+  { ssr: false, loading: () => <section className="pricing-section" aria-busy="true" aria-label="Loading IT consulting pricing..." /> }
+);
 
 const PricingPage: React.FC = () => {
   return (
@@ -92,6 +96,7 @@ const PricingPage: React.FC = () => {
       <PriceChartEcommerce />
       <PriceChartPhotoMedia />
       <PriceChartAppDev />
+      <PriceChartITConsulting />
     </main>
   );
 };

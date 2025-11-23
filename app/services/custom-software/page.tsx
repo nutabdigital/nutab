@@ -7,13 +7,27 @@ import { Metadata } from "next";
 import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
 import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
 import { Code2, Layers, ShieldCheck } from "lucide-react";
-import HowItWorksTimeline, { ProcessStep } from "../../components/HowItWorksTimeline/HowItWorksTimeline";
-import IndustriesServed, { IndustryItem } from "../../components/IndustriesServed/IndustriesServed";
-import ServicesList, { ServiceItem } from "../../components/ServicesList/ServicesList";
-import FeatureHighlights, { FeatureItem } from "../../components/FeatureHighlights/FeatureHighlights";
-import RelatedServices, { RelatedServiceItem } from "../../components/RelatedServices/RelatedServices";
-import BenefitsOverview, { Benefit } from "../../components/BenefitsOverview/BenefitsOverview";
-import WhyChooseSection, { WhySolution } from "../../components/WhyChooseSection/WhyChooseSection";
+import HowItWorksTimeline, {
+  ProcessStep,
+} from "../../components/HowItWorksTimeline/HowItWorksTimeline";
+import IndustriesServed, {
+  IndustryItem,
+} from "../../components/IndustriesServed/IndustriesServed";
+import ServicesList, {
+  ServiceItem,
+} from "../../components/ServicesList/ServicesList";
+import FeatureHighlights, {
+  FeatureItem,
+} from "../../components/FeatureHighlights/FeatureHighlights";
+import RelatedServices, {
+  RelatedServiceItem,
+} from "../../components/RelatedServices/RelatedServices";
+import BenefitsOverview, {
+  Benefit,
+} from "../../components/BenefitsOverview/BenefitsOverview";
+import WhyChooseSection, {
+  WhySolution,
+} from "../../components/WhyChooseSection/WhyChooseSection";
 import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
 import FAQSection from "../../components/FAQSection/FAQSection";
 
@@ -126,8 +140,7 @@ const benefits: Benefit[] = [
   },
   {
     title: "Enhanced Security",
-    description:
-      "Protect sensitive data with custom-built security features.",
+    description: "Protect sensitive data with custom-built security features.",
   },
 ];
 
@@ -135,49 +148,61 @@ const benefits: Benefit[] = [
 const faqs = [
   {
     question: "What is custom software development?",
-    answer: "Custom software development involves creating software applications tailored to meet the specific needs of a business or organization. Unlike off-the-shelf software, custom solutions are designed to address unique challenges and workflows."
+    answer:
+      "Custom software development involves creating software applications tailored to meet the specific needs of a business or organization. Unlike off-the-shelf software, custom solutions are designed to address unique challenges and workflows.",
   },
   {
     question: "How long does it take to develop custom software?",
-    answer: "The timeline for custom software development depends on the complexity of the project. On average, it can take anywhere from a few weeks to several months. We work closely with you to establish a realistic timeline based on your requirements."
+    answer:
+      "The timeline for custom software development depends on the complexity of the project. On average, it can take anywhere from a few weeks to several months. We work closely with you to establish a realistic timeline based on your requirements.",
   },
   {
     question: "How much does custom software development cost?",
-    answer: "The cost of custom software development varies depending on the scope and complexity of the project. Contact us for a free consultation and quote tailored to your needs."
+    answer:
+      "The cost of custom software development varies depending on the scope and complexity of the project. Contact us for a free consultation and quote tailored to your needs.",
   },
   {
     question: "Can you integrate custom software with our existing systems?",
-    answer: "Yes, we specialize in system integration to ensure your new software works seamlessly with your existing tools and platforms."
+    answer:
+      "Yes, we specialize in system integration to ensure your new software works seamlessly with your existing tools and platforms.",
   },
   {
     question: "Do you provide ongoing support after deployment?",
-    answer: "Absolutely! We offer ongoing support and maintenance to ensure your software continues to perform optimally."
+    answer:
+      "Absolutely! We offer ongoing support and maintenance to ensure your software continues to perform optimally.",
   },
   {
     question: "Do you work with startups or small businesses?",
-    answer: "Yes! We specialize in helping startups and small to mid-sized businesses turn their ideas into scalable custom software solutions."
-  }
-    // SEO-focused FAQs
-    ,{
-      question: "What are the benefits of custom software over off-the-shelf solutions?",
-      answer: "Custom software is tailored to your business needs, offers greater flexibility, scalability, and can provide a competitive edge compared to generic off-the-shelf products."
-    }
-    ,{
-      question: "Is custom software secure?",
-      answer: "We build custom software with robust security features to protect your data and ensure compliance with industry standards."
-    }
-    ,{
-      question: "How do I start a custom software project?",
-      answer: "Contact us for a free consultation. We’ll help you define requirements, set goals, and create a roadmap for your custom software project."
-    }
-    ,{
-      question: "Can custom software grow with my business?",
-      answer: "Yes, our solutions are designed to be scalable and adaptable as your business evolves and expands."
-    }
-    ,{
-      question: "Do you sign NDAs for confidential projects?",
-      answer: "We are happy to sign non-disclosure agreements to protect your business ideas and sensitive information."
-    }
+    answer:
+      "Yes! We specialize in helping startups and small to mid-sized businesses turn their ideas into scalable custom software solutions.",
+  },
+  // SEO-focused FAQs
+  {
+    question:
+      "What are the benefits of custom software over off-the-shelf solutions?",
+    answer:
+      "Custom software is tailored to your business needs, offers greater flexibility, scalability, and can provide a competitive edge compared to generic off-the-shelf products.",
+  },
+  {
+    question: "Is custom software secure?",
+    answer:
+      "We build custom software with robust security features to protect your data and ensure compliance with industry standards.",
+  },
+  {
+    question: "How do I start a custom software project?",
+    answer:
+      "Contact us for a free consultation. We’ll help you define requirements, set goals, and create a roadmap for your custom software project.",
+  },
+  {
+    question: "Can custom software grow with my business?",
+    answer:
+      "Yes, our solutions are designed to be scalable and adaptable as your business evolves and expands.",
+  },
+  {
+    question: "Do you sign NDAs for confidential projects?",
+    answer:
+      "We are happy to sign non-disclosure agreements to protect your business ideas and sensitive information.",
+  },
 ];
 
 const CustomSoftwareSolutions: React.FC = () => {
@@ -236,20 +261,37 @@ const CustomSoftwareSolutions: React.FC = () => {
   ];
 
   const whySolutions: WhySolution[] = [
-    { icon: "Code2", title: "Bespoke Applications", description: "Build applications tailored exactly to your workflows and business needs." },
-    { icon: "Layers", title: "Enterprise-grade Software", description: "Design and implement scalable systems that support large-scale operations." },
-    { icon: "ShieldCheck", title: "Secure Architecture", description: "Ensure your software is built with robust security and best practices." },
+    {
+      icon: "Code2",
+      title: "Bespoke Applications",
+      description:
+        "Build applications tailored exactly to your workflows and business needs.",
+    },
+    {
+      icon: "Layers",
+      title: "Enterprise-grade Software",
+      description:
+        "Design and implement scalable systems that support large-scale operations.",
+    },
+    {
+      icon: "ShieldCheck",
+      title: "Secure Architecture",
+      description:
+        "Ensure your software is built with robust security and best practices.",
+    },
   ];
 
   return (
     <main id="main-content" role="main" tabIndex={-1}>
       {/* <Loader /> */}
       <Background />
-      <Breadcrumbs items={[
-        { label: "Home", href: "/" },
-        { label: "Services", href: "/services" },
-        { label: "Custom Software" }
-      ]} />
+      <Breadcrumbs
+        items={[
+          { label: "Home", href: "/" },
+          { label: "Services", href: "/services" },
+          { label: "Custom Software" },
+        ]}
+      />
 
       {/* Breadcrumbs JSON-LD (keep) */}
       <script
@@ -258,11 +300,26 @@ const CustomSoftwareSolutions: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "itemListElement": [
-              { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://nutab.ca" },
-              { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://nutab.ca/services" },
-              { "@type": "ListItem", "position": 3, "name": "Custom Software", "item": "https://nutab.ca/services/custom-software" }
-            ]
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://nutab.ca",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Services",
+                item: "https://nutab.ca/services",
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: "Custom Software",
+                item: "https://nutab.ca/services/custom-software",
+              },
+            ],
           }),
         }}
       />
@@ -286,20 +343,20 @@ const CustomSoftwareSolutions: React.FC = () => {
             datePublished: "2024-01-15",
             dateModified: "2025-11-10",
             provider: {
-              "@id": "https://nutab.ca/#organization"
+              "@id": "https://nutab.ca/#organization",
             },
             areaServed: {
               "@type": "City",
               name: "Calgary",
               containedIn: {
                 "@type": "AdministrativeArea",
-                name: "Alberta"
-              }
+                name: "Alberta",
+              },
             },
             availableChannel: {
               "@type": "ServiceChannel",
-              serviceUrl: "https://nutab.ca/services/custom-software"
-            }
+              serviceUrl: "https://nutab.ca/services/custom-software",
+            },
           }),
         }}
       />
@@ -311,18 +368,17 @@ const CustomSoftwareSolutions: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "FAQPage",
-            "mainEntity": faqs.map(faq => ({
+            mainEntity: faqs.map((faq) => ({
               "@type": "Question",
-              "name": faq.question,
-              "acceptedAnswer": {
+              name: faq.question,
+              acceptedAnswer: {
                 "@type": "Answer",
-                "text": faq.answer
-              }
-            }))
+                text: faq.answer,
+              },
+            })),
           }),
         }}
       />
-
 
       <SectionWrapper>
         <HeroSection
@@ -357,7 +413,7 @@ const CustomSoftwareSolutions: React.FC = () => {
       <SectionWrapper>
         {/* Ensure a proper h2 landmark for heading hierarchy (visually-hidden for layout) */}
         <h2 className="sr-only">Why Choose Custom Software Development</h2>
-  <WhyChooseSection
+        <WhyChooseSection
           title="Why Choose Custom Software Development?"
           description={
             <>
@@ -365,8 +421,9 @@ const CustomSoftwareSolutions: React.FC = () => {
               requirements of growing businesses. With custom software
               development, you gain a solution that is designed exclusively for
               your workflows, ensuring seamless integration and maximum
-              efficiency. Whether you need a bespoke application, enterprise-grade
-              software, or a custom SaaS platform, we’ve got you covered.
+              efficiency. Whether you need a bespoke application,
+              enterprise-grade software, or a custom SaaS platform, we’ve got
+              you covered.
             </>
           }
           solutions={whySolutions}
@@ -378,7 +435,7 @@ const CustomSoftwareSolutions: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-  <ServicesList
+        <ServicesList
           services={services}
           title="Our Custom Software Development Services"
           subtitle="Explore our full range of custom software solutions designed to fit your business needs."
@@ -392,7 +449,7 @@ const CustomSoftwareSolutions: React.FC = () => {
 
       {/* --- Replace the original benefits section with BenefitsSection --- */}
       <SectionWrapper>
-  <BenefitsOverview
+        <BenefitsOverview
           title="Benefits of Custom Software Development"
           subtitle="Investing in custom software development offers numerous advantages for your business:"
           benefits={benefits}
@@ -401,7 +458,7 @@ const CustomSoftwareSolutions: React.FC = () => {
       {/* --- End BenefitsSection --- */}
 
       <SectionWrapper>
-  <IndustriesServed
+        <IndustriesServed
           items={industries}
           title="Industries We Serve"
           subtitle="Our custom software solutions cater to a wide range of industries."
@@ -413,7 +470,7 @@ const CustomSoftwareSolutions: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-  <HowItWorksTimeline
+        <HowItWorksTimeline
           steps={processSteps}
           title="Our Development Process"
           subtitle="At NuTab Digital, we follow a proven process to ensure the success of your custom software project."
@@ -424,11 +481,12 @@ const CustomSoftwareSolutions: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-  <FeatureHighlights
+        <FeatureHighlights
           title="Why Partner with NuTab Digital?"
           subtitle={
             <>
-              At NuTab Digital, we pride ourselves on being a trusted software development partner. Here’s why businesses choose us:
+              At NuTab Digital, we pride ourselves on being a trusted software
+              development partner. Here’s why businesses choose us:
             </>
           }
           features={features}
@@ -445,7 +503,7 @@ const CustomSoftwareSolutions: React.FC = () => {
 
       {/* Internal Links for SEO */}
       <SectionWrapper>
-  <RelatedServices
+        <RelatedServices
           title="Related Services"
           services={relatedServices}
           variant="gradient"
@@ -462,13 +520,19 @@ const CustomSoftwareSolutions: React.FC = () => {
         <h2 className="gradient-title">Get Started Today</h2>
         <p className="section-text">
           Ready to take your business to the next level? Contact us today to
-          learn more about our custom software development services and how we can help you achieve your goals.
+          learn more about our custom software development services and how we
+          can help you achieve your goals.
         </p>
 
         <GetQuoteButton />
       </SectionWrapper>
 
-  <FAQSection faqs={faqs} lead="Quick answers to common questions about our custom software development services." />
+      <SectionWrapper>
+        <FAQSection
+          faqs={faqs}
+          lead="Quick answers to common questions about our custom software development services."
+        />
+      </SectionWrapper>
     </main>
   );
 };

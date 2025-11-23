@@ -229,9 +229,6 @@
               radial-gradient(circle at 55% 50%, rgba(37, 99, 235, 0.25), transparent 66%),
               linear-gradient(135deg, #0f172a 0%, #0b1d33 100%);
 }
-.section-wrapper--custom-padding {
-  margin-top: 10vh;
-}
 
 /* Legacy FAQ heading override now styled via gradient */
 .section-wrapper--faq .faq__header h2 {
@@ -338,11 +335,6 @@
 
 /* Badges / numbers */
 .ecommerce-service-page .process-step-number {
-  background: linear-gradient(
-    135deg,
-    var(--ecom-primary) 0%,
-    var(--ecom-secondary) 100%
-  );
   color: #fff;
   box-shadow: 0 4px 12px rgba(var(--ecom-primary-rgb), 0.35);
 }
@@ -446,9 +438,6 @@
   font-weight: 700;
   margin-bottom: 0.5rem;
 }
-[data-theme="dark"] .ecommerce-service-page .service-card-title {
-  background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
-}
 .ecommerce-service-page .service-card-description {
   color: var(--ecom-text-muted);
 }
@@ -521,4 +510,9 @@
 }
 [data-theme="dark"] .ecommerce-service-page .services-hero-feature-label {
   color: var(--ecom-text-muted);
+}
+
+/* Added custom style: app_styles_faq_css-_app-pages-browser_app_components_Background_Background_css-_app-pages-bro-366b08.css */
+.ecommerce-service-page .services-why-container {
+  padding: 3rem; /* final padding applied */
 }

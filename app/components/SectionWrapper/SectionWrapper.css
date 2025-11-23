@@ -1,168 +1,41 @@
-/* @keyframes section-pulse {
-  0% {
-    backdrop-filter: blur(12px);
-    opacity: 1;
-  }
-
-  10% {
-    backdrop-filter: blur(11px);
-    opacity: 0.98;
-  }
-
-  20% {
-    backdrop-filter: blur(10px);
-    opacity: 0.97;
-  }
-
-  30% {
-    backdrop-filter: blur(8px);
-    opacity: 0.95;
-  }
-
-  45% {
-    backdrop-filter: blur(7.5px);
-    opacity: 0.935;
-  }
-
-  55% {
-    backdrop-filter: blur(7px);
-    opacity: 0.94;
-  }
-
-  65% {
-    backdrop-filter: blur(8px);
-    opacity: 0.955;
-  }
-
-  75% {
-    backdrop-filter: blur(9.5px);
-    opacity: 0.97;
-  }
-
-  82% {
-    backdrop-filter: blur(10.5px);
-    opacity: 0.978;
-  }
-
-  88% {
-    backdrop-filter: blur(11px);
-    opacity: 0.985;
-  }
-
-  93% {
-    backdrop-filter: blur(11.4px);
-    opacity: 0.992;
-  }
-
-  97% {
-    backdrop-filter: blur(11.7px);
-    opacity: 0.996;
-  }
-
-  100% {
-    backdrop-filter: blur(9px);
-    opacity: 1;
-  }
-} */
-
-
-/* Scroll active */
-/* body.scrolling .section-wrapper {
-  animation: section-pulse 3s ease-in-out infinite;
-  background: rgba(255, 255, 255, 0.7);
-  transition: background 3s ease;
-} */
-
-/* Idle */
-/* body:not(.scrolling) .section-wrapper {
-  backdrop-filter: blur(12px);
-  opacity: 1;
-  transition: backdrop-filter 2s ease, opacity 2s ease;
-} */
-
-/* Dark mode */
-/* html[data-theme="dark"] body.scrolling .section-wrapper {
-  animation: section-pulse 3s ease-in-out infinite;
-  background: rgba(10, 10, 10, 0.5);
-  transition: background 3s ease;
-} */
-
-/* html[data-theme="dark"] body:not(.scrolling) .section-wrapper {
-  backdrop-filter: blur(12px);
-  opacity: 1;
-  transition: backdrop-filter 2s ease, opacity 2s ease;
-} */
-
 .section-wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  /* Center horizontally */
-  padding: 2rem;
-  color: var(--foreground);
-  border-radius: 8px;
+  position: relative;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  position: relative;
-  z-index: 1;
-  opacity: 1;
-  /* Background and shadow now controlled by variants */
-}
-
-/* NOTE: Vertical spacing removed. Use Tailwind margin utilities at usage sites,
-   e.g. <SectionWrapper className="mt-24 md:mt-48">. This keeps layout concerns
-   out of the wrapper component and avoids rigid vh-based gaps. */
-
-/* Apply shared layout styles to all section wrappers */
-.section-wrapper--custom-padding,
-.section-wrapper {
-  position: relative;
-  display: flex;
   justify-content: center;
   align-items: center;
   height: fit-content;
   width: 75vw;
-  box-sizing: border-box;
-  caret-color: transparent;
-}
-
-/* Stable inner content container for predictable layout */
-.section-wrapper__content {
-  width: 75vw;
-  max-width: var(--section-content-max, 800px);
-  box-sizing: border-box;
-  margin-left: 2.5vw;
-  margin-right: 2.5vw;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
   color: var(--foreground);
   border-radius: 8px;
-  z-index: 10;
+  box-sizing: border-box;
+  z-index: 1;
+  opacity: 1;
+  caret-color: transparent;
+  margin-bottom: 10vh;
+  text-align: center;
 }
 
-/* Back-compat: keep selector but avoid adding extra shadows now handled by variants */
-.section-wrapper--custom-padding>div,
-.section-wrapper>div {
-  /* Intentionally minimal to reduce double-styling */
-}
 
 /* Headings */
 .section-wrapper h1,
-.section-wrapper h2,
-.section-wrapper--custom-padding h1,
-.section-wrapper--custom-padding h2 {
+.section-wrapper h2 {
   font-size: clamp(1.8rem, 1.8rem, 2rem);
   font-weight: bold;
   text-align: start;
   margin-bottom: 1.5rem;
+  text-align: center;
 }
 
 /* Paragraphs */
-.section-wrapper p,
-.section-wrapper--custom-padding p {
+.section-wrapper p{
   font-size: 1rem;
   line-height: 1.6;
   opacity: 1;
+  text-align: center;
 }
 
 /* List Styling */
@@ -170,59 +43,18 @@
 .section-wrapper ol {
   padding-left: 1.5rem;
   margin-bottom: 2rem;
+  text-align: center;
 }
 
 .section-wrapper li {
   margin-bottom: 1rem;
-}
-
-.section-wrapper--faq {
-  margin-bottom: 10vh;
+  text-align: center;
 }
 
 /* Media Query for Mobile */
 @media (max-width: 600px) {
 
-  .section-wrapper,
-  .section-wrapper--custom-padding {
+  .section-wrapper {
     width: 85vw;
   }
-
-  .section-wrapper__content,
-  .section-wrapper>div,
-  .section-wrapper--custom-padding>div {
-    width: 85vw;
-    margin-left: 0;
-    margin-right: 0;
-  }
 }
-
-/* Variants */
-/* Frosted (glass) variant: apply background, blur, and elevation to wrapper */
-.section-wrapper--frosted {
-  background-color: rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198);
-}
-
-[data-theme="dark"] .section-wrapper--frosted {
-  background-color: rgba(10, 10, 10, 0.85);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
-}
-
-/* Flat variant: no background/blur on wrapper; give content a light elevation if desired */
-.section-wrapper--flat {
-  background: transparent;
-  box-shadow: none;
-}
-
-.section-wrapper--frosted .section-wrapper__content {
-  /* Avoid double shadow by default when wrapper has elevation */
-  box-shadow: none;
-}
-
-.section-wrapper--flat .section-wrapper__content {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-

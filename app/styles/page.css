@@ -14,13 +14,6 @@ html {
   scroll-margin-top: 0;
 }
 
-/* If header is fixed, ensure content not hidden behind it */
-/* .content-wrapper {
-  if your header is fixed, you can add top padding equal to header height
-  padding-top: 80px;
-} */
-
-
 /* Main home page styling */
 .home-page {
   position: relative;
@@ -70,7 +63,6 @@ html {
   /* Light mode gradient effect */
   background: radial-gradient(circle at 20% 30%, rgba(240, 248, 255), transparent 60%),
     radial-gradient(circle at 80% 70%, rgba(230, 247, 255), transparent 60%),
-    /* radial-gradient(circle at 50% 50%, rgba(143, 110, 251, 0.156), transparent 60%), */
     #ffffff;
 }
 
@@ -96,26 +88,6 @@ html {
     justify-content: center;
     align-items: stretch;
   }
-
-  /* #tagline{
-    margin-bottom: 40vh;
-  }
-
-  #about{ 
-    margin-bottom: 50vh;
-  }
-
-  #services{
-    margin-bottom: 30vh;
-  }
-
-  #team{
-    margin-bottom: 15vh;
-  }
-
-  #contact{
-    margin-bottom: 5vh;
-  } */
 }
 
 /* Dark mode adjustment for smoother blending */

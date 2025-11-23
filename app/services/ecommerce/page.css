@@ -1,22 +1,524 @@
+/* E-Commerce Service Page Theme (aligned with price chart) */
+.ecommerce-service-page {
+  --ecom-primary: #2563eb;
+  --ecom-secondary: #06b6d4;
+  --ecom-primary-rgb: 37, 99, 235;
+  --ecom-secondary-rgb: 6, 182, 212;
+  --ecom-bg-soft: linear-gradient(
+    135deg,
+    rgba(var(--ecom-primary-rgb), 0.08) 0%,
+    rgba(var(--ecom-secondary-rgb), 0.08) 100%
+  );
+  --ecom-border: rgba(var(--ecom-primary-rgb), 0.3);
+  --ecom-text-muted: #4b5563;
+  --ecom-heading-gradient: linear-gradient(
+    135deg,
+    var(--ecom-primary) 0%,
+    var(--ecom-secondary) 100%
+  );
+  position: relative;
+  background: radial-gradient(
+      circle at 30% 20%,
+      rgba(var(--ecom-primary-rgb), 0.18),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 70% 75%,
+      rgba(var(--ecom-secondary-rgb), 0.18),
+      transparent 65%
+    ),
+    var(--ecom-bg-soft);
+  padding-top: 2vh; /* subtle top breathing room */
+}
+[data-theme="dark"] .ecommerce-service-page {
+  --ecom-text-muted: #9ca3af;
+  background: radial-gradient(
+      circle at 30% 20%,
+      rgba(var(--ecom-primary-rgb), 0.28),
+      transparent 60%
+    ),
+    radial-gradient(
+      circle at 70% 75%,
+      rgba(var(--ecom-secondary-rgb), 0.28),
+      transparent 65%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(var(--ecom-primary-rgb), 0.25) 0%,
+      rgba(var(--ecom-secondary-rgb), 0.22) 100%
+    );
+}
+
+/* Gradient headings */
+.ecommerce-service-page h1,
+.ecommerce-service-page h2,
+.ecommerce-service-page .section-wrapper h2, /* reinforce SectionWrapper headings */
+.ecommerce-service-page .faq__header h2 {
+  background: var(--ecom-heading-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* Muted paragraph + list text */
+.ecommerce-service-page p,
+.ecommerce-service-page li {
+  color: var(--ecom-text-muted);
+}
+[data-theme="dark"] .ecommerce-service-page p,
+[data-theme="dark"] .ecommerce-service-page li {
+  color: var(--ecom-text-muted);
+}
+
+/* Accent wrappers (SectionWrapper generic class assumed) */
+.ecommerce-service-page .section-wrapper {
+  border: 1px solid var(--ecom-border);
+  border-radius: 1.25rem;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 14px rgba(var(--ecom-primary-rgb), 0.15);
+  transition: box-shadow 0.35s ease, transform 0.35s ease;
+}
+[data-theme="dark"] .ecommerce-service-page .section-wrapper {
+  background: rgba(20, 22, 28, 0.55);
+  box-shadow: 0 6px 20px rgba(var(--ecom-primary-rgb), 0.35);
+}
+.ecommerce-service-page .section-wrapper:hover {
+  box-shadow: 0 12px 30px rgba(var(--ecom-primary-rgb), 0.3);
+  transform: translateY(-6px);
+}
+
+/* CTA button inside sections (GetQuoteButton expected .get-quote-button) */
+.ecommerce-service-page .get-quote-button {
+  background: linear-gradient(
+    135deg,
+    var(--ecom-primary) 0%,
+    var(--ecom-secondary) 100%
+  );
+  box-shadow: 0 4px 14px rgba(var(--ecom-primary-rgb), 0.35);
+  border-radius: 1rem;
+  font-weight: 600;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.ecommerce-service-page .get-quote-button:hover {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 55%, #06b6d4 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(var(--ecom-primary-rgb), 0.40), 0 0 0 3px rgba(var(--ecom-primary-rgb),0.15);
+}
+.ecommerce-service-page .get-quote-button:focus-visible {
+  outline: 2px solid var(--ecom-primary);
+  outline-offset: 3px;
+}
+[data-theme="dark"] .ecommerce-service-page .get-quote-button:hover {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #2563eb 100%);
+  box-shadow: 0 14px 36px rgba(var(--ecom-primary-rgb), 0.55), 0 0 0 3px rgba(var(--ecom-primary-rgb),0.25);
+}
+.ecommerce-service-page .get-quote-button:active {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 24px rgba(var(--ecom-primary-rgb),0.35), 0 0 0 2px rgba(var(--ecom-primary-rgb),0.20);
+}
+[data-theme="dark"] .ecommerce-service-page .get-quote-button:active {
+  box-shadow: 0 10px 28px rgba(var(--ecom-primary-rgb),0.6), 0 0 0 2px rgba(var(--ecom-primary-rgb),0.35);
+}
+[data-theme="dark"] .ecommerce-service-page .get-quote-button {
+  box-shadow: 0 4px 16px rgba(var(--ecom-primary-rgb), 0.55);
+}
+
+/* Timeline / pill / feature highlight adjustments (assuming shared component class names) */
+.ecommerce-service-page .timeline-step,
+.ecommerce-service-page .feature-item,
+.ecommerce-service-page .industry-pill {
+  border-color: var(--ecom-border) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--ecom-primary-rgb), 0.1) 0%,
+    rgba(var(--ecom-secondary-rgb), 0.1) 100%
+  ) !important;
+}
+[data-theme="dark"] .ecommerce-service-page .timeline-step,
+[data-theme="dark"] .ecommerce-service-page .feature-item,
+[data-theme="dark"] .ecommerce-service-page .industry-pill {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--ecom-primary-rgb), 0.3) 0%,
+    rgba(var(--ecom-secondary-rgb), 0.25) 100%
+  ) !important;
+}
+
+/* FAQ specific tweaks */
+.ecommerce-service-page .faq__item {
+  border: 1px solid var(--ecom-border);
+  border-radius: 0.9rem;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--ecom-primary-rgb), 0.05) 0%,
+    rgba(var(--ecom-secondary-rgb), 0.05) 100%
+  );
+  padding: 1.1rem 1rem;
+}
+[data-theme="dark"] .ecommerce-service-page .faq__item {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--ecom-primary-rgb), 0.25) 0%,
+    rgba(var(--ecom-secondary-rgb), 0.22) 100%
+  );
+}
+.ecommerce-service-page .faq-question {
+  font-weight: 700;
+  font-size: 1.05rem;
+  background: var(--ecom-heading-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Icon color overrides (lucide-react SVGs inherit currentColor) */
+.ecommerce-service-page .icon {
+  width: 40px;
+  height: 40px;
+  stroke-width: 1.9;
+  transition: filter 0.35s ease, transform 0.35s ease, color 0.35s ease;
+  filter: drop-shadow(0 2px 6px rgba(var(--ecom-primary-rgb), 0.35));
+}
+.ecommerce-service-page .icon.purple {
+  color: var(--ecom-primary);
+}
+.ecommerce-service-page .icon.blue {
+  color: var(--ecom-secondary);
+}
+/* Use discount red from price chart for third accent for consistency */
+.ecommerce-service-page .icon.pink {
+  color: #dc2626;
+}
+[data-theme="dark"] .ecommerce-service-page .icon {
+  filter: drop-shadow(0 2px 8px rgba(var(--ecom-primary-rgb), 0.55));
+}
+.ecommerce-service-page .section-wrapper:hover .icon {
+  filter: drop-shadow(0 6px 14px rgba(var(--ecom-primary-rgb), 0.55));
+  transform: translateY(-3px);
+}
+[data-theme="dark"] .ecommerce-service-page .section-wrapper:hover .icon {
+  filter: drop-shadow(0 8px 18px rgba(var(--ecom-primary-rgb), 0.7));
+}
+
+/* Responsive fine-tuning */
+@media (max-width: 860px) {
+  .ecommerce-service-page .section-wrapper {
+    padding: 2.2rem 1.55rem;
+  }
+}
+@media (max-width: 640px) {
+  .ecommerce-service-page h1,
+  .ecommerce-service-page h2 {
+    font-size: 1.45rem;
+  }
+}
+
+/* Preserve existing minor overrides */
 .gradient-background {
   z-index: 0;
 }
 
+/* Dark mode background override scoped to ecommerce service page */
+[data-theme="dark"] .ecommerce-service-page .gradient-background {
+  background: radial-gradient(circle at 18% 32%, rgba(29, 78, 216, 0.32), transparent 60%),
+              radial-gradient(circle at 82% 68%, rgba(6, 182, 212, 0.28), transparent 62%),
+              radial-gradient(circle at 55% 50%, rgba(37, 99, 235, 0.25), transparent 66%),
+              linear-gradient(135deg, #0f172a 0%, #0b1d33 100%);
+}
 .section-wrapper--custom-padding {
   margin-top: 10vh;
 }
 
-.faq-question {
-  font-weight: 700;
-  font-size: large;
-}
-
-/* FAQ: consistent modern accordion used across service pages */
-
+/* Legacy FAQ heading override now styled via gradient */
 .section-wrapper--faq .faq__header h2 {
   margin: 0 0 0.25rem 0;
   font-size: 1.6rem;
   letter-spacing: -0.01em;
-  color: var(--foreground, #081024);
 }
+
 @import "../../styles/faq.css";
+
+/* Inner component container overrides to fully align with price chart scheme */
+.ecommerce-service-page .services-why-card,
+.ecommerce-service-page .benefit-item,
+.ecommerce-service-page .industry-item,
+.ecommerce-service-page .process-step,
+.ecommerce-service-page .feature-item,
+.ecommerce-service-page .related-service-item {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--ecom-primary-rgb), 0.12) 0%,
+    rgba(var(--ecom-secondary-rgb), 0.12) 100%
+  ) !important;
+  border: 1px solid var(--ecom-border) !important;
+  box-shadow: 0 4px 18px rgba(var(--ecom-primary-rgb), 0.18) !important;
+  transition: box-shadow 0.35s ease, transform 0.35s ease, background 0.35s ease;
+}
+[data-theme="dark"] .ecommerce-service-page .services-why-card,
+[data-theme="dark"] .ecommerce-service-page .benefit-item,
+[data-theme="dark"] .ecommerce-service-page .industry-item,
+[data-theme="dark"] .ecommerce-service-page .process-step,
+[data-theme="dark"] .ecommerce-service-page .feature-item,
+[data-theme="dark"] .ecommerce-service-page .related-service-item {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--ecom-primary-rgb), 0.32) 0%,
+    rgba(var(--ecom-secondary-rgb), 0.3) 100%
+  ) !important;
+  box-shadow: 0 6px 24px rgba(var(--ecom-primary-rgb), 0.3) !important;
+}
+.ecommerce-service-page .services-why-card:hover,
+.ecommerce-service-page .benefit-item:hover,
+.ecommerce-service-page .industry-item:hover,
+.ecommerce-service-page .process-step:hover,
+.ecommerce-service-page .feature-item.feature-item--interactive:hover,
+.ecommerce-service-page
+  .related-service-item.related-service-item--interactive:hover {
+  box-shadow: 0 12px 36px rgba(var(--ecom-primary-rgb), 0.35) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--ecom-primary-rgb), 0.18) 0%,
+    rgba(var(--ecom-secondary-rgb), 0.18) 100%
+  ) !important;
+  transform: translateY(-6px);
+}
+[data-theme="dark"] .ecommerce-service-page .services-why-card:hover,
+[data-theme="dark"] .ecommerce-service-page .benefit-item:hover,
+[data-theme="dark"] .ecommerce-service-page .industry-item:hover,
+[data-theme="dark"] .ecommerce-service-page .process-step:hover,
+[data-theme="dark"]
+  .ecommerce-service-page
+  .feature-item.feature-item--interactive:hover,
+[data-theme="dark"]
+  .ecommerce-service-page
+  .related-service-item.related-service-item--interactive:hover {
+  box-shadow: 0 14px 42px rgba(var(--ecom-primary-rgb), 0.55) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(var(--ecom-primary-rgb), 0.4) 0%,
+    rgba(var(--ecom-secondary-rgb), 0.38) 100%
+  ) !important;
+}
+
+/* Titles inside cards/items */
+.ecommerce-service-page .services-why-card-title,
+.ecommerce-service-page .benefit-item h3,
+.ecommerce-service-page .industry-item-name,
+.ecommerce-service-page .process-step-title,
+.ecommerce-service-page .feature-item h3,
+.ecommerce-service-page .related-service-label {
+  background: var(--ecom-heading-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+/* Descriptions inside items */
+.ecommerce-service-page .services-why-card-description,
+.ecommerce-service-page .benefit-item p,
+.ecommerce-service-page .industry-item-description,
+.ecommerce-service-page .process-step-description,
+.ecommerce-service-page .feature-item p,
+.ecommerce-service-page .related-service-description {
+  color: var(--ecom-text-muted) !important;
+}
+[data-theme="dark"] .ecommerce-service-page .services-why-card-description,
+[data-theme="dark"] .ecommerce-service-page .benefit-item p,
+[data-theme="dark"] .ecommerce-service-page .industry-item-description,
+[data-theme="dark"] .ecommerce-service-page .process-step-description,
+[data-theme="dark"] .ecommerce-service-page .feature-item p,
+[data-theme="dark"] .ecommerce-service-page .related-service-description {
+  color: var(--ecom-text-muted) !important;
+}
+
+/* Badges / numbers */
+.ecommerce-service-page .process-step-number {
+  background: linear-gradient(
+    135deg,
+    var(--ecom-primary) 0%,
+    var(--ecom-secondary) 100%
+  );
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(var(--ecom-primary-rgb), 0.35);
+}
+.ecommerce-service-page .related-service-badge,
+.ecommerce-service-page .services-why-card-badge {
+  background: #dc2626;
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.4);
+}
+
+/* Icon wrappers within items */
+.ecommerce-service-page .services-why-icon-wrapper,
+.ecommerce-service-page .industry-item-icon,
+.ecommerce-service-page .process-step-badge,
+.ecommerce-service-page .feature-item .icon-wrapper,
+.ecommerce-service-page .related-service-icon {
+  background: linear-gradient(
+    135deg,
+    rgba(var(--ecom-primary-rgb), 0.25) 0%,
+    rgba(var(--ecom-secondary-rgb), 0.25) 100%
+  );
+  border: 1px solid var(--ecom-border);
+  box-shadow: 0 3px 10px rgba(var(--ecom-primary-rgb), 0.3);
+}
+[data-theme="dark"] .ecommerce-service-page .services-why-icon-wrapper,
+[data-theme="dark"] .ecommerce-service-page .industry-item-icon,
+[data-theme="dark"] .ecommerce-service-page .process-step-badge,
+[data-theme="dark"] .ecommerce-service-page .feature-item .icon-wrapper,
+[data-theme="dark"] .ecommerce-service-page .related-service-icon {
+  box-shadow: 0 4px 14px rgba(var(--ecom-primary-rgb), 0.55);
+}
+
+/* Interactive focus states */
+.ecommerce-service-page .services-why-card:focus-visible,
+.ecommerce-service-page .benefit-item:focus-visible,
+.ecommerce-service-page .industry-item:focus-visible,
+.ecommerce-service-page .process-step:focus-visible,
+.ecommerce-service-page .feature-item:focus-visible,
+.ecommerce-service-page .related-service-item:focus-visible {
+  outline: 2px solid var(--ecom-primary);
+  outline-offset: 3px;
+}
+
+/* ServicesList overrides (ecommerce-specific) */
+.ecommerce-service-page .services-grid-title {
+  background: var(--ecom-heading-gradient);
+  font-weight: 700;
+  color: #2563eb; /* fallback solid color for browsers without clip */
+}
+/* Apply text clipping only if supported to avoid invisible text edge cases */
+@supports (-webkit-background-clip: text) or (background-clip: text) {
+  .ecommerce-service-page .services-grid-title {
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    text-align: center;
+  }
+}
+.ecommerce-service-page .services-grid-subtitle {
+  color: var(--ecom-text-muted);
+  text-align: center;
+}
+[data-theme="dark"] .ecommerce-service-page .services-grid-subtitle {
+  color: var(--ecom-text-muted);
+}
+.ecommerce-service-page .service-card {
+  background: linear-gradient(135deg, rgba(var(--ecom-primary-rgb),0.12) 0%, rgba(var(--ecom-secondary-rgb),0.12) 100%);
+  border: 1px solid rgba(var(--ecom-primary-rgb),0.30);
+  box-shadow: 0 4px 16px rgba(var(--ecom-primary-rgb),0.18);
+  color: inherit;
+}
+.ecommerce-service-page .service-card:hover {
+  background: linear-gradient(135deg, rgba(var(--ecom-primary-rgb),0.18) 0%, rgba(var(--ecom-secondary-rgb),0.18) 100%);
+  border-color: rgba(var(--ecom-primary-rgb),0.45);
+  box-shadow: 0 12px 34px rgba(var(--ecom-primary-rgb),0.28);
+}
+[data-theme="dark"] .ecommerce-service-page .service-card {
+  background: linear-gradient(135deg, rgba(var(--ecom-primary-rgb),0.32) 0%, rgba(var(--ecom-secondary-rgb),0.30) 100%);
+  border-color: rgba(var(--ecom-primary-rgb),0.45);
+  box-shadow: 0 6px 24px rgba(var(--ecom-primary-rgb),0.30);
+}
+[data-theme="dark"] .ecommerce-service-page .service-card:hover {
+  background: linear-gradient(135deg, rgba(var(--ecom-primary-rgb),0.40) 0%, rgba(var(--ecom-secondary-rgb),0.38) 100%);
+  box-shadow: 0 14px 42px rgba(var(--ecom-primary-rgb),0.55);
+}
+.ecommerce-service-page .service-card-icon {
+  background: linear-gradient(135deg, rgba(var(--ecom-primary-rgb),0.25) 0%, rgba(var(--ecom-secondary-rgb),0.25) 100%);
+  border: 1px solid rgba(var(--ecom-primary-rgb),0.40);
+  box-shadow: 0 4px 14px rgba(var(--ecom-primary-rgb),0.35);
+  color: var(--ecom-primary);
+}
+[data-theme="dark"] .ecommerce-service-page .service-card-icon {
+  box-shadow: 0 4px 18px rgba(var(--ecom-primary-rgb),0.55);
+}
+.ecommerce-service-page .service-card-title {
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 60%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+[data-theme="dark"] .ecommerce-service-page .service-card-title {
+  background: linear-gradient(135deg, #2563eb 0%, #06b6d4 100%);
+}
+.ecommerce-service-page .service-card-description {
+  color: var(--ecom-text-muted);
+}
+[data-theme="dark"] .ecommerce-service-page .service-card-description {
+  color: var(--ecom-text-muted);
+}
+.ecommerce-service-page .service-card-icon svg,
+.ecommerce-service-page .service-card-icon > * {
+  width: 2.5rem !important;
+  height: 2.5rem !important;
+  stroke: currentColor;
+}
+
+/* Hero section overrides (ecommerce-specific) */
+.ecommerce-service-page .services-hero-title {
+  background: var(--ecom-heading-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  font-weight: 700;
+  text-align: center;
+}
+.ecommerce-service-page .services-hero-feature-icon {
+  background: linear-gradient(135deg, rgba(var(--ecom-primary-rgb),0.25) 0%, rgba(var(--ecom-secondary-rgb),0.25) 100%);
+  border: 1px solid rgba(var(--ecom-primary-rgb),0.45);
+  box-shadow: 0 6px 18px rgba(var(--ecom-primary-rgb),0.35);
+  transition: box-shadow 0.35s ease, transform 0.35s ease, background 0.35s ease;
+}
+.ecommerce-service-page .services-hero-feature-item:hover .services-hero-feature-icon {
+  background: linear-gradient(135deg, rgba(var(--ecom-primary-rgb),0.35) 0%, rgba(var(--ecom-secondary-rgb),0.35) 100%);
+  box-shadow: 0 14px 34px rgba(var(--ecom-primary-rgb),0.5);
+  transform: translateY(-4px);
+}
+[data-theme="dark"] .ecommerce-service-page .services-hero-feature-icon {
+  background: linear-gradient(135deg, rgba(var(--ecom-primary-rgb),0.40) 0%, rgba(var(--ecom-secondary-rgb),0.38) 100%);
+  box-shadow: 0 8px 22px rgba(var(--ecom-primary-rgb),0.55);
+}
+[data-theme="dark"] .ecommerce-service-page .services-hero-feature-item:hover .services-hero-feature-icon {
+  background: linear-gradient(135deg, rgba(var(--ecom-primary-rgb),0.50) 0%, rgba(var(--ecom-secondary-rgb),0.48) 100%);
+  box-shadow: 0 16px 42px rgba(var(--ecom-primary-rgb),0.7);
+}
+.ecommerce-service-page .services-hero-icon {
+  color: var(--ecom-primary);
+}
+[data-theme="dark"] .ecommerce-service-page .services-hero-icon {
+  color: var(--ecom-secondary);
+}
+.ecommerce-service-page .services-hero-feature-label {
+  color: var(--ecom-text-muted);
+  text-align: center;
+}
+.ecommerce-service-page .process-timeline-subtitle,
+.ecommerce-service-page .features-display-subtitle,
+.ecommerce-service-page .benefits-subtitle,
+.ecommerce-service-page .industry-grid-subtitle,
+.ecommerce-service-page .related-services-subtitle,
+.ecommerce-service-page .services-subtitle,
+.ecommerce-service-page .services-hero-subtitle,
+.ecommerce-service-page .services-hero-subtitle p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Generic adjacent subtitle paragraph following h1/h2 inside section wrappers */
+.ecommerce-service-page .section-wrapper h1 + p,
+.ecommerce-service-page .section-wrapper h2 + p {
+  text-align: center;
+}
+[data-theme="dark"] .ecommerce-service-page .services-hero-feature-label {
+  color: var(--ecom-text-muted);
+}

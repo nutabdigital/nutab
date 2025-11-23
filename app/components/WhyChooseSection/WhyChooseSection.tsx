@@ -23,7 +23,6 @@ export interface ServicesWhySectionProps {
   theme?: "gradient" | "minimal" | "glass";
   animated?: boolean;
   interactive?: boolean;
-  showNumbers?: boolean;
   columns?: 2 | 3 | 4;
   className?: string;
   onSolutionClick?: (solution: WhySolution, index: number) => void;
@@ -52,7 +51,6 @@ export function WhyChooseSection({
   theme = "gradient",
   animated = true,
   interactive = true,
-  showNumbers = true,
   columns = 3,
   className = "",
   onSolutionClick,
@@ -143,11 +141,6 @@ export function WhyChooseSection({
                   >
                     <div className="services-why-card-glow" />
 
-                    {showNumbers && (solution.number || `0${idx + 1}`) && (
-                      <div className="services-why-card-number">
-                        {solution.number || `0${idx + 1}`}
-                      </div>
-                    )}
 
                     <div className="services-why-icon-wrapper">
                       <MotionDiv

@@ -143,7 +143,7 @@ const whySolutions: WhySolution[] = [
 
 const EcommerceDevelopment: React.FC = () => {
   return (
-    <main id="main-content" role="main" tabIndex={-1}>
+    <main id="main-content" role="main" tabIndex={-1} className="ecommerce-service-page">
       <Background />
       <Breadcrumbs items={[
         { label: "Home", href: "/" },

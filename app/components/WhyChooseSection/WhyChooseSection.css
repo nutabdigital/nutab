@@ -188,23 +188,6 @@
 }
 
 /* Number Indicator */
-.services-why-card-number {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  font-size: 3rem;
-  line-height: 1;
-  background: linear-gradient(to bottom right, rgba(168, 85, 247, 0.1), rgba(59, 130, 246, 0.1));
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  opacity: 0.3;
-  transition: opacity 0.3s ease;
-}
-
-.services-why-card--interactive:hover .services-why-card-number {
-  opacity: 0.5;
-}
 
 /* Icon Wrapper */
 .services-why-icon-wrapper {

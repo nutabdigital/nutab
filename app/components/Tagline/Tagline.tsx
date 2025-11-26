@@ -8,15 +8,18 @@ const Tagline: React.FC = () => {
   return (
     <section className="tagline-section">
       <div className="tagline-container">
+        {/* SEO H1 - visually hidden but readable by search engines */}
+        <h1 className="seo-h1">Custom Software Development & Web Design in Calgary | NuTab Digital</h1>
+        
         {/* Orbs for visual effect */}
         <div className="floating-orb orb-purple tagline-orb"></div>
         <div className="floating-orb orb-blue tagline-orb"></div>
-        <h1 className="tagline-title">
+        <p className="tagline-title" aria-hidden="true">
           Open a New Tab,
-        </h1>
-        <h2 className="gradient-title">
+        </p>
+        <p className="gradient-title" aria-hidden="true">
           Start Something Extraordinary
-        </h2>
+        </p>
         <p className="tagline-description">
           Elevating your brand through custom software solutions
         </p>

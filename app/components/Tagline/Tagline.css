@@ -28,6 +28,19 @@
   will-change: transform, opacity;
 }
 
+/* SEO H1 - visually hidden but accessible to screen readers and search engines */
+.seo-h1 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
 /* Mobile: disable expensive backdrop-filter for better performance */
 @media (max-width: 600px) {
   .tagline-container {

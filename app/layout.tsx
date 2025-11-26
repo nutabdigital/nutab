@@ -8,6 +8,10 @@ import { Tomorrow } from "next/font/google";
 const ModelWrapper = dynamic(() => import("./context/ModelWrapper"), { ssr: false });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://nutab.ca"),
+  alternates: {
+    canonical: "/",
+  },
   title: "NuTab Digital - Custom Software Development | Calgary",
   description:
     "Custom software solutions, mobile & web app development, SEO & digital marketing, and e-commerce development in Calgary, Alberta.",

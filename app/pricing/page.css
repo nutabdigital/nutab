@@ -1,10 +1,12 @@
 .pricing-main {
   min-height: 80vh;
   display: block; /* Changed from flex */
-  width: 100vw;
+  width: 100%; /* Avoid 100vw to prevent horizontal overflow */
   background: transparent;
   position: relative;
   z-index: 10;
+  overflow-x: hidden; /* Hide accidental horizontal overflow */
+  box-sizing: border-box;
 }
 
 .pricing-section {
@@ -13,10 +15,55 @@
   margin-top: 0vh;
 }
 
-/* Add this to ensure PriceChart is centered but breadcrumbs stay at top */
-.pricing-main > :not(.breadcrumbs):not(script) {
+/* Center charts/sections; keep breadcrumbs and header at top */
+.pricing-main > :not(.breadcrumbs):not(.pricing-header):not(script) {
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: calc(80vh - 104px); /* Subtract breadcrumb space (80px margin-top + 24px margin-bottom) */
+  width: 100%;
+}
+
+/* Pricing header styles */
+.pricing-header {
+  position: relative;
+  z-index: 10;
+  display: block;
+  width: 100%;
+  max-width: 1100px;
+  margin: 8vh auto 4vh auto;
+  padding: 2rem 1.5rem;
+  text-align: center;
+}
+
+.pricing-header h1 {
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  line-height: 1.2;
+  margin: 0 0 0.75rem 0;
+}
+
+.pricing-header p {
+  font-size: clamp(1rem, 2.2vw, 1.125rem);
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+  opacity: 0.9;
+}
+
+/* Subtle divider under header */
+.pricing-header::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 2px;
+  margin: 1.5rem auto 0;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .pricing-header p {
+  opacity: 0.8;
+}
+[data-theme="dark"] .pricing-header::after {
+  background: rgba(255, 255, 255, 0.12);
 }

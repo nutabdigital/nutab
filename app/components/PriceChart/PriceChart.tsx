@@ -120,6 +120,7 @@ export default function PriceChart() {
 			className="price-chart"
 			aria-labelledby="pricing-heading"
 			aria-describedby="pricing-desc"
+			role="region"
 		>
 			{/* JSON-LD (consider SSR on the pricing page for best reliability) */}
 			<script
@@ -133,7 +134,7 @@ export default function PriceChart() {
 				<p id="pricing-desc" className="price-intro">Three tiers for modern business websites. Build a fast, accessible site. Not for e‑commerce — see our E‑Commerce pricing below.</p>
 			</div>
 
-			<div className="price-chart__grid">
+			<div className="price-chart__grid" role="list" aria-label="Website packages">
 				{bundles.map((b) => {
 					const discountedRaw = Math.round(b.priceNumber * 0.75);
 					const formatPrice = (num: number) =>
@@ -147,6 +148,7 @@ export default function PriceChart() {
 						aria-labelledby={`${b.id}-title`}
 						itemScope
 						itemType="https://schema.org/Service"
+						role="listitem"
 					>
 						{b.badge && <span className="bundle__badge">{b.badge}</span>}
 							<span className="bundle__promo-badge" aria-label="Limited time 25% off">25% OFF</span>

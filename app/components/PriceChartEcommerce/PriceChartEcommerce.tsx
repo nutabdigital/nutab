@@ -89,18 +89,18 @@ const ldJson = {
 const PriceChartEcommerce: React.FC = () => {
   const formatDiscount = (n: number) => "$" + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   return (
-    <section className="ecommerce-price-chart" aria-labelledby="ecommerce-pricing-heading" aria-describedby="ecommerce-pricing-desc">
+    <section className="ecommerce-price-chart" aria-labelledby="ecommerce-pricing-heading" aria-describedby="ecommerce-pricing-desc" role="region">
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(ldJson) }} />
       <div className="ecommerce-price-chart__intro">
         <h2 id="ecommerce-pricing-heading" className="ecommerce-muted">E-Commerce Development Pricing</h2>
         <p id="ecommerce-pricing-desc" className="ecommerce-intro">Three clear tiers to launch, grow, and scale your online store. 25% OFF is already included.</p>
       </div>
-      <div className="ecommerce-price-chart__grid">
+      <div className="ecommerce-price-chart__grid" role="list" aria-label="E-Commerce packages">
         {ecommercePackages.map(pkg => {
           const discountedRaw = Math.round(pkg.priceNumber * 0.75);
           const discountedDisplay = formatDiscount(discountedRaw);
           return (
-            <article key={pkg.id} id={pkg.id} className={`ecommerce-bundle ${pkg.badge ? "ecommerce-bundle--popular" : ""}`} aria-labelledby={`${pkg.id}-title`} itemScope itemType="https://schema.org/Service">
+            <article key={pkg.id} id={pkg.id} className={`ecommerce-bundle ${pkg.badge ? "ecommerce-bundle--popular" : ""}`} aria-labelledby={`${pkg.id}-title`} itemScope itemType="https://schema.org/Service" role="listitem">
               {pkg.badge && <span className="ecommerce-bundle__badge">{pkg.badge}</span>}
               <span className="ecommerce-bundle__promo-badge" aria-label="Limited time 25 percent off">25% OFF</span>
               <h3 id={`${pkg.id}-title`} className="ecommerce-bundle__title" itemProp="name">{pkg.title}</h3>

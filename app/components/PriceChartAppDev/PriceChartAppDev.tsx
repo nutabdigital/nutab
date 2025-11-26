@@ -91,18 +91,18 @@ const ldJson = {
 const PriceChartAppDev: React.FC = () => {
   const formatPrice = (n: number) => "$" + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   return (
-    <section className="appdev-price-chart" aria-labelledby="appdev-pricing-heading" aria-describedby="appdev-pricing-desc">
+    <section className="appdev-price-chart" aria-labelledby="appdev-pricing-heading" aria-describedby="appdev-pricing-desc" role="region">
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(ldJson) }} />
       <div className="appdev-price-chart__intro">
         <h2 id="appdev-pricing-heading" className="appdev-muted">App Development Pricing</h2>
         <p id="appdev-pricing-desc" className="appdev-intro">Three tiers to ideate, grow, and scale your application. 25% OFF already included.</p>
       </div>
-      <div className="appdev-price-chart__grid">
+      <div className="appdev-price-chart__grid" role="list" aria-label="App development packages">
         {appDevPackages.map(pkg => {
           const discountedRaw = Math.round(pkg.priceNumber * 0.75);
           const discountedDisplay = formatPrice(discountedRaw);
           return (
-            <article key={pkg.id} id={pkg.id} className={`appdev-bundle ${pkg.badge ? "appdev-bundle--popular" : ""}`} aria-labelledby={`${pkg.id}-title`} itemScope itemType="https://schema.org/Service">
+            <article key={pkg.id} id={pkg.id} className={`appdev-bundle ${pkg.badge ? "appdev-bundle--popular" : ""}`} aria-labelledby={`${pkg.id}-title`} itemScope itemType="https://schema.org/Service" role="listitem">
               {pkg.badge && <span className="appdev-bundle__badge">{pkg.badge}</span>}
               <span className="appdev-bundle__promo-badge" aria-label="Limited time 25 percent off">25% OFF</span>
               <h3 id={`${pkg.id}-title`} className="appdev-bundle__title" itemProp="name">{pkg.title}</h3>

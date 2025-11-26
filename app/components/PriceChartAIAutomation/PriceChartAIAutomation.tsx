@@ -105,6 +105,7 @@ const PriceChartAIAutomation: React.FC = () => {
       className="aiauto-price-chart"
       aria-labelledby="aiauto-pricing-heading"
       aria-describedby="aiauto-pricing-desc"
+      role="region"
     >
       <script
         type="application/ld+json"
@@ -121,7 +122,7 @@ const PriceChartAIAutomation: React.FC = () => {
         </p>
       </div>
 
-      <div className="aiauto-price-chart__grid">
+      <div className="aiauto-price-chart__grid" role="list" aria-label="AI automation packages">
         {aiPackages.map((pkg) => {
           const discountedRaw = Math.round(pkg.priceNumber * 0.75);
           const discountedDisplay = fmt(discountedRaw);
@@ -133,6 +134,7 @@ const PriceChartAIAutomation: React.FC = () => {
               aria-labelledby={`${pkg.id}-title`}
               itemScope
               itemType="https://schema.org/Service"
+            role="listitem"
             >
               {pkg.badge && (
                 <span className="aiauto-bundle__badge">{pkg.badge}</span>

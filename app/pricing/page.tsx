@@ -78,6 +78,14 @@ const PricingPage: React.FC = () => {
         { label: "Pricing" }
       ]} />
 
+      <header className="pricing-header">
+        <h1>NuTab Digital Pricing</h1>
+        <p>
+          Transparent packages and custom quotes for web design, SEO, brand design,
+          e‑commerce, photo/media, app development, IT consulting, and AI automation.
+        </p>
+      </header>
+
       {/* Breadcrumb JSON-LD (SSR, matches visible trail) */}
       <script
         type="application/ld+json"
@@ -102,6 +110,29 @@ const PricingPage: React.FC = () => {
       <PriceChartAppDev />
       <PriceChartITConsulting />
       <PriceChartAIAutomation />
+
+      {/* Offer catalog JSON-LD to describe grouped pricing offerings */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "OfferCatalog",
+            "name": "NuTab Digital Pricing",
+            "url": "https://nutab.ca/pricing",
+            "itemListElement": [
+              { "@type": "Offer", "name": "Web Design Packages", "url": "https://nutab.ca/pricing" },
+              { "@type": "Offer", "name": "SEO & Marketing", "url": "https://nutab.ca/services/seo-marketing" },
+              { "@type": "Offer", "name": "Brand Design", "url": "https://nutab.ca/services/brand-design" },
+              { "@type": "Offer", "name": "E‑Commerce Development", "url": "https://nutab.ca/services/ecommerce" },
+              { "@type": "Offer", "name": "Photo & Media", "url": "https://nutab.ca/services/photo-media" },
+              { "@type": "Offer", "name": "App Development", "url": "https://nutab.ca/services/app-development" },
+              { "@type": "Offer", "name": "IT Consulting", "url": "https://nutab.ca/services/it-consulting" },
+              { "@type": "Offer", "name": "AI Automation", "url": "https://nutab.ca/services/ai-automation" }
+            ]
+          })
+        }}
+      />
     </main>
   );
 };

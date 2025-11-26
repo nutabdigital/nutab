@@ -83,6 +83,7 @@ export default function PriceChartSEO() {
       className="seo-price-chart"
       aria-labelledby="seo-pricing-heading"
       aria-describedby="seo-pricing-desc"
+      role="region"
     >
       <script
         type="application/ld+json"
@@ -99,7 +100,7 @@ export default function PriceChartSEO() {
         </p>
       </div>
 
-      <div className="seo-price-chart__grid">
+      <div className="seo-price-chart__grid" role="list" aria-label="SEO packages">
         {seoBundles.map((b) => {
           const discountedRaw = Math.round(b.priceNumber * 0.75);
           const formatPrice = (num: number) =>
@@ -112,6 +113,7 @@ export default function PriceChartSEO() {
               aria-labelledby={`${b.id}-title`}
               itemScope
               itemType="https://schema.org/Service"
+              role="listitem"
             >
               {b.badge && <span className="seo-bundle__badge">{b.badge}</span>}
               <span className="seo-bundle__promo-badge" aria-label="Limited time 25% off">25% OFF</span>

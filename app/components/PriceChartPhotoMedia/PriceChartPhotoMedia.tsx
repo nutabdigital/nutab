@@ -90,18 +90,18 @@ const ldJson = {
 const PriceChartPhotoMedia: React.FC = () => {
   const formatPrice = (n: number) => "$" + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   return (
-    <section className="photo-media-price-chart" aria-labelledby="photo-media-pricing-heading" aria-describedby="photo-media-pricing-desc">
+    <section className="photo-media-price-chart" aria-labelledby="photo-media-pricing-heading" aria-describedby="photo-media-pricing-desc" role="region">
       <script type="application/ld+json" suppressHydrationWarning dangerouslySetInnerHTML={{ __html: JSON.stringify(ldJson) }} />
       <div className="photo-media-price-chart__intro">
         <h2 id="photo-media-pricing-heading" className="photo-media-muted">Photography & Media Pricing</h2>
         <p id="photo-media-pricing-desc" className="photo-media-intro">Three clear tiers for professional visual content. 25% OFF already included.</p>
       </div>
-      <div className="photo-media-price-chart__grid">
+      <div className="photo-media-price-chart__grid" role="list" aria-label="Photography & media packages">
         {photoPackages.map(pkg => {
           const discountedRaw = Math.round(pkg.priceNumber * 0.75);
           const discountedDisplay = formatPrice(discountedRaw);
           return (
-            <article key={pkg.id} id={pkg.id} className={`photo-media-bundle ${pkg.badge ? "photo-media-bundle--popular" : ""}`} aria-labelledby={`${pkg.id}-title`} itemScope itemType="https://schema.org/Service">
+            <article key={pkg.id} id={pkg.id} className={`photo-media-bundle ${pkg.badge ? "photo-media-bundle--popular" : ""}`} aria-labelledby={`${pkg.id}-title`} itemScope itemType="https://schema.org/Service" role="listitem">
               {pkg.badge && <span className="photo-media-bundle__badge">{pkg.badge}</span>}
               <span className="photo-media-bundle__promo-badge" aria-label="Limited time 25 percent off">25% OFF</span>
               <h3 id={`${pkg.id}-title`} className="photo-media-bundle__title" itemProp="name">{pkg.title}</h3>

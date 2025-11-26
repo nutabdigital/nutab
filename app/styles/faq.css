@@ -1,6 +1,5 @@
-/* Centralized FAQ styles used by service pages */
-.gradient-background {
-  z-index: 0;
+.faq{
+  width: 100%;
 }
 
 .section-wrapper--faq .faq__header h2 {
@@ -128,14 +127,4 @@
 }
 [data-theme="dark"] .section-wrapper--faq .faq__summary::after {
   color: rgba(255,255,255,0.7);
-}
-
-/* Remove SectionWrapper box-shadow/background so internal width lines up */
-.section-wrapper--faq,
-.section-wrapper--faq > div {
-  box-shadow: none !important;
-}
-[data-theme="dark"] .section-wrapper--faq,
-[data-theme="dark"] .section-wrapper--faq > div {
-  box-shadow: none !important;
 }

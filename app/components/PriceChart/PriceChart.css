@@ -7,12 +7,12 @@
   align-items: center;
   margin: 5vh auto 0;
   padding: 3rem 2rem;
-  background: rgba(255, 255, 255, 0.75); 
+  background: rgba(255, 255, 255, 0.85); 
   border-radius: 1.5rem; 
-  box-shadow: 0 4px 12px rgba(3, 3, 3, 0.198); 
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
 
-  /* scale entire price chart to 90% of original */
-  transform: scale(0.90);
+  /* scale entire price chart slightly for visual consistency */
+  transform: scale(0.94);
   transform-origin: top center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -22,11 +22,9 @@
 
 /* Dark mode container */
 [data-theme="dark"] .price-chart {
-  background: rgba(10, 10, 10, 0.75); 
-  border-radius: 1.5rem; 
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.752);
-   backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  background: rgba(22, 16, 32, 0.72);
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.55);
 }
 
 .price-chart__intro {

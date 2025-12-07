@@ -1,3 +1,30 @@
+.logo a {
+  display: inline-flex;
+  align-items: flex-end; /* bottom-align image and title */
+  gap: 8px;
+  text-decoration: none;
+}
+
+.logo-title {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.logo-title-line1 {
+  font-weight: 700;
+  font-size: 1.1rem; /* slightly bigger */
+}
+
+.logo-title-line2 {
+  font-weight: 700;
+  font-size: 1.1rem; /* match line1 size */
+}
+
+/* Ensure proper visibility in dark/light themes by inheriting color */
+.logo-title, .logo-title * {
+  color: inherit;
+}
 .header {
   position: fixed;
   top: 0;
@@ -132,6 +159,21 @@
 /* Smaller text for service names in dropdown / mobile list */
 .dropdown-item .service-name {
   font-size: 0.9rem;
+}
+
+/* Hide logo title on narrow viewports (<725px) */
+@media (max-width: 725px) {
+  .logo-title {
+    display: none;
+  }
+}
+
+/* Hide logo images at <=650px width */
+@media (max-width: 650px) {
+  .logo-light,
+  .logo-dark {
+    display: none !important;
+  }
 }
 
 @media (min-width: 600px) {
@@ -360,11 +402,12 @@
     max-width: 900px;
   }
 
+  /* Keep logo size consistent on mobile */
   .logo-light,
   .logo-dark {
-    padding-left: 1rem;
-    width: 70%;
-    height: 70%;
+    width: 75px;
+    height: 57px;
+    padding-left: 1.5rem;
   }
 
   .nav-links {

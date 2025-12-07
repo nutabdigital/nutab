@@ -120,6 +120,10 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
               loading="eager"
               decoding="sync"
             />
+            <span className="logo-title" aria-label="Nutab Digital">
+              <span className="logo-title-line1">Nutab</span>
+              <span className="logo-title-line2">Digital</span>
+            </span>
           </a>
         </div>
 

@@ -18,7 +18,7 @@ const Tagline: React.FC = () => {
           Open a New Tab,
         </p>
         <p className="gradient-title" aria-hidden="true">
-          Start Something Extraordinary
+          Start Something Extraordinary.
         </p>
         <p className="tagline-description">
           Elevating your brand through custom software solutions

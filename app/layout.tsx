@@ -2,7 +2,7 @@ import type { Metadata } from "next"; // Type import from Next.js to type-check 
 import "./styles/globals.css";
 import dynamic from "next/dynamic";
 import AppClientProviders from "./AppClientProviders";
-import { Tomorrow } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 
 // Dynamically import the ModelWrapper component
 const ModelWrapper = dynamic(() => import("./context/ModelWrapper"), { ssr: false });
@@ -40,11 +40,9 @@ export const metadata: Metadata = {
   },
 };
 
-const tomorrow = Tomorrow({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  // Reduced font weights to the commonly-used set to avoid emitting many font files
-  // and preloads. Adjust if you need more weights.
-  weight: ["300", "400", "700"],
+  weight: ["300", "400", "500", "700"],
   display: "swap",
 });
 
@@ -274,7 +272,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
 
       </head>
-      <body className={tomorrow.className}>
+      <body className={dmSans.className}>
         <AppClientProviders>{children}</AppClientProviders>
       </body>
     </html>

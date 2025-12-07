@@ -18,16 +18,17 @@ import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
 import FAQSection from "../../components/FAQSection/FAQSection";
 
 export const generateMetadata = (): Metadata => ({
-  title: "Custom Software Development Services in Calgary - NuTab Digital",
+  title: "Custom Software Development Calgary | Bespoke Solutions | NuTab Digital",
   description:
-    "NuTab Digital offers custom software development services in Calgary, Alberta. We create tailored solutions to streamline operations, enhance efficiency, and drive business growth.",
+    "Calgary's trusted custom software development company. NuTab Digital builds tailored business solutions for Alberta companies — enterprise apps, SaaS platforms, and system integrations. Free consultation.",
+  keywords: ["custom software development Calgary", "software company Calgary", "bespoke software Alberta", "Calgary software developers", "enterprise software Calgary", "SaaS development Alberta"],
   alternates: {
     canonical: "https://nutab.ca/services/custom-software",
   },
   openGraph: {
-    title: "Custom Software Development Services in Calgary - NuTab Digital",
+    title: "Custom Software Development Calgary | Bespoke Solutions | NuTab Digital",
     description:
-      "NuTab Digital offers custom software development services in Calgary, Alberta. We create tailored solutions to streamline operations, enhance efficiency, and drive business growth.",
+      "Calgary's trusted custom software development company. NuTab Digital builds tailored business solutions for Alberta companies — enterprise apps, SaaS platforms, and system integrations.",
     url: "https://nutab.ca/services/custom-software",
     siteName: "NuTab Digital",
     images: [
@@ -35,7 +36,7 @@ export const generateMetadata = (): Metadata => ({
         url: "https://nutab.ca/photos/og-custom-software.webp",
         width: 1200,
         height: 800,
-        alt: "Custom Software Development Services in Calgary",
+        alt: "Custom Software Development Services in Calgary, Alberta",
       },
     ],
     locale: "en_CA",
@@ -43,9 +44,9 @@ export const generateMetadata = (): Metadata => ({
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Software Development Services in Calgary - NuTab Digital",
+    title: "Custom Software Development Calgary | Bespoke Solutions | NuTab Digital",
     description:
-      "NuTab Digital offers custom software development services in Calgary, Alberta. We create tailored solutions to streamline operations, enhance efficiency, and drive business growth.",
+      "Calgary's trusted custom software development company. NuTab Digital builds tailored business solutions for Alberta companies.",
     images: ["https://nutab.ca/photos/og-custom-software.webp"],
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
@@ -180,6 +181,19 @@ const faqs = [
       question: "Do you sign NDAs for confidential projects?",
       answer: "We are happy to sign non-disclosure agreements to protect your business ideas and sensitive information."
     }
+    // Local Calgary FAQs
+    ,{
+      question: "Do you offer custom software development for Calgary businesses?",
+      answer: "Yes! NuTab Digital is based in Calgary, Alberta and specializes in custom software solutions for local businesses across Calgary, the Greater Calgary Region, and throughout Alberta."
+    }
+    ,{
+      question: "Can I meet with your Calgary software development team in person?",
+      answer: "Absolutely. Our Calgary-based team is available for in-person consultations, project meetings, and ongoing collaboration with local clients."
+    }
+    ,{
+      question: "Do you work with Calgary startups and small businesses?",
+      answer: "Yes, we work with Calgary startups, small businesses, and enterprises of all sizes. We offer flexible solutions and pricing to fit your budget and growth stage."
+    }
 ];
 
 const CustomSoftwareSolutions: React.FC = () => {
@@ -222,9 +236,9 @@ const CustomSoftwareSolutions: React.FC = () => {
       description: "Our solutions are designed to grow with your business.",
     },
     {
-      title: "Local Expertise",
+      title: "Local Calgary Expertise",
       description:
-        "Based in Calgary, we understand the unique challenges and opportunities of Canadian businesses.",
+        "Calgary-based software developers who understand Alberta businesses and local market challenges.",
     },
     {
       title: "Future-Ready Solutions",

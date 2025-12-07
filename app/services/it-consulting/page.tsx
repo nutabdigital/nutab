@@ -18,16 +18,17 @@ import WhyChooseSection, { WhySolution } from "../../components/WhyChooseSection
 import FAQSection from "../../components/FAQSection/FAQSection";
 
 export const generateMetadata = (): Metadata => ({
-  title: "Business & IT Consulting Services in Calgary - NuTab Digital",
+  title: "IT Consulting Calgary | Business Technology Strategy | NuTab Digital",
   description:
-    "NuTab Digital offers business and IT consulting services in Calgary, Alberta. Get expert guidance on digital transformation, technology adoption, and growth strategies tailored to your business.",
+    "Calgary's business and IT consulting experts. NuTab Digital provides digital transformation, cloud strategy, and technology consulting for Alberta companies. Local support. Free consultation.",
+  keywords: ["IT consulting Calgary", "business consulting Calgary", "digital transformation Alberta", "cloud migration Calgary", "technology consulting Calgary", "IT strategy Alberta"],
   alternates: {
     canonical: "https://nutab.ca/services/it-consulting",
   },
   openGraph: {
-    title: "Business & IT Consulting Services in Calgary - NuTab Digital",
+    title: "IT Consulting Calgary | Business Technology Strategy | NuTab Digital",
     description:
-      "NuTab Digital offers business and IT consulting services in Calgary, Alberta. Get expert guidance on digital transformation, technology adoption, and growth strategies tailored to your business.",
+      "Calgary's business and IT consulting experts. NuTab Digital provides digital transformation, cloud strategy, and technology consulting for Alberta companies.",
     url: "https://nutab.ca/services/it-consulting",
     siteName: "NuTab Digital",
     images: [
@@ -35,7 +36,7 @@ export const generateMetadata = (): Metadata => ({
         url: "https://nutab.ca/photos/og-it-consulting.webp",
         width: 1200,
         height: 800,
-        alt: "Business & IT Consulting Services in Calgary",
+        alt: "Business & IT Consulting Services in Calgary, Alberta",
       },
     ],
     locale: "en_CA",
@@ -43,9 +44,9 @@ export const generateMetadata = (): Metadata => ({
   },
   twitter: {
     card: "summary_large_image",
-    title: "Business & IT Consulting Services in Calgary - NuTab Digital",
+    title: "IT Consulting Calgary | Business Technology Strategy | NuTab Digital",
     description:
-      "NuTab Digital offers business and IT consulting services in Calgary, Alberta. Get expert guidance on digital transformation, technology adoption, and growth strategies tailored to your business.",
+      "Calgary's business and IT consulting experts. Digital transformation and technology consulting for Alberta companies.",
     images: ["https://nutab.ca/photos/og-it-consulting.webp"],
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
@@ -156,6 +157,19 @@ const faqs = [
       question: "How quickly can I see results from consulting?",
       answer: "Many clients see improvements within weeks. We provide clear roadmaps and measurable outcomes for every engagement."
     }
+    // Local Calgary FAQs
+    ,{
+      question: "Do you offer IT consulting services in Calgary?",
+      answer: "Yes! NuTab Digital is a Calgary-based IT consulting firm serving businesses across Alberta. We provide digital transformation, cloud strategy, and technology consulting for local companies."
+    }
+    ,{
+      question: "Can Calgary businesses benefit from IT consulting?",
+      answer: "Absolutely. We help Calgary businesses of all sizes optimize their technology, reduce costs, and drive growth through strategic IT consulting."
+    }
+    ,{
+      question: "Is your consulting team based in Calgary?",
+      answer: "Yes, our Calgary-based team provides local support, in-person consultations, and ongoing collaboration for IT consulting projects throughout Alberta."
+    }
 ];
 
 const processSteps: ProcessStep[] = [
@@ -196,8 +210,8 @@ const features: FeatureItem[] = [
     description: "We recommend best-fit solutions, not vendor lock-in.",
   },
   {
-    title: "Local Support",
-    description: "Calgary-based team for timely, on-the-ground assistance.",
+    title: "Local Calgary Expertise",
+    description: "Calgary-based consultants who understand Alberta businesses and local market dynamics.",
   },
   {
     title: "Outcome Focused",

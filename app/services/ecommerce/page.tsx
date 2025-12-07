@@ -20,24 +20,25 @@ import FAQSection from "../../components/FAQSection/FAQSection";
 // const Loader = dynamic(() => import("../../components/Loader/Loader"), { ssr: false });
 
 export const generateMetadata = (): Metadata => ({
-  title: "E-Commerce Development Services in Calgary - NuTab Digital",
+  title: "E-Commerce Development Calgary | Shopify & WooCommerce Experts | NuTab Digital",
   description:
-    "NuTab Digital offers e-commerce development services in Calgary, Alberta. Build scalable, user-friendly online stores tailored to your business needs.",
+    "Calgary's e-commerce development specialists. NuTab Digital builds high-converting online stores for Alberta businesses — Shopify, WooCommerce, custom platforms. Secure payments. Free consultation.",
+  keywords: ["ecommerce development Calgary", "Shopify developer Calgary", "WooCommerce Calgary", "online store Calgary", "ecommerce website Alberta", "Calgary web store development"],
   alternates: {
     canonical: "https://nutab.ca/services/ecommerce",
   },
   openGraph: {
-    title: "E-Commerce Development Services in Calgary - NuTab Digital",
+    title: "E-Commerce Development Calgary | Shopify & WooCommerce Experts | NuTab Digital",
     description:
-      "NuTab Digital offers e-commerce development services in Calgary, Alberta. Build scalable, user-friendly online stores tailored to your business needs.",
+      "Calgary's e-commerce development specialists. NuTab Digital builds high-converting online stores for Alberta businesses — Shopify, WooCommerce, custom platforms.",
     url: "https://nutab.ca/services/ecommerce",
     siteName: "NuTab Digital",
     images: [
       {
-        url: "https://nutab.ca/photos/og-ecommerce.webp", // 1200x800 existing
+        url: "https://nutab.ca/photos/og-ecommerce.webp",
         width: 1200,
         height: 800,
-        alt: "E-Commerce Development Services in Calgary",
+        alt: "E-Commerce Development Services in Calgary, Alberta",
       },
     ],
     locale: "en_CA",
@@ -45,9 +46,9 @@ export const generateMetadata = (): Metadata => ({
   },
   twitter: {
     card: "summary_large_image",
-    title: "E-Commerce Development Services in Calgary - NuTab Digital",
+    title: "E-Commerce Development Calgary | Shopify & WooCommerce Experts | NuTab Digital",
     description:
-      "NuTab Digital offers e-commerce development services in Calgary, Alberta. Build scalable, user-friendly online stores tailored to your business needs.",
+      "Calgary's e-commerce development specialists. Build high-converting online stores for Alberta businesses.",
     images: ["https://nutab.ca/photos/og-ecommerce.webp"],
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
@@ -119,6 +120,19 @@ const faqs = [
       question: "Do you provide ongoing support and updates?",
       answer: "Yes, we offer maintenance, analytics, and feature improvements to keep your store competitive and running smoothly."
     }
+    // Local Calgary FAQs
+    ,{
+      question: "Do you build e-commerce websites for Calgary businesses?",
+      answer: "Yes! NuTab Digital is Calgary-based and specializes in e-commerce development for local Alberta businesses. We build Shopify, WooCommerce, and custom online stores."
+    }
+    ,{
+      question: "Can you help Calgary retailers sell online?",
+      answer: "Absolutely. We help Calgary retail businesses expand online with professional e-commerce websites, local SEO, and secure payment integrations."
+    }
+    ,{
+      question: "Do you offer local Calgary e-commerce support?",
+      answer: "Yes, our Calgary team provides ongoing support, training, and optimization for local e-commerce businesses. We're available for in-person meetings and consultations."
+    }
 ];
 
 const processSteps: ProcessStep[] = [
@@ -134,7 +148,7 @@ const features: FeatureItem[] = [
   { title: "Secure Checkout", description: "Best practices for safe transactions." },
   { title: "Headless Options", description: "Flexible architectures for custom experiences." },
   { title: "Platform Migrations", description: "Move stores with minimal downtime." },
-  { title: "Local Support", description: "Calgary-based team for responsive service." },
+  { title: "Local Calgary Expertise", description: "Calgary-based team with deep knowledge of Alberta's retail and e-commerce market." },
 ];
 
 const whySolutions: WhySolution[] = [

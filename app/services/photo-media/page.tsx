@@ -18,16 +18,17 @@ import RelatedServices, { RelatedServiceItem } from "../../components/RelatedSer
 import FAQSection from "../../components/FAQSection/FAQSection";
 
 export const generateMetadata = (): Metadata => ({
-  title: "Photography & Media Production Services in Calgary - NuTab Digital",
+  title: "Commercial Photography Calgary | Video Production & Media | NuTab Digital",
   description:
-    "NuTab Digital offers photography and media production services in Calgary, Alberta. High-quality photography and media for websites, marketing campaigns, and brand storytelling.",
+    "Calgary's professional photography and video production company. NuTab Digital delivers high-quality commercial photography, video content, and event coverage for Alberta businesses. Free quote.",
+  keywords: ["commercial photography Calgary", "video production Calgary", "product photography Alberta", "corporate video Calgary", "event photography Calgary", "media production Alberta"],
   alternates: {
     canonical: "https://nutab.ca/services/photo-media",
   },
   openGraph: {
-    title: "Photography & Media Production Services in Calgary - NuTab Digital",
+    title: "Commercial Photography Calgary | Video Production & Media | NuTab Digital",
     description:
-      "NuTab Digital offers photography and media production services in Calgary, Alberta. High-quality photography and media for websites, marketing campaigns, and brand storytelling.",
+      "Calgary's professional photography and video production company. High-quality commercial photography, video content, and event coverage for Alberta businesses.",
     url: "https://nutab.ca/services/photo-media",
     siteName: "NuTab Digital",
     images: [
@@ -35,7 +36,7 @@ export const generateMetadata = (): Metadata => ({
         url: "https://nutab.ca/photos/og-photo-media.webp",
         width: 1200,
         height: 800,
-        alt: "Photography & Media Production Services in Calgary",
+        alt: "Photography & Media Production Services in Calgary, Alberta",
       },
     ],
     locale: "en_CA",
@@ -43,9 +44,9 @@ export const generateMetadata = (): Metadata => ({
   },
   twitter: {
     card: "summary_large_image",
-    title: "Photography & Media Production Services in Calgary - NuTab Digital",
+    title: "Commercial Photography Calgary | Video Production & Media | NuTab Digital",
     description:
-      "NuTab Digital offers photography and media production services in Calgary, Alberta. High-quality photography and media for websites, marketing campaigns, and brand storytelling.",
+      "Calgary's professional photography and video production company for Alberta businesses.",
     images: ["https://nutab.ca/photos/og-photo-media.webp"],
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
@@ -125,6 +126,19 @@ const faqs = [
       question: "Do you offer creative direction and concept development?",
       answer: "Yes, our team provides creative direction, storyboarding, and concept development to ensure your media aligns with your brand goals."
     }
+    // Local Calgary FAQs
+    ,{
+      question: "Do you offer photography services in Calgary?",
+      answer: "Yes! NuTab Digital is a Calgary-based photography and video production company serving businesses across Alberta. We offer commercial, product, and event photography."
+    }
+    ,{
+      question: "Can you shoot on-location in Calgary and surrounding areas?",
+      answer: "Absolutely. Our Calgary team provides on-location photography and video production throughout Calgary, the Greater Calgary Region, and across Alberta."
+    }
+    ,{
+      question: "Do you work with Calgary businesses for ongoing content needs?",
+      answer: "Yes, we offer ongoing content creation partnerships for Calgary businesses needing regular photography, video, and social media assets."
+    }
 ];
 
 const processSteps: ProcessStep[] = [
@@ -140,7 +154,7 @@ const features: FeatureItem[] = [
   { title: "Professional Crew", description: "Experienced photographers, videographers and editors." },
   { title: "Full-Service Production", description: "From pre-production to delivery." },
   { title: "High-Quality Assets", description: "Studio-grade equipment and post-production." },
-  { title: "Local Support", description: "Calgary-based team for fast collaboration." },
+  { title: "Local Calgary Expertise", description: "Calgary-based crew for on-location shoots across Alberta and Western Canada." },
 ];
 
 const whySolutions: WhySolution[] = [

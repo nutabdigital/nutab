@@ -18,16 +18,17 @@ import RelatedServices, { RelatedServiceItem } from "../../components/RelatedSer
 import FAQSection from "../../components/FAQSection/FAQSection";
 
 export const generateMetadata = (): Metadata => ({
-  title: "Graphic & Brand Design Services in Calgary - NuTab Digital",
+  title: "Graphic & Brand Design Calgary | Logo Design & Visual Identity | NuTab Digital",
   description:
-    "NuTab Digital offers graphic and brand design services in Calgary, Alberta. Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
+    "Calgary's creative brand design agency. NuTab Digital creates logos, visual identities, and brand guidelines for Alberta businesses. Professional design. Local team. Free consultation.",
+  keywords: ["brand design Calgary", "logo design Calgary", "graphic design Alberta", "visual identity Calgary", "branding agency Calgary", "brand guidelines Alberta"],
   alternates: {
     canonical: "https://nutab.ca/services/brand-design",
   },
   openGraph: {
-    title: "Graphic & Brand Design Services in Calgary - NuTab Digital",
+    title: "Graphic & Brand Design Calgary | Logo Design & Visual Identity | NuTab Digital",
     description:
-      "NuTab Digital offers graphic and brand design services in Calgary, Alberta. Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
+      "Calgary's creative brand design agency. NuTab Digital creates logos, visual identities, and brand guidelines for Alberta businesses.",
     url: "https://nutab.ca/services/brand-design",
     siteName: "NuTab Digital",
     images: [
@@ -35,7 +36,7 @@ export const generateMetadata = (): Metadata => ({
         url: "https://nutab.ca/photos/og-brand-design.webp",
         width: 1200,
         height: 800,
-        alt: "Graphic & Brand Design Services in Calgary",
+        alt: "Graphic & Brand Design Services in Calgary, Alberta",
       },
     ],
     locale: "en_CA",
@@ -43,9 +44,9 @@ export const generateMetadata = (): Metadata => ({
   },
   twitter: {
     card: "summary_large_image",
-    title: "Graphic & Brand Design Services in Calgary - NuTab Digital",
+    title: "Graphic & Brand Design Calgary | Logo Design & Visual Identity | NuTab Digital",
     description:
-      "NuTab Digital offers graphic and brand design services in Calgary, Alberta. Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
+      "Calgary's creative brand design agency. Logos, visual identities, and brand guidelines for Alberta businesses.",
     images: ["https://nutab.ca/photos/og-brand-design.webp"],
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
@@ -117,6 +118,19 @@ const faqs = [
       question: "How long does the brand design process take?",
       answer: "Most brand design projects are completed in 2-4 weeks, depending on scope and feedback cycles."
     }
+    // Local Calgary FAQs
+    ,{
+      question: "Do you offer brand design services in Calgary?",
+      answer: "Yes! NuTab Digital is a Calgary-based creative agency specializing in logo design, brand identity, and graphic design for Alberta businesses."
+    }
+    ,{
+      question: "Can I meet with your Calgary design team in person?",
+      answer: "Absolutely. Our Calgary team is available for in-person consultations, creative reviews, and collaborative workshops with local clients."
+    }
+    ,{
+      question: "Do you work with Calgary small businesses and startups?",
+      answer: "Yes, we create brand identities for Calgary businesses of all sizes, from startups to established companies looking to refresh their visual presence."
+    }
 ];
 
 const processSteps: ProcessStep[] = [
@@ -130,7 +144,7 @@ const processSteps: ProcessStep[] = [
 const features: FeatureItem[] = [
   { title: "Creative Expertise", description: "Experienced designers focused on brand impact." },
   { title: "Tailored Solutions", description: "Designs crafted to your unique needs." },
-  { title: "Local Support", description: "Calgary-based team for responsive collaboration." },
+  { title: "Local Calgary Expertise", description: "Calgary-based designers who understand Alberta businesses and local markets." },
   { title: "Full-Service", description: "From logo to launch-ready brand systems." },
   { title: "File Handover", description: "You receive all assets and guidelines for future use." },
 ];

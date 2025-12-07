@@ -17,16 +17,17 @@ import WhyChooseSection, { WhySolution } from "../../components/WhyChooseSection
 import FAQSection from "../../components/FAQSection/FAQSection";
 
 export const generateMetadata = (): import("next").Metadata => ({
-  title: "AI & Automation Solutions in Calgary - NuTab Digital",
+  title: "AI & Automation Solutions Calgary | Machine Learning & Workflow Automation | NuTab Digital",
   description:
-    "NuTab Digital offers AI and automation solutions in Calgary, Alberta. Leverage artificial intelligence and automation to improve efficiency, reduce manual tasks, and make smarter decisions.",
+    "Calgary's AI and automation experts. NuTab Digital helps Alberta businesses leverage artificial intelligence, machine learning, and workflow automation to reduce costs and improve efficiency. Free consultation.",
+  keywords: ["AI solutions Calgary", "automation Calgary", "machine learning Alberta", "AI development Calgary", "workflow automation Calgary", "chatbot development Alberta"],
   alternates: {
     canonical: "https://nutab.ca/services/ai-automation",
   },
   openGraph: {
-    title: "AI & Automation Solutions in Calgary - NuTab Digital",
+    title: "AI & Automation Solutions Calgary | Machine Learning & Workflow Automation | NuTab Digital",
     description:
-      "NuTab Digital offers AI and automation solutions in Calgary, Alberta. Leverage artificial intelligence and automation to improve efficiency, reduce manual tasks, and make smarter decisions.",
+      "Calgary's AI and automation experts. NuTab Digital helps Alberta businesses leverage artificial intelligence, machine learning, and workflow automation.",
     url: "https://nutab.ca/services/ai-automation",
     siteName: "NuTab Digital",
     images: [
@@ -34,7 +35,7 @@ export const generateMetadata = (): import("next").Metadata => ({
         url: "https://nutab.ca/photos/og-ai-automation.webp",
         width: 1200,
         height: 800,
-        alt: "AI & Automation Solutions in Calgary",
+        alt: "AI & Automation Solutions in Calgary, Alberta",
       },
     ],
     locale: "en_CA",
@@ -42,9 +43,9 @@ export const generateMetadata = (): import("next").Metadata => ({
   },
   twitter: {
     card: "summary_large_image",
-    title: "AI & Automation Solutions in Calgary - NuTab Digital",
+    title: "AI & Automation Solutions Calgary | Machine Learning & Workflow Automation | NuTab Digital",
     description:
-      "NuTab Digital offers AI and automation solutions in Calgary, Alberta. Leverage artificial intelligence and automation to improve efficiency, reduce manual tasks, and make smarter decisions.",
+      "Calgary's AI and automation experts helping Alberta businesses leverage artificial intelligence and workflow automation.",
     images: ["https://nutab.ca/photos/og-ai-automation.webp"],
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
@@ -124,6 +125,19 @@ const faqs = [
       question: "How long does it take to implement AI automation?",
       answer: "Implementation time varies based on project scope, but most businesses see results within weeks. We provide clear timelines and ongoing support throughout the process."
     }
+    // Local Calgary FAQs
+    ,{
+      question: "Do you offer AI automation services in Calgary?",
+      answer: "Yes! NuTab Digital is based in Calgary and provides AI and automation solutions for Alberta businesses. We help local companies leverage AI to improve efficiency and reduce costs."
+    }
+    ,{
+      question: "Can Calgary businesses benefit from AI automation?",
+      answer: "Absolutely. We work with Calgary businesses of all sizes to implement AI chatbots, workflow automation, and machine learning solutions tailored to local market needs."
+    }
+    ,{
+      question: "Is your AI team based in Calgary?",
+      answer: "Yes, our Calgary-based team provides local support, in-person consultations, and ongoing collaboration for AI and automation projects."
+    }
 ];
 
 const processSteps: ProcessStep[] = [
@@ -139,7 +153,7 @@ const features: FeatureItem[] = [
   { title: "Secure Deployments", description: "Security-first approach for all AI solutions." },
   { title: "Data-Driven Insights", description: "Turn data into actionable business intelligence." },
   { title: "Custom Integrations", description: "Seamless integration with existing systems." },
-  { title: "Local Support", description: "Calgary-based team for responsive service." },
+  { title: "Local Calgary Expertise", description: "Calgary-based AI specialists helping Alberta businesses adopt automation." },
 ];
 
 const whySolutions: WhySolution[] = [

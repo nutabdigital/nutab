@@ -18,16 +18,17 @@ import RelatedServices, { RelatedServiceItem } from "../../components/RelatedSer
 import FAQSection from "../../components/FAQSection/FAQSection";
 
 export const generateMetadata = (): Metadata => ({
-  title: "Mobile & Web App Development Services in Calgary - NuTab Digital",
+  title: "Mobile & Web App Development Calgary | iOS, Android & Web Apps | NuTab Digital",
   description:
-    "NuTab Digital offers mobile and web app development services in Calgary, Alberta. Build scalable, user-friendly apps for iOS, Android, and the web.",
+    "Calgary's top-rated mobile and web app development company. NuTab Digital builds custom iOS, Android, and web applications for Alberta businesses. Cross-platform expertise. Free quote.",
+  keywords: ["app development Calgary", "mobile app developers Calgary", "web app development Alberta", "iOS app Calgary", "Android app Calgary", "cross-platform apps Alberta"],
   alternates: {
     canonical: "https://nutab.ca/services/app-development",
   },
   openGraph: {
-    title: "Mobile & Web App Development Services in Calgary - NuTab Digital",
+    title: "Mobile & Web App Development Calgary | iOS, Android & Web Apps | NuTab Digital",
     description:
-      "NuTab Digital offers mobile and web app development services in Calgary, Alberta. Build scalable, user-friendly apps for iOS, Android, and the web.",
+      "Calgary's top-rated mobile and web app development company. NuTab Digital builds custom iOS, Android, and web applications for Alberta businesses.",
     url: "https://nutab.ca/services/app-development",
     siteName: "NuTab Digital",
     images: [
@@ -35,7 +36,7 @@ export const generateMetadata = (): Metadata => ({
         url: "https://nutab.ca/photos/og-app-development.webp",
         width: 1200,
         height: 800,
-        alt: "Mobile & Web App Development Services in Calgary",
+        alt: "Mobile & Web App Development Services in Calgary, Alberta",
       },
     ],
     locale: "en_CA",
@@ -43,9 +44,9 @@ export const generateMetadata = (): Metadata => ({
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mobile & Web App Development Services in Calgary - NuTab Digital",
+    title: "Mobile & Web App Development Calgary | iOS, Android & Web Apps | NuTab Digital",
     description:
-      "NuTab Digital offers mobile and web app development services in Calgary, Alberta. Build scalable, user-friendly apps for iOS, Android, and the web.",
+      "Calgary's top-rated mobile and web app development company. Build custom apps for iOS, Android, and the web.",
     images: ["https://nutab.ca/photos/og-app-development.webp"],
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
@@ -117,6 +118,19 @@ const faqs = [
       question: "Is my app idea safe and confidential?",
       answer: "We treat every project with strict confidentiality and can sign NDAs to protect your app idea and business information."
     }
+    // Local Calgary FAQs
+    ,{
+      question: "Do you offer app development services in Calgary?",
+      answer: "Yes! NuTab Digital is a Calgary-based app development company serving businesses across Alberta. We build iOS, Android, and web applications for local clients."
+    }
+    ,{
+      question: "Can I meet with your Calgary app developers in person?",
+      answer: "Absolutely. Our Calgary team is available for in-person consultations, demos, and ongoing project collaboration with local businesses."
+    }
+    ,{
+      question: "Do you build apps for Calgary startups?",
+      answer: "Yes, we specialize in helping Calgary startups and small businesses bring their app ideas to life with scalable, user-friendly solutions."
+    }
 ];
 
 const processSteps: ProcessStep[] = [
@@ -132,7 +146,7 @@ const features: FeatureItem[] = [
   { title: "Performance Focused", description: "Optimized apps for fast, reliable experiences." },
   { title: "Secure by Design", description: "Security and privacy considered from day one." },
   { title: "User-Centered", description: "Designs that prioritize usability and conversion." },
-  { title: "Local Support", description: "Calgary-based team for close collaboration." },
+  { title: "Local Calgary Expertise", description: "Calgary-based developers who understand Alberta businesses and local market needs." },
 ];
 
 const whySolutions: WhySolution[] = [

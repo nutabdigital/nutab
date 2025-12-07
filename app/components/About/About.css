@@ -21,15 +21,23 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.425);
   border-radius: 1.5rem;
   z-index: 10;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* backdrop blur applied only if supported (see @supports below) */
+}
+
+@supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+  .about-container {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
 }
 
 .about-title{
+  color: var(--foreground);
   text-align: center;
 }
 
 .about-main-title {
+  font-size: 2rem;
   font-size: clamp(2.0rem, 2.0rem, 2rem);
   font-weight: 400;
   background: linear-gradient(to right, #a78bfa, #60a5fa);

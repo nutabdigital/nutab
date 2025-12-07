@@ -1,7 +1,11 @@
-.itc-price-chart { max-width:1200px; margin:5vh auto 4vh; padding:3rem 2rem; display:flex; flex-direction:column; gap:2.25rem; background:rgba(255,255,255,0.88); border-radius:1.5rem; box-shadow:0 4px 14px rgba(0,0,0,0.12); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); transform:scale(0.94); transform-origin:top center; }
+.itc-price-chart { max-width:1200px; margin:5vh auto 4vh; padding:3rem 2rem; display:flex; flex-direction:column; gap:2.25rem; background:rgba(255,255,255,0.88); border-radius:1.5rem; box-shadow:0 4px 14px rgba(0,0,0,0.12); /* backdrop blur applied only if supported (see @supports below) */ transform:scale(0.94); transform-origin:top center; }
 [data-theme="dark"] .itc-price-chart { background:rgba(20,26,32,0.72); box-shadow:0 4px 18px rgba(0,0,0,0.55); }
 .itc-price-chart__intro { text-align:center; max-width:860px; margin:0 auto; }
-.itc-muted { margin:0; font-size:1.75rem; font-weight:700; background:linear-gradient(135deg,#65a30d 0%, #1e40af 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.itc-muted { margin:0; font-size:1.75rem; font-weight:700; color:var(--foreground); background:linear-gradient(135deg,#65a30d 0%, #1e40af 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+
+@supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+	.itc-price-chart { backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
+}
 .itc-intro { margin-top:0.75rem; color:#4b5563; }
 [data-theme="dark"] .itc-intro { color:#9ca3af; }
 .itc-price-chart__grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.6rem; }

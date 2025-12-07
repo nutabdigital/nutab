@@ -21,6 +21,8 @@
 
 /* Title */
 .services-why-title {
+  /* Fallback color for gradient text */
+  color: var(--foreground);
   text-align: center;
   margin-bottom: 1rem;
   background: linear-gradient(to right, rgb(192, 132, 252), rgb(147, 197, 253));
@@ -34,7 +36,8 @@
 @media (min-width: 768px) {
   .services-why-title {
     /* fluid size: min 2.0rem (mobile) → max 2.5rem (desktop) */
-  font-size: clamp(2rem, 2rem + 1vw, 2.5rem);
+    font-size: 2.5rem;
+    font-size: clamp(2rem, 2rem + 1vw, 2.5rem);
     line-height: 1;
   }
 }
@@ -158,7 +161,7 @@
   background: linear-gradient(to bottom right, rgba(168, 85, 247, 0.05), transparent, rgba(59, 130, 246, 0.05));
   border: 1px solid rgba(168, 85, 247, 0.2);
   transition: all 0.3s ease;
-  backdrop-filter: blur(4px);
+  /* backdrop blur applied only if supported (see @supports below) */
   overflow: hidden;
   width: 100%;
   text-decoration: none;
@@ -270,6 +273,7 @@
 
 /* Card Title */
 .services-why-card-title {
+  color: var(--foreground);
   font-size: 1.25rem;
   line-height: 1.75rem;
   background: linear-gradient(to right, rgb(192, 132, 252), rgb(147, 197, 253));
@@ -351,7 +355,7 @@
 /* Glass Theme */
 .services-why-section--glass .services-why-card {
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(12px);
+  /* backdrop blur applied only if supported below */
   border-color: rgba(255, 255, 255, 0.15);
 }
 
@@ -363,5 +367,18 @@
 
 .services-why-section--glass .services-why-icon-container {
   background: rgba(168, 85, 247, 0.15);
-  backdrop-filter: blur(8px);
+  /* backdrop blur applied only if supported below */
+}
+
+/* Feature queries: enable backdrop-filter where supported */
+@supports (backdrop-filter: blur(4px)) or (-webkit-backdrop-filter: blur(4px)) {
+  .services-why-card {
+    backdrop-filter: blur(4px);
+  }
+  .services-why-section--glass .services-why-card {
+    backdrop-filter: blur(12px);
+  }
+  .services-why-section--glass .services-why-icon-container {
+    backdrop-filter: blur(8px);
+  }
 }

@@ -44,7 +44,8 @@
 .services-hero-title {
   text-align: center;
   margin-bottom: 1.5rem;
-  background: linear-gradient(to right, rgb(192, 132, 252), rgb(147, 197, 253));
+    color: var(--foreground);
+    background: linear-gradient(to right, rgb(192, 132, 252), rgb(147, 197, 253));
   background-clip: text;
   -webkit-background-clip: text;
   color: transparent;

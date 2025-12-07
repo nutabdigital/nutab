@@ -8,8 +8,7 @@
   background: rgba(255, 255, 255, 0.85);
   border-radius: 1.5rem;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* backdrop blur applied only if supported (see @supports below) */
   transform: scale(0.94);
   transform-origin: top center;
 }
@@ -23,6 +22,7 @@
   margin: 0 auto;
 }
 .brand-muted {
+  color: var(--foreground);
   margin: 0;
   font-size: 1.75rem;
   font-weight: 700;
@@ -37,6 +37,14 @@
 }
 [data-theme="dark"] .brand-intro {
   color: #9ca3af;
+}
+
+/* Feature query: enable backdrop-filter when supported */
+@supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+  .brand-price-chart {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
 }
 .brand-price-chart__grid {
   display: grid;

@@ -12,6 +12,7 @@
 }
 
 .services-grid-title {
+  color: var(--foreground);
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 0.75rem;

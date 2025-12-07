@@ -25,6 +25,7 @@
   /* font-size: clamp(2rem, 2.5vw, 3rem);  */
   font-weight: 400;
   background: linear-gradient(to right, #a78bfa, #60a5fa);
+  color: var(--foreground);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;

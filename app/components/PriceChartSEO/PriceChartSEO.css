@@ -12,8 +12,7 @@
   box-shadow: 0 4px 12px rgba(3, 3, 3, 0.12);
   transform: scale(0.94);
   transform-origin: top center;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  /* backdrop blur applied only if supported (see @supports below) */
 }
 
 [data-theme="dark"] .seo-price-chart {
@@ -27,6 +26,7 @@
 }
 
 .seo-muted {
+  color: var(--foreground);
   font-weight: 700;
   font-size: 1.6rem;
   background: linear-gradient(135deg, #10b981 0%, #059669 100%);
@@ -34,6 +34,14 @@
   background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 0;
+}
+
+/* Feature query: enable backdrop-filter when supported */
+@supports (backdrop-filter: blur(12px)) or (-webkit-backdrop-filter: blur(12px)) {
+  .seo-price-chart {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
 }
 
 .seo-price-intro {

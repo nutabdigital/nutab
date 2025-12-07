@@ -47,6 +47,8 @@ export const generateMetadata = (): Metadata => ({
     description:
       "NuTab Digital offers custom software development services in Calgary, Alberta. We create tailored solutions to streamline operations, enhance efficiency, and drive business growth.",
     images: ["https://nutab.ca/photos/og-custom-software.webp"],
+    site: "@NuTabDigital",
+    creator: "@NuTabDigital",
   },
 });
 

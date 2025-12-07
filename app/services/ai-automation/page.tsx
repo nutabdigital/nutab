@@ -46,6 +46,8 @@ export const generateMetadata = (): import("next").Metadata => ({
     description:
       "NuTab Digital offers AI and automation solutions in Calgary, Alberta. Leverage artificial intelligence and automation to improve efficiency, reduce manual tasks, and make smarter decisions.",
     images: ["https://nutab.ca/photos/og-ai-automation.webp"],
+    site: "@NuTabDigital",
+    creator: "@NuTabDigital",
   },
 });
 

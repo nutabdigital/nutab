@@ -6,10 +6,12 @@ import "./page.css";
 import Background from "../components/Background/Background";
 import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
 
-export const metadata: Metadata = {
+export const generateMetadata = (): Metadata => ({
   title: "Pricing | Web Design Packages | NuTab Digital",
   description:
     "Transparent web design pricing. Essential ($899), Growth ($1,799), Enterprise Pro ($3,599). Custom solutions with no hidden fees.",
+  keywords: ["web design pricing Calgary", "website packages Alberta", "affordable web development", "NuTab Digital pricing"],
+  robots: "index, follow",
   openGraph: {
     title: "Pricing | Web Design Packages | NuTab Digital",
     description:
@@ -32,11 +34,13 @@ export const metadata: Metadata = {
     title: "Pricing | Web Design Packages | NuTab Digital",
     description: "Web design packages starting at $899. Transparent pricing with clear deliverables.",
     images: ["https://nutab.ca/photos/og-pricing.webp"],
+    site: "@NuTabDigital",
+    creator: "@NuTabDigital",
   },
   alternates: {
     canonical: "https://nutab.ca/pricing",
   },
-};
+});
 
 // Defer below-the-fold charts to client to reduce initial payload
 const PriceChartSEO = dynamic(

@@ -49,6 +49,8 @@ export const generateMetadata = (): Metadata => ({
     description:
       "NuTab Digital offers e-commerce development services in Calgary, Alberta. Build scalable, user-friendly online stores tailored to your business needs.",
     images: ["https://nutab.ca/photos/og-ecommerce.webp"],
+    site: "@NuTabDigital",
+    creator: "@NuTabDigital",
   },
 });
 

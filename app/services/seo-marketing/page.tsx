@@ -47,6 +47,8 @@ export const generateMetadata = (): Metadata => ({
     description:
       "NuTab Digital offers SEO and digital marketing services in Calgary, Alberta. Enhance your online visibility, attract customers, and grow your business.",
     images: ["https://nutab.ca/photos/og-seo-marketing.webp"],
+    site: "@NuTabDigital",
+    creator: "@NuTabDigital",
   },
 });
 

@@ -17,7 +17,7 @@ import FeatureHighlights, { FeatureItem } from "../../components/FeatureHighligh
 import RelatedServices, { RelatedServiceItem } from "../../components/RelatedServices/RelatedServices";
 import FAQSection from "../../components/FAQSection/FAQSection";
 
-export const metadata: Metadata = {
+export const generateMetadata = (): Metadata => ({
   title: "Graphic & Brand Design Services in Calgary - NuTab Digital",
   description:
     "NuTab Digital offers graphic and brand design services in Calgary, Alberta. Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
@@ -47,8 +47,10 @@ export const metadata: Metadata = {
     description:
       "NuTab Digital offers graphic and brand design services in Calgary, Alberta. Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
     images: ["https://nutab.ca/photos/og-brand-design.webp"],
+    site: "@NuTabDigital",
+    creator: "@NuTabDigital",
   },
-};
+});
 
 const services: ServiceItem[] = [
   { title: "Logo Design", description: "Custom logos that reflect your brand identity." },

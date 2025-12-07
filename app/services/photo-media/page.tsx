@@ -47,6 +47,8 @@ export const generateMetadata = (): Metadata => ({
     description:
       "NuTab Digital offers photography and media production services in Calgary, Alberta. High-quality photography and media for websites, marketing campaigns, and brand storytelling.",
     images: ["https://nutab.ca/photos/og-photo-media.webp"],
+    site: "@NuTabDigital",
+    creator: "@NuTabDigital",
   },
 });
 

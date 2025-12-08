@@ -355,7 +355,7 @@ const EcommerceDevelopment: React.FC = () => {
           backgroundClip: "text",
           color: "transparent"
         }}>Ready to Build Your Online Store?</h2>
-        <p>
+        <p style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
           Contact us to discuss your e-commerce project and get a tailored plan to grow your online sales.
         </p>
         <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>

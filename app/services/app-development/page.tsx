@@ -350,7 +350,7 @@ const MobileWebAppDevelopment: React.FC = () => {
           backgroundClip: "text",
           color: "transparent"
         }}>Get Started Today</h2>
-        <p>
+        <p style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
           Ready to build your mobile or web app? Contact us to discuss your project and get a tailored plan to launch fast and scale safely.
         </p>
         <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>

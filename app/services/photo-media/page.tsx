@@ -359,7 +359,7 @@ const PhotographyMediaProduction: React.FC = () => {
           backgroundClip: "text",
           color: "transparent"
         }}>Get Started Today</h2>
-        <p>
+        <p style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
           Ready to elevate your brand? Contact us to discuss your photography & media production needs and discover how NuTab Digital can help you stand out.
         </p>
         <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>

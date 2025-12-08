@@ -358,7 +358,7 @@ const AIAutomation: React.FC = () => {
           backgroundClip: "text",
           color: "transparent"
         }}>Get Started Today</h2>
-        <p>
+        <p style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
           Ready to transform your business with <strong>AI & automation?</strong> Contact us to discuss your goals and discover how NuTab Digital can help you work smarter.
         </p>
         <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>

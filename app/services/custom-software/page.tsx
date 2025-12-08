@@ -481,7 +481,7 @@ const CustomSoftwareSolutions: React.FC = () => {
           backgroundClip: "text",
           color: "transparent"
         }}>Get Started Today</h2>
-        <p className="section-text">
+        <p className="section-text" style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
           Ready to take your business to the next level? Contact us today to
           learn more about our custom software development services and how we can help you achieve your goals.
         </p>

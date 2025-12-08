@@ -460,7 +460,7 @@ const BusinessITConsulting: React.FC = () => {
           backgroundClip: "text",
           color: "transparent"
         }}>Get Started Today</h2>
-        <p className="section-text">
+        <p className="section-text" style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
           Ready to transform your business? Contact us to discuss your business
           & IT consulting needs and discover how NuTab Digital can help you
           achieve your goals.

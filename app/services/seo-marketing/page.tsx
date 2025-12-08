@@ -338,7 +338,7 @@ const SEODigitalMarketing: React.FC = () => {
           backgroundClip: "text",
           color: "transparent"
         }}>Get Started Today</h2>
-        <p>
+        <p style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
           Ready to grow your online presence? Contact us to discuss a tailored SEO and digital marketing plan for your business.
         </p>
         <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>

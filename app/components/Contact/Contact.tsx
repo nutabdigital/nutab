@@ -9,7 +9,7 @@ const Contact: React.FC = () => {
       {/* Left Column */}
       <div className="contact-left">
         <h3>
-          Let’s Talk{" "}
+          Let's Talk{" "}
           <span role="img" aria-label="wave">
             👋
           </span>
@@ -17,7 +17,7 @@ const Contact: React.FC = () => {
         <p>
           Have a project in mind or just want to say hi?
           <br />
-          Fill out the form and we’ll get back to you shortly.
+          Fill out the form and we'll get back to you shortly.
         </p>
         <div className="contact-info">
           <p>
@@ -35,31 +35,11 @@ const Contact: React.FC = () => {
       <div className="contact-right">
         <div className="overlay"></div>
 
-
         <form
-          action="https://formsubmit.co/7757f614a3d5884564ea3b58f465f7b1"
+          action="https://formspree.io/f/manrbogw"
           method="POST"
           className="contact-form"
         >
-          {/* Honeypot field to help prevent spam by bots; styled to be invisible */}
-          <input type="text" name="_honey" style={{ display: "none" }} />
-
-          {/* Enable captcha functionality for bot protection */}
-          <input type="hidden" name="_captcha" value="true" />
-
-          {/* Autoresponse message sent to users upon successful form submission */}
-          <input
-            type="hidden"
-            name="_autoresponse"
-            value="Hello,&#10;&#10;Thank you for reaching out to Nutab Digital! We’ve received your message and are excited to connect with you. One of our team members will review your inquiry and get back to you within 1-2 business days.&#10;&#10;If you have any urgent questions, please don’t hesitate to reach out at nutabdigital@gmail.com.&#10;&#10;Best regards,&#10;The Nutab Digital Team&#10;Nutab Digital"
-          />
-
-          {/* Set email subject for easier identification of incoming messages */}
-          <input type="hidden" name="_subject" value="New submission!" />
-
-          {/* Format submission data in a table for improved readability */}
-          <input type="hidden" name="_template" value="table" />
-
           {/* Name input field */}
           <div className="form-group">
             <label htmlFor="name">Name:</label>
@@ -97,7 +77,6 @@ const Contact: React.FC = () => {
 
           {/* Submit button to send the form */}
           <button className="submit-button"><span>Send</span></button>
-
         </form>
       </div>
     </section>

@@ -345,11 +345,18 @@ export default function GraphicBrandDesign() {
       </SectionWrapper>
 
       <SectionWrapper>
-        <h2>Get Started Today</h2>
+        <h2 style={{
+          background: "linear-gradient(to right, rgb(192, 132, 252), rgb(147, 197, 253))",
+          WebkitBackgroundClip: "text",
+          backgroundClip: "text",
+          color: "transparent"
+        }}>Get Started Today</h2>
         <p>
           Ready to elevate your brand? Contact us to discuss your graphic & brand design needs and discover how NuTab Digital can help you stand out.
         </p>
-        <GetQuoteButton />
+        <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <GetQuoteButton />
+        </div>
       </SectionWrapper>
 
   <FAQSection faqs={faqs} lead="Quick answers to common questions about our graphic & brand design services." />

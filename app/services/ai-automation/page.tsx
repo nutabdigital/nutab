@@ -352,11 +352,18 @@ const AIAutomation: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <h2>Get Started Today</h2>
+        <h2 style={{
+          background: "linear-gradient(to right, rgb(192, 132, 252), rgb(147, 197, 253))",
+          WebkitBackgroundClip: "text",
+          backgroundClip: "text",
+          color: "transparent"
+        }}>Get Started Today</h2>
         <p>
           Ready to transform your business with <strong>AI & automation?</strong> Contact us to discuss your goals and discover how NuTab Digital can help you work smarter.
         </p>
-        <GetQuoteButton />
+        <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <GetQuoteButton />
+        </div>
       </SectionWrapper>
 
   <FAQSection faqs={faqs} lead="Quick answers to common questions about our AI & automation solutions." />

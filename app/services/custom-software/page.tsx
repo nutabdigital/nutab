@@ -475,13 +475,20 @@ const CustomSoftwareSolutions: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <h2 className="gradient-title">Get Started Today</h2>
+        <h2 style={{
+          background: "linear-gradient(to right, rgb(192, 132, 252), rgb(147, 197, 253))",
+          WebkitBackgroundClip: "text",
+          backgroundClip: "text",
+          color: "transparent"
+        }}>Get Started Today</h2>
         <p className="section-text">
           Ready to take your business to the next level? Contact us today to
           learn more about our custom software development services and how we can help you achieve your goals.
         </p>
 
-        <GetQuoteButton />
+        <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <GetQuoteButton />
+        </div>
       </SectionWrapper>
 
   <FAQSection faqs={faqs} lead="Quick answers to common questions about our custom software development services." />

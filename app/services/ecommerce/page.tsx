@@ -349,11 +349,18 @@ const EcommerceDevelopment: React.FC = () => {
       </SectionWrapper>
 
       <SectionWrapper>
-        <h2>Ready to Build Your Online Store?</h2>
+        <h2 style={{
+          background: "linear-gradient(to right, rgb(192, 132, 252), rgb(147, 197, 253))",
+          WebkitBackgroundClip: "text",
+          backgroundClip: "text",
+          color: "transparent"
+        }}>Ready to Build Your Online Store?</h2>
         <p>
           Contact us to discuss your e-commerce project and get a tailored plan to grow your online sales.
         </p>
-        <GetQuoteButton />
+        <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
+          <GetQuoteButton />
+        </div>
       </SectionWrapper>
 
   <FAQSection faqs={faqs} lead="Quick answers to common questions about our e‑commerce development services." />

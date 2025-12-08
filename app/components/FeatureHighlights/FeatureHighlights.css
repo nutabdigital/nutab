@@ -58,27 +58,32 @@
   color: #6b7280;
 }
 
-/* Grid Layout */
-.features-display {
+/* Grid Layout (legacy + current component class names) */
+.features-display,
+.feature-grid {
   display: grid;
   gap: 1.5rem;
   max-width: 1000px;
   margin: 0 auto;
 }
 
-.features-display--1col {
+.features-display--1col,
+.feature-grid--1col {
   grid-template-columns: 1fr;
 }
 
-.features-display--2col {
+.features-display--2col,
+.feature-grid--2col {
   grid-template-columns: repeat(2, 1fr);
 }
 
-.features-display--3col {
+.features-display--3col,
+.feature-grid--3col {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.features-display--4col {
+.features-display--4col,
+.feature-grid--4col {
   grid-template-columns: repeat(4, 1fr);
 }
 
@@ -467,7 +472,12 @@ div.feature-item:nth-child(5) {
   .features-display--1col,
   .features-display--2col,
   .features-display--3col,
-  .features-display--4col {
+  .features-display--4col,
+  .feature-grid,
+  .feature-grid--1col,
+  .feature-grid--2col,
+  .feature-grid--3col,
+  .feature-grid--4col {
     grid-template-columns: 1fr !important;
     gap: 1rem;
   }
@@ -513,7 +523,8 @@ div.feature-item:nth-child(5) {
     font-size: 0.938rem;
   }
 
-  .features-display {
+  .features-display,
+  .feature-grid {
     gap: 0.75rem;
   }
 

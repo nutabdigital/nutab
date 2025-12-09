@@ -1,0 +1,10 @@
+name: "CodeQL config"
+paths-ignore:
+  - node_modules/**
+  - out/**
+  - .next/**
+  - public/**
+  - dist/**
+  - coverage/**
+  - '**/*.min.js'
+disable-default-queries: false

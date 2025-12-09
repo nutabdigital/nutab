@@ -73,6 +73,18 @@ const Model: React.FC<ModelProps> = () => {
   const directionRef = useRef(1);
   const burstTimeline = useRef<any | null>(null);
 
+  // Use crypto-based randomness when available to satisfy security scanners
+  const secureRandom = () => {
+    if (typeof window !== "undefined" && (window.crypto || (window as any).msCrypto)) {
+      const cryptoObj: Crypto = (window.crypto || (window as any).msCrypto) as Crypto;
+      const arr = new Uint32Array(1);
+      cryptoObj.getRandomValues(arr);
+      // Convert to [0,1)
+      return arr[0] / 0xffffffff;
+    }
+    return Math.random();
+  };
+
   // dynamic library refs
   const THREERef = useRef<any>(null);
   const gsapRef = useRef<any>(null);
@@ -190,8 +202,8 @@ const Model: React.FC<ModelProps> = () => {
     const particleData: { theta: number; phi: number }[] = new Array(particleCount)
       .fill(null)
       .map(() => {
-        const theta = Math.random() * Math.PI * 2;
-        const phi = Math.acos(2 * Math.random() - 1);
+        const theta = secureRandom() * Math.PI * 2;
+        const phi = Math.acos(2 * secureRandom() - 1);
         return { theta, phi };
       });
 

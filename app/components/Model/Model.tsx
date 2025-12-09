@@ -87,10 +87,17 @@ const Model: React.FC<ModelProps> = () => {
   const prefersReducedMotionRef = useRef<boolean>(false);
   const deviceLowEndRef = useRef<boolean>(false);
 
+  // Track WebGL context state for recovery on Linux/Firefox
+  const webglContextLostRef = useRef<boolean>(false);
+
   // Initialize Three.js scene (uses THREERef.current)
   const initializeScene = () => {
     const THREE = THREERef.current;
     if (!THREE) return;
+
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(
       75,
@@ -99,12 +106,36 @@ const Model: React.FC<ModelProps> = () => {
       1000
     );
     camera.position.z = isMobile ? 85 : 50; // Increase Z on mobile for a zoomed-out effect
-    renderer = new THREE.WebGLRenderer({
-      canvas: canvasRef.current!,
-      alpha: true,
-    });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+    try {
+      renderer = new THREE.WebGLRenderer({
+        canvas: canvas,
+        alpha: true,
+        powerPreference: "default", // Let the browser/driver choose (helps on Linux)
+        failIfMajorPerformanceCaveat: false, // Allow software rendering fallback
+      });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+      // Handle WebGL context lost (common on Linux + Firefox with Mesa drivers)
+      canvas.addEventListener("webglcontextlost", (e) => {
+        e.preventDefault();
+        webglContextLostRef.current = true;
+        console.warn("WebGL context lost — animation paused");
+      }, false);
+
+      // Handle WebGL context restored
+      canvas.addEventListener("webglcontextrestored", () => {
+        webglContextLostRef.current = false;
+        console.log("WebGL context restored — reinitializing");
+        // Reinitialize scene after context restore
+        createParticles();
+      }, false);
+
+    } catch (e) {
+      console.error("Failed to create WebGL renderer:", e);
+      renderer = null;
+    }
   };
 
   // Generate the particle system (uses THREERef.current)
@@ -532,17 +563,29 @@ const Model: React.FC<ModelProps> = () => {
     let lastTime = performance.now();
 
     const animate = (time?: number) => {
+      // Skip rendering if WebGL context is lost (prevents frozen appearance on Linux/Firefox)
+      if (webglContextLostRef.current) {
+        frameId = requestAnimationFrame(animate);
+        return;
+      }
+
+      // Skip if renderer failed to initialize
+      if (!renderer || !scene || !camera) {
+        frameId = requestAnimationFrame(animate);
+        return;
+      }
+
       // if user prefers reduced motion, update less frequently or skip heavy updates
       if (!prefersReducedMotionRef.current) {
         if (!paused) {
           updateParticles();
           updateCam();
-          if (renderer && scene && camera) renderer.render(scene, camera);
+          renderer.render(scene, camera);
         }
       } else {
         // light rendering for reduced motion: render but skip particle updates
         if (!paused) {
-          if (renderer && scene && camera) renderer.render(scene, camera);
+          renderer.render(scene, camera);
         }
       }
       frameId = requestAnimationFrame(animate);

@@ -1,8 +1,0 @@
-User-agent: *
-Disallow: /api/
-Disallow: /_next/  # keep a general block but explicitly allow the static assets below
-Allow: /_next/static/
-Allow: /_next/static/media/
-Allow: /
-
-Sitemap: https://nutab.ca/sitemap.xml

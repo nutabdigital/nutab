@@ -185,7 +185,7 @@ const pricingLdJson = {
 
 const SEOMarketing: React.FC = () => {
   return (
-    <main id="main-content" role="main" tabIndex={-1} className="relative">
+    <main id="main-content" role="main" tabIndex={-1} className="relative dark">
       <Background />
       
       {/* Breadcrumbs */}
@@ -491,7 +491,7 @@ const SEOMarketing: React.FC = () => {
             </p>
           </div>
           
-          <div className="relative">
+          <div className="relative dark">
             {/* Connection Line */}
             <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-green-500 via-emerald-500 to-teal-500 transform -translate-y-1/2 z-0" />
             

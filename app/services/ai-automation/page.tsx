@@ -174,7 +174,7 @@ const pricingLdJson = {
 
 const AIAutomation: React.FC = () => {
   return (
-    <main id="main-content" role="main" tabIndex={-1} className="relative">
+    <main id="main-content" role="main" tabIndex={-1} className="relative dark">
       <Background />
       
       {/* Breadcrumbs */}
@@ -485,7 +485,7 @@ const AIAutomation: React.FC = () => {
             </p>
           </div>
           
-          <div className="relative">
+          <div className="relative dark">
             <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-purple-500 via-blue-500 to-emerald-500 transform -translate-y-1/2 z-0" />
             
             <div className="grid lg:grid-cols-5 gap-8 relative z-10">

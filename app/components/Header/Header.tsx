@@ -185,7 +185,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
             </AnimatePresence>
           </div>
 
-          <Link href="/pricing" className="nav-link">Pricing</Link>
+          {/* Pricing link removed as requested */}
 
           <a
             href="#team"
@@ -308,11 +308,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
                 </AnimatePresence>
               </li>
 
-              <li>
-                <Link href="/pricing" onClick={() => setIsNavOpen(false)}>
-                  Pricing
-                </Link>
-              </li>
+              {/* Pricing link removed from mobile menu */}
 
               <li>
                 <a href="#team" onClick={(e) => handleScroll(e, "team")}>

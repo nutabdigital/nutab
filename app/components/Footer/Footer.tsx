@@ -66,7 +66,7 @@ const Footer: React.FC = () => {
             </a>
           </div>
           <p className="rights-text">
-            © {new Date().getFullYear()} NuTab Digital Inc. All rights reserved.
+            © {new Date().getFullYear()} Nutab Digital Inc. All rights reserved.
           </p>
         </div>
       </div>

@@ -1,34 +1,23 @@
 import React from "react";
-// import Loader from "../../components/Loader/Loader";
 import Background from "../../components/Background/Background";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
-import "./page.css";
-import { Metadata } from "next";
-import HeroSection from "../../components/ServiceHeroSection/ServiceHeroSection";
-import { PenTool, Palette, Image } from "lucide-react";
-import GetQuoteButton from "../../components/GetQuoteButton/GetQuoteButton";
-import SectionWrapper from "../../components/SectionWrapper/SectionWrapper";
-import WhyChooseSection, { WhySolution } from "../../components/WhyChooseSection/WhyChooseSection";
-import ServicesList, { ServiceItem } from "../../components/ServicesList/ServicesList";
-import BenefitsOverview, { Benefit } from "../../components/BenefitsOverview/BenefitsOverview";
-import IndustriesServed, { IndustryItem } from "../../components/IndustriesServed/IndustriesServed";
-import HowItWorksTimeline, { ProcessStep } from "../../components/HowItWorksTimeline/HowItWorksTimeline";
-import FeatureHighlights, { FeatureItem } from "../../components/FeatureHighlights/FeatureHighlights";
-import RelatedServices, { RelatedServiceItem } from "../../components/RelatedServices/RelatedServices";
+import { Palette, Layers, Sparkles, ArrowRight, PenTool, Image, FileText, CheckCircle2, ChevronDown, Eye, Lightbulb } from "lucide-react";
+import Link from "next/link";
 import FAQSection from "../../components/FAQSection/FAQSection";
+import PricingSection, { PricingPackage } from "../../components/PricingSection/PricingSection";
 
-export const generateMetadata = (): Metadata => ({
+export const generateMetadata = (): import("next").Metadata => ({
   title: "Graphic & Brand Design Calgary | Logo Design & Visual Identity | NuTab Digital",
   description:
-    "Calgary's creative brand design agency. NuTab Digital creates logos, visual identities, and brand guidelines for Alberta businesses. Professional design. Local team. Free consultation.",
-  keywords: ["brand design Calgary", "logo design Calgary", "graphic design Alberta", "visual identity Calgary", "branding agency Calgary", "brand guidelines Alberta"],
+    "Calgary's creative brand design studio. NuTab Digital delivers professional logo design, visual identity, and brand strategy for Alberta businesses. Make your brand unforgettable.",
+  keywords: ["brand design Calgary", "logo design Calgary", "graphic design Alberta", "visual identity Calgary", "branding agency Calgary", "creative design Alberta"],
   alternates: {
     canonical: "https://nutab.ca/services/brand-design",
   },
   openGraph: {
     title: "Graphic & Brand Design Calgary | Logo Design & Visual Identity | NuTab Digital",
     description:
-      "Calgary's creative brand design agency. NuTab Digital creates logos, visual identities, and brand guidelines for Alberta businesses.",
+      "Calgary's creative brand design studio. NuTab Digital delivers professional logo design, visual identity, and brand strategy.",
     url: "https://nutab.ca/services/brand-design",
     siteName: "NuTab Digital",
     images: [
@@ -45,128 +34,144 @@ export const generateMetadata = (): Metadata => ({
   twitter: {
     card: "summary_large_image",
     title: "Graphic & Brand Design Calgary | Logo Design & Visual Identity | NuTab Digital",
-    description:
-      "Calgary's creative brand design agency. Logos, visual identities, and brand guidelines for Alberta businesses.",
+    description: "Calgary's creative brand design studio delivering professional logo design and visual identity.",
     images: ["https://nutab.ca/photos/og-brand-design.webp"],
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
   },
 });
 
-const services: ServiceItem[] = [
-  { title: "Logo Design", description: "Custom logos that reflect your brand identity." },
-  { title: "Visual Identity", description: "Color systems, typography, and brand guidelines." },
-  { title: "Digital Graphics", description: "Assets for web, social, and marketing." },
-  { title: "Print Collateral", description: "Business cards, brochures, and packaging." },
-  { title: "Brand Refresh", description: "Modernize and align your brand across touchpoints." },
-];
-
-const industries: IndustryItem[] = [
-  { name: "Retail" },
-  { name: "Healthcare" },
-  { name: "Finance" },
-  { name: "Education" },
-  { name: "Professional Services" },
-];
-
-const relatedServices: RelatedServiceItem[] = [
-  { label: "Custom Software Development", link: "/services/custom-software" },
-  { label: "Business IT Consulting", link: "/services/it-consulting" },
-  { label: "SEO & Digital Marketing", link: "/services/seo-marketing" },
-];
-
-const benefits: Benefit[] = [
-  { title: "Memorable Branding", description: "Create a strong visual identity that resonates with customers." },
-  { title: "Professional Appearance", description: "Build trust with polished, consistent design." },
-  { title: "Cross-Channel Consistency", description: "Ensure your brand looks great across digital and print." },
-  { title: "Creative Impact", description: "Stand out in competitive markets with unique visuals." },
-  { title: "Reusable Assets", description: "Receive files and guidelines for long-term use." },
-];
-
-// FAQ data - single source of truth
 const faqs = [
   {
     question: "What is brand design?",
-    answer: "Brand design is the process of creating a visual identity for your business, including logos, colors, fonts, and style guidelines."
+    answer: "Brand design encompasses the visual elements that represent your business — logo, colors, typography, and imagery — creating a cohesive identity that resonates with your audience."
   },
   {
-    question: "Do you offer logo design?",
-    answer: "Yes, we create custom logos that reflect your brand's personality and values."
+    question: "How long does a branding project take?",
+    answer: "Most branding projects take 2–6 weeks depending on scope. Simple logo designs can be completed faster, while comprehensive brand identities require more time."
   },
   {
-    question: "Can you design graphics for social media?",
-    answer: "Absolutely — we design assets optimized for web and social platforms."
+    question: "Do you provide brand guidelines?",
+    answer: "Yes, we create detailed brand guidelines that ensure consistent application of your visual identity across all touchpoints."
+  },
+  {
+    question: "Can you redesign an existing brand?",
+    answer: "Absolutely! We specialize in brand refreshes and complete rebrands to modernize your visual identity while preserving brand equity."
+  },
+  {
+    question: "What file formats will I receive?",
+    answer: "You'll receive all source files plus optimized versions for web, print, and social media in formats like AI, EPS, PDF, PNG, and SVG."
+  },
+  {
+    question: "Do you offer brand strategy services?",
+    answer: "Yes, we provide brand strategy consulting to help define your brand positioning, messaging, and target audience before diving into visual design."
+  },
+  {
+    question: "Can you design marketing materials?",
+    answer: "Yes, we create business cards, brochures, social media graphics, presentations, and other marketing collateral that align with your brand."
+  },
+  {
+    question: "Do you offer brand design services in Calgary?",
+    answer: "Yes! NuTab Digital is a Calgary-based brand design studio serving businesses across Alberta. We provide logo design, visual identity, and brand strategy."
+  },
+  {
+    question: "Can Calgary businesses benefit from professional branding?",
+    answer: "Absolutely. Strong branding helps Calgary businesses stand out, build trust, and connect with local and national audiences."
+  },
+  {
+    question: "Is your design team based in Calgary?",
+    answer: "Yes, our Calgary-based creative team provides in-person consultations and ongoing collaboration for branding projects."
   }
-    // SEO-focused FAQs
-    ,{
-      question: "How does professional brand design help my business?",
-      answer: "Professional brand design builds trust, increases recognition, and helps your business stand out in competitive markets."
-    }
-    ,{
-      question: "What is included in a brand identity package?",
-      answer: "Our brand identity packages include logo design, color palettes, typography, brand guidelines, and digital/print assets."
-    }
-    ,{
-      question: "Can you refresh or modernize my existing brand?",
-      answer: "Yes, we offer brand refresh services to update and align your visual identity with current trends and business goals."
-    }
-    ,{
-      question: "Will I own the rights to my brand assets?",
-      answer: "You receive full ownership and usage rights for all brand assets we create for your business."
-    }
-    ,{
-      question: "How long does the brand design process take?",
-      answer: "Most brand design projects are completed in 2-4 weeks, depending on scope and feedback cycles."
-    }
-    // Local Calgary FAQs
-    ,{
-      question: "Do you offer brand design services in Calgary?",
-      answer: "Yes! NuTab Digital is a Calgary-based creative agency specializing in logo design, brand identity, and graphic design for Alberta businesses."
-    }
-    ,{
-      question: "Can I meet with your Calgary design team in person?",
-      answer: "Absolutely. Our Calgary team is available for in-person consultations, creative reviews, and collaborative workshops with local clients."
-    }
-    ,{
-      question: "Do you work with Calgary small businesses and startups?",
-      answer: "Yes, we create brand identities for Calgary businesses of all sizes, from startups to established companies looking to refresh their visual presence."
-    }
 ];
 
-const processSteps: ProcessStep[] = [
-  { title: "Discovery", description: "Understand your brand, goals, and audience." },
-  { title: "Concept", description: "Develop initial concepts and direction." },
-  { title: "Design", description: "Refine and finalize brand assets." },
-  { title: "Delivery", description: "Provide production-ready files and guidelines." },
-  { title: "Support", description: "Ongoing design support as your brand evolves." },
+const brandPackages: PricingPackage[] = [
+  {
+    id: "basic-logo",
+    title: "Logo Package",
+    subtitle: "Essential logo for new businesses",
+    priceNumber: 500,
+    priceDisplay: "$500",
+    features: [
+      "2 initial logo concepts",
+      "2 rounds of revisions",
+      "Final logo files (AI, PNG, SVG)",
+      "Basic color palette",
+      "Simple usage guide"
+    ]
+  },
+  {
+    id: "brand-kit",
+    title: "Brand Kit",
+    subtitle: "Complete visual identity system",
+    badge: "Popular",
+    priceNumber: 900,
+    priceDisplay: "$900",
+    features: [
+      "Logo + alternate versions",
+      "Color palette & typography",
+      "Brand usage guidelines",
+      "Social media templates",
+      "Business card design"
+    ],
+    suffix: "Includes Logo Package"
+  },
+  {
+    id: "full-brand",
+    title: "Complete Brand",
+    subtitle: "Full strategy + design system",
+    priceNumber: 1800,
+    priceDisplay: "$1,800",
+    features: [
+      "Brand strategy workshop",
+      "Comprehensive brand guide",
+      "All logo variations",
+      "Marketing collateral templates",
+      "Presentation templates",
+      "Ongoing brand support"
+    ],
+    suffix: "Includes Brand Kit"
+  }
 ];
 
-const features: FeatureItem[] = [
-  { title: "Creative Expertise", description: "Experienced designers focused on brand impact." },
-  { title: "Tailored Solutions", description: "Designs crafted to your unique needs." },
-  { title: "Local Calgary Expertise", description: "Calgary-based designers who understand Alberta businesses and local markets." },
-  { title: "Full-Service", description: "From logo to launch-ready brand systems." },
-  { title: "File Handover", description: "You receive all assets and guidelines for future use." },
-];
+const pricingLdJson = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  name: "NuTab Digital Brand Design Pricing",
+  description: "Logo, Brand Kit, and Complete Brand packages (25% discount applied).",
+  itemListElement: brandPackages.map((p, i) => {
+    const discounted = Math.round(p.priceNumber * 0.75);
+    return {
+      "@type": "Offer",
+      position: i + 1,
+      name: p.title,
+      description: `${p.subtitle}. ${p.features.join(", ")}`,
+      price: discounted,
+      priceCurrency: "CAD",
+      availability: "https://schema.org/InStock",
+      url: `https://nutab.ca/services/brand-design#${p.id}`,
+      seller: { "@id": "https://nutab.ca/#organization" },
+      itemOffered: {
+        "@type": "Service",
+        name: p.title,
+        serviceType: "Graphic & Brand Design",
+        provider: { "@id": "https://nutab.ca/#organization" },
+      },
+    };
+  }),
+};
 
-const whySolutions: WhySolution[] = [
-  { icon: "PenTool", title: "Logo & Identity", description: "Distinctive logos and cohesive visual systems." },
-  { icon: "Palette", title: "Creative Direction", description: "Strategic design that communicates brand value." },
-  { icon: "Image", title: "Digital & Print", description: "Assets optimized for every channel." },
-];
-
-export default function GraphicBrandDesign() {
+const BrandDesign: React.FC = () => {
   return (
-    <main id="main-content" role="main" tabIndex={-1}>
+    <main id="main-content" role="main" tabIndex={-1} className="relative">
       <Background />
-      {/* <Loader /> */}
-
-      {/* Breadcrumbs JSON-LD */}
+      
       <Breadcrumbs items={[
         { label: "Home", href: "/" },
         { label: "Services", href: "/services" },
         { label: "Graphic & Brand Design" }
       ]} />
+
+      {/* JSON-LD Structured Data */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -190,31 +195,22 @@ export default function GraphicBrandDesign() {
             "@type": "Service",
             "@id": "https://nutab.ca/services/brand-design#service",
             name: "Graphic & Brand Design",
-            description:
-              "Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
-            serviceType: "Graphic & Brand Design",
+            description: "Professional brand design services including logo design, visual identity, and brand strategy.",
+            serviceType: "Brand Design",
             url: "https://nutab.ca/services/brand-design",
             image: "https://nutab.ca/photos/3d-nutab-logo.png",
             datePublished: "2024-01-15",
-            dateModified: "2025-11-10",
-            provider: {
-              "@id": "https://nutab.ca/#organization"
-            },
+            dateModified: "2025-12-11",
+            provider: { "@id": "https://nutab.ca/#organization" },
             areaServed: {
               "@type": "City",
               name: "Calgary",
-              containedIn: {
-                "@type": "AdministrativeArea",
-                name: "Alberta"
-              }
+              containedIn: { "@type": "AdministrativeArea", name: "Alberta" }
             },
-            availableChannel: {
-              "@type": "ServiceChannel",
-              serviceUrl: "https://nutab.ca/services/brand-design"
-            }
           }),
         }}
       />
+
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
@@ -224,142 +220,342 @@ export default function GraphicBrandDesign() {
             mainEntity: faqs.map(faq => ({
               "@type": "Question",
               name: faq.question,
-              acceptedAnswer: {
-                "@type": "Answer",
-                text: faq.answer
-              }
+              acceptedAnswer: { "@type": "Answer", text: faq.answer },
             })),
           }),
         }}
       />
 
-      <SectionWrapper>
-        <HeroSection
-          title="Graphic & Brand Design Services in Calgary"
-          subtitle={
-            <>
-              At NuTab Digital, we help businesses stand out with creative graphic and brand design solutions. From logo design and visual identity to digital graphics and print collateral, our team brings your brand vision to life.
-            </>
-          }
-          icons={[
-            { icon: <PenTool className="icon purple" />, label: "Logo Design" },
-            { icon: <Palette className="icon blue" />, label: "Brand Identity" },
-            { icon: <Image className="icon pink" />, label: "Digital Graphics" },
-          ]}
-          showCTA={true}
-        />
-      </SectionWrapper>
-
-      <SectionWrapper>
-  <WhyChooseSection
-          title="Why Choose Graphic & Brand Design?"
-          description={
-            <>
-              Strong brand design builds recognition and trust. We create strategic, memorable visuals that communicate your values and help you connect with your audience.
-            </>
-          }
-          solutions={whySolutions}
-          theme="gradient"
-          animated={true}
-          interactive={false}
-          columns={3}
-        />
-      </SectionWrapper>
-
-      <SectionWrapper>
-  <ServicesList
-          services={services}
-          title="Our Design Services"
-          subtitle="Logo design, brand systems, digital assets, and print collateral."
-          layout="grid"
-          columns={2}
-          theme="gradient"
-          animated={true}
-          showIcons={false}
-        />
-      </SectionWrapper>
-
-      <SectionWrapper>
-  <BenefitsOverview
-          title="Benefits of Professional Design"
-          subtitle="Investing in quality design delivers measurable brand benefits."
-          benefits={benefits}
-        />
-      </SectionWrapper>
-
-      <SectionWrapper>
-  <IndustriesServed
-          items={industries}
-          title="Industries We Serve"
-          subtitle="Branding and design for a wide range of industries."
-          layout="pills"
-          theme="gradient"
-          animated={true}
-          columns={3}
-        />
-      </SectionWrapper>
-
-      <SectionWrapper>
-  <HowItWorksTimeline
-          steps={processSteps}
-          title="Our Creative Process"
-          subtitle="A collaborative process to define and deliver your brand."
-          orientation="vertical"
-          theme="gradient"
-          animated={true}
-        />
-      </SectionWrapper>
-
-      <SectionWrapper>
-  <FeatureHighlights
-          title="Why Partner with NuTab Digital?"
-          subtitle={
-            <>
-              We combine creative expertise with practical delivery to produce brand systems that perform across channels.
-            </>
-          }
-          features={features}
-          columns={2}
-          variant="gradient"
-          theme="gradient"
-          animated={true}
-          interactive={false}
-          showIcons={false}
-          size="md"
-          iconPosition="top"
-        />
-      </SectionWrapper>
-
-      <SectionWrapper>
-  <RelatedServices
-          title="Related Services"
-          services={relatedServices}
-          variant="gradient"
-          theme="gradient"
-          animated={true}
-          interactive={true}
-          layout="centered"
-          columns={3}
-          showIcons={false}
-        />
-      </SectionWrapper>
-
-      <SectionWrapper>
-        <h2 style={{
-          background: "linear-gradient(to right, rgb(192, 132, 252), rgb(147, 197, 253))",
-          WebkitBackgroundClip: "text",
-          backgroundClip: "text",
-          color: "transparent"
-        }}>Get Started Today</h2>
-        <p style={{ textAlign: 'center', marginBottom: '1.25rem' }}>
-          Ready to elevate your brand? Contact us to discuss your graphic & brand design needs and discover how NuTab Digital can help you stand out.
-        </p>
-        <div style={{ display: 'flex', justifyContent: 'center', width: '100%' }}>
-          <GetQuoteButton />
+      {/* Hero Section */}
+      <section className="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-16">
+        <div className="max-w-5xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-pink-500/10 dark:bg-pink-500/20 border border-pink-500/20 dark:border-pink-500/30 mb-8">
+            <Palette className="w-4 h-4 text-pink-500" />
+            <span className="text-sm font-medium text-pink-600 dark:text-pink-400">Calgary Creative Studio</span>
+          </div>
+          
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+            <span className="text-gray-900 dark:text-white">Build a Brand That</span>
+            <br />
+            <span className="bg-gradient-to-r from-pink-500 via-rose-500 to-orange-500 bg-clip-text text-transparent">
+              Stands Out
+            </span>
+          </h1>
+          
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
+            Create a memorable visual identity that captures your brand&apos;s essence. Our Calgary-based 
+            creative team delivers logos, brand systems, and design assets that resonate with your 
+            audience and drive recognition.
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-8 mb-12">
+            {[
+              { icon: PenTool, label: "Logo Design", color: "text-pink-500" },
+              { icon: Layers, label: "Visual Identity", color: "text-rose-500" },
+              { icon: Image, label: "Digital Graphics", color: "text-orange-500" },
+            ].map(({ icon: Icon, label, color }) => (
+              <div key={label} className="flex flex-col items-center gap-2 group">
+                <div className="p-4 rounded-2xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 group-hover:scale-110 transition-transform duration-300">
+                  <Icon className={`w-7 h-7 ${color}`} />
+                </div>
+                <span className="text-sm font-medium text-gray-600 dark:text-gray-400">{label}</span>
+              </div>
+            ))}
+          </div>
+          
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/#contact"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-pink-600 to-rose-600 text-white font-semibold hover:opacity-90 transition-all duration-300 shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 hover:scale-105"
+            >
+              Start Your Brand
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link
+              href="#pricing"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold hover:border-pink-500 hover:text-pink-600 dark:hover:text-pink-400 transition-all duration-300"
+            >
+              View Pricing
+              <ChevronDown className="w-5 h-5" />
+            </Link>
+          </div>
         </div>
-      </SectionWrapper>
+      </section>
 
-  <FAQSection faqs={faqs} lead="Quick answers to common questions about our graphic & brand design services." />
+      {/* Why Brand Design Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Why Invest in <span className="bg-gradient-to-r from-pink-500 to-rose-500 bg-clip-text text-transparent">Professional Branding?</span>
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Strong branding builds trust, differentiates you from competitors, and creates 
+              lasting connections with your audience.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: Eye,
+                title: "First Impressions Matter",
+                description: "Your visual identity is often the first thing customers see. Make it count with professional design that conveys credibility.",
+                gradient: "from-pink-500 to-rose-500"
+              },
+              {
+                icon: Lightbulb,
+                title: "Brand Recognition",
+                description: "Consistent visual elements across all touchpoints help customers remember and recognize your business instantly.",
+                gradient: "from-rose-500 to-orange-500"
+              },
+              {
+                icon: Sparkles,
+                title: "Competitive Edge",
+                description: "Stand out in crowded markets with unique, thoughtful design that captures what makes your business special.",
+                gradient: "from-orange-500 to-amber-500"
+              }
+            ].map(({ icon: Icon, title, description, gradient }) => (
+              <div key={title} className="group relative">
+                <div className="h-full p-8 rounded-3xl border border-gray-200 dark:border-gray-800 bg-white/50 dark:bg-gray-900/50 backdrop-blur-sm hover:border-gray-300 dark:hover:border-gray-700 transition-all duration-300">
+                  <div className={`inline-flex p-3 rounded-2xl bg-gradient-to-r ${gradient} mb-6`}>
+                    <Icon className="w-6 h-6 text-white" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">{title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-gray-900/50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Our Design Services
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Comprehensive brand design services to establish and elevate your visual identity.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 gap-6">
+            {[
+              {
+                title: "Logo Design",
+                description: "Distinctive, versatile logos that capture your brand's personality and work across all applications.",
+                icon: PenTool
+              },
+              {
+                title: "Visual Identity",
+                description: "Complete brand systems including colors, typography, patterns, and visual elements.",
+                icon: Layers
+              },
+              {
+                title: "Brand Guidelines",
+                description: "Comprehensive documentation ensuring consistent brand application across all channels.",
+                icon: FileText
+              },
+              {
+                title: "Marketing Collateral",
+                description: "Business cards, brochures, presentations, and other branded materials that reinforce your identity.",
+                icon: Image
+              },
+              {
+                title: "Digital Graphics",
+                description: "Social media assets, web graphics, and digital templates optimized for online platforms.",
+                icon: Sparkles
+              }
+            ].map(({ title, description, icon: Icon }) => (
+              <div 
+                key={title}
+                className="group flex gap-5 p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hover:shadow-lg hover:shadow-pink-500/5 dark:hover:shadow-pink-500/10 transition-all duration-300"
+              >
+                <div className="flex-shrink-0">
+                  <div className="p-3 rounded-xl bg-pink-100 dark:bg-pink-900/30 group-hover:bg-pink-200 dark:group-hover:bg-pink-900/50 transition-colors duration-300">
+                    <Icon className="w-6 h-6 text-pink-600 dark:text-pink-400" />
+                  </div>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">{title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400 leading-relaxed">{description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Section */}
+      <PricingSection
+        packages={brandPackages}
+        title="Brand Design Pricing"
+        subtitle="Choose the package that fits your branding needs. All packages include source files and revisions."
+        accentColor="pink"
+        ldJson={pricingLdJson}
+      />
+
+      {/* Industries Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-gray-900/50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Industries We Serve
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              We create brands for businesses across diverse sectors.
+            </p>
+          </div>
+          
+          <div className="flex flex-wrap justify-center gap-3">
+            {["Startups", "Professional Services", "Retail", "Healthcare", "Technology", "Hospitality", "Real Estate", "Non-Profit"].map((industry) => (
+              <span
+                key={industry}
+                className="px-5 py-2.5 rounded-full text-sm font-medium bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-pink-500 hover:text-pink-600 dark:hover:text-pink-400 transition-all duration-300 cursor-default"
+              >
+                {industry}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Our Creative Process
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              A collaborative approach that ensures your brand truly represents your business.
+            </p>
+          </div>
+          
+          <div className="relative">
+            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-pink-500 via-rose-500 to-orange-500 transform -translate-y-1/2 z-0" />
+            
+            <div className="grid lg:grid-cols-5 gap-8 relative z-10">
+              {[
+                { step: "01", title: "Discovery", description: "Understand your brand, audience, and goals" },
+                { step: "02", title: "Research", description: "Analyze competitors and market positioning" },
+                { step: "03", title: "Concept", description: "Develop initial design directions" },
+                { step: "04", title: "Refine", description: "Iterate based on feedback" },
+                { step: "05", title: "Deliver", description: "Final files and brand guidelines" }
+              ].map(({ step, title, description }) => (
+                <div key={step} className="text-center">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-pink-600 to-rose-600 text-white font-bold text-lg mb-4 shadow-lg shadow-pink-500/25">
+                    {step}
+                  </div>
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{title}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Partner Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-gray-900/50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              Why Choose NuTab Digital?
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
+              Partner with Calgary&apos;s creative brand design studio for results that matter.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: "Creative Excellence", description: "Award-worthy designs that capture attention and convey your brand story" },
+              { title: "Strategic Thinking", description: "Design decisions backed by research and business objectives" },
+              { title: "Collaborative Process", description: "Your input shapes the design at every stage" },
+              { title: "Complete Deliverables", description: "All files, formats, and documentation you need" },
+              { title: "Local Calgary Team", description: "In-person consultations and ongoing creative support" },
+              { title: "Fast Turnaround", description: "Efficient workflow without compromising quality" }
+            ].map(({ title, description }) => (
+              <div key={title} className="flex items-start gap-4 p-5 rounded-xl hover:bg-white dark:hover:bg-gray-800 transition-colors duration-300">
+                <CheckCircle2 className="w-6 h-6 text-rose-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <h3 className="font-semibold text-gray-900 dark:text-white mb-1">{title}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            Related Services
+          </h2>
+          <p className="text-lg text-gray-600 dark:text-gray-400 mb-10">
+            Explore more ways we can help build your brand presence.
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-4">
+            {[
+              { label: "Photography & Media", href: "/services/photo-media" },
+              { label: "SEO & Digital Marketing", href: "/services/seo-marketing" },
+              { label: "Custom Software", href: "/services/custom-software" }
+            ].map(({ label, href }) => (
+              <Link
+                key={label}
+                href={href}
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-pink-500 hover:text-pink-600 dark:hover:text-pink-400 hover:bg-pink-50 dark:hover:bg-pink-900/20 transition-all duration-300"
+              >
+                {label}
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="p-10 rounded-3xl bg-gradient-to-br from-pink-600 via-rose-600 to-orange-600 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
+            
+            <div className="relative z-10">
+              <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+                Ready to Build Your Brand?
+              </h2>
+              <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
+                Let&apos;s create a visual identity that captures your brand&apos;s essence. Contact us today 
+                for a free consultation with our Calgary creative team.
+              </p>
+              <Link
+                href="/#contact"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-pink-600 font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:scale-105"
+              >
+                Get Your Free Quote
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <FAQSection 
+        faqs={faqs} 
+        lead="Common questions about our graphic and brand design services."
+        accentColor="pink"
+      />
     </main>
   );
-}
+};
+
+export default BrandDesign;

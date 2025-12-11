@@ -266,18 +266,8 @@
   font-weight: 500;
 }
 
-/* Scope styles to only the SectionWrapper that contains PriceChart */
-.section-wrapper:has(.price-chart) {
-  width: 90%;
-  margin-bottom: 20vh;
-}
-
 /* Optional: responsive variants */
 @media (max-width: 768px) {
-  .section-wrapper:has(.price-chart) {
-    width: 80%;
-  }
-
   .price-chart {
     padding: 2rem 1.5rem;
   }

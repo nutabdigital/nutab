@@ -230,6 +230,11 @@
     text-align: left;
     justify-content: flex-start;
   }
+
+  /* Hide decorative blue orb on larger viewports to match design */
+  .orb-blue.tagline-orb {
+    display: none;
+  }
 }
 
 /* Feature query: only apply backdrop blur where supported */

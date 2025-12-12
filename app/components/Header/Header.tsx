@@ -18,18 +18,14 @@ interface HeaderProps {
 
 // Updated servicesDropdown with Graphic & Brand Design
 const servicesDropdown = [
-  { name: "Custom Software Solutions", link: "/services/custom-software" },
-  {
-    name: "Mobile & Web App Development",
-    link: "/services/app-development",
-  },
+  { name: "Mobile & Web App Development", link: "/services/app-development" },
   { name: "SEO & Digital Marketing", link: "/services/seo-marketing" },
+  { name: "Custom Software Solutions", link: "/services/custom-software" },
   { name: "E-Commerce Development", link: "/services/ecommerce" },
   { name: "AI & Automation Solutions", link: "/services/ai-automation" },
   { name: "Business & IT Consulting", link: "/services/it-consulting" },
   { name: "Graphic & Brand Design", link: "/services/brand-design" },
-  { name: "Photography & Media Production", link: "/services/photo-media" }, // Added new service
-  // Added new service
+  { name: "Photography & Media Production", link: "/services/photo-media" },
 ];
 
 const Header: React.FC<HeaderProps> = ({ currentSection, hideThemeToggle = false }) => {

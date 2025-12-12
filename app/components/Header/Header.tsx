@@ -13,6 +13,7 @@ import { scrollToSection } from "@/app/utils/scrollToSection";
 // Interface defining props for the Header component
 interface HeaderProps {
   currentSection?: number; // The index of the current section in view (optional for service pages)
+  hideThemeToggle?: boolean; // Hide the dark/light mode toggle (used on service pages)
 }
 
 // Updated servicesDropdown with Graphic & Brand Design
@@ -31,7 +32,7 @@ const servicesDropdown = [
   // Added new service
 ];
 
-const Header: React.FC<HeaderProps> = ({ currentSection }) => {
+const Header: React.FC<HeaderProps> = ({ currentSection, hideThemeToggle = false }) => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
@@ -185,7 +186,9 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
             </AnimatePresence>
           </div>
 
-          {/* Pricing link removed as requested */}
+          <Link href="/portfolio" className="nav-link">
+            Portfolio
+          </Link>
 
           <a
             href="#team"
@@ -205,7 +208,7 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
 
         {/* Mobile controls: DarkModeToggle + Mobile Menu Button */}
         <div className="mobile-controls">
-          <DarkModeToggle />
+          {!hideThemeToggle && <DarkModeToggle />}
           <button
             className="mobile-menu-btn"
             ref={menuBtnRef}
@@ -308,7 +311,11 @@ const Header: React.FC<HeaderProps> = ({ currentSection }) => {
                 </AnimatePresence>
               </li>
 
-              {/* Pricing link removed from mobile menu */}
+              <li>
+                <Link href="/portfolio" onClick={() => setIsNavOpen(false)}>
+                  Portfolio
+                </Link>
+              </li>
 
               <li>
                 <a href="#team" onClick={(e) => handleScroll(e, "team")}>

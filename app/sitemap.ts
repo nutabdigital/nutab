@@ -19,6 +19,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.6,
     },
+    // Portfolio
+    {
+      url: `${baseUrl}/portfolio`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.8,
+    },
     // Services Index
     {
       url: `${baseUrl}/services`,

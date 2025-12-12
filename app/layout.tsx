@@ -208,16 +208,16 @@ const structuredData = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en-CA" data-theme="dark">
+    <html lang="en-CA" suppressHydrationWarning>
       <head>
-        {/* No-flash of incorrect theme: set data-theme ASAP */}
+        {/* Detect system theme preference ASAP to prevent flash */}
         <script
           dangerouslySetInnerHTML={{
             __html: `
 (function() {
   try {
-    var t = localStorage.getItem('theme');
-    document.documentElement.setAttribute('data-theme', t || 'dark');
+    var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
   } catch (e) {
     document.documentElement.setAttribute('data-theme','dark');
   }

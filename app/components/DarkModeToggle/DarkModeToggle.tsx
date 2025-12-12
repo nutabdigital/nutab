@@ -4,7 +4,7 @@ import { Sun, Moon } from "lucide-react";
 import "./DarkModeToggle.css";
 
 export default function DarkModeToggle() {
-  const { theme, toggleTheme } = useTheme();
+  const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -13,17 +13,18 @@ export default function DarkModeToggle() {
 
   if (!mounted) return null;
 
+  // Display-only indicator showing current system theme
   return (
-    <button
-      onClick={toggleTheme}
+    <div
       className={`darkmode-toggle ${theme === "dark" ? "dark" : "light"}`}
-      aria-label="Toggle dark mode"
+      aria-label={`Current theme: ${theme}`}
+      title={`System theme: ${theme}`}
     >
       {theme === "dark" ? (
-        <Sun size={20} className="darkmode-toggle-icon darkmode-toggle-sun" />
-      ) : (
         <Moon size={20} className="darkmode-toggle-icon darkmode-toggle-moon" />
+      ) : (
+        <Sun size={20} className="darkmode-toggle-icon darkmode-toggle-sun" />
       )}
-    </button>
+    </div>
   );
 }

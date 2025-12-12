@@ -72,6 +72,9 @@ export default function ServicesIndex() {
         }}
       />
 
+      {/* Visually hidden H1 for SEO - visible heading is in ServicesSummary */}
+      <h1 className="sr-only">Digital Services in Calgary - Web Development, SEO & More</h1>
+
       <div className="services-summary-wrapper">
         <ServicesSummary />
       </div>

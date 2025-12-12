@@ -1,177 +1,148 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import {
   Brain,
   PenTool,
   Briefcase,
   Camera,
-  ExternalLink,
+  ArrowRight,
   Code,
   MonitorSmartphone,
   ShoppingCart,
   LineChart,
 } from "lucide-react";
-import "./Services.css";
 
 const services = [
   {
-    icon: "code",
+    icon: Code,
     id: "custom-software",
     name: "Custom Software Solutions",
-    description:
-      "We create custom software that streamlines operations and boosts efficiency, tailored to your business needs.",
+    description: "We create custom software that streamlines operations and boosts efficiency, tailored to your business needs.",
     link: "/services/custom-software",
+    gradient: "from-purple-500 to-blue-500",
   },
   {
-    icon: "monitor-smartphone",
+    icon: MonitorSmartphone,
     id: "app-development",
     name: "Mobile & Web App Development",
-    description:
-      "We create user-friendly apps that provide seamless experiences and help businesses engage customers.",
+    description: "We create user-friendly apps that provide seamless experiences and help businesses engage customers.",
     link: "/services/app-development",
+    gradient: "from-blue-500 to-cyan-500",
   },
   {
-    icon: "line-chart",
+    icon: LineChart,
     id: "seo-digital-marketing",
     name: "SEO & Digital Marketing",
-    description:
-      "Enhance online visibility and attract customers with SEO and targeted digital marketing strategies.",
+    description: "Enhance online visibility and attract customers with SEO and targeted digital marketing strategies.",
     link: "/services/seo-marketing",
+    gradient: "from-cyan-500 to-teal-500",
   },
   {
-    icon: "shopping-cart",
+    icon: ShoppingCart,
     id: "ecommerce-development",
     name: "E-Commerce Development",
-    description:
-      "Build scalable e-commerce sites with seamless shopping experiences, secure payments, and inventory management.",
+    description: "Build scalable e-commerce sites with seamless shopping experiences, secure payments, and inventory management.",
     link: "/services/ecommerce",
+    gradient: "from-teal-500 to-emerald-500",
   },
   {
-    icon: "brain",
+    icon: Brain,
     id: "ai-automation",
     name: "AI & Automation Solutions",
-    description:
-      "Leverage AI-driven tools and automation to improve efficiency, reduce manual tasks, and make smarter decisions.",
+    description: "Leverage AI-driven tools and automation to improve efficiency, reduce manual tasks, and make smarter decisions.",
     link: "/services/ai-automation",
+    gradient: "from-emerald-500 to-green-500",
   },
   {
-    icon: "briefcase",
+    icon: Briefcase,
     id: "business-consulting",
     name: "Business & IT Consulting",
-    description:
-      "Get expert guidance on digital transformation, technology adoption, and growth strategies tailored to your business.",
+    description: "Get expert guidance on digital transformation, technology adoption, and growth strategies tailored to your business.",
     link: "/services/it-consulting",
+    gradient: "from-green-500 to-lime-500",
   },
   {
-    icon: "pen-tool",
+    icon: PenTool,
     id: "graphic-design",
     name: "Graphic & Brand Design",
-    description:
-      "Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
+    description: "Strengthen your brand with creative design solutions, including logos, digital graphics, and visual identity.",
     link: "/services/brand-design",
+    gradient: "from-orange-500 to-amber-500",
   },
   {
-    icon: "camera",
+    icon: Camera,
     id: "media-production",
     name: "Photography & Media Production",
-    description:
-      "High-quality photography and media services for websites, marketing campaigns, and brand storytelling.",
+    description: "High-quality photography and media services for websites, marketing campaigns, and brand storytelling.",
     link: "/services/photo-media",
+    gradient: "from-rose-500 to-pink-500",
   },
 ];
 
-const iconMap: Record<string, React.ReactNode> = {
-  code: <Code className="service-icon" color="#000000" size={38} />,
-  "monitor-smartphone": (
-    <MonitorSmartphone className="service-icon" color="#000000" size={38} />
-  ),
-  "line-chart": (
-    <LineChart className="service-icon" color="#000000" size={38} />
-  ),
-  "shopping-cart": (
-    <ShoppingCart className="service-icon" color="#000000" size={38} />
-  ),
-  brain: <Brain className="service-icon" color="#000000" size={38} />,
-  briefcase: <Briefcase className="service-icon" color="#000000" size={38} />,
-  "pen-tool": <PenTool className="service-icon" color="#000000" size={38} />,
-  camera: <Camera className="service-icon" color="#000000" size={38} />,
-};
-
 const Services: React.FC = () => {
+  const itemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+
   useEffect(() => {
     if (typeof window === "undefined") return;
     const mm = window.matchMedia("(max-width: 600px)");
     if (!mm.matches) return;
 
-    const elements = Array.from(
-      document.querySelectorAll<HTMLElement>(".service-box")
-    );
-    if (!elements.length) return;
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           const el = entry.target as HTMLElement;
-          if (entry.isIntersecting) el.classList.add("inview");
-          else el.classList.remove("inview");
+          if (entry.isIntersecting) {
+            el.classList.add("scale-105", "!bg-blue-600");
+            el.querySelectorAll("h3, p").forEach(child => child.classList.add("!text-white"));
+          } else {
+            el.classList.remove("scale-105", "!bg-blue-600");
+            el.querySelectorAll("h3, p").forEach(child => child.classList.remove("!text-white"));
+          }
         });
       },
       { root: null, rootMargin: "-50% 0px -50% 0px", threshold: 0 }
     );
 
-    elements.forEach((el) => observer.observe(el));
+    itemRefs.current.forEach((el) => el && observer.observe(el));
 
-    const mqListener = (e: MediaQueryListEvent | MediaQueryList) => {
-      if (!("matches" in e ? e.matches : (e as MediaQueryList).matches)) {
-        observer.disconnect();
-        document
-          .querySelectorAll(".service-box.inview")
-          .forEach((n) => n.classList.remove("inview"));
-      }
-    };
-
-    if ((mm as any).addEventListener)
-      (mm as any).addEventListener("change", mqListener);
-    else (mm as any).addListener(mqListener);
-
-    return () => {
-      observer.disconnect();
-      if ((mm as any).removeEventListener)
-        (mm as any).removeEventListener("change", mqListener);
-      else (mm as any).removeListener(mqListener as any);
-    };
+    return () => observer.disconnect();
   }, []);
 
   return (
-    <section className="services-section">
-      <h2 className="services-title">Our Services</h2>
-      <p className="services-subtitle">
+    <section className="w-[75vw] max-w-[1200px] mx-auto flex items-center justify-center box-border flex-col p-4 pb-8 bg-white/70 dark:bg-black/70 shadow-lg dark:shadow-black/75 backdrop-blur-xl rounded-3xl z-10 max-md:w-[85vw] max-md:max-w-full">
+      <h2 className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent text-2xl font-normal text-center">
+        Our Services
+      </h2>
+      <p className="text-center text-lg mb-6 opacity-85 text-gray-700 dark:text-gray-300">
         Comprehensive digital solutions to help your business thrive
       </p>
-      <div className="services-list">
-        {services.map((service) => (
-          <Link key={service.id} href={service.link} className="service-box">
-            {iconMap[service.icon] || (
-              <img
-                src={service.icon}
-                alt={`${service.name} icon`}
-                className="service-icon"
-                loading="lazy"
-              />
-            )}
-            <h3 className="service-name">{service.name}</h3>
-            <p className="service-description">{service.description}</p>
-            <div className="learn-more-wrapper">
-              <div className="learn-more-bubble">Learn More</div>
-              <ExternalLink
-                className="learn-more-icon"
-                aria-label="External link icon"
-                size={20}
-              />
-            </div>
-          </Link>
-        ))}
+      <div className="relative grid grid-cols-4 gap-6 max-[900px]:grid-cols-2 max-md:grid-cols-1">
+        {services.map((service, index) => {
+          const Icon = service.icon;
+          return (
+            <Link
+              key={service.id}
+              href={service.link}
+              ref={(el) => { itemRefs.current[index] = el; }}
+              className="group rounded-3xl p-4 cursor-pointer transition-all duration-300 hover:bg-blue-600 hover:scale-105 bg-white/50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 backdrop-blur-sm"
+            >
+              <div className={`inline-flex p-3 rounded-2xl bg-gradient-to-r ${service.gradient} mb-4 mx-auto block`}>
+                <Icon className="w-8 h-8 text-white" />
+              </div>
+              <h3 className="text-lg mb-2 font-semibold text-center text-gray-900 dark:text-white group-hover:text-white transition-colors">
+                {service.name}
+              </h3>
+              <p className="text-sm text-center opacity-85 text-gray-600 dark:text-gray-400 group-hover:text-white/90 transition-colors">
+                {service.description}
+              </p>
+              <div className="flex justify-center items-center mt-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-sm font-bold text-white mr-2">Learn More</span>
+                <ArrowRight className="w-5 h-5 text-white" aria-label="Go to service" />
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </section>
   );

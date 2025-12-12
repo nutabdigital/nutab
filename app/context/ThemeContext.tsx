@@ -3,28 +3,40 @@
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
 const ThemeContext = createContext({
-  theme: 'dark',
-  toggleTheme: () => {},
+  theme: 'dark' as 'dark' | 'light',
 });
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, setTheme] = useState<'dark' | 'light'>(
-    typeof window !== 'undefined' && localStorage.getItem('theme')
-      ? (localStorage.getItem('theme') as 'dark' | 'light')
-      : 'dark'
-  );
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem('theme', theme);
-  }, [theme]);
+    // Check system preference
+    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const systemTheme = mediaQuery.matches ? 'dark' : 'light';
+    
+    setTheme(systemTheme);
+    document.documentElement.setAttribute('data-theme', systemTheme);
+    setMounted(true);
 
-  const toggleTheme = () => {
-    setTheme((prevTheme) => (prevTheme === 'dark' ? 'light' : 'dark'));
-  };
+    // Listen for system theme changes
+    const handleChange = (e: MediaQueryListEvent) => {
+      const newTheme = e.matches ? 'dark' : 'light';
+      setTheme(newTheme);
+      document.documentElement.setAttribute('data-theme', newTheme);
+    };
+
+    mediaQuery.addEventListener('change', handleChange);
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
+
+  // Prevent flash by not rendering until mounted
+  if (!mounted) {
+    return null;
+  }
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme }}>
       {children}
     </ThemeContext.Provider>
   );

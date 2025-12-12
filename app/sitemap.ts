@@ -12,13 +12,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 1.0,
     },
-    // Pricing
-    {
-      url: `${baseUrl}/pricing`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
     // Portfolio
     {
       url: `${baseUrl}/portfolio`,
@@ -31,7 +24,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/services`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.6,
+      priority: 0.9,
     },
     // Top Priority Services
     {

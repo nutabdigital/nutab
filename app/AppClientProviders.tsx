@@ -22,9 +22,6 @@ function InnerProviders({ children }: { children: React.ReactNode }) {
     pathname?.startsWith("/card-builder/card-virtual-builder") ||
     pathname?.startsWith("/card-builder/card-nfc-builder");
 
-  // Hide theme toggle on service pages (force dark mode)
-  const isServicePage = pathname?.startsWith("/services/") && pathname !== "/services";
-
   const { pauseModel, resumeModel } = useModelState(); // ✅ Call hook here, at top level
 
   const [showModel, setShowModel] = useState(false);
@@ -64,7 +61,7 @@ function InnerProviders({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      <Header hideThemeToggle={isServicePage} />
+      <Header />
       {/* only mount ModelWrapper after idle + not hidden */}
       {!hideModel && showModel && <ModelWrapper />}
       {children}

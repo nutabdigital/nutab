@@ -8,11 +8,37 @@ import Link from "next/link";
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 import { scrollToSection } from "@/app/utils/scrollToSection";
 import { useHeaderSection } from "@/app/context/HeaderSectionContext";
+import { useTheme } from "@/app/context/ThemeContext";
 
-// Interface defining props for the Header component
-interface HeaderProps {
-  hideThemeToggle?: boolean; // Hide the dark/light mode toggle (used on service pages)
-}
+// Color schemes for different pages (hex values for light and dark modes)
+const pageColors: Record<string, { light: string; dark: string }> = {
+  "/services/app-software-development": { light: "#4f46e5", dark: "#818cf8" }, // indigo
+  "/services/web-design": { light: "#2563eb", dark: "#60a5fa" }, // blue
+  "/services/seo-marketing": { light: "#16a34a", dark: "#4ade80" }, // green
+  "/services/ecommerce": { light: "#059669", dark: "#34d399" }, // emerald
+  "/services/ai-automation": { light: "#9333ea", dark: "#c084fc" }, // purple
+  "/services/it-consulting": { light: "#d97706", dark: "#fbbf24" }, // amber
+  "/services/brand-design": { light: "#db2777", dark: "#f472b6" }, // pink
+  "/services/photo-media": { light: "#e11d48", dark: "#fb7185" }, // rose
+  "/portfolio": { light: "#dc2626", dark: "#f87171" }, // red
+};
+
+// Default colors (used on main page and services index)
+const defaultColors = { light: "#005DFF", dark: "#A78BFA" };
+
+// Helper function to normalize pathname (remove trailing slash)
+const normalizePath = (path: string | null): string => {
+  if (!path) return "";
+  return path.endsWith("/") && path !== "/" ? path.slice(0, -1) : path;
+};
+
+// Helper function to get colors for current page
+const getPageColor = (pathname: string | null, isDark: boolean): string => {
+  if (!pathname) return isDark ? defaultColors.dark : defaultColors.light;
+  const normalizedPath = normalizePath(pathname);
+  const colors = pageColors[normalizedPath] || defaultColors;
+  return isDark ? colors.dark : colors.light;
+};
 
 // Updated servicesDropdown with reorganized services
 const servicesDropdown = [
@@ -33,17 +59,24 @@ const NavLink: React.FC<{
   onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   children: React.ReactNode;
   className?: string;
-}> = ({ href, isActive, onClick, children, className = "" }) => {
+  accentColor: string;
+}> = ({ href, isActive, onClick, children, className = "", accentColor }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <a
       href={href}
       onClick={onClick}
-      className={`relative bg-transparent border-none cursor-pointer text-base font-semibold transition-colors duration-300 hover:text-[#005DFF] dark:hover:text-[#A78BFA] ${isActive ? "text-[#005DFF] dark:text-[#A78BFA]" : ""} ${className}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`relative bg-transparent border-none cursor-pointer text-base font-semibold transition-colors duration-300 ${className}`}
+      style={{ color: isActive || isHovered ? accentColor : undefined }}
     >
       {children}
       {/* Animated underline indicator */}
       <motion.span
-        className="absolute -bottom-1 left-0 h-[2px] bg-[#005DFF] dark:bg-[#A78BFA]"
+        className="absolute -bottom-1 left-0 h-[2px]"
+        style={{ backgroundColor: accentColor }}
         initial={false}
         animate={{ width: isActive ? "100%" : 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -59,17 +92,24 @@ const NavLinkWrapper: React.FC<{
   onClick?: () => void;
   children: React.ReactNode;
   className?: string;
-}> = ({ href, isActive, onClick, children, className = "" }) => {
+  accentColor: string;
+}> = ({ href, isActive, onClick, children, className = "", accentColor }) => {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <Link
       href={href}
       onClick={onClick}
-      className={`relative bg-transparent border-none cursor-pointer text-base font-semibold transition-colors duration-300 hover:text-[#005DFF] dark:hover:text-[#A78BFA] ${isActive ? "text-[#005DFF] dark:text-[#A78BFA]" : ""} ${className}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      className={`relative bg-transparent border-none cursor-pointer text-base font-semibold transition-colors duration-300 ${className}`}
+      style={{ color: isActive || isHovered ? accentColor : undefined }}
     >
       {children}
       {/* Animated underline indicator */}
       <motion.span
-        className="absolute -bottom-1 left-0 h-[2px] bg-[#005DFF] dark:bg-[#A78BFA]"
+        className="absolute -bottom-1 left-0 h-[2px]"
+        style={{ backgroundColor: accentColor }}
         initial={false}
         animate={{ width: isActive ? "100%" : 0 }}
         transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -78,14 +118,19 @@ const NavLinkWrapper: React.FC<{
   );
 };
 
-const Header: React.FC<HeaderProps> = ({ hideThemeToggle = false }) => {
+const Header: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
+  const [servicesHovered, setServicesHovered] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
   const navRef = useRef<HTMLDivElement>(null);
   const menuBtnRef = useRef<HTMLButtonElement>(null);
+
+  // Get theme from context
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   // Get currentSection from context
   const { currentSection, setCurrentSection } = useHeaderSection();
@@ -98,6 +143,9 @@ const Header: React.FC<HeaderProps> = ({ hideThemeToggle = false }) => {
 
   // Check if on portfolio page (handle trailing slash)
   const isOnPortfolioPage = pathname === "/portfolio" || pathname === "/portfolio/";
+
+  // Get page-specific accent color
+  const accentColor = getPageColor(pathname, isDark);
 
   // Reset currentSection when navigating away from homepage
   useEffect(() => {
@@ -158,6 +206,8 @@ const Header: React.FC<HeaderProps> = ({ hideThemeToggle = false }) => {
     };
   }, [isNavOpen]);
 
+  const isServicesActive = isOnServicePage || (isHomePage && currentSection === 2);
+
   return (
     <header className="fixed top-0 bg-[var(--background)] text-[var(--foreground)] shadow-[0_4px_12px_rgba(3,3,3,0.198)] dark:shadow-[0_4px_12px_rgba(0,0,0,0.752)] z-[11] w-screen max-h-[70px] max-sm:h-[66px] max-sm:max-h-[66px]">
       <div className="mx-auto p-4 flex justify-between items-center w-full max-w-[1200px] max-lg:min-[601px]:p-2 max-lg:min-[601px]:max-w-[900px]">
@@ -197,19 +247,21 @@ const Header: React.FC<HeaderProps> = ({ hideThemeToggle = false }) => {
             isActive={isHomePage && currentSection === 1}
             onClick={(e) => handleScroll(e, "about")}
             className="max-lg:min-[601px]:text-[0.95rem] max-lg:min-[601px]:ml-2 max-lg:min-[601px]:px-2 max-lg:min-[601px]:py-1"
+            accentColor={accentColor}
           >
             About
           </NavLink>
           <div
             className="relative inline-block"
-            onMouseEnter={() => setIsServicesOpen(true)}
-            onMouseLeave={() => setIsServicesOpen(false)}
+            onMouseEnter={() => { setIsServicesOpen(true); setServicesHovered(true); }}
+            onMouseLeave={() => { setIsServicesOpen(false); setServicesHovered(false); }}
             tabIndex={0}
           >
             {/* Navigate to /services when clicked */}
             <Link
               href="/services"
-              className={`relative bg-transparent border-none cursor-pointer text-base font-semibold transition-colors duration-300 hover:text-[#005DFF] dark:hover:text-[#A78BFA] flex items-center max-lg:min-[601px]:text-[0.95rem] max-lg:min-[601px]:ml-2 max-lg:min-[601px]:px-2 max-lg:min-[601px]:py-1 ${isOnServicePage || (isHomePage && currentSection === 2) ? "text-[#005DFF] dark:text-[#A78BFA]" : ""}`}
+              className="relative bg-transparent border-none cursor-pointer text-base font-semibold transition-colors duration-300 flex items-center max-lg:min-[601px]:text-[0.95rem] max-lg:min-[601px]:ml-2 max-lg:min-[601px]:px-2 max-lg:min-[601px]:py-1"
+              style={{ color: isServicesActive || servicesHovered ? accentColor : undefined }}
               onClick={() => setIsServicesOpen(false)}
               aria-haspopup="true"
               aria-expanded={isServicesOpen}
@@ -222,9 +274,10 @@ const Header: React.FC<HeaderProps> = ({ hideThemeToggle = false }) => {
               />
               {/* Animated underline indicator */}
               <motion.span
-                className="absolute -bottom-1 left-0 h-[2px] bg-[#005DFF] dark:bg-[#A78BFA]"
+                className="absolute -bottom-1 left-0 h-[2px]"
+                style={{ backgroundColor: accentColor }}
                 initial={false}
-                animate={{ width: isOnServicePage || (isHomePage && currentSection === 2) ? "100%" : 0 }}
+                animate={{ width: isServicesActive ? "100%" : 0 }}
                 transition={{ duration: 0.3, ease: "easeInOut" }}
               />
             </Link>
@@ -245,7 +298,11 @@ const Header: React.FC<HeaderProps> = ({ hideThemeToggle = false }) => {
                       exit={{ opacity: 0, y: -10 }}
                       transition={{ delay: 0.07 * idx }}
                     >
-                      <Link href={service.link} className="block py-3 px-5 no-underline transition-colors duration-200 bg-transparent hover:bg-[#0067e7] hover:text-white dark:text-white dark:hover:bg-[#0067e7]">
+                      <Link
+                        href={service.link}
+                        className="block py-3 px-5 no-underline transition-colors duration-200 bg-transparent hover:bg-[#0067e7] hover:text-white dark:text-white dark:hover:bg-[#0067e7]"
+                        onClick={() => setIsServicesOpen(false)}
+                      >
                         <span className="text-[0.9rem]">{service.name}</span>
                       </Link>
                     </motion.div>
@@ -259,6 +316,7 @@ const Header: React.FC<HeaderProps> = ({ hideThemeToggle = false }) => {
             href="/portfolio"
             isActive={!!isOnPortfolioPage}
             className="max-lg:min-[601px]:text-[0.95rem] max-lg:min-[601px]:ml-2 max-lg:min-[601px]:px-2 max-lg:min-[601px]:py-1"
+            accentColor={accentColor}
           >
             Portfolio
           </NavLinkWrapper>
@@ -268,6 +326,7 @@ const Header: React.FC<HeaderProps> = ({ hideThemeToggle = false }) => {
             isActive={isHomePage && currentSection === 3}
             onClick={(e) => handleScroll(e, "team")}
             className="max-lg:min-[601px]:text-[0.95rem] max-lg:min-[601px]:ml-2 max-lg:min-[601px]:px-2 max-lg:min-[601px]:py-1"
+            accentColor={accentColor}
           >
             Team
           </NavLink>
@@ -276,6 +335,7 @@ const Header: React.FC<HeaderProps> = ({ hideThemeToggle = false }) => {
             isActive={isHomePage && currentSection === 4}
             onClick={(e) => handleScroll(e, "contact")}
             className="max-lg:min-[601px]:text-[0.95rem] max-lg:min-[601px]:ml-2 max-lg:min-[601px]:px-2 max-lg:min-[601px]:py-1"
+            accentColor={accentColor}
           >
             Contact
           </NavLink>
@@ -283,7 +343,7 @@ const Header: React.FC<HeaderProps> = ({ hideThemeToggle = false }) => {
 
         {/* Mobile controls: DarkModeToggle + Mobile Menu Button */}
         <div className="flex items-center gap-2 flex-row min-[600px]:mr-12">
-          {!hideThemeToggle && <DarkModeToggle />}
+          <DarkModeToggle />
           <button
             className="hidden max-sm:flex bg-black/5 dark:bg-white/10 border-none cursor-pointer p-2 rounded-full items-center justify-center w-10 h-10 ml-0 transition-colors duration-300 active:bg-black/5 focus:bg-black/5 focus:outline-none"
             ref={menuBtnRef}
@@ -304,7 +364,7 @@ const Header: React.FC<HeaderProps> = ({ hideThemeToggle = false }) => {
         {isNavOpen && (
           <motion.nav
             ref={navRef}
-            className="hidden max-sm:block fixed right-0 top-[66px] bg-gradient-to-br from-[#e0eafc] to-[#cfdef3] dark:bg-none dark:bg-gradient-to-r dark:from-[#312e81] dark:to-[#9333ea] h-fit w-screen max-w-[55vw] z-[100] will-change-transform overflow-x-hidden rounded-bl-[20px]"
+            className="hidden max-sm:block fixed right-0 top-[66px] bg-gradient-to-br from-[#e0eafc] to-[#cfdef3] dark:bg-gradient-to-br dark:from-indigo-500 dark:via-purple-500 dark:to-violet-500 h-fit w-screen max-w-[55vw] z-[100] will-change-transform overflow-x-hidden rounded-bl-[20px]"
             initial={{ opacity: 0, x: 100 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: 100 }}
@@ -316,7 +376,7 @@ const Header: React.FC<HeaderProps> = ({ hideThemeToggle = false }) => {
                 <a
                   href="#about"
                   onClick={(e) => handleScroll(e, "about")}
-                  className="no-underline bg-gradient-to-br from-[#e0eafc] to-[#cfdef3] py-2 px-4 block text-[#03045e] dark:text-white dark:bg-none rounded-md transition-colors duration-200 hover:underline"
+                  className="no-underline py-2 px-4 block text-[#03045e] dark:text-white rounded-md transition-colors duration-200 hover:underline"
                 >
                   About
                 </a>
@@ -387,7 +447,7 @@ const Header: React.FC<HeaderProps> = ({ hideThemeToggle = false }) => {
                 <Link
                   href="/portfolio"
                   onClick={() => setIsNavOpen(false)}
-                  className="no-underline bg-gradient-to-br from-[#e0eafc] to-[#cfdef3] py-2 px-4 block text-[#03045e] dark:text-white dark:bg-none rounded-md transition-colors duration-200 hover:underline"
+                  className="no-underline py-2 px-4 block text-[#03045e] dark:text-white rounded-md transition-colors duration-200 hover:underline"
                 >
                   Portfolio
                 </Link>
@@ -397,7 +457,7 @@ const Header: React.FC<HeaderProps> = ({ hideThemeToggle = false }) => {
                 <a
                   href="#team"
                   onClick={(e) => handleScroll(e, "team")}
-                  className="no-underline bg-gradient-to-br from-[#e0eafc] to-[#cfdef3] py-2 px-4 block text-[#03045e] dark:text-white dark:bg-none rounded-md transition-colors duration-200 hover:underline"
+                  className="no-underline py-2 px-4 block text-[#03045e] dark:text-white rounded-md transition-colors duration-200 hover:underline"
                 >
                   Our Team
                 </a>
@@ -406,7 +466,7 @@ const Header: React.FC<HeaderProps> = ({ hideThemeToggle = false }) => {
                 <a
                   href="#contact"
                   onClick={(e) => handleScroll(e, "contact")}
-                  className="no-underline bg-gradient-to-br from-[#e0eafc] to-[#cfdef3] py-2 px-4 block text-[#03045e] dark:text-white dark:bg-none rounded-md transition-colors duration-200 hover:underline"
+                  className="no-underline py-2 px-4 block text-[#03045e] dark:text-white rounded-md transition-colors duration-200 hover:underline"
                 >
                   Start A Project
                 </a>

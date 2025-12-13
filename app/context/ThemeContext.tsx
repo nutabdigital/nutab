@@ -2,41 +2,51 @@
 
 import { createContext, useContext, useEffect, useState, ReactNode } from 'react';
 
-const ThemeContext = createContext({
-  theme: 'dark' as 'dark' | 'light',
+interface ThemeContextType {
+  theme: 'dark' | 'light';
+  toggleTheme: () => void;
+}
+
+const ThemeContext = createContext<ThemeContextType>({
+  theme: 'dark',
+  toggleTheme: () => {},
 });
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const [theme, setTheme] = useState<'dark' | 'light'>('dark');
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Check system preference
+    // Check localStorage first, then fall back to system preference
+    const storedTheme = localStorage.getItem('theme') as 'dark' | 'light' | null;
     const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const systemTheme = mediaQuery.matches ? 'dark' : 'light';
-    
-    setTheme(systemTheme);
-    document.documentElement.setAttribute('data-theme', systemTheme);
-    setMounted(true);
 
-    // Listen for system theme changes
+    const initialTheme = storedTheme || systemTheme;
+    setTheme(initialTheme);
+    document.documentElement.setAttribute('data-theme', initialTheme);
+
+    // Listen for system theme changes only if no stored preference
     const handleChange = (e: MediaQueryListEvent) => {
-      const newTheme = e.matches ? 'dark' : 'light';
-      setTheme(newTheme);
-      document.documentElement.setAttribute('data-theme', newTheme);
+      if (!localStorage.getItem('theme')) {
+        const newTheme = e.matches ? 'dark' : 'light';
+        setTheme(newTheme);
+        document.documentElement.setAttribute('data-theme', newTheme);
+      }
     };
 
     mediaQuery.addEventListener('change', handleChange);
     return () => mediaQuery.removeEventListener('change', handleChange);
   }, []);
 
-  // Prevent flash by not rendering until mounted
-  if (!mounted) {
-    return null;
-  }
+  const toggleTheme = () => {
+    const newTheme = theme === 'dark' ? 'light' : 'dark';
+    setTheme(newTheme);
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  };
 
   return (
-    <ThemeContext.Provider value={{ theme }}>
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );

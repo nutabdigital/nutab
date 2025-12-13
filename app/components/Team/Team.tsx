@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import "./Team.css";
+import Image from 'next/image';
 
 // Contact structure
 interface Contact {
@@ -133,7 +134,7 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
       </p>
       <div className="grid-container">
         <div className="team-member" onClick={() => onSelectContact(contacts.navjot)}>
-          <img
+          <Image
             className="photo"
             src={contacts.navjot.photo}
             alt="Navjot Saran headshot"
@@ -150,7 +151,7 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
           </p>
         </div>
         <div className="team-member" onClick={() => onSelectContact(contacts.fysal)}>
-          <img
+          <Image
             className="photo"
             src={contacts.fysal.photo}
             alt="Fysal Beauferris headshot"

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo, memo } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation";
@@ -52,15 +52,17 @@ const servicesDropdown = [
   { name: "Photography & Media Production", link: "/services/photo-media" },
 ];
 
-// NavLink component with animated underline indicator
-const NavLink: React.FC<{
+// NavLink component with animated underline indicator - memoized for performance
+interface NavLinkProps {
   href: string;
   isActive: boolean;
   onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void;
   children: React.ReactNode;
   className?: string;
   accentColor: string;
-}> = ({ href, isActive, onClick, children, className = "", accentColor }) => {
+}
+
+const NavLink = memo<NavLinkProps>(({ href, isActive, onClick, children, className = "", accentColor }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -73,27 +75,29 @@ const NavLink: React.FC<{
       style={{ color: isActive || isHovered ? accentColor : undefined }}
     >
       {children}
-      {/* Animated underline indicator */}
-      <motion.span
-        className="absolute -bottom-1 left-0 h-[2px]"
-        style={{ backgroundColor: accentColor }}
-        initial={false}
-        animate={{ width: isActive ? "100%" : 0 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+      {/* CSS transition underline - replaces framer-motion for better performance */}
+      <span
+        className="absolute -bottom-1 left-0 h-[2px] transition-all duration-300 ease-in-out"
+        style={{
+          backgroundColor: accentColor,
+          width: isActive ? "100%" : 0,
+        }}
       />
     </a>
   );
-};
+});
 
-// NavLinkWrapper for Link components with animated underline
-const NavLinkWrapper: React.FC<{
+// NavLinkWrapper for Link components with animated underline - memoized for performance
+interface NavLinkWrapperProps {
   href: string;
   isActive: boolean;
   onClick?: () => void;
   children: React.ReactNode;
   className?: string;
   accentColor: string;
-}> = ({ href, isActive, onClick, children, className = "", accentColor }) => {
+}
+
+const NavLinkWrapper = memo<NavLinkWrapperProps>(({ href, isActive, onClick, children, className = "", accentColor }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -106,17 +110,17 @@ const NavLinkWrapper: React.FC<{
       style={{ color: isActive || isHovered ? accentColor : undefined }}
     >
       {children}
-      {/* Animated underline indicator */}
-      <motion.span
-        className="absolute -bottom-1 left-0 h-[2px]"
-        style={{ backgroundColor: accentColor }}
-        initial={false}
-        animate={{ width: isActive ? "100%" : 0 }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+      {/* CSS transition underline - replaces framer-motion for better performance */}
+      <span
+        className="absolute -bottom-1 left-0 h-[2px] transition-all duration-300 ease-in-out"
+        style={{
+          backgroundColor: accentColor,
+          width: isActive ? "100%" : 0,
+        }}
       />
     </Link>
   );
-};
+});
 
 const Header: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -144,8 +148,8 @@ const Header: React.FC = () => {
   // Check if on portfolio page (handle trailing slash)
   const isOnPortfolioPage = pathname === "/portfolio" || pathname === "/portfolio/";
 
-  // Get page-specific accent color
-  const accentColor = getPageColor(pathname, isDark);
+  // Get page-specific accent color - memoized to prevent recalculation on every render
+  const accentColor = useMemo(() => getPageColor(pathname, isDark), [pathname, isDark]);
 
   // Reset currentSection when navigating away from homepage
   useEffect(() => {
@@ -183,6 +187,12 @@ const Header: React.FC = () => {
     if (!isNavOpen) setIsMobileServicesOpen(false);
   }, [isNavOpen]);
 
+  // Reset services hover/open state when navigating to a new page
+  useEffect(() => {
+    setServicesHovered(false);
+    setIsServicesOpen(false);
+  }, [pathname]);
+
   useEffect(() => {
     if (!isNavOpen) return;
 
@@ -214,20 +224,11 @@ const Header: React.FC = () => {
         {/* Logo on the left */}
         <div className="min-[600px]:cursor-pointer">
           <a href="/" onClick={(e) => handleScroll(e, "tagline")} className="inline-flex items-end gap-2 no-underline">
-            {/* Use files from public/icons so latest assets render */}
+            {/* Single logo based on theme - saves HTTP request */}
             <img
-              className="block pl-6 dark:hidden"
-              src="/icons/logo-light.svg"
-              alt="New Tab Digital Light Logo"
-              width={75}
-              height={57}
-              loading="eager"
-              decoding="sync"
-            />
-            <img
-              className="hidden pl-6 dark:block"
-              src="/icons/logo-dark.svg"
-              alt="New Tab Digital Dark Logo"
+              className="block pl-6"
+              src={isDark ? "/icons/logo-dark.svg" : "/icons/logo-light.svg"}
+              alt="New Tab Digital Logo"
               width={75}
               height={57}
               loading="eager"
@@ -272,13 +273,13 @@ const Header: React.FC = () => {
                 size={18}
                 strokeWidth={2}
               />
-              {/* Animated underline indicator */}
-              <motion.span
-                className="absolute -bottom-1 left-0 h-[2px]"
-                style={{ backgroundColor: accentColor }}
-                initial={false}
-                animate={{ width: isServicesActive ? "100%" : 0 }}
-                transition={{ duration: 0.3, ease: "easeInOut" }}
+              {/* CSS transition underline - replaces framer-motion for better performance */}
+              <span
+                className="absolute -bottom-1 left-0 h-[2px] transition-all duration-300 ease-in-out"
+                style={{
+                  backgroundColor: accentColor,
+                  width: isServicesActive ? "100%" : 0,
+                }}
               />
             </Link>
             <AnimatePresence>

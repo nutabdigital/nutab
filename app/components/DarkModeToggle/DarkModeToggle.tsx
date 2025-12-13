@@ -1,30 +1,39 @@
+"use client";
+
 import { useTheme } from "../../context/ThemeContext";
 import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
-import "./DarkModeToggle.css";
 
 export default function DarkModeToggle() {
-  const { theme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null;
-
-  // Display-only indicator showing current system theme
   return (
-    <div
-      className={`darkmode-toggle ${theme === "dark" ? "dark" : "light"}`}
-      aria-label={`Current theme: ${theme}`}
-      title={`System theme: ${theme}`}
+    <button
+      onClick={toggleTheme}
+      className={`flex items-center justify-center w-10 h-10 p-2 rounded-full border-none cursor-pointer transition-colors duration-300 ${
+        theme === "dark" ? "bg-white/10" : "bg-black/5"
+      }`}
+      aria-label={mounted ? `Switch to ${theme === "dark" ? "light" : "dark"} mode` : "Toggle theme"}
     >
-      {theme === "dark" ? (
-        <Moon size={20} className="darkmode-toggle-icon darkmode-toggle-moon" />
+      {!mounted ? (
+        // Placeholder to prevent layout shift - matches icon size
+        <span className="w-5 h-5" />
+      ) : theme === "dark" ? (
+        <Sun
+          size={20}
+          className="text-[#facc15] transition-transform duration-500 ease-[cubic-bezier(0.4,0.2,0.2,1)] hover:rotate-[360deg]"
+        />
       ) : (
-        <Sun size={20} className="darkmode-toggle-icon darkmode-toggle-sun" />
+        <Moon
+          size={20}
+          className="text-[#2563eb] transition-transform duration-500 ease-[cubic-bezier(0.4,0.2,0.2,1)] hover:rotate-[360deg]"
+        />
       )}
-    </div>
+    </button>
   );
 }

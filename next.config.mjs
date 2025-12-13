@@ -4,27 +4,30 @@
 const nextConfig = {
   output: 'export',
   trailingSlash: true,
-  
+
   // Performance optimizations
   compress: true,
-  
+
   // Optimize production builds
   swcMinify: true,
-  
+
   // Optimize images (even for static export)
   images: {
     unoptimized: true, // Required for static export
   },
-  
+
   // Experimental optimizations for better performance
   experimental: {
     optimizeCss: true, // Enable CSS optimization
   },
-  
-  // Webpack optimizations
-  webpack: (config, { isServer }) => {
-    // Production optimizations
-    if (!isServer) {
+
+  // Note: Cache headers are configured in public/_headers file for static hosting
+  // (Netlify, Cloudflare Pages, etc.) since next.config.mjs headers don't work with output: 'export'
+
+  // Webpack optimizations - only apply in production to avoid HMR issues
+  webpack: (config, { isServer, dev }) => {
+    // Only apply custom optimization in production builds
+    if (!isServer && !dev) {
       config.optimization = {
         ...config.optimization,
         moduleIds: 'deterministic',

@@ -28,13 +28,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     // Top Priority Services
     {
-      url: `${baseUrl}/services/custom-software`,
+      url: `${baseUrl}/services/app-software-development`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/services/app-development`,
+      url: `${baseUrl}/services/web-design`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -44,6 +44,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
+    },
+    // Legacy redirects - kept for SEO
+    {
+      url: `${baseUrl}/services/custom-software`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.3,
+    },
+    {
+      url: `${baseUrl}/services/app-development`,
+      lastModified: currentDate,
+      changeFrequency: 'yearly',
+      priority: 0.3,
     },
     // Secondary Services
     {

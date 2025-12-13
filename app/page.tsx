@@ -11,6 +11,7 @@ const Contact = React.lazy(() => import("./components/Contact/Contact"));
 import "./styles/page.css"; // Only keep if needed for above-the-fold
 const ContactPopup = React.lazy(() => import("./components/ContactPopup/ContactPopup"));
 import { useModelState } from "./context/ModelStateProvider"; // adjust path if needed
+import { useHeaderSection } from "./context/HeaderSectionContext";
 
 interface Contact {
   name: string;
@@ -43,9 +44,9 @@ const contacts: Record<string, Contact> = {
 
 const HomePage: React.FC = () => {
   const [selectedContact, setSelectedContact] = useState<Contact | null>(null);
-  const [currentSection, setCurrentSection] = useState<number>(0);
 
-  const { state: modelRef, setState } = useModelState();
+  const { setState } = useModelState();
+  const { setCurrentSection } = useHeaderSection();
 
   useEffect(() => {
     const sections = document.querySelectorAll(".page-section");
@@ -58,8 +59,10 @@ const HomePage: React.FC = () => {
               entry.target.getAttribute("data-section") || "0"
             );
 
-            // Directly set currentSection
+            // Update model state for 3D model interactions
             setState({ currentSection: sectionNumber });
+            // Update header section for nav highlighting
+            setCurrentSection(sectionNumber);
 
             // Removed console.log for production performance
             entry.target.classList.add("visible");
@@ -75,7 +78,7 @@ const HomePage: React.FC = () => {
     sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-  }, [setState]);
+  }, [setState, setCurrentSection]);
 
   return (
     <>

@@ -3,6 +3,7 @@
 import { ThemeProvider } from "./context/ThemeContext";
 import { SectionProvider } from "./context/SectionContext";
 import { ModelStateProvider, useModelState } from "./context/ModelStateProvider";
+import { HeaderSectionProvider } from "./context/HeaderSectionContext";
 import dynamic from "next/dynamic";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -77,7 +78,9 @@ export default function AppClientProviders({ children }: { children: React.React
     <ThemeProvider>
       <SectionProvider>
         <ModelStateProvider>
-          <InnerProviders>{children}</InnerProviders>
+          <HeaderSectionProvider>
+            <InnerProviders>{children}</InnerProviders>
+          </HeaderSectionProvider>
         </ModelStateProvider>
       </SectionProvider>
     </ThemeProvider>

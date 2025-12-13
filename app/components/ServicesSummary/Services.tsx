@@ -16,18 +16,18 @@ import {
 const services = [
   {
     icon: Code,
-    id: "custom-software",
-    name: "Custom Software Solutions",
-    description: "We create custom software that streamlines operations and boosts efficiency, tailored to your business needs.",
-    link: "/services/custom-software",
+    id: "app-software-development",
+    name: "Custom App & Software Development",
+    description: "We create custom mobile apps, web applications, and enterprise software tailored to your business needs.",
+    link: "/services/app-software-development",
     gradient: "from-purple-500 to-blue-500",
   },
   {
     icon: MonitorSmartphone,
-    id: "app-development",
-    name: "Mobile & Web App Development",
-    description: "We create user-friendly apps that provide seamless experiences and help businesses engage customers.",
-    link: "/services/app-development",
+    id: "web-design",
+    name: "Web Design & Development",
+    description: "Beautiful, responsive websites that convert visitors into customers with SEO optimization and modern design.",
+    link: "/services/web-design",
     gradient: "from-blue-500 to-cyan-500",
   },
   {
@@ -111,7 +111,7 @@ const Services: React.FC = () => {
 
   return (
     <section className="w-[75vw] max-w-[1200px] mx-auto flex items-center justify-center box-border flex-col p-4 pb-8 bg-white/70 dark:bg-black/70 shadow-lg dark:shadow-black/75 backdrop-blur-xl rounded-3xl z-10 max-md:w-[85vw] max-md:max-w-full">
-      <h2 className="bg-gradient-to-r from-purple-400 to-blue-400 bg-clip-text text-transparent text-2xl font-normal text-center">
+      <h2 className="bg-gradient-to-r from-indigo-500 via-purple-500 to-violet-500 bg-clip-text text-transparent text-2xl font-bold text-center">
         Our Services
       </h2>
       <p className="text-center text-lg mb-6 opacity-85 text-gray-700 dark:text-gray-300">

@@ -37,7 +37,7 @@ const colorPalette = [
 
 // Performance Metrics
 const performanceMetrics = [
-  { label: "Performance", score: 98, icon: Zap, color: "text-green-500" },
+  { label: "Performance", score: 100, icon: Zap, color: "text-green-500" },
   { label: "Accessibility", score: 100, icon: CheckCircle2, color: "text-green-500" },
   { label: "Best Practices", score: 100, icon: Shield, color: "text-green-500" },
   { label: "SEO", score: 100, icon: Search, color: "text-green-500" },
@@ -56,8 +56,8 @@ const projectHighlights = [
   {
     icon: TrendingUp,
     title: "Performance Boost",
-    description: "From 23 to 98 PageSpeed score",
-    stat: "+326%",
+    description: "From 55 to 100 PageSpeed score",
+    stat: "+81.8%",
   },
   {
     icon: Clock,
@@ -208,8 +208,8 @@ export default function Portfolio() {
               </div>
               <ul className="space-y-4">
                 {[
-                  "PageSpeed score of 23/100",
-                  "Slow load times (5+ seconds)",
+                  "PageSpeed score of 55/100",
+                  "Slow load times (6.9+ seconds)",
                   "Limited customization options",
                   "Generic template design",
                   "Poor mobile experience",
@@ -235,12 +235,12 @@ export default function Portfolio() {
               </div>
               <ul className="space-y-4">
                 {[
-                  "PageSpeed score of 98/100",
+                  "PageSpeed score of 100/100",
                   "Sub-second load times",
                   "Fully custom design system",
                   "Unique brand identity",
                   "Mobile-first responsive",
-                  "Perfect SEO optimization",
+                  "Advanced SEO optimization",
                 ].map((item, i) => (
                   <li key={i} className="flex items-start gap-3 text-gray-600 dark:text-gray-400">
                     <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />

@@ -1,6 +1,5 @@
 import React from "react";
 import { X, Download } from "lucide-react";
-import "./ContactPopup.css";
 
 interface Contact {
   name: string;
@@ -41,19 +40,44 @@ END:VCARD`;
   };
 
   return (
-    <div className="popup-overlay" onClick={onClose}>
-      <div className="popup-content" onClick={(e) => e.stopPropagation()}>
-        <button className="popup-close-btn" onClick={onClose}>
+    <div
+      className="fixed inset-0 w-screen h-screen flex justify-center items-center z-[1000] backdrop-blur-xl"
+      onClick={onClose}
+    >
+      <div
+        className="flex flex-col gap-4 items-center bg-white p-8 rounded-2xl relative max-w-[400px] w-[80vw] text-center shadow-lg backdrop-blur-xl text-[var(--foreground)] dark:bg-black dark:text-white"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <button
+          onClick={onClose}
+          aria-label="Close contact popup"
+          className="absolute top-2.5 right-4 bg-transparent border-0 p-0 cursor-pointer flex items-center justify-center text-[#222] hover:text-[#0067e7] w-10 h-10 transition-colors dark:text-white dark:hover:text-sky-400"
+        >
           <X size={30} />
         </button>
-        <div className="popup-photo" style={{ backgroundImage: `url(${contact.photo})` }} aria-label={`${contact.name} headshot`} />
-        <p className="popup-team-name">{contact.name}</p>
-        <p className="popup-team-role">Co-Founder</p>
-        <p className="popup-team-position">Software Developer</p>
-        <p className="popup-team-description">B.Sc. in Computer Science, University of Calgary</p>
-        <p className="popup-contact-info"><a href={`mailto:${contact.email}`}>{contact.email}</a></p>
-        <p className="popup-contact-info">{contact.phone}</p>
-        <button className="popup-save-contact-button" onClick={generateVCard}>
+
+        <div
+          className="w-[200px] h-[200px] bg-cover bg-center rounded-full mt-4 border-4 border-[rgba(0,103,231,0.5)]"
+          style={{ backgroundImage: `url(${contact.photo})` }}
+          aria-label={`${contact.name} headshot`}
+        />
+
+        <p className="text-2xl font-normal">{contact.name}</p>
+
+        <p className="bg-[#0067e7] rounded-full px-3 py-1 text-white inline-block text-base font-normal">Co-Founder</p>
+
+        <p className="text-[1.05rem] font-normal text-[#0067e7] opacity-[0.95]">Software Developer</p>
+
+        <p className="opacity-[0.85]">B.Sc. in Computer Science, University of Calgary</p>
+
+        <p className="text-base opacity-[0.85]"><a className="text-[#0067e7] opacity-[0.95] no-underline break-all" href={`mailto:${contact.email}`}>{contact.email}</a></p>
+
+        <p className="text-base opacity-[0.85]">{contact.phone}</p>
+
+        <button
+          className="px-6 py-3 bg-gradient-to-r from-[#9333ea] to-[#3b82f6] text-slate-50 rounded-full text-base font-normal cursor-pointer transition-transform duration-150 transform hover:-translate-y-0.5 shadow-lg flex items-center gap-2 dark:from-[#3f37c9] dark:to-[#3b82f6]"
+          onClick={generateVCard}
+        >
           <Download size={18} />
           Save Contact
         </button>

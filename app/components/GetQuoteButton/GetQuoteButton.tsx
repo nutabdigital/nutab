@@ -2,7 +2,6 @@
 
 import React from "react";
 import { useRouter } from "next/navigation";
-import "./GetQuoteButton.css";
 
 
 const GetQuoteButton: React.FC = () => {
@@ -25,7 +24,10 @@ const GetQuoteButton: React.FC = () => {
   };
 
   return (
-    <button className="get-quote-button" onClick={handleClick}>
+    <button
+      onClick={handleClick}
+      className="px-6 py-3 inline-block bg-gradient-to-r from-[#9333ea] to-[#3b82f6] text-white rounded-full text-base font-semibold cursor-pointer border-0 shadow-md transform-gpu transition-transform duration-150 hover:-translate-y-[2px] hover:opacity-95"
+    >
       <span>Get a Quote Today</span>
     </button>
   );

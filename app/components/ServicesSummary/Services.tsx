@@ -127,8 +127,8 @@ const Services: React.FC = () => {
               ref={(el) => { itemRefs.current[index] = el; }}
               className="group rounded-3xl p-4 cursor-pointer transition-all duration-300 hover:bg-blue-600 hover:scale-105 bg-white/50 dark:bg-gray-900/50 border border-gray-200 dark:border-gray-800 backdrop-blur-sm"
             >
-              <div className={`inline-flex p-3 rounded-2xl bg-gradient-to-r ${service.gradient} mb-4 mx-auto block`}>
-                <Icon className="w-8 h-8 text-white" />
+              <div className={`flex items-center justify-center w-14 h-14 p-3 rounded-2xl bg-gradient-to-r ${service.gradient} mb-4 mx-auto shrink-0`}>
+                <Icon className="w-6 h-6 text-white" />
               </div>
               <h3 className="text-lg mb-2 font-semibold text-center text-gray-900 dark:text-white group-hover:text-white transition-colors">
                 {service.name}

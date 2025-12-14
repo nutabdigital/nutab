@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Background from "../components/Background/Background";
 import ServicesSummary from "../components/ServicesSummary/Services";
 import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
-import "./page.css";
 
 export const generateMetadata = (): Metadata => ({
   title: "Digital Services | Web Development, SEO & More | NuTab Digital Calgary",
@@ -42,9 +41,11 @@ export default function ServicesIndex() {
       {/* tabIndex={-1} enables programmatic focus; no visual rendering */}
       <Background />
 
-      <Breadcrumbs
-        items={[{ label: "Home", href: "/" }, { label: "Services" }]}
-      />
+      <div className="relative z-10">
+        <Breadcrumbs
+          items={[{ label: "Home", href: "/" }, { label: "Services" }]}
+        />
+      </div>
 
       {/* JSON-LD below is machine-readable only; it does not render anything visually */}
       <script
@@ -75,7 +76,7 @@ export default function ServicesIndex() {
       {/* Visually hidden H1 for SEO - visible heading is in ServicesSummary */}
       <h1 className="sr-only">Digital Services in Calgary - Web Development, SEO & More</h1>
 
-      <div className="services-summary-wrapper">
+      <div className="relative z-10 mt-[10vh] mb-[15vh]">
         <ServicesSummary />
       </div>
     </main>

@@ -5,7 +5,6 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import "./Model.css";
 import { useModelState } from "../../context/ModelStateProvider";
 
 // currentSection from page.tsx
@@ -612,19 +611,23 @@ const Model: React.FC<ModelProps> = () => {
   // Throttled resize handler
   const handleResizeThrottled = throttle(handleResize, 100);
 
+  const containerStyle: React.CSSProperties = {
+    transform: `translateX(${getHorizontalPosition()})`,
+    width: isMobile ? "100vw" : "50vw",
+    maxWidth: isMobile ? "100vw" : "50vw",
+  };
+
+  const canvasClass = `fixed pointer-events-none z-[1] transition-opacity duration-[280ms] ease-linear will-change-opacity will-change-transform ${
+    libsLoaded ? "opacity-100" : "opacity-0"
+  }`;
+
   return (
     <div
-      className="model-container"
-      style={{
-        transform: `translateX(${getHorizontalPosition()})`,
-      }}
+      className="fixed z-[1] pointer-events-none will-change-transform will-change-opacity transition-transform duration-[600ms] ease-in-out"
+      style={containerStyle}
     >
       {/* hide canvas until libs loaded to prevent flash-on-top */}
-      <canvas
-        ref={canvasRef}
-        className={`model ${libsLoaded ? "model-ready" : "model-loading"}`}
-        aria-hidden="true"
-      />
+      <canvas ref={canvasRef} className={canvasClass} aria-hidden="true" />
     </div>
   );
 };

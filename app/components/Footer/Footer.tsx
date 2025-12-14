@@ -1,5 +1,4 @@
 import React from "react";
-import "./Footer.css";
 
 // Lightweight inline SVG icons to replace react-icons (saves ~10KB)
 const LinkedInIcon = () => (
@@ -27,16 +26,20 @@ const XIcon = () => (
 );
 
 const Footer: React.FC = () => {
+  const linkClass =
+    "text-black dark:text-white transition-colors transition-transform duration-300 hover:text-[#0067e7] hover:scale-110";
+
   return (
-    <footer className="footer-container">
-      <div className="footer-content">
-        <div className="footer-sections">
-          <div className="socials-icons">
+    <footer className="bg-[var(--background)] text-[var(--foreground)] py-5 relative z-10">
+      <div className="max-w-[1000px] mx-auto px-5">
+        <div className="flex flex-col items-center flex-wrap text-center">
+          <div className="flex items-center gap-4 mb-2 order-[-1] z-[500]">
             <a
               href="https://www.linkedin.com/company/nutab-digital-inc/posts/?feedView=all"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="NuTab Digital LinkedIn"
+              className={linkClass}
             >
               <LinkedInIcon />
             </a>
@@ -45,6 +48,7 @@ const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="NuTab Digital Instagram"
+              className={linkClass}
             >
               <InstagramIcon />
             </a>
@@ -53,6 +57,7 @@ const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="NuTab Digital Facebook"
+              className={linkClass}
             >
               <FacebookIcon />
             </a>
@@ -61,11 +66,12 @@ const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="NuTab Digital on X (Twitter)"
+              className={linkClass}
             >
               <XIcon />
             </a>
           </div>
-          <p className="rights-text">
+          <p className="w-full">
             © {new Date().getFullYear()} Nutab Digital Inc. All rights reserved.
           </p>
         </div>

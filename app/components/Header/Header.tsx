@@ -71,7 +71,7 @@ const NavLink = memo<NavLinkProps>(({ href, isActive, onClick, children, classNa
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`relative bg-transparent border-none cursor-pointer text-base font-semibold transition-colors duration-300 ${className}`}
+      className={`relative bg-transparent border-none cursor-pointer text-base font-medium transition-colors duration-300 ${className}`}
       style={{ color: isActive || isHovered ? accentColor : undefined }}
     >
       {children}
@@ -106,7 +106,7 @@ const NavLinkWrapper = memo<NavLinkWrapperProps>(({ href, isActive, onClick, chi
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`relative bg-transparent border-none cursor-pointer text-base font-semibold transition-colors duration-300 ${className}`}
+      className={`relative bg-transparent border-none cursor-pointer text-base font-medium transition-colors duration-300 ${className}`}
       style={{ color: isActive || isHovered ? accentColor : undefined }}
     >
       {children}
@@ -261,7 +261,7 @@ const Header: React.FC = () => {
             {/* Navigate to /services when clicked */}
             <Link
               href="/services"
-              className="relative bg-transparent border-none cursor-pointer text-base font-semibold transition-colors duration-300 flex items-center max-lg:min-[601px]:text-[0.95rem] max-lg:min-[601px]:ml-2 max-lg:min-[601px]:px-2 max-lg:min-[601px]:py-1"
+              className="relative bg-transparent border-none cursor-pointer text-base font-medium transition-colors duration-300 flex items-center max-lg:min-[601px]:text-[0.95rem] max-lg:min-[601px]:ml-2 max-lg:min-[601px]:px-2 max-lg:min-[601px]:py-1"
               style={{ color: isServicesActive || servicesHovered ? accentColor : undefined }}
               onClick={() => setIsServicesOpen(false)}
               aria-haspopup="true"

@@ -12,7 +12,7 @@ import { useTheme } from "@/app/context/ThemeContext";
 
 // Color schemes for different pages (hex values for light and dark modes)
 const pageColors: Record<string, { light: string; dark: string }> = {
-  "/services/app-software-development": { light: "#4f46e5", dark: "#818cf8" }, // indigo
+  "/services/app-development": { light: "#4f46e5", dark: "#818cf8" }, // indigo
   "/services/web-design": { light: "#2563eb", dark: "#60a5fa" }, // blue
   "/services/seo-marketing": { light: "#16a34a", dark: "#4ade80" }, // green
   "/services/ecommerce": { light: "#059669", dark: "#34d399" }, // emerald
@@ -42,7 +42,7 @@ const getPageColor = (pathname: string | null, isDark: boolean): string => {
 
 // Updated servicesDropdown with reorganized services
 const servicesDropdown = [
-  { name: "Custom App & Software Development", link: "/services/app-software-development" },
+  { name: "Custom App & Software Development", link: "/services/app-development" },
   { name: "Web Design & Development", link: "/services/web-design" },
   { name: "SEO & Digital Marketing", link: "/services/seo-marketing" },
   { name: "E-Commerce Development", link: "/services/ecommerce" },
@@ -312,16 +312,6 @@ const Header: React.FC = () => {
               )}
             </AnimatePresence>
           </div>
-
-          <NavLinkWrapper
-            href="/portfolio"
-            isActive={!!isOnPortfolioPage}
-            className="max-lg:min-[601px]:text-[0.95rem] max-lg:min-[601px]:ml-2 max-lg:min-[601px]:px-2 max-lg:min-[601px]:py-1"
-            accentColor={accentColor}
-          >
-            Portfolio
-          </NavLinkWrapper>
-
           <NavLink
             href="#team"
             isActive={isHomePage && currentSection === 3}
@@ -340,6 +330,14 @@ const Header: React.FC = () => {
           >
             Contact
           </NavLink>
+            <NavLinkWrapper
+            href="/portfolio"
+            isActive={!!isOnPortfolioPage}
+            className="max-lg:min-[601px]:text-[0.95rem] max-lg:min-[601px]:ml-2 max-lg:min-[601px]:px-2 max-lg:min-[601px]:py-1"
+            accentColor={accentColor}
+          >
+            Portfolio
+          </NavLinkWrapper>
         </nav>
 
         {/* Mobile controls: DarkModeToggle + Mobile Menu Button */}
@@ -443,17 +441,6 @@ const Header: React.FC = () => {
                   )}
                 </AnimatePresence>
               </li>
-
-              <li>
-                <Link
-                  href="/portfolio"
-                  onClick={() => setIsNavOpen(false)}
-                  className="no-underline py-2 px-4 block text-[#03045e] dark:text-white rounded-md transition-colors duration-200 hover:underline"
-                >
-                  Portfolio
-                </Link>
-              </li>
-
               <li>
                 <a
                   href="#team"
@@ -462,6 +449,15 @@ const Header: React.FC = () => {
                 >
                   Our Team
                 </a>
+              </li>
+              <li>
+                <Link
+                  href="/portfolio"
+                  onClick={() => setIsNavOpen(false)}
+                  className="no-underline py-2 px-4 block text-[#03045e] dark:text-white rounded-md transition-colors duration-200 hover:underline"
+                >
+                  Portfolio
+                </Link>
               </li>
               <li>
                 <a

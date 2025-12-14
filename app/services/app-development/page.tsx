@@ -1,31 +1,31 @@
 import React from "react";
 import Background from "../../components/Background/Background";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
-import { MonitorSmartphone, Layers, ShieldCheck, ArrowRight, Sparkles, Rocket, Users, Zap, Code2, CheckCircle2, ChevronDown, Smartphone, Globe } from "lucide-react";
+import { Code2, Server, Database, ArrowRight, Settings, Shield, Cloud, CheckCircle2, ChevronDown, Smartphone, MonitorSmartphone, Layers } from "lucide-react";
 import Link from "next/link";
 import FAQSection from "../../components/FAQSection/FAQSection";
 import PricingSection, { PricingPackage } from "../../components/PricingSection/PricingSection";
 
 export const generateMetadata = (): import("next").Metadata => ({
-  title: "Mobile & Web App Development Calgary | iOS, Android & Web Apps | NuTab Digital",
+  title: "Custom App & Software Development Calgary | Mobile, Web & Enterprise Solutions | NuTab Digital",
   description:
-    "Calgary's top-rated mobile and web app development company. NuTab Digital builds custom iOS, Android, and web applications for Alberta businesses. Cross-platform expertise. Free quote.",
-  keywords: ["app development Calgary", "mobile app developers Calgary", "web app development Alberta", "iOS app Calgary", "Android app Calgary", "cross-platform apps Alberta"],
+    "Full-service custom app and software development in Calgary. NuTab Digital builds iOS, Android, web apps, and enterprise software solutions tailored to your business needs.",
+  keywords: ["custom software Calgary", "app development Calgary", "mobile app developers Calgary", "enterprise software Alberta", "iOS app Calgary", "Android app Calgary", "software development Alberta"],
   alternates: {
     canonical: "https://nutab.ca/services/app-development",
   },
   openGraph: {
-    title: "Mobile & Web App Development Calgary | iOS, Android & Web Apps | NuTab Digital",
+    title: "Custom App & Software Development Calgary | Mobile, Web & Enterprise Solutions | NuTab Digital",
     description:
-      "Calgary's top-rated mobile and web app development company. NuTab Digital builds custom iOS, Android, and web applications for Alberta businesses.",
+      "Full-service custom app and software development in Calgary. Build scalable mobile apps, web applications, and enterprise software solutions.",
     url: "https://nutab.ca/services/app-development",
     siteName: "NuTab Digital",
     images: [
       {
-        url: "https://nutab.ca/photos/og-app-development.webp",
+        url: "https://nutab.ca/photos/og-custom-software.webp",
         width: 1200,
         height: 800,
-        alt: "Mobile & Web App Development Services in Calgary, Alberta",
+        alt: "Custom App & Software Development Services in Calgary, Alberta",
       },
     ],
     locale: "en_CA",
@@ -33,10 +33,9 @@ export const generateMetadata = (): import("next").Metadata => ({
   },
   twitter: {
     card: "summary_large_image",
-    title: "Mobile & Web App Development Calgary | iOS, Android & Web Apps | NuTab Digital",
-    description:
-      "Calgary's top-rated mobile and web app development company. Build custom apps for iOS, Android, and the web.",
-    images: ["https://nutab.ca/photos/og-app-development.webp"],
+    title: "Custom App & Software Development Calgary | Mobile, Web & Enterprise Solutions | NuTab Digital",
+    description: "Full-service custom app and software development delivering scalable, secure business solutions.",
+    images: ["https://nutab.ca/photos/og-custom-software.webp"],
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
   },
@@ -44,106 +43,103 @@ export const generateMetadata = (): import("next").Metadata => ({
 
 const faqs = [
   {
-    question: "What is mobile and web app development?",
-    answer: "Mobile and web app development involves creating applications for mobile devices (iOS and Android) and web browsers with seamless user experiences."
+    question: "What is custom app and software development?",
+    answer: "Custom app and software development involves creating tailored mobile applications (iOS/Android), web apps, and enterprise software designed specifically for your business needs, rather than using off-the-shelf solutions."
   },
   {
-    question: "How long does it take to develop an app?",
-    answer: "Timelines vary by complexity — simple apps can be completed in weeks, complex projects may take several months."
+    question: "How long does a custom app or software project take?",
+    answer: "Timelines vary based on complexity. Simple apps may take 4–8 weeks, while enterprise systems can take several months. We provide detailed timelines after discovery."
+  },
+  {
+    question: "What technologies do you use?",
+    answer: "We work with modern technologies including React Native, Flutter, Swift, Kotlin, React, Next.js, Node.js, Python, PostgreSQL, MongoDB, and cloud platforms like AWS and Azure."
   },
   {
     question: "Do you provide ongoing support?",
-    answer: "Yes, we offer maintenance, monitoring, and iterative improvements post-launch."
-  },
-  {
-    question: "How much does it cost to develop a mobile or web app?",
-    answer: "App development costs depend on features, platforms, and complexity. We provide transparent quotes and scalable solutions for every budget."
+    answer: "Yes, we offer maintenance and support packages to keep your software updated, secure, and performing optimally with regular updates and monitoring."
   },
   {
     question: "Can you build apps for both iOS and Android?",
-    answer: "Yes, we specialize in cross-platform development, delivering apps that work seamlessly on both iOS and Android devices."
+    answer: "Yes! We specialize in cross-platform development, delivering apps that work seamlessly on both iOS and Android devices using frameworks like React Native and Flutter."
   },
   {
-    question: "Will my app be optimized for SEO and performance?",
-    answer: "Absolutely. We follow best practices for SEO, speed, and accessibility to ensure your app ranks well and delivers a great user experience."
+    question: "Can you integrate with existing systems?",
+    answer: "Absolutely! We specialize in creating integrations with existing software, APIs, and third-party services to create unified workflows."
   },
   {
-    question: "Do you help with app store submission and launch?",
-    answer: "Yes, we guide you through app store submission, launch, and post-launch support to maximize your app's success."
+    question: "How do you ensure software security?",
+    answer: "Security is built into our development process with encryption, authentication, regular audits, and compliance with industry standards like GDPR and HIPAA."
   },
   {
-    question: "Is my app idea safe and confidential?",
-    answer: "We treat every project with strict confidentiality and can sign NDAs to protect your app idea and business information."
+    question: "Do you offer custom software development in Calgary?",
+    answer: "Yes! NuTab Digital is a Calgary-based development company serving businesses across Alberta. We provide custom applications, mobile apps, APIs, and enterprise solutions."
   },
   {
-    question: "Do you offer app development services in Calgary?",
-    answer: "Yes! NuTab Digital is a Calgary-based app development company serving businesses across Alberta. We build iOS, Android, and web applications for local clients."
-  },
-  {
-    question: "Can I meet with your Calgary app developers in person?",
-    answer: "Absolutely. Our Calgary team is available for in-person consultations, demos, and ongoing project collaboration with local businesses."
-  },
-  {
-    question: "Do you build apps for Calgary startups?",
-    answer: "Yes, we specialize in helping Calgary startups and small businesses bring their app ideas to life with scalable, user-friendly solutions."
+    question: "Is your development team based in Calgary?",
+    answer: "Yes, our Calgary-based development team provides in-person consultations and ongoing support for all software and app projects."
   }
 ];
 
-const appDevPackages: PricingPackage[] = [
+const devPackages: PricingPackage[] = [
   {
-    id: "app-prototype",
-    title: "Prototype App",
-    subtitle: "MVP to validate your concept",
-    priceNumber: 6000,
-    priceDisplay: "$6,000",
+    id: "mvp-app",
+    title: "MVP App",
+    subtitle: "Launch your idea quickly",
+    priceNumber: 8000,
+    priceDisplay: "$8,000",
     features: [
-      "Core feature set (2–4 screens)",
-      "Responsive UI & basic navigation",
-      "User authentication",
+      "Single platform (iOS, Android, or Web)",
+      "Core feature set (4–6 screens)",
+      "User authentication & profiles",
       "Basic API integration",
-      "Error handling & logging"
+      "App store submission support",
+      "30 days post-launch support"
     ]
   },
   {
-    id: "app-growth",
-    title: "Growth App",
-    subtitle: "Expand features & scalability",
+    id: "growth-platform",
+    title: "Growth Platform",
+    subtitle: "Scale with advanced features",
     badge: "Popular",
-    priceNumber: 12000,
-    priceDisplay: "$12,000",
+    priceNumber: 16000,
+    priceDisplay: "$16,000",
     features: [
-      "8–12 screens / modules",
-      "Role-based access control",
-      "CI/CD setup & automated tests",
-      "Performance profiling",
-      "Analytics instrumentation"
+      "Cross-platform (iOS + Android or Web)",
+      "Advanced features (10–15 screens)",
+      "Role-based access & permissions",
+      "Third-party integrations",
+      "Analytics & monitoring setup",
+      "CI/CD pipeline & automated testing",
+      "90 days support & updates"
     ],
-    suffix: "Includes Prototype features"
+    suffix: "Includes MVP features"
   },
   {
-    id: "app-platform",
-    title: "Platform Build",
-    subtitle: "Custom architecture & integrations",
-    priceNumber: 24000,
-    priceDisplay: "$24,000",
+    id: "enterprise-solution",
+    title: "Enterprise Solution",
+    subtitle: "Custom architecture for complex needs",
+    priceNumber: 32000,
+    priceDisplay: "$32,000",
     features: [
-      "Complex domain modeling",
-      "Advanced caching & queues",
-      "Third-party integrations",
-      "Security & compliance review",
-      "Load & performance testing",
-      "Observability dashboards"
+      "Multi-platform ecosystem",
+      "Complex business logic & workflows",
+      "Advanced security & compliance",
+      "Microservices architecture",
+      "Data warehousing & analytics",
+      "Load balancing & auto-scaling",
+      "DevOps & infrastructure automation",
+      "6 months priority support"
     ],
-    suffix: "Includes Growth features"
+    suffix: "Includes all Growth features"
   }
 ];
 
 const pricingLdJson = {
   "@context": "https://schema.org",
   "@type": "ItemList",
-  name: "NuTab Digital App Development Pricing",
-  description: "Prototype, Growth and Platform app development packages (25% discount applied).",
-  itemListElement: appDevPackages.map((p, i) => {
+  name: "NuTab Digital App & Software Development Pricing",
+  description: "MVP App, Growth Platform, and Enterprise Solution packages (25% discount applied).",
+  itemListElement: devPackages.map((p, i) => {
     const discounted = Math.round(p.priceNumber * 0.75);
     return {
       "@type": "Offer",
@@ -158,22 +154,22 @@ const pricingLdJson = {
       itemOffered: {
         "@type": "Service",
         name: p.title,
-        serviceType: "Application Development",
+        serviceType: "Custom Software & App Development",
         provider: { "@id": "https://nutab.ca/#organization" },
       },
     };
   }),
 };
 
-const AppDevelopment: React.FC = () => {
+const AppSoftwareDevelopment: React.FC = () => {
   return (
     <main id="main-content" role="main" tabIndex={-1} className="relative dark">
       <Background />
-      
+
       <Breadcrumbs items={[
         { label: "Home", href: "/" },
         { label: "Services", href: "/services" },
-        { label: "Mobile & Web App Development" }
+        { label: "Custom App & Software Development" }
       ]} />
 
       {/* JSON-LD Structured Data */}
@@ -186,7 +182,7 @@ const AppDevelopment: React.FC = () => {
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://nutab.ca" },
               { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services" },
-              { "@type": "ListItem", position: 3, name: "Mobile & Web App Development", item: "https://nutab.ca/services/app-development" }
+              { "@type": "ListItem", position: 3, name: "Custom App & Software Development", item: "https://nutab.ca/services/app-development" }
             ]
           }),
         }}
@@ -199,13 +195,13 @@ const AppDevelopment: React.FC = () => {
             "@context": "https://schema.org",
             "@type": "Service",
             "@id": "https://nutab.ca/services/app-development#service",
-            name: "Mobile & Web App Development",
-            description: "Build performant, scalable apps for iOS, Android, and the web with Calgary's experienced development team.",
-            serviceType: "App Development",
+            name: "Custom App & Software Development",
+            description: "Custom software and mobile app development services including iOS, Android, web applications, and enterprise solutions.",
+            serviceType: "Software & App Development",
             url: "https://nutab.ca/services/app-development",
             image: "https://nutab.ca/photos/3d-nutab-logo.png",
             datePublished: "2024-01-15",
-            dateModified: "2025-12-11",
+            dateModified: "2025-12-13",
             provider: { "@id": "https://nutab.ca/#organization" },
             areaServed: {
               "@type": "City",
@@ -234,30 +230,30 @@ const AppDevelopment: React.FC = () => {
       {/* Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-20 pb-16">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-500/10 dark:bg-blue-500/20 border border-blue-500/20 dark:border-blue-500/30 mb-8">
-            <MonitorSmartphone className="w-4 h-4 text-blue-500" />
-            <span className="text-sm font-medium text-blue-600 dark:text-blue-400">Calgary App Developers</span>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-indigo-500/10 dark:bg-indigo-500/20 border border-indigo-500/20 dark:border-indigo-500/30 mb-8">
+            <Code2 className="w-4 h-4 text-indigo-500" />
+            <span className="text-sm font-medium text-indigo-600 dark:text-indigo-400">Calgary Software & App Experts</span>
           </div>
-          
+
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
-            <span className="text-gray-900 dark:text-white">Build Powerful</span>
+            <span className="text-gray-900 dark:text-white">Custom App & Software</span>
             <br />
-            <span className="bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 bg-clip-text text-transparent">
-              Mobile & Web Apps
+            <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-violet-500 bg-clip-text text-transparent">
+              Built for Your Business
             </span>
           </h1>
-          
+
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed">
-            Turn your ideas into reality with high-performance iOS, Android, and web applications. 
-            Our Calgary-based team delivers scalable, user-centric solutions that drive engagement 
-            and business growth.
+            Transform your business with custom mobile apps, web applications, and enterprise software.
+            Our Calgary-based development team creates scalable, secure solutions that solve your unique
+            challenges and drive growth.
           </p>
-          
+
           <div className="flex flex-wrap justify-center gap-8 mb-12">
             {[
-              { icon: Smartphone, label: "Cross-Platform", color: "text-blue-500" },
-              { icon: Layers, label: "Scalable Architecture", color: "text-cyan-500" },
-              { icon: ShieldCheck, label: "Secure by Design", color: "text-teal-500" },
+              { icon: Smartphone, label: "Mobile Apps", color: "text-indigo-500" },
+              { icon: Server, label: "Enterprise Software", color: "text-purple-500" },
+              { icon: Database, label: "Data Systems", color: "text-violet-500" },
             ].map(({ icon: Icon, label, color }) => (
               <div key={label} className="flex flex-col items-center gap-2 group">
                 <div className="p-4 rounded-2xl bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 group-hover:scale-110 transition-transform duration-300">
@@ -267,18 +263,18 @@ const AppDevelopment: React.FC = () => {
               </div>
             ))}
           </div>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
               href="/#contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-blue-600 to-cyan-600 text-white font-semibold hover:opacity-90 transition-all duration-300 shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 hover:scale-105"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold hover:opacity-90 transition-all duration-300 shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:scale-105"
             >
               Start Your Project
               <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               href="#pricing"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 font-semibold hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300"
             >
               View Pricing
               <ChevronDown className="w-5 h-5" />
@@ -287,38 +283,38 @@ const AppDevelopment: React.FC = () => {
         </div>
       </section>
 
-      {/* Why App Development Section */}
+      {/* Why Custom Development Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Why Build <span className="bg-gradient-to-r from-blue-500 to-cyan-500 bg-clip-text text-transparent">Custom Apps?</span>
+              Why <span className="bg-gradient-to-r from-indigo-500 to-purple-500 bg-clip-text text-transparent">Custom Development?</span>
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Custom apps give you complete control over features, branding, and user experience 
-              while positioning your business for long-term growth.
+              Off-the-shelf solutions can&apos;t address every business need. Custom software and apps are built
+              around your unique processes, brand, and requirements.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
                 icon: MonitorSmartphone,
                 title: "Cross-Platform Reach",
-                description: "Reach users on iOS, Android, and the web with a single codebase. Maximize your audience with less development overhead.",
-                gradient: "from-blue-500 to-cyan-500"
+                description: "Reach users on iOS, Android, and web with unified experiences. Maximize your audience while minimizing development costs.",
+                gradient: "from-indigo-500 to-purple-500"
               },
               {
-                icon: Rocket,
-                title: "Performance First",
-                description: "Fast, responsive apps that load quickly and handle complex operations without compromising user experience.",
-                gradient: "from-cyan-500 to-teal-500"
+                icon: Layers,
+                title: "Scalable Architecture",
+                description: "Built to scale with your business, handling increased load and new features as you expand without rebuilding.",
+                gradient: "from-purple-500 to-violet-500"
               },
               {
-                icon: ShieldCheck,
+                icon: Shield,
                 title: "Enterprise Security",
-                description: "Built-in security measures, encrypted data storage, and compliance-ready architecture for sensitive applications.",
-                gradient: "from-teal-500 to-emerald-500"
+                description: "Proprietary tools with built-in security, encrypted data storage, and compliance-ready architecture.",
+                gradient: "from-violet-500 to-indigo-500"
               }
             ].map(({ icon: Icon, title, description, gradient }) => (
               <div key={title} className="group relative">
@@ -340,48 +336,53 @@ const AppDevelopment: React.FC = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Our App Development Services
+              Our Development Services
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
               End-to-end development services from concept to launch and beyond.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 gap-6">
             {[
               {
-                title: "iOS App Development",
-                description: "Native and cross-platform iOS apps optimized for iPhone and iPad with intuitive interfaces and App Store readiness.",
+                title: "iOS & Android Apps",
+                description: "Native and cross-platform mobile apps with intuitive interfaces, offline support, and seamless performance.",
                 icon: Smartphone
               },
               {
-                title: "Android App Development",
-                description: "High-performance Android apps that work across devices, from smartphones to tablets and beyond.",
+                title: "Web Applications",
+                description: "Progressive web apps and single-page applications with responsive design and modern frameworks.",
                 icon: MonitorSmartphone
               },
               {
-                title: "Progressive Web Apps",
-                description: "Web applications that feel native, with offline support, push notifications, and fast loading times.",
-                icon: Globe
+                title: "Enterprise Applications",
+                description: "Large-scale systems that power complex business operations with reliability, security, and scalability.",
+                icon: Server
               },
               {
-                title: "Backend & API Development",
-                description: "Scalable server infrastructure, RESTful APIs, and database design to power your applications.",
+                title: "API Development",
+                description: "Robust APIs that connect your systems, enable integrations, and power modern applications.",
                 icon: Code2
               },
               {
-                title: "UI/UX Design",
-                description: "User-centered design that balances aesthetics with functionality for intuitive, engaging experiences.",
-                icon: Layers
+                title: "Database Solutions",
+                description: "Custom database design, optimization, and data warehousing for efficient management and analytics.",
+                icon: Database
+              },
+              {
+                title: "Cloud & DevOps",
+                description: "Scalable cloud infrastructure on AWS, Azure, or GCP with CI/CD pipelines and automated deployments.",
+                icon: Cloud
               }
             ].map(({ title, description, icon: Icon }) => (
-              <div 
+              <div
                 key={title}
-                className="group flex gap-5 p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hover:shadow-lg hover:shadow-blue-500/5 dark:hover:shadow-blue-500/10 transition-all duration-300"
+                className="group flex gap-5 p-6 rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hover:shadow-lg hover:shadow-indigo-500/5 dark:hover:shadow-indigo-500/10 transition-all duration-300"
               >
                 <div className="flex-shrink-0">
-                  <div className="p-3 rounded-xl bg-blue-100 dark:bg-blue-900/30 group-hover:bg-blue-200 dark:group-hover:bg-blue-900/50 transition-colors duration-300">
-                    <Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+                  <div className="p-3 rounded-xl bg-indigo-100 dark:bg-indigo-900/30 group-hover:bg-indigo-200 dark:group-hover:bg-indigo-900/50 transition-colors duration-300">
+                    <Icon className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
                   </div>
                 </div>
                 <div>
@@ -396,95 +397,63 @@ const AppDevelopment: React.FC = () => {
 
       {/* Pricing Section */}
       <PricingSection
-        packages={appDevPackages}
-        title="App Development Pricing"
-        subtitle="Choose the package that matches your app's complexity. All packages include dedicated project management and documentation."
-        accentColor="blue"
+        packages={devPackages}
+        title="Development Pricing"
+        subtitle="Flexible packages to match your project scope. All packages include dedicated project management, documentation, and source code ownership."
+        accentColor="indigo"
         ldJson={pricingLdJson}
       />
 
-      {/* Benefits Section */}
+      {/* Technologies Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-gray-900/50">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
+          <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Benefits of Custom Apps
+              Technologies We Use
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Investing in custom app development delivers lasting value and competitive advantages.
+              Modern, battle-tested technologies for reliable software and mobile apps.
             </p>
           </div>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            {[
-              { icon: Users, title: "User Engagement", description: "Direct connection with your audience" },
-              { icon: Zap, title: "Performance", description: "Fast, responsive experiences" },
-              { icon: Rocket, title: "Scalability", description: "Grow without rebuilding" },
-              { icon: ShieldCheck, title: "Security", description: "Enterprise-grade protection" },
-              { icon: Sparkles, title: "Innovation", description: "Stand out from competitors" }
-            ].map(({ icon: Icon, title, description }) => (
-              <div key={title} className="text-center group">
-                <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30 mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Icon className="w-6 h-6 text-blue-600 dark:text-blue-400" />
-                </div>
-                <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400">{description}</p>
+
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            {["React Native", "Flutter", "Swift / Kotlin", "React / Next.js", "Node.js", "Python", "PostgreSQL", "AWS / Azure", "Docker", "TypeScript", "GraphQL", "MongoDB"].map((tech) => (
+              <div
+                key={tech}
+                className="p-4 rounded-xl text-center font-medium bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all duration-300"
+              >
+                {tech}
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Industries Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              Industries We Serve
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              We build apps for businesses across diverse sectors.
-            </p>
-          </div>
-          
-          <div className="flex flex-wrap justify-center gap-3">
-            {["Healthcare", "Finance", "E-Commerce", "Education", "Real Estate", "Logistics", "Entertainment", "SaaS"].map((industry) => (
-              <span
-                key={industry}
-                className="px-5 py-2.5 rounded-full text-sm font-medium bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 cursor-default"
-              >
-                {industry}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Process Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-gray-900/50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Our Development Process
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              A structured approach that delivers quality apps on time and within budget.
+              A proven methodology that delivers quality software on time and on budget.
             </p>
           </div>
-          
+
           <div className="relative dark">
-            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-blue-500 via-cyan-500 to-teal-500 transform -translate-y-1/2 z-0" />
-            
+            <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-gradient-to-r from-indigo-500 via-purple-500 to-violet-500 transform -translate-y-1/2 z-0" />
+
             <div className="grid lg:grid-cols-5 gap-8 relative z-10">
               {[
-                { step: "01", title: "Discovery", description: "Define goals, users, and requirements" },
+                { step: "01", title: "Discovery", description: "Define requirements, goals, and users" },
                 { step: "02", title: "Design", description: "UX wireframes and visual design" },
-                { step: "03", title: "Development", description: "Build, integrate, and iterate" },
-                { step: "04", title: "Testing", description: "QA, performance, and security testing" },
-                { step: "05", title: "Launch", description: "Deploy, monitor, and support" }
+                { step: "03", title: "Development", description: "Agile sprints with regular demos" },
+                { step: "04", title: "Testing", description: "Comprehensive QA and security" },
+                { step: "05", title: "Launch", description: "Deployment and ongoing support" }
               ].map(({ step, title, description }) => (
                 <div key={step} className="text-center">
-                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-600 to-cyan-600 text-white font-bold text-lg mb-4 shadow-lg shadow-blue-500/25">
+                  <div className="inline-flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-indigo-600 to-purple-600 text-white font-bold text-lg mb-4 shadow-lg shadow-indigo-500/25">
                     {step}
                   </div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-2">{title}</h3>
@@ -497,28 +466,28 @@ const AppDevelopment: React.FC = () => {
       </section>
 
       {/* Why Partner Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-gray-900/50">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
               Why Choose NuTab Digital?
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Partner with Calgary&apos;s trusted app development team for results that matter.
+              Partner with Calgary&apos;s trusted development team for solutions that work.
             </p>
           </div>
-          
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: "Full-Stack Expertise", description: "End-to-end development from frontend to backend and infrastructure" },
-              { title: "Agile Methodology", description: "Iterative development with regular updates and flexibility" },
-              { title: "Quality Assurance", description: "Rigorous testing ensures reliable, bug-free applications" },
-              { title: "Post-Launch Support", description: "Ongoing maintenance, updates, and performance optimization" },
-              { title: "Local Calgary Team", description: "In-person consultations and collaboration with Alberta businesses" },
-              { title: "Transparent Communication", description: "Regular progress updates and clear project milestones" }
+              { title: "Full-Stack Expertise", description: "End-to-end development from mobile apps to backend infrastructure" },
+              { title: "Agile Methodology", description: "Iterative development with transparency and regular deliverables" },
+              { title: "Security First", description: "Built-in security practices and compliance with industry standards" },
+              { title: "Scalable Architecture", description: "Software designed to grow with your business needs" },
+              { title: "Local Calgary Team", description: "In-person collaboration and ongoing technical support" },
+              { title: "Long-term Partnership", description: "Maintenance, updates, and enhancements as your needs evolve" }
             ].map(({ title, description }) => (
-              <div key={title} className="flex items-start gap-4 p-5 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors duration-300">
-                <CheckCircle2 className="w-6 h-6 text-cyan-500 flex-shrink-0 mt-0.5" />
+              <div key={title} className="flex items-start gap-4 p-5 rounded-xl hover:bg-white dark:hover:bg-gray-800 transition-colors duration-300">
+                <CheckCircle2 className="w-6 h-6 text-purple-500 flex-shrink-0 mt-0.5" />
                 <div>
                   <h3 className="font-semibold text-gray-900 dark:text-white mb-1">{title}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-400">{description}</p>
@@ -530,25 +499,25 @@ const AppDevelopment: React.FC = () => {
       </section>
 
       {/* Related Services */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gray-50/50 dark:bg-gray-900/50">
+      <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             Related Services
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-400 mb-10">
-            Explore more ways we can help build your digital presence.
+            Explore complementary services for your technology needs.
           </p>
-          
+
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              { label: "Custom Software Development", href: "/services/custom-software" },
+              { label: "Web Design & Development", href: "/services/web-design" },
               { label: "AI & Automation", href: "/services/ai-automation" },
-              { label: "E-Commerce Development", href: "/services/ecommerce" }
+              { label: "IT Consulting", href: "/services/it-consulting" }
             ].map(({ label, href }) => (
               <Link
                 key={label}
                 href={href}
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-all duration-300"
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full border border-gray-300 dark:border-gray-700 text-gray-700 dark:text-gray-300 hover:border-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 transition-all duration-300"
               >
                 {label}
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -561,21 +530,21 @@ const AppDevelopment: React.FC = () => {
       {/* CTA Section */}
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
-          <div className="p-10 rounded-3xl bg-gradient-to-br from-blue-600 via-cyan-600 to-teal-600 relative overflow-hidden">
+          <div className="p-10 rounded-3xl bg-gradient-to-br from-indigo-600 via-purple-600 to-violet-600 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
-            
+
             <div className="relative z-10">
               <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-                Ready to Build Your App?
+                Ready to Build Your Custom Solution?
               </h2>
               <p className="text-lg text-white/90 mb-8 max-w-2xl mx-auto">
-                Let&apos;s turn your idea into a powerful application. Contact us today for a free consultation 
-                and discover how NuTab Digital can bring your vision to life.
+                Let&apos;s discuss your app or software requirements. Contact us today for a free consultation
+                with our Calgary development team.
               </p>
               <Link
                 href="/#contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-blue-600 font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:scale-105"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-white text-indigo-600 font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:scale-105"
               >
                 Get Your Free Quote
                 <ArrowRight className="w-5 h-5" />
@@ -586,13 +555,13 @@ const AppDevelopment: React.FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <FAQSection 
-        faqs={faqs} 
-        lead="Common questions about our mobile and web app development services."
-        accentColor="blue"
+      <FAQSection
+        faqs={faqs}
+        lead="Common questions about our custom app and software development services."
+        accentColor="indigo"
       />
     </main>
   );
 };
 
-export default AppDevelopment;
+export default AppSoftwareDevelopment;

@@ -545,7 +545,7 @@ const WebDesign: React.FC = () => {
 
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              { label: "Custom App & Software Development", href: "/services/app-software-development" },
+              { label: "Custom App & Software Development", href: "/services/app-development" },
               { label: "SEO & Digital Marketing", href: "/services/seo-marketing" },
               { label: "E-Commerce Development", href: "/services/ecommerce" }
             ].map(({ label, href }) => (

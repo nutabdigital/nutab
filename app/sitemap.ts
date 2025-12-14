@@ -17,18 +17,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/portfolio`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.7,
     },
     // Services Index
     {
       url: `${baseUrl}/services`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.9,
+      priority: 0.7,
     },
     // Top Priority Services
     {
-      url: `${baseUrl}/services/app-software-development`,
+      url: `${baseUrl}/services/app-development`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
@@ -37,26 +37,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/services/web-design`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.8,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/services/seo-marketing`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    // Legacy redirects - kept for SEO
-    {
-      url: `${baseUrl}/services/custom-software`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/services/app-development`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
+      priority: 0.9,
     },
     // Secondary Services
     {

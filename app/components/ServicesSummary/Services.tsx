@@ -16,10 +16,10 @@ import {
 const services = [
   {
     icon: Code,
-    id: "app-software-development",
+    id: "app-development",
     name: "Custom App & Software Development",
     description: "We create custom mobile apps, web applications, and enterprise software tailored to your business needs.",
-    link: "/services/app-software-development",
+    link: "/services/app-development",
     gradient: "from-purple-500 to-blue-500",
   },
   {

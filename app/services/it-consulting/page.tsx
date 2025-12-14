@@ -552,7 +552,7 @@ const ITConsulting: React.FC = () => {
           
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              { label: "Custom Software Development", href: "/services/custom-software" },
+              { label: "Custom Software Development", href: "/services/app-development" },
               { label: "AI & Automation Solutions", href: "/services/ai-automation" },
               { label: "SEO & Digital Marketing", href: "/services/seo-marketing" }
             ].map(({ label, href }) => (

@@ -554,7 +554,7 @@ const AIAutomation: React.FC = () => {
           
           <div className="flex flex-wrap justify-center gap-4">
             {[
-              { label: "Custom Software Development", href: "/services/custom-software" },
+              { label: "Custom Software Development", href: "/services/app-development" },
               { label: "Business IT Consulting", href: "/services/it-consulting" },
               { label: "SEO & Digital Marketing", href: "/services/seo-marketing" }
             ].map(({ label, href }) => (

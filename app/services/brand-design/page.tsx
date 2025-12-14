@@ -506,7 +506,7 @@ const BrandDesign: React.FC = () => {
             {[
               { label: "Photography & Media", href: "/services/photo-media" },
               { label: "SEO & Digital Marketing", href: "/services/seo-marketing" },
-              { label: "Custom Software", href: "/services/custom-software" }
+              { label: "Custom Software", href: "/services/app-development" }
             ].map(({ label, href }) => (
               <Link
                 key={label}

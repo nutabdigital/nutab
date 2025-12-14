@@ -93,7 +93,7 @@ const structuredData = {
   "makesOffer": [
     {
       "@type": "Offer",
-      "url": "https://nutab.ca/services/custom-software",
+      "url": "https://nutab.ca/services/app-development",
       "itemOffered": {
         "@type": "Service",
         "name": "Custom Software Development",

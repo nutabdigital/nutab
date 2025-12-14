@@ -71,7 +71,7 @@ const NavLink = memo<NavLinkProps>(({ href, isActive, onClick, children, classNa
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`relative bg-transparent border-none cursor-pointer text-base font-medium transition-colors duration-300 ${className}`}
+      className={`relative bg-transparent border-none cursor-pointer text-[1.05rem] font-medium transition-colors duration-300 ${className}`}
       style={{ color: isActive || isHovered ? accentColor : undefined }}
     >
       {children}
@@ -106,7 +106,7 @@ const NavLinkWrapper = memo<NavLinkWrapperProps>(({ href, isActive, onClick, chi
       onClick={onClick}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className={`relative bg-transparent border-none cursor-pointer text-base font-medium transition-colors duration-300 ${className}`}
+      className={`relative bg-transparent border-none cursor-pointer text-[1.05rem] font-medium transition-colors duration-300 ${className}`}
       style={{ color: isActive || isHovered ? accentColor : undefined }}
     >
       {children}
@@ -234,9 +234,9 @@ const Header: React.FC = () => {
               loading="eager"
               decoding="sync"
             />
-            <span className="flex flex-col leading-[1.05] max-[725px]:hidden" aria-label="Nutab Digital">
-              <span className="font-bold text-[1.1rem]">Nutab</span>
-              <span className="font-bold text-[1.1rem]">Digital</span>
+            <span className="flex flex-col leading-[1.05] max-[725px]:hidden pt-1" aria-label="Nutab Digital">
+              <span className="font-medium text-[1.1rem]">Nutab</span>
+              <span className="font-medium text-[1.1rem]">Digital</span>
             </span>
           </a>
         </div>

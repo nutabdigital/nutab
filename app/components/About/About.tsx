@@ -66,7 +66,7 @@ const About: React.FC = () => {
               width="40"
               height="40"
             />
-            <h2 className="text-2xl font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-violet-500 bg-clip-text text-transparent">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 text-center">
               Built in Canada, Designed for Growth
             </h2>
           </div>

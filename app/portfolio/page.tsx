@@ -27,12 +27,12 @@ import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
 
 // Color Palette for ChopChop Barber
 const colorPalette = [
-  { name: "Charcoal Black", hex: "#1a1a1a", textColor: "white" },
-  { name: "Barber Red", hex: "#c41e3a", textColor: "white" },
-  { name: "Cream White", hex: "#f5f5dc", textColor: "black" },
-  { name: "Gold Accent", hex: "#d4af37", textColor: "black" },
-  { name: "Dark Gray", hex: "#2d2d2d", textColor: "white" },
-  { name: "Warm White", hex: "#faf9f6", textColor: "black" },
+  { name: "Primary (Near-Black)", hex: "#030213", textColor: "white" },
+  { name: "Black (UI)", hex: "#000000", textColor: "white" },
+  { name: "White", hex: "#FFFFFF", textColor: "black" },
+  { name: "Accent Red", hex: "#DC2626", textColor: "white" },
+  { name: "Accent Blue", hex: "#2563EB", textColor: "white" },
+  { name: "Muted / UI Gray", hex: "#ECECF0", textColor: "black" },
 ];
 
 // Performance Metrics

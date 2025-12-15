@@ -102,8 +102,8 @@ const seoPackages: PricingPackage[] = [
     id: "starter-seo",
     title: "Starter SEO",
     subtitle: "Essential monthly optimization",
-    priceNumber: 500,
-    priceDisplay: "$500",
+    priceNumber: 300,
+    priceDisplay: "$300",
     isMonthly: true,
     features: [
       "Keyword research & tracking",
@@ -119,8 +119,8 @@ const seoPackages: PricingPackage[] = [
     title: "Growth SEO",
     subtitle: "Comprehensive marketing package",
     badge: "Popular",
-    priceNumber: 750,
-    priceDisplay: "$750",
+    priceNumber: 650,
+    priceDisplay: "$650",
     isMonthly: true,
     features: [
       "All Starter features",

@@ -12,9 +12,9 @@ import { useTheme } from "@/app/context/ThemeContext";
 
 // Color schemes for different pages (hex values for light and dark modes)
 const pageColors: Record<string, { light: string; dark: string }> = {
-  "/services/app-development": { light: "#4f46e5", dark: "#818cf8" }, // indigo
   "/services/web-design": { light: "#2563eb", dark: "#60a5fa" }, // blue
   "/services/seo-marketing": { light: "#16a34a", dark: "#4ade80" }, // green
+  "/services/app-development": { light: "#4f46e5", dark: "#818cf8" }, // indigo
   "/services/ecommerce": { light: "#059669", dark: "#34d399" }, // emerald
   "/services/ai-automation": { light: "#9333ea", dark: "#c084fc" }, // purple
   "/services/it-consulting": { light: "#d97706", dark: "#fbbf24" }, // amber
@@ -42,9 +42,12 @@ const getPageColor = (pathname: string | null, isDark: boolean): string => {
 
 // Updated servicesDropdown with reorganized services
 const servicesDropdown = [
-  { name: "Custom App & Software Development", link: "/services/app-development" },
   { name: "Web Design & Development", link: "/services/web-design" },
   { name: "SEO & Digital Marketing", link: "/services/seo-marketing" },
+  {
+    name: "Custom App & Software Development",
+    link: "/services/app-development",
+  },
   { name: "E-Commerce Development", link: "/services/ecommerce" },
   { name: "AI & Automation Solutions", link: "/services/ai-automation" },
   { name: "Business & IT Consulting", link: "/services/it-consulting" },
@@ -62,30 +65,32 @@ interface NavLinkProps {
   accentColor: string;
 }
 
-const NavLink = memo<NavLinkProps>(({ href, isActive, onClick, children, className = "", accentColor }) => {
-  const [isHovered, setIsHovered] = useState(false);
+const NavLink = memo<NavLinkProps>(
+  ({ href, isActive, onClick, children, className = "", accentColor }) => {
+    const [isHovered, setIsHovered] = useState(false);
 
-  return (
-    <a
-      href={href}
-      onClick={onClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`relative bg-transparent border-none cursor-pointer text-[1.05rem] font-medium transition-colors duration-300 ${className}`}
-      style={{ color: isActive || isHovered ? accentColor : undefined }}
-    >
-      {children}
-      {/* CSS transition underline - replaces framer-motion for better performance */}
-      <span
-        className="absolute -bottom-1 left-0 h-[2px] transition-all duration-300 ease-in-out"
-        style={{
-          backgroundColor: accentColor,
-          width: isActive ? "100%" : 0,
-        }}
-      />
-    </a>
-  );
-});
+    return (
+      <a
+        href={href}
+        onClick={onClick}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className={`relative bg-transparent border-none cursor-pointer text-[1.05rem] font-medium transition-colors duration-300 ${className}`}
+        style={{ color: isActive || isHovered ? accentColor : undefined }}
+      >
+        {children}
+        {/* CSS transition underline - replaces framer-motion for better performance */}
+        <span
+          className="absolute -bottom-1 left-0 h-[2px] transition-all duration-300 ease-in-out"
+          style={{
+            backgroundColor: accentColor,
+            width: isActive ? "100%" : 0,
+          }}
+        />
+      </a>
+    );
+  }
+);
 
 // NavLinkWrapper for Link components with animated underline - memoized for performance
 interface NavLinkWrapperProps {
@@ -97,30 +102,32 @@ interface NavLinkWrapperProps {
   accentColor: string;
 }
 
-const NavLinkWrapper = memo<NavLinkWrapperProps>(({ href, isActive, onClick, children, className = "", accentColor }) => {
-  const [isHovered, setIsHovered] = useState(false);
+const NavLinkWrapper = memo<NavLinkWrapperProps>(
+  ({ href, isActive, onClick, children, className = "", accentColor }) => {
+    const [isHovered, setIsHovered] = useState(false);
 
-  return (
-    <Link
-      href={href}
-      onClick={onClick}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      className={`relative bg-transparent border-none cursor-pointer text-[1.05rem] font-medium transition-colors duration-300 ${className}`}
-      style={{ color: isActive || isHovered ? accentColor : undefined }}
-    >
-      {children}
-      {/* CSS transition underline - replaces framer-motion for better performance */}
-      <span
-        className="absolute -bottom-1 left-0 h-[2px] transition-all duration-300 ease-in-out"
-        style={{
-          backgroundColor: accentColor,
-          width: isActive ? "100%" : 0,
-        }}
-      />
-    </Link>
-  );
-});
+    return (
+      <Link
+        href={href}
+        onClick={onClick}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className={`relative bg-transparent border-none cursor-pointer text-[1.05rem] font-medium transition-colors duration-300 ${className}`}
+        style={{ color: isActive || isHovered ? accentColor : undefined }}
+      >
+        {children}
+        {/* CSS transition underline - replaces framer-motion for better performance */}
+        <span
+          className="absolute -bottom-1 left-0 h-[2px] transition-all duration-300 ease-in-out"
+          style={{
+            backgroundColor: accentColor,
+            width: isActive ? "100%" : 0,
+          }}
+        />
+      </Link>
+    );
+  }
+);
 
 const Header: React.FC = () => {
   const [isNavOpen, setIsNavOpen] = useState(false);
@@ -146,10 +153,14 @@ const Header: React.FC = () => {
   const isOnServicePage = pathname?.startsWith("/services");
 
   // Check if on portfolio page (handle trailing slash)
-  const isOnPortfolioPage = pathname === "/portfolio" || pathname === "/portfolio/";
+  const isOnPortfolioPage =
+    pathname === "/portfolio" || pathname === "/portfolio/";
 
   // Get page-specific accent color - memoized to prevent recalculation on every render
-  const accentColor = useMemo(() => getPageColor(pathname, isDark), [pathname, isDark]);
+  const accentColor = useMemo(
+    () => getPageColor(pathname, isDark),
+    [pathname, isDark]
+  );
 
   // Reset currentSection when navigating away from homepage
   useEffect(() => {
@@ -162,7 +173,9 @@ const Header: React.FC = () => {
 
   // Scrolls smoothly to a specific section of the page or redirects to the main page
   const handleScroll = (
-    e: React.MouseEvent<HTMLAnchorElement> | React.MouseEvent<HTMLButtonElement>,
+    e:
+      | React.MouseEvent<HTMLAnchorElement>
+      | React.MouseEvent<HTMLButtonElement>,
     sectionId: string
   ) => {
     e.preventDefault();
@@ -180,7 +193,6 @@ const Header: React.FC = () => {
       scrollToSection(sectionId, 10);
     }
   };
-
 
   // Reset mobile services sublist when nav closes
   useEffect(() => {
@@ -200,7 +212,8 @@ const Header: React.FC = () => {
       // If click is inside nav or menu button, do nothing
       if (
         (navRef.current && navRef.current.contains(event.target as Node)) ||
-        (menuBtnRef.current && menuBtnRef.current.contains(event.target as Node))
+        (menuBtnRef.current &&
+          menuBtnRef.current.contains(event.target as Node))
       ) {
         return;
       }
@@ -216,14 +229,19 @@ const Header: React.FC = () => {
     };
   }, [isNavOpen]);
 
-  const isServicesActive = isOnServicePage || (isHomePage && currentSection === 2);
+  const isServicesActive =
+    isOnServicePage || (isHomePage && currentSection === 2);
 
   return (
     <header className="fixed top-0 bg-[var(--background)] text-[var(--foreground)] shadow-[0_4px_12px_rgba(3,3,3,0.198)] dark:shadow-[0_4px_12px_rgba(0,0,0,0.752)] z-[11] w-screen max-h-[70px] max-sm:h-[66px] max-sm:max-h-[66px]">
       <div className="mx-auto p-4 flex justify-between items-center w-full max-w-[1200px] max-lg:min-[601px]:p-2 max-lg:min-[601px]:max-w-[900px]">
         {/* Logo on the left */}
         <div className="min-[600px]:cursor-pointer">
-          <a href="/" onClick={(e) => handleScroll(e, "tagline")} className="inline-flex items-end gap-2 no-underline">
+          <a
+            href="/"
+            onClick={(e) => handleScroll(e, "tagline")}
+            className="inline-flex items-end gap-2 no-underline"
+          >
             {/* Single logo based on theme - saves HTTP request */}
             <img
               className="block pl-6"
@@ -234,7 +252,10 @@ const Header: React.FC = () => {
               loading="eager"
               decoding="sync"
             />
-            <span className="flex flex-col leading-[1.05] max-[725px]:hidden pt-1" aria-label="Nutab Digital">
+            <span
+              className="flex flex-col leading-[1.05] max-[725px]:hidden pt-1"
+              aria-label="Nutab Digital"
+            >
               <span className="font-medium text-[1.1rem]">Nutab</span>
               <span className="font-medium text-[1.1rem]">Digital</span>
             </span>
@@ -254,22 +275,33 @@ const Header: React.FC = () => {
           </NavLink>
           <div
             className="relative inline-block"
-            onMouseEnter={() => { setIsServicesOpen(true); setServicesHovered(true); }}
-            onMouseLeave={() => { setIsServicesOpen(false); setServicesHovered(false); }}
+            onMouseEnter={() => {
+              setIsServicesOpen(true);
+              setServicesHovered(true);
+            }}
+            onMouseLeave={() => {
+              setIsServicesOpen(false);
+              setServicesHovered(false);
+            }}
             tabIndex={0}
           >
             {/* Navigate to /services when clicked */}
             <Link
               href="/services"
-              className="relative bg-transparent border-none cursor-pointer text-base font-medium transition-colors duration-300 flex items-center max-lg:min-[601px]:text-[0.95rem] max-lg:min-[601px]:ml-2 max-lg:min-[601px]:px-2 max-lg:min-[601px]:py-1"
-              style={{ color: isServicesActive || servicesHovered ? accentColor : undefined }}
+              className="relative bg-transparent border-none cursor-pointer text-[1.05rem] font-medium transition-colors duration-300 flex items-center max-lg:min-[601px]:text-[0.95rem] max-lg:min-[601px]:ml-2 max-lg:min-[601px]:px-2 max-lg:min-[601px]:py-1"
+              style={{
+                color:
+                  isServicesActive || servicesHovered ? accentColor : undefined,
+              }}
               onClick={() => setIsServicesOpen(false)}
               aria-haspopup="true"
               aria-expanded={isServicesOpen}
             >
               <span>Services</span>
               <ChevronDown
-                className={`inline-block ml-2 align-middle transition-transform duration-200 ${isServicesOpen ? "rotate-180" : ""}`}
+                className={`inline-block ml-2 align-middle transition-transform duration-200 ${
+                  isServicesOpen ? "rotate-180" : ""
+                }`}
                 size={18}
                 strokeWidth={2}
               />
@@ -330,7 +362,7 @@ const Header: React.FC = () => {
           >
             Contact
           </NavLink>
-            <NavLinkWrapper
+          <NavLinkWrapper
             href="/portfolio"
             isActive={!!isOnPortfolioPage}
             className="max-lg:min-[601px]:text-[0.95rem] max-lg:min-[601px]:ml-2 max-lg:min-[601px]:px-2 max-lg:min-[601px]:py-1"
@@ -350,9 +382,15 @@ const Header: React.FC = () => {
             aria-label={isNavOpen ? "Close menu" : "Open menu"}
           >
             {isNavOpen ? (
-              <X size={32} className="text-[#222] dark:text-white w-5 h-5 pointer-events-none transition-colors duration-200" />
+              <X
+                size={32}
+                className="text-[#222] dark:text-white w-5 h-5 pointer-events-none transition-colors duration-200"
+              />
             ) : (
-              <Menu size={32} className="text-[#222] dark:text-white w-5 h-5 pointer-events-none transition-colors duration-200" />
+              <Menu
+                size={32}
+                className="text-[#222] dark:text-white w-5 h-5 pointer-events-none transition-colors duration-200"
+              />
             )}
           </button>
         </div>
@@ -402,13 +440,14 @@ const Header: React.FC = () => {
                   <span className="flex-1 text-left">
                     Services{" "}
                     <ChevronDown
-                      className={`inline-block ml-2 align-middle transition-transform duration-200 ${isMobileServicesOpen ? "rotate-180" : ""}`}
+                      className={`inline-block ml-2 align-middle transition-transform duration-200 ${
+                        isMobileServicesOpen ? "rotate-180" : ""
+                      }`}
                       size={18}
                       strokeWidth={2}
                     />
                   </span>
                 </button>
-
 
                 <AnimatePresence>
                   {isMobileServicesOpen && (
@@ -434,7 +473,6 @@ const Header: React.FC = () => {
                           >
                             {service.name}
                           </Link>
-
                         </motion.li>
                       ))}
                     </motion.ul>

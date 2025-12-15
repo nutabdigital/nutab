@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect } from "react";
-import "./Team.css";
 import Image from 'next/image';
 
 // Contact structure
@@ -63,8 +62,8 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
           // nothing intersecting: remove inview from any elements encountered
           entries.forEach(entry => {
             const el = entry.target as HTMLElement;
-            if (el.classList.contains('inview')) {
-              el.classList.remove('inview');
+            if (el.classList.contains('scale-110')) {
+              el.classList.remove('scale-110');
             }
           });
           return;
@@ -85,12 +84,12 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
 
         distances.forEach(({ el, dist }) => {
           if (dist <= allowed || dist === minDist) {
-            if (!el.classList.contains('inview')) {
-              el.classList.add('inview');
+            if (!el.classList.contains('scale-110')) {
+              el.classList.add('scale-110');
             }
           } else {
-            if (el.classList.contains('inview')) {
-              el.classList.remove('inview');
+            if (el.classList.contains('scale-110')) {
+              el.classList.remove('scale-110');
             }
           }
         });
@@ -104,7 +103,7 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
         observer.disconnect();
         observer = null;
       }
-      document.querySelectorAll('.team-member.inview').forEach(n => n.classList.remove('inview'));
+      document.querySelectorAll('.team-member.scale-110').forEach(n => n.classList.remove('scale-110'));
     };
 
     const mqListener = (e: MediaQueryListEvent | MediaQueryList) => {
@@ -127,15 +126,14 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
   }, []);
 
   return (
-    <section className="team-section">
-      <h2 className="team-header">Our Team</h2>
-      <p className="team-subtitle">
-        Meet the passionate developers behind NuTab Digital
-      </p>
-      <div className="grid-container">
-        <div className="team-member" onClick={() => onSelectContact(contacts.navjot)}>
+    <section className="w-[85vw] md:w-[50vw] max-w-[700px] flex flex-col items-center justify-center box-border p-4 pb-8 mx-[2.5vw] bg-white/75 text-[var(--foreground)] shadow-[0_4px_12px_rgba(3,3,3,0.198)] backdrop-blur-lg rounded-[1.5rem] z-10 dark:bg-[rgba(10,10,10,0.7)] dark:shadow-[0_4px_12px_rgba(0,0,0,0.752)]">
+      <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 text-center">Our Team</h2>
+      <p className="text-center text-[1.15rem] mb-8 opacity-[0.85]">Meet the passionate developers behind NuTab Digital</p>
+
+      <div className="flex flex-col lg:flex-row items-center lg:justify-between gap-16 flex-wrap w-full">
+        <div className="cursor-pointer text-center max-w-[300px] w-full flex-1 transform transition-transform duration-500 ease-in-out hover:scale-110" onClick={() => onSelectContact(contacts.navjot)}>
           <Image
-            className="photo"
+            className="w-[90%] max-w-[200px] h-[90%] max-h-[200px] aspect-square object-cover rounded-full mx-auto mb-4 border-[0.25rem] border-[rgba(0,103,231,0.5)] block"
             src={contacts.navjot.photo}
             alt="Navjot Saran headshot"
             loading="lazy"
@@ -143,16 +141,15 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
             height={200}
             decoding="async"
           />
-          <p className="team-name">Navjot Saran</p>
-          <p className="team-role">Co-Founder</p>
-          <p className="team-position">Software Developer</p>
-          <p className="team-description">
-            B.Sc. in Computer Science, University of Calgary
-          </p>
+          <p className="text-[1.5rem] font-normal my-2">Navjot Saran</p>
+          <p className="bg-[#0067e7] rounded-[1.5rem] font-normal mb-2 text-white inline-block px-3 py-1 text-[1rem]">Co-Founder</p>
+          <p className="text-[1.05rem] font-normal text-[#0067e7] opacity-[0.95] mt-1 mb-2 tracking-[0.01em]">Software Developer</p>
+          <p className="opacity-[0.85]">B.Sc. in Computer Science, University of Calgary</p>
         </div>
-        <div className="team-member" onClick={() => onSelectContact(contacts.fysal)}>
+
+        <div className="cursor-pointer text-center max-w-[300px] w-full flex-1 transform transition-transform duration-500 ease-in-out hover:scale-110" onClick={() => onSelectContact(contacts.fysal)}>
           <Image
-            className="photo"
+            className="w-[90%] max-w-[200px] h-[90%] max-h-[200px] aspect-square object-cover rounded-full mx-auto mb-4 border-[0.25rem] border-[rgba(0,103,231,0.5)] block"
             src={contacts.fysal.photo}
             alt="Fysal Beauferris headshot"
             loading="lazy"
@@ -160,12 +157,10 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
             height={200}
             decoding="async"
           />
-          <p className="team-name">Fysal Beauferris</p>
-          <p className="team-role">Co-Founder</p>
-          <p className="team-position">Software Developer</p>
-          <p className="team-description">
-            B.Sc. in Computer Science, University of Calgary
-          </p>
+          <p className="text-[1.5rem] font-normal my-2">Fysal Beauferris</p>
+          <p className="bg-[#0067e7] rounded-[1.5rem] font-normal mb-2 text-white inline-block px-3 py-1 text-[1rem]">Co-Founder</p>
+          <p className="text-[1.05rem] font-normal text-[#0067e7] opacity-[0.95] mt-1 mb-2 tracking-[0.01em]">Software Developer</p>
+          <p className="opacity-[0.85]">B.Sc. in Computer Science, University of Calgary</p>
         </div>
       </div>
     </section>

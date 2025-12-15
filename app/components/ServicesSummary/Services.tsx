@@ -126,7 +126,7 @@ const Services: React.FC = () => {
       <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 text-center">
         Our Services
       </h2>
-        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
+        <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8 text-center">
           Comprehensive digital solutions to help your business thrive
         </p>
       <div className="relative grid grid-cols-4 gap-6 max-[900px]:grid-cols-2 max-md:grid-cols-1">

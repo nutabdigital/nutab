@@ -119,7 +119,7 @@ const brandPackages: PricingPackage[] = [
     id: "full-brand",
     title: "Complete Brand",
     subtitle: "Full strategy + design system",
-    priceDisplay: "Please Contact",
+    priceDisplay: "Request a quote",
     features: [
       "Brand strategy workshop",
       "Comprehensive brand guide",

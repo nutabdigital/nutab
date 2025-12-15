@@ -90,8 +90,8 @@ const webDesignPackages: PricingPackage[] = [
     id: "starter",
     title: "Starter Website",
     subtitle: "Clean brochure site for small teams",
-    priceNumber: 1000,
-    priceDisplay: "$1,000",
+    priceNumber: 900,
+    priceDisplay: "$900",
     features: [
       "Up to 3 pages (Home, About, Contact)",
       "Mobile-friendly responsive design",
@@ -106,8 +106,8 @@ const webDesignPackages: PricingPackage[] = [
     title: "Business Website",
     subtitle: "Feature-rich site with CMS",
     badge: "Popular",
-    priceNumber: 1600,
-    priceDisplay: "$1,600",
+    priceNumber: 1500,
+    priceDisplay: "$1,500",
     features: [
       "Up to 6 pages",
       "Custom design & branding",
@@ -123,7 +123,7 @@ const webDesignPackages: PricingPackage[] = [
     id: "advanced",
     title: "Advanced Website",
     subtitle: "Full custom build with complex features",
-    priceDisplay: "Please Contact",
+    priceDisplay: "Request a quote",
     features: [
       "10–20 custom pages",
       "Advanced custom components",

@@ -132,7 +132,7 @@ const aiPackages: PricingPackage[] = [
     id: "ai-scale",
     title: "Automation Scale",
     subtitle: "Custom agents, APIs, and governance",
-    priceDisplay: "Please Contact",
+    priceDisplay: "Request a quote",
     features: [
       "Custom API/DB integrations",
       "RAG/embeddings for knowledge",

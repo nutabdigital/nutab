@@ -118,7 +118,7 @@ const ecommercePackages: PricingPackage[] = [
     id: "scale-commerce",
     title: "Scale Commerce",
     subtitle: "Enterprise solution for high-volume sales",
-    priceDisplay: "Please Contact",
+    priceDisplay: "Request a quote",
     features: [
       "Unlimited products",
       "Headless commerce architecture",

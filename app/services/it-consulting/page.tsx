@@ -133,7 +133,7 @@ const consultingPackages: PricingPackage[] = [
     id: "transformation",
     title: "Transformation",
     subtitle: "End-to-end digital transformation",
-    priceDisplay: "Please Contact",
+    priceDisplay: "Request a quote",
     features: [
       "Complete strategy & roadmap",
       "Change management planning",

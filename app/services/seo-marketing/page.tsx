@@ -102,15 +102,16 @@ const seoPackages: PricingPackage[] = [
     id: "starter-seo",
     title: "Starter SEO",
     subtitle: "Essential monthly optimization",
-    priceNumber: 400,
-    priceDisplay: "$400",
+    priceNumber: 500,
+    priceDisplay: "$500",
     isMonthly: true,
     features: [
       "Keyword research & tracking",
-      "On-page SEO optimization",
-      "Google Business Profile setup",
-      "Monthly performance report",
-      "Technical SEO audit"
+      "Google Business Profile setup & optimization",
+      "On-page SEO (up to 10 pages)",
+      "Technical SEO audit",
+      "Local citations & listings",
+      "Monthly performance report"
     ]
   },
   {
@@ -118,15 +119,15 @@ const seoPackages: PricingPackage[] = [
     title: "Growth SEO",
     subtitle: "Comprehensive marketing package",
     badge: "Popular",
-    priceNumber: 700,
-    priceDisplay: "$700",
+    priceNumber: 750,
+    priceDisplay: "$750",
     isMonthly: true,
     features: [
       "All Starter features",
       "Content strategy & creation",
       "Link building outreach",
-      "Local SEO optimization",
       "Competitor analysis",
+      "Advanced local SEO",
       "Bi-weekly strategy calls"
     ],
     suffix: "Includes Starter features"
@@ -135,15 +136,15 @@ const seoPackages: PricingPackage[] = [
     id: "scale-seo",
     title: "Scale SEO",
     subtitle: "Full-service digital marketing",
-    priceDisplay: "Please Contact",
+    priceDisplay: "Request a quote",
     isMonthly: true,
     features: [
       "All Growth features",
-      "PPC campaign management",
-      "Social media management",
-      "Advanced analytics & CRO",
-      "Dedicated account manager",
-      "Weekly strategy sessions"
+      "Increased content production",
+      "High-authority link acquisition",
+      "Conversion & analytics optimization",
+      "Review & reputation support",
+      "Quarterly deep-dive SEO audit"
     ],
     suffix: "Includes Growth features"
   }

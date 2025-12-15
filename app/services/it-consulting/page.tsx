@@ -102,8 +102,8 @@ const consultingPackages: PricingPackage[] = [
     id: "assessment",
     title: "IT Assessment",
     subtitle: "Comprehensive technology audit",
-    priceNumber: 3000,
-    priceDisplay: "$3,000",
+    priceNumber: 2500,
+    priceDisplay: "$2,500",
     features: [
       "Infrastructure & security audit",
       "Process gap analysis",
@@ -117,8 +117,7 @@ const consultingPackages: PricingPackage[] = [
     title: "Optimization",
     subtitle: "Strategy & implementation support",
     badge: "Popular",
-    priceNumber: 7500,
-    priceDisplay: "$7,500",
+    priceDisplay: "Request a Quote",
     features: [
       "Full IT assessment",
       "Technology roadmap",

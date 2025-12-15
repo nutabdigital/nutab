@@ -85,8 +85,8 @@ const devPackages: PricingPackage[] = [
     id: "mvp-app",
     title: "MVP App",
     subtitle: "Launch your idea quickly",
-    priceNumber: 6000,
-    priceDisplay: "$6,000",
+    priceNumber: 5000,
+    priceDisplay: "$5,000",
     features: [
       "Single platform (iOS, Android, or Web)",
       "Core feature set (4–6 screens)",
@@ -101,8 +101,7 @@ const devPackages: PricingPackage[] = [
     title: "Growth Platform",
     subtitle: "Scale with advanced features",
     badge: "Popular",
-    priceNumber: 14000,
-    priceDisplay: "$14000",
+    priceDisplay: "Request a Quote",
     features: [
       "Cross-platform (iOS + Android or Web)",
       "Advanced features (10–15 screens)",

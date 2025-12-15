@@ -117,8 +117,7 @@ const aiPackages: PricingPackage[] = [
     title: "Automation Growth",
     subtitle: "Stack multiple automations across teams",
     badge: "Popular",
-    priceNumber: 6000,
-    priceDisplay: "$6,000",
+     priceDisplay: "Request a Quote",
     features: [
       "3–5 workflows across apps",
       "Human-in-the-loop approvals",

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Background from "./components/Background/Background";
-import "./styles/page.css";
 
 export const metadata: Metadata = {
   title: "Page Not Found | NuTab Digital",

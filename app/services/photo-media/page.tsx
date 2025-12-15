@@ -117,8 +117,8 @@ const mediaPackages: PricingPackage[] = [
     title: "Media Plus",
     subtitle: "Photo + video content bundle",
     badge: "Popular",
-    priceNumber: 1300,
-    priceDisplay: "$1,300",
+    priceNumber: 1400,
+    priceDisplay: "$1,400",
     features: [
       "Half-day shoot (4 hours)",
       "Up to 50 edited images",

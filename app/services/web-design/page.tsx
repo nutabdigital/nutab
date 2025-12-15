@@ -90,8 +90,8 @@ const webDesignPackages: PricingPackage[] = [
     id: "starter",
     title: "Starter Website",
     subtitle: "Clean brochure site for small teams",
-    priceNumber: 800,
-    priceDisplay: "$800",
+    priceNumber: 1000,
+    priceDisplay: "$1,000",
     features: [
       "Up to 3 pages (Home, About, Contact)",
       "Mobile-friendly responsive design",
@@ -123,8 +123,7 @@ const webDesignPackages: PricingPackage[] = [
     id: "advanced",
     title: "Advanced Website",
     subtitle: "Full custom build with complex features",
-    priceNumber: 3200,
-    priceDisplay: "$3,200",
+    priceDisplay: "Please Contact",
     features: [
       "10–20 custom pages",
       "Advanced custom components",
@@ -145,13 +144,11 @@ const pricingLdJson = {
   name: "NuTab Digital Web Design Pricing",
   description: "Starter, Business, and Advanced website packages (25% discount applied).",
   itemListElement: webDesignPackages.map((p, i) => {
-    const discounted = Math.round(p.priceNumber * 0.75);
-    return {
+    const offer: any = {
       "@type": "Offer",
       position: i + 1,
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
-      price: discounted,
       priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       url: `https://nutab.ca/services/web-design#${p.id}`,
@@ -163,6 +160,12 @@ const pricingLdJson = {
         provider: { "@id": "https://nutab.ca/#organization" },
       },
     };
+
+        if (typeof p.priceNumber === "number") {
+          offer.price = p.priceNumber;
+    }
+
+    return offer;
   }),
 };
 

@@ -118,8 +118,8 @@ const seoPackages: PricingPackage[] = [
     title: "Growth SEO",
     subtitle: "Comprehensive marketing package",
     badge: "Popular",
-    priceNumber: 800,
-    priceDisplay: "$800",
+    priceNumber: 700,
+    priceDisplay: "$700",
     isMonthly: true,
     features: [
       "All Starter features",
@@ -135,8 +135,7 @@ const seoPackages: PricingPackage[] = [
     id: "scale-seo",
     title: "Scale SEO",
     subtitle: "Full-service digital marketing",
-    priceNumber: 1600,
-    priceDisplay: "$1,600",
+    priceDisplay: "Please Contact",
     isMonthly: true,
     features: [
       "All Growth features",
@@ -156,23 +155,15 @@ const pricingLdJson = {
   name: "NuTab Digital SEO & Marketing Pricing",
   description: "Starter, Growth, and Scale monthly SEO packages (25% discount applied).",
   itemListElement: seoPackages.map((p, i) => {
-    const discounted = Math.round(p.priceNumber * 0.75);
-    return {
+    const offer: any = {
       "@type": "Offer",
       position: i + 1,
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
-      price: discounted,
       priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       url: `https://nutab.ca/services/seo-marketing#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
-      priceSpecification: {
-        "@type": "UnitPriceSpecification",
-        price: discounted,
-        priceCurrency: "CAD",
-        billingDuration: "P1M"
-      },
       itemOffered: {
         "@type": "Service",
         name: p.title,
@@ -180,6 +171,18 @@ const pricingLdJson = {
         provider: { "@id": "https://nutab.ca/#organization" },
       },
     };
+
+        if (typeof p.priceNumber === "number") {
+          offer.price = p.priceNumber;
+          offer.priceSpecification = {
+            "@type": "UnitPriceSpecification",
+            price: p.priceNumber,
+            priceCurrency: "CAD",
+            billingDuration: p.isMonthly ? "P1M" : undefined,
+          };
+    }
+
+    return offer;
   }),
 };
 

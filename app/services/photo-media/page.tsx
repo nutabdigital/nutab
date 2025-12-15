@@ -102,8 +102,8 @@ const mediaPackages: PricingPackage[] = [
     id: "basic-shoot",
     title: "Basic Shoot",
     subtitle: "Essential photography package",
-    priceNumber: 600,
-    priceDisplay: "$600",
+    priceNumber: 800,
+    priceDisplay: "$800",
     features: [
       "2-hour photo session",
       "Up to 20 edited images",
@@ -117,8 +117,8 @@ const mediaPackages: PricingPackage[] = [
     title: "Media Plus",
     subtitle: "Photo + video content bundle",
     badge: "Popular",
-    priceNumber: 1200,
-    priceDisplay: "$1,200",
+    priceNumber: 1300,
+    priceDisplay: "$1,300",
     features: [
       "Half-day shoot (4 hours)",
       "Up to 50 edited images",
@@ -133,8 +133,7 @@ const mediaPackages: PricingPackage[] = [
     id: "full-production",
     title: "Full Production",
     subtitle: "Complete media production",
-    priceNumber: 2400,
-    priceDisplay: "$2,400",
+    priceDisplay: "Please Contact",
     features: [
       "Full-day shoot (8 hours)",
       "Unlimited edited images",
@@ -154,13 +153,11 @@ const pricingLdJson = {
   name: "NuTab Digital Photography & Media Pricing",
   description: "Basic Shoot, Media Plus, and Full Production packages (25% discount applied).",
   itemListElement: mediaPackages.map((p, i) => {
-    const discounted = Math.round(p.priceNumber * 0.75);
-    return {
+    const offer: any = {
       "@type": "Offer",
       position: i + 1,
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
-      price: discounted,
       priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       url: `https://nutab.ca/services/photo-media#${p.id}`,
@@ -172,6 +169,12 @@ const pricingLdJson = {
         provider: { "@id": "https://nutab.ca/#organization" },
       },
     };
+
+        if (typeof p.priceNumber === "number") {
+          offer.price = p.priceNumber;
+    }
+
+    return offer;
   }),
 };
 

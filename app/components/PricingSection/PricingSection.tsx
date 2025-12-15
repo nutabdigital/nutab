@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import { Check, Sparkles } from "lucide-react";
+import { Check } from "lucide-react";
 import Link from "next/link";
 
 export interface PricingPackage {
   id: string;
   title: string;
   subtitle: string;
-  priceNumber: number;
+  priceNumber?: number;
   priceDisplay: string;
   features: string[];
   badge?: string;
@@ -109,11 +109,8 @@ const accentColors = {
 export const PricingCard: React.FC<PricingCardProps> = ({
   pkg,
   accentColor = "purple",
-  showDiscount = true,
-  discountPercent = 25,
 }) => {
   const colors = accentColors[accentColor];
-  const discountedPrice = Math.round(pkg.priceNumber * (1 - discountPercent / 100));
   const formatPrice = (n: number) =>
     "$" + n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (pkg.isMonthly ? "/mo" : "");
 
@@ -137,18 +134,10 @@ export const PricingCard: React.FC<PricingCardProps> = ({
         </span>
       )}
 
-      {/* Discount Badge */}
-      {showDiscount && (
-        <span
-          className={`absolute top-4 right-4 flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-bold text-white ${colors.promo}`}
-        >
-          <Sparkles className="w-3 h-3" />
-          {discountPercent}% OFF
-        </span>
-      )}
+      {/* Discount removed: always show base price or contact label */}
 
       {/* Title & Subtitle */}
-      <div className="mb-6">
+      <div className="mb-2">
         <h3
           className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-2"
           itemProp="name"
@@ -162,38 +151,28 @@ export const PricingCard: React.FC<PricingCardProps> = ({
 
       {/* Pricing */}
       <div className="mb-6" itemProp="priceSpecification" itemScope itemType="https://schema.org/UnitPriceSpecification">
-        <span className="text-sm text-gray-500 dark:text-gray-400 block mb-1">Starting from</span>
-        <meta itemProp="priceCurrency" content="CAD" />
-        
-        {showDiscount ? (
-          <div className="flex items-baseline gap-3">
-            <span
-              className="text-lg text-gray-400 dark:text-gray-500 line-through"
-              aria-label={`Original price ${pkg.priceDisplay}`}
-            >
-              {pkg.priceDisplay}
-            </span>
-            <span
-              className={`text-3xl sm:text-4xl font-bold ${colors.text}`}
-              itemProp="price"
-              content={String(discountedPrice)}
-              aria-label={`Discounted price ${formatPrice(discountedPrice)}`}
-            >
-              {formatPrice(discountedPrice)}
-            </span>
-          </div>
+        {typeof pkg.priceNumber === "number" ? (
+          <>
+            <span className="text-sm text-gray-500 dark:text-gray-400 block mb-1">Starting from</span>
+            <meta itemProp="priceCurrency" content="CAD" />
+            <div className="flex items-baseline gap-3">
+              <span
+                className={`text-3xl sm:text-4xl font-bold ${colors.text}`}
+                itemProp="price"
+                content={String(pkg.priceNumber)}
+              >
+                {formatPrice(pkg.priceNumber)}
+              </span>
+            </div>
+          </>
         ) : (
-          <span
-            className={`text-3xl sm:text-4xl font-bold ${colors.text}`}
-            itemProp="price"
-            content={String(pkg.priceNumber)}
-          >
+          <span className={`text-3xl sm:text-4xl font-bold ${colors.text}`}>
             {pkg.priceDisplay}
           </span>
         )}
 
         {pkg.suffix && (
-          <span className="block mt-2 text-xs text-gray-500 dark:text-gray-400">
+          <span className="block mt-4 text-xs text-gray-500 dark:text-gray-400">
             {pkg.suffix}
           </span>
         )}
@@ -278,14 +257,7 @@ const PricingSection: React.FC<PricingSectionProps> = ({
           <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
             {subtitle}
           </p>
-          {showDiscount && (
-            <div className={`inline-flex items-center gap-2 mt-4 px-4 py-2 rounded-full ${colors.bg}`}>
-              <Sparkles className={`w-4 h-4 ${colors.text}`} />
-              <span className={`text-sm font-medium ${colors.text}`}>
-                Limited time: {discountPercent}% off all packages
-              </span>
-            </div>
-          )}
+          {/* Discounts removed — always show base pricing */}
         </div>
 
         {/* Pricing Cards Grid */}

@@ -85,8 +85,8 @@ const devPackages: PricingPackage[] = [
     id: "mvp-app",
     title: "MVP App",
     subtitle: "Launch your idea quickly",
-    priceNumber: 8000,
-    priceDisplay: "$8,000",
+    priceNumber: 6000,
+    priceDisplay: "$6,000",
     features: [
       "Single platform (iOS, Android, or Web)",
       "Core feature set (4–6 screens)",
@@ -101,8 +101,8 @@ const devPackages: PricingPackage[] = [
     title: "Growth Platform",
     subtitle: "Scale with advanced features",
     badge: "Popular",
-    priceNumber: 16000,
-    priceDisplay: "$16,000",
+    priceNumber: 14000,
+    priceDisplay: "$14000",
     features: [
       "Cross-platform (iOS + Android or Web)",
       "Advanced features (10–15 screens)",
@@ -118,8 +118,7 @@ const devPackages: PricingPackage[] = [
     id: "enterprise-solution",
     title: "Enterprise Solution",
     subtitle: "Custom architecture for complex needs",
-    priceNumber: 32000,
-    priceDisplay: "$32,000",
+    priceDisplay: "Please Contact",
     features: [
       "Multi-platform ecosystem",
       "Complex business logic & workflows",
@@ -140,13 +139,11 @@ const pricingLdJson = {
   name: "NuTab Digital App & Software Development Pricing",
   description: "MVP App, Growth Platform, and Enterprise Solution packages (25% discount applied).",
   itemListElement: devPackages.map((p, i) => {
-    const discounted = Math.round(p.priceNumber * 0.75);
-    return {
+    const offer: any = {
       "@type": "Offer",
       position: i + 1,
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
-      price: discounted,
       priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       url: `https://nutab.ca/services/app-development#${p.id}`,
@@ -158,6 +155,12 @@ const pricingLdJson = {
         provider: { "@id": "https://nutab.ca/#organization" },
       },
     };
+
+    if (typeof p.priceNumber === "number") {
+      offer.price = p.priceNumber;
+    }
+
+    return offer;
   }),
 };
 

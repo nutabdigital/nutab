@@ -133,8 +133,7 @@ const consultingPackages: PricingPackage[] = [
     id: "transformation",
     title: "Transformation",
     subtitle: "End-to-end digital transformation",
-    priceNumber: 15000,
-    priceDisplay: "$15,000",
+    priceDisplay: "Please Contact",
     features: [
       "Complete strategy & roadmap",
       "Change management planning",
@@ -153,13 +152,11 @@ const pricingLdJson = {
   name: "NuTab Digital IT Consulting Pricing",
   description: "IT Assessment, Optimization, and Transformation packages (25% discount applied).",
   itemListElement: consultingPackages.map((p, i) => {
-    const discounted = Math.round(p.priceNumber * 0.75);
-    return {
+    const offer: any = {
       "@type": "Offer",
       position: i + 1,
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
-      price: discounted,
       priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       url: `https://nutab.ca/services/it-consulting#${p.id}`,
@@ -171,6 +168,12 @@ const pricingLdJson = {
         provider: { "@id": "https://nutab.ca/#organization" },
       },
     };
+
+    if (typeof p.priceNumber === "number") {
+      offer.price = p.priceNumber;
+    }
+
+    return offer;
   }),
 };
 

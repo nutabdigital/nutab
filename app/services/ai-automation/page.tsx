@@ -132,8 +132,7 @@ const aiPackages: PricingPackage[] = [
     id: "ai-scale",
     title: "Automation Scale",
     subtitle: "Custom agents, APIs, and governance",
-    priceNumber: 12000,
-    priceDisplay: "$12,000",
+    priceDisplay: "Please Contact",
     features: [
       "Custom API/DB integrations",
       "RAG/embeddings for knowledge",
@@ -151,13 +150,11 @@ const pricingLdJson = {
   name: "NuTab Digital AI Automation Pricing",
   description: "Starter, Growth and Scale automation packages (25% discount applied).",
   itemListElement: aiPackages.map((p, i) => {
-    const discounted = Math.round(p.priceNumber * 0.75);
-    return {
+    const offer: any = {
       "@type": "Offer",
       position: i + 1,
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
-      price: discounted,
       priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       url: `https://nutab.ca/services/ai-automation#${p.id}`,
@@ -169,6 +166,12 @@ const pricingLdJson = {
         provider: { "@id": "https://nutab.ca/#organization" },
       },
     };
+
+        if (typeof p.priceNumber === "number") {
+          offer.price = p.priceNumber;
+        }
+
+    return offer;
   }),
 };
 

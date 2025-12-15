@@ -119,8 +119,7 @@ const brandPackages: PricingPackage[] = [
     id: "full-brand",
     title: "Complete Brand",
     subtitle: "Full strategy + design system",
-    priceNumber: 1800,
-    priceDisplay: "$1,800",
+    priceDisplay: "Please Contact",
     features: [
       "Brand strategy workshop",
       "Comprehensive brand guide",
@@ -139,13 +138,11 @@ const pricingLdJson = {
   name: "NuTab Digital Brand Design Pricing",
   description: "Logo, Brand Kit, and Complete Brand packages (25% discount applied).",
   itemListElement: brandPackages.map((p, i) => {
-    const discounted = Math.round(p.priceNumber * 0.75);
-    return {
+    const offer: any = {
       "@type": "Offer",
       position: i + 1,
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
-      price: discounted,
       priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       url: `https://nutab.ca/services/brand-design#${p.id}`,
@@ -157,6 +154,12 @@ const pricingLdJson = {
         provider: { "@id": "https://nutab.ca/#organization" },
       },
     };
+
+        if (typeof p.priceNumber === "number") {
+          offer.price = p.priceNumber;
+        }
+
+    return offer;
   }),
 };
 

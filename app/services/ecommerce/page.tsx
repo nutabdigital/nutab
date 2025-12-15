@@ -118,8 +118,7 @@ const ecommercePackages: PricingPackage[] = [
     id: "scale-commerce",
     title: "Scale Commerce",
     subtitle: "Enterprise solution for high-volume sales",
-    priceNumber: 12000,
-    priceDisplay: "$12,000",
+    priceDisplay: "Please Contact",
     features: [
       "Unlimited products",
       "Headless commerce architecture",
@@ -139,13 +138,11 @@ const pricingLdJson = {
   name: "NuTab Digital Ecommerce Pricing",
   description: "Starter Store, Growth Store, and Scale Commerce packages (25% discount applied).",
   itemListElement: ecommercePackages.map((p, i) => {
-    const discounted = Math.round(p.priceNumber * 0.75);
-    return {
+    const offer: any = {
       "@type": "Offer",
       position: i + 1,
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
-      price: discounted,
       priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       url: `https://nutab.ca/services/ecommerce#${p.id}`,
@@ -157,6 +154,12 @@ const pricingLdJson = {
         provider: { "@id": "https://nutab.ca/#organization" },
       },
     };
+
+    if (typeof p.priceNumber === "number") {
+      offer.price = p.priceNumber;
+    }
+
+    return offer;
   }),
 };
 

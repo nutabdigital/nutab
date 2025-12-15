@@ -85,8 +85,8 @@ const ecommercePackages: PricingPackage[] = [
     id: "starter-store",
     title: "Starter Store",
     subtitle: "Essential online store for new sellers",
-    priceNumber: 4000,
-    priceDisplay: "$4,000",
+    priceNumber: 2500,
+    priceDisplay: "$2,500",
     features: [
       "Up to 50 products",
       "Shopify or WooCommerce setup",
@@ -101,10 +101,10 @@ const ecommercePackages: PricingPackage[] = [
     title: "Growth Store",
     subtitle: "Full-featured store for scaling businesses",
     badge: "Popular",
-    priceNumber: 7500,
-    priceDisplay: "$7,500",
+    priceNumber: 5500,
+    priceDisplay: "$5,500",
     features: [
-      "Up to 500 products",
+      "Up to 250 products",
       "Custom theme design",
       "Advanced payment options",
       "Inventory management",
@@ -118,7 +118,7 @@ const ecommercePackages: PricingPackage[] = [
     id: "scale-commerce",
     title: "Scale Commerce",
     subtitle: "Enterprise solution for high-volume sales",
-    priceDisplay: "Request a quote",
+    priceDisplay: "Request a Quote",
     features: [
       "Unlimited products",
       "Headless commerce architecture",

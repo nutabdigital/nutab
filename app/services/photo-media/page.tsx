@@ -133,7 +133,7 @@ const mediaPackages: PricingPackage[] = [
     id: "full-production",
     title: "Full Production",
     subtitle: "Complete media production",
-    priceDisplay: "Request a quote",
+    priceDisplay: "Request a Quote",
     features: [
       "Full-day shoot (8 hours)",
       "Unlimited edited images",

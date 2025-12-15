@@ -28,10 +28,10 @@ import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
 // Color Palette for ChopChop Barber
 const colorPalette = [
   { name: "Primary (Near-Black)", hex: "#030213", textColor: "white" },
-  { name: "Black (UI)", hex: "#000000", textColor: "white" },
   { name: "White", hex: "#FFFFFF", textColor: "black" },
   { name: "Accent Red", hex: "#DC2626", textColor: "white" },
   { name: "Accent Blue", hex: "#2563EB", textColor: "white" },
+  { name: "Black (UI)", hex: "#000000", textColor: "white" },
   { name: "Muted / UI Gray", hex: "#ECECF0", textColor: "black" },
 ];
 

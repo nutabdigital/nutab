@@ -102,8 +102,8 @@ const aiPackages: PricingPackage[] = [
     id: "ai-starter",
     title: "Automation Starter",
     subtitle: "Pilot one workflow with measurable ROI",
-    priceNumber: 3000,
-    priceDisplay: "$3,000",
+    priceNumber: 2250,
+    priceDisplay: "$2,250",
     features: [
       "Process discovery workshop",
       "1 automated workflow (Zapier/Make/API)",
@@ -132,7 +132,7 @@ const aiPackages: PricingPackage[] = [
     id: "ai-scale",
     title: "Automation Scale",
     subtitle: "Custom agents, APIs, and governance",
-    priceDisplay: "Request a quote",
+    priceDisplay: "Request a Quote",
     features: [
       "Custom API/DB integrations",
       "RAG/embeddings for knowledge",

@@ -136,7 +136,7 @@ const seoPackages: PricingPackage[] = [
     id: "scale-seo",
     title: "Scale SEO",
     subtitle: "Full-service digital marketing",
-    priceDisplay: "Request a quote",
+    priceDisplay: "Request a Quote",
     isMonthly: true,
     features: [
       "All Growth features",

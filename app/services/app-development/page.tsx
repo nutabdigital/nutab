@@ -118,7 +118,7 @@ const devPackages: PricingPackage[] = [
     id: "enterprise-solution",
     title: "Enterprise Solution",
     subtitle: "Custom architecture for complex needs",
-    priceDisplay: "Request a quote",
+    priceDisplay: "Request a Quote",
     features: [
       "Multi-platform ecosystem",
       "Complex business logic & workflows",

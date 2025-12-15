@@ -73,7 +73,7 @@ const faqs = [
   },
   {
     question: "How much does a website cost?",
-    answer: "Website costs vary based on complexity and features. Our packages start at $800 for basic sites and go up to $3,200+ for advanced custom builds. We provide transparent quotes."
+    answer: "Website costs vary based on complexity and features. Our packages start at $900 for basic sites; larger or custom projects are priced by quote. We provide transparent, detailed estimates."
   },
   {
     question: "Do you offer web design services in Calgary?",
@@ -123,7 +123,7 @@ const webDesignPackages: PricingPackage[] = [
     id: "advanced",
     title: "Advanced Website",
     subtitle: "Full custom build with complex features",
-    priceDisplay: "Request a quote",
+    priceDisplay: "Request a Quote",
     features: [
       "10–20 custom pages",
       "Advanced custom components",

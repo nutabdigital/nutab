@@ -50,6 +50,13 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     const sections = document.querySelectorAll(".page-section");
 
+    // Guard for older browsers that don't support IntersectionObserver
+    if (typeof IntersectionObserver === "undefined") {
+      // Fallback: make all sections visible immediately
+      sections.forEach((section) => section.classList.add("visible"));
+      return;
+    }
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

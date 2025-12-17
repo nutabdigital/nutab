@@ -1,14 +1,14 @@
-# Target modern browsers only to reduce polyfill bundle size
-# This eliminates polyfills for Array.prototype.at, Array.prototype.flat, etc.
+# Browser support for older browsers while keeping bundle size reasonable
+# Supports ~95% of users including older Safari, Firefox, and Chrome versions
 
-# Production: Modern browsers that support ES2020+
 [production]
->0.5% and supports es6-module
+>0.2%
+last 3 versions
+Firefox ESR
 not dead
 not op_mini all
 
-# Development: Latest versions only for faster builds
 [development]
-last 1 chrome version
-last 1 firefox version
-last 1 safari version
+last 2 chrome versions
+last 2 firefox versions
+last 2 safari versions

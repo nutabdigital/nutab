@@ -39,6 +39,9 @@ const contacts: Record<string, Contact> = {
 const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
   useEffect(() => {
     if (typeof window === 'undefined') return;
+    // Guard for older browsers that don't support IntersectionObserver
+    if (typeof IntersectionObserver === 'undefined') return;
+
     const mm = window.matchMedia('(max-width: 600px)');
     let observer: IntersectionObserver | null = null;
 

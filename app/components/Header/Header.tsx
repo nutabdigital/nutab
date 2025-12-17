@@ -221,7 +221,7 @@ const Header: React.FC = () => {
     };
 
     document.addEventListener("mousedown", handleOutsideClick);
-    document.addEventListener("touchstart", handleOutsideClick);
+    document.addEventListener("touchstart", handleOutsideClick, { passive: true });
 
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);

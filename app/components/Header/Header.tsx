@@ -256,8 +256,8 @@ const Header: React.FC = () => {
               className="flex flex-col leading-[1.05] max-[725px]:hidden pt-1"
               aria-label="Nutab Digital"
             >
-              <span className="font-lg text-[1.1rem]">Nutab</span>
-              <span className="font-lg text-[1.1rem]">Digital</span>
+              <span className="font-lg text-[1.1rem] font-semibold">Nutab</span>
+              <span className="font-lg text-[1.1rem] font-semibold">Digital</span>
             </span>
           </a>
         </div>

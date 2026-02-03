@@ -343,7 +343,7 @@ const Model: React.FC<ModelProps> = () => {
 
   // Apply left-center-right transformation of whole canvas based on the current section
   const getHorizontalPosition = () => {
-    if (isMobile || currentSection === 1 || currentSection === 2 || currentSection === 4) {
+    if (isMobile || currentSection === 1 || currentSection === 2 || currentSection === 4 || currentSection === 5) {
       return "0%";
     }
     const position = currentSection % 2 === 0 ? "left" : "right";
@@ -472,7 +472,8 @@ const Model: React.FC<ModelProps> = () => {
       } else if (
         currentSection === 1 ||
         currentSection === 2 ||
-        currentSection === 4
+        currentSection === 4 ||
+        currentSection === 5
       ) {
         targetDistance = 35;
       } else {

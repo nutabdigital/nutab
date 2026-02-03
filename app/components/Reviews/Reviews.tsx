@@ -5,6 +5,7 @@ interface Review {
   author: string;
   meta: string;
   date: string;
+  schemaDate: string;
   content: string;
 }
 
@@ -13,6 +14,7 @@ const reviews: Review[] = [
     author: "Harpreet",
     meta: "1 review • 0 photos",
     date: "42 weeks ago",
+    schemaDate: "2025-04-14",
     content: `I had an outstanding experience working with NuTab for our website. From start to finish, their team was super friendly, professional, and reliable, making the entire process smooth and stress-free.
 
 What stood out for us was them helping us at every step, from planning to execution, ensuring our vision was perfectly translated into a functional, modern website. Our site is not only visually appealing but also intuitive and easy to navigate, thanks to their thoughtful design approach. NuTab was always available to answer questions, make adjustments, and provide support, which was incredibly reassuring.
@@ -25,12 +27,14 @@ Thank you, NuTab, for exceeding our expectations!`,
     author: "Yusuf Abdillahi",
     meta: "6 reviews • 1 photo",
     date: "7 weeks ago",
+    schemaDate: "2025-12-14",
     content: `Nav was amazing and very thoughtful. He helped quickly setup our google business profile and Nutab designed us a beautiful sign that encourages our customers to leave reviews. Highly recommended!`,
   },
   {
     author: "Moe Souraya",
     meta: "2 reviews • 0 photos",
     date: "6 days ago",
+    schemaDate: "2026-01-27",
     content: `Thanks to Fysal for giving my website a much needed update. He was very communicative and helped me understand things along the way. He was easy to work with and provided a lot of feedback and ideas to best support my business, going above and beyond with his services.`,
   },
 ];
@@ -58,7 +62,7 @@ const Reviews: React.FC = () => {
       "@type": "Review",
       author: { "@type": "Person", name: r.author },
       reviewBody: r.content,
-      datePublished: r.date,
+      datePublished: r.schemaDate,
       reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
     })),
   };

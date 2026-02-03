@@ -169,7 +169,7 @@ const Model: React.FC<ModelProps> = () => {
     deviceLowEndRef.current = lowEndDevice;
 
     // Compute particle count based on device and user preference
-    let particleCount = 10000;
+    let particleCount = 1000;
     let particleSize = 0.25;
     if (prefersReducedMotion || lowEndDevice || isMobileLocal) {
       particleCount = 4000; // much lighter on low-end / mobile / reduced-motion
@@ -178,7 +178,7 @@ const Model: React.FC<ModelProps> = () => {
       particleCount = 6000; // medium devices
       particleSize = 0.3;
     } else {
-      particleCount = 10000; // full experience (reduced from 15000)
+      particleCount = 1000; // full experience (reduced from 15000)
       particleSize = 0.2;
     }
 

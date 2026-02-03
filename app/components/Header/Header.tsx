@@ -242,10 +242,19 @@ const Header: React.FC = () => {
             onClick={(e) => handleScroll(e, "tagline")}
             className="inline-flex items-end gap-2 no-underline"
           >
-            {/* Single logo based on theme - saves HTTP request */}
+            {/* Logo with CSS-based theme switching to prevent flash */}
             <img
-              className="block pl-6"
-              src={isDark ? "/icons/logo-dark.svg" : "/icons/logo-light.svg"}
+              className="block pl-6 dark:hidden"
+              src="/icons/logo-light.svg"
+              alt="New Tab Digital Logo"
+              width={75}
+              height={57}
+              loading="eager"
+              decoding="sync"
+            />
+            <img
+              className="hidden pl-6 dark:block"
+              src="/icons/logo-dark.svg"
               alt="New Tab Digital Logo"
               width={75}
               height={57}

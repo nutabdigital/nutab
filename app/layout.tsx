@@ -224,8 +224,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `
 (function() {
   try {
+    var storedTheme = localStorage.getItem('theme');
     var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    var theme = storedTheme || (prefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
   } catch (e) {
     document.documentElement.setAttribute('data-theme','dark');
   }

@@ -106,34 +106,7 @@ const HomePage: React.FC = () => {
           }),
         }}
       />
-      <style jsx global>{`
-        /* Inlined from app/styles/page.css */
-        html { scroll-behavior: smooth; }
-
-        .page-section { scroll-margin-top: 0; }
-
-        .home-page { position: relative; }
-
-        .content-wrapper { z-index: 3; }
-
-        .page-section { min-height: 100vh; margin-bottom: 10vh; display: flex; align-items: center; position: relative; z-index: 2; scroll-margin-top: 100px; }
-
-        .fade-section { opacity: 0; transition: opacity 0.7s ease, transform 0.6s ease; }
-        .fade-section.visible { opacity: 1; }
-
-        .gradient-background { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; background: radial-gradient(circle at 20% 30%, rgba(240, 248, 255), transparent 60%), radial-gradient(circle at 80% 70%, rgba(230, 247, 255), transparent 60%), #ffffff; }
-
-        @media (min-width: 600px) {
-          .page-section.align-right { justify-content: flex-end; }
-          .page-section.align-left { justify-content: flex-start; }
-        }
-
-        @media (max-width:600px) {
-          .page-section { margin-top: 0 !important; margin-bottom: 20vh !important; min-height: 100vh; display: flex; justify-content: center; align-items: stretch; }
-        }
-
-        [data-theme="dark"] .gradient-background { background: radial-gradient(circle at 100% 70%, rgba(109, 36, 255, 0.418), transparent 50%), radial-gradient(circle at 20% 30%, rgba(122, 82, 252, 0.222), transparent 40%), radial-gradient(circle at 50% 50%, rgba(143, 110, 251, 0.156), transparent 60%), #000000; }
-      `}</style>
+      {/* Page section styles moved to globals.css for SSR */}
       {/* <Loader /> */}
       <div className="gradient-background"></div>
       <main className="home-page">

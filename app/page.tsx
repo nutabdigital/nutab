@@ -9,6 +9,7 @@ const Services = React.lazy(() => import("./components/ServicesSummary/Services"
 const Team = React.lazy(() => import("./components/Team/Team"));
 const Contact = React.lazy(() => import("./components/Contact/Contact"));
 const ContactPopup = React.lazy(() => import("./components/ContactPopup/ContactPopup"));
+const Reviews = React.lazy(() => import("./components/Reviews/Reviews"));
 import { useModelState } from "./context/ModelStateProvider"; // adjust path if needed
 import { useHeaderSection } from "./context/HeaderSectionContext";
 
@@ -88,6 +89,28 @@ const HomePage: React.FC = () => {
 
   return (
     <>
+      {/* Aggregate reviews JSON-LD for search engines */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "NuTab",
+            url: "https://www.nutab.ca",
+            potentialAction: {
+              "@type": "SearchAction",
+              target: "https://www.nutab.ca/?s={search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+            aggregateRating: {
+              "@type": "AggregateRating",
+              ratingValue: "5",
+              reviewCount: "3",
+            },
+          }),
+        }}
+      />
       <style jsx global>{`
         /* Inlined from app/styles/page.css */
         html { scroll-behavior: smooth; }
@@ -129,7 +152,6 @@ const HomePage: React.FC = () => {
             {/* <h1>Custom Software Solutions | NuTab</h1> */}
             <Tagline />
           </section>
-
           <section
             id="about"
             className="page-section fade-section align-left"
@@ -166,6 +188,17 @@ const HomePage: React.FC = () => {
             {/* Clicking team member passes contact info */}
             <Suspense fallback={<h2>Our Team</h2>}>
               <Team onSelectContact={setSelectedContact} />
+            </Suspense>
+          </section>
+
+
+          <section
+            id="reviews"
+            className="page-section fade-section align-left"
+            data-section="3.1"
+          >
+            <Suspense fallback={<h2>Client Reviews</h2>}>
+              <Reviews />
             </Suspense>
           </section>
 

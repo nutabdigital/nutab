@@ -91,7 +91,8 @@ const Model: React.FC<ModelProps> = () => {
 
   // particle data kept in refs so other functions can access
   const particleCountRef = useRef<number>(0);
-  const particleDataRef = useRef<{ theta: number; phi: number }[]>([]);
+  // Extended type to support potential future animation upgrades while maintaining backward compatibility
+  const particleDataRef = useRef<{ theta: number; phi: number; offset: number; speed: number }[]>([]);
   const particleSize = useRef<number>(0);
 
   // user / device preferences
@@ -169,13 +170,13 @@ const Model: React.FC<ModelProps> = () => {
     deviceLowEndRef.current = lowEndDevice;
 
     // Compute particle count based on device and user preference
-    // Default to a higher-quality experience and reduce for low-end/mobile
     let particleCount = 7500;
-    let particleSize = 0.5;
+    let particleSize = 0.35;
 
+    // Enhanced Settings: Higher density for high-end, better optimization for mobile
     if (prefersReducedMotion) {
        particleCount = 1000; // Minimal for reduced motion
-       particleSize = 0.6;
+       particleSize = 0.7;
     } else if (lowEndDevice || isMobileLocal) {
       particleCount = 2500; // 2.5k is a sweet spot for mobile JS performance
       particleSize = 0.65;  // Larger size to compensate for lower count
@@ -184,7 +185,7 @@ const Model: React.FC<ModelProps> = () => {
       particleSize = 0.45;
     } else {
       particleCount = 7500; // High-end: finer, denser particles
-      particleSize = 0.5;
+      particleSize = 0.35;
     }
     // Store chosen count for updates
     particleCountRef.current = particleCount;
@@ -201,14 +202,21 @@ const Model: React.FC<ModelProps> = () => {
       particleSystem = null;
     }
 
-    // build particleData for chosen count
-    const particleData: { theta: number; phi: number }[] = new Array(particleCount)
-      .fill(null)
-      .map(() => {
-        const theta = secureRandom() * Math.PI * 2;
-        const phi = Math.acos(2 * secureRandom() - 1);
-        return { theta, phi };
-      });
+    // Build particleData using Fibonacci sphere distribution for even, organic spacing
+    const particleData: { theta: number; phi: number; offset: number; speed: number }[] = [];
+    const goldenRatio = (1 + Math.sqrt(5)) / 2;
+    
+    for (let i = 0; i < particleCount; i++) {
+        // Fibonacci sphere algorithm
+        const theta = (2 * Math.PI * i) / goldenRatio;
+        const phi = Math.acos(1 - (2 * (i + 0.5)) / particleCount);
+        
+        // Store extra properties (offset/speed) for potential future use, 
+        // whilst ensuring theta/phi are present for the current updateParticles loop
+        const offset = secureRandom() * Math.PI * 2;
+        const speed = 0.7 + secureRandom() * 0.6;
+        particleData.push({ theta, phi, offset, speed });
+    }
 
     particleDataRef.current = particleData;
 
@@ -237,9 +245,15 @@ const Model: React.FC<ModelProps> = () => {
     geometry.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
     geometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
 
+    // Improved Material: Additive blending for "glowing" look
     const material = new THREE.PointsMaterial({
       vertexColors: true,
       size: prefersReducedMotion ? particleSize * 0.8 : particleSize,
+      sizeAttenuation: true,
+      transparent: true,
+      opacity: 0.85,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false, // Essential for additive blending performance and look
     });
 
     particleSystem = new THREE.Points(geometry, material);

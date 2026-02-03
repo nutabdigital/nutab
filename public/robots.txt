@@ -1,4 +1,5 @@
 User-agent: *
+Crawl-delay: 1
 Disallow: /api/
 Disallow: /_next/  # keep a general block but explicitly allow the static assets below
 Allow: /_next/static/

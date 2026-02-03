@@ -89,24 +89,19 @@ const HomePage: React.FC = () => {
 
   return (
     <>
-      {/* Aggregate reviews JSON-LD for search engines */}
+      {/* WebSite JSON-LD for search engines */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            name: "NuTab",
-            url: "https://www.nutab.ca",
+            name: "NuTab Digital",
+            url: "https://nutab.ca",
             potentialAction: {
               "@type": "SearchAction",
-              target: "https://www.nutab.ca/?s={search_term_string}",
+              target: "https://nutab.ca/?s={search_term_string}",
               "query-input": "required name=search_term_string",
-            },
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: "5",
-              reviewCount: "3",
             },
           }),
         }}

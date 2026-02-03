@@ -7,19 +7,15 @@ const Tagline: React.FC = () => {
   return (
     <section className="relative flex justify-center items-center h-screen w-[50vw] box-border caret-transparent z-10 max-[600px]:w-[85vw]">
       <div className="relative w-[50vw] max-w-[700px] box-border p-6 mx-[2.5vw] bg-white/75 dark:bg-[rgba(10,10,10,0.75)] text-gray-900 dark:text-white shadow-lg dark:shadow-black/75 backdrop-blur-xl rounded-3xl z-10 will-change-[transform,opacity] max-[600px]:w-[85vw] max-[600px]:mx-0 max-[600px]:shadow-md max-[600px]:bg-white/95 dark:max-[600px]:bg-[rgba(10,10,10,0.95)] max-[600px]:backdrop-blur-none min-[601px]:bg-transparent min-[601px]:dark:bg-transparent min-[601px]:shadow-none min-[601px]:backdrop-blur-none min-[601px]:border-0 min-[601px]:text-left">
-        {/* SEO H1 - visually hidden but readable by search engines */}
-        <h1 className="absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0" style={{ clip: 'rect(0, 0, 0, 0)' }}>Custom Software Development & Web Design in Calgary | NuTab Digital</h1>
-
         {/* Orbs for visual effect */}
         <div className="absolute top-6 left-6 w-14 h-14 bg-purple-500/40 rounded-full blur-[32px] z-[1] pointer-events-none transform-gpu max-[600px]:blur-[16px]"></div>
         <div className="absolute bottom-10 right-8 w-20 h-20 bg-blue-500/30 rounded-full blur-[32px] z-[1] pointer-events-none transform-gpu max-[600px]:blur-[16px] min-[601px]:hidden"></div>
 
-        <p className="text-3xl sm:text-5xl lg:text-6xl leading-[1.3] font-bold text-center mb-2 will-change-[opacity,transform] opacity-100 visible min-[601px]:text-left" aria-hidden="true">
-          Open a New Tab,
-        </p>
-        <p className="text-3xl sm:text-5xl lg:text-6xl leading-[1.3] font-bold text-center mb-2 will-change-[opacity,transform] bg-gradient-to-r from-indigo-500 via-purple-500 to-violet-500 bg-clip-text text-transparent min-[601px]:text-left" aria-hidden="true" style={{ textShadow: '0 1px 6px rgba(168, 85, 247, 0.2), 0 1px 10px rgba(139, 92, 246, 0.13)' }}>
-          Start Something Extraordinary.
-        </p>
+        <h1 className="text-3xl sm:text-5xl lg:text-6xl leading-[1.3] font-bold text-center mb-2 will-change-[opacity,transform] opacity-100 visible min-[601px]:text-left">
+          <span>Open a New Tab,</span>
+          <br />
+          <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-violet-500 bg-clip-text text-transparent" style={{ textShadow: '0 1px 6px rgba(168, 85, 247, 0.2), 0 1px 10px rgba(139, 92, 246, 0.13)' }}>Start Something Extraordinary.</span>
+        </h1>
         <p className="text-lg sm:text-xl font-normal leading-relaxed mb-8 opacity-85 text-gray-600 dark:text-gray-300 text-center will-change-[opacity,transform] min-[601px]:text-left">
           Elevating brands through modern<br />web design & development
         </p>

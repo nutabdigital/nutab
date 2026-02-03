@@ -172,13 +172,13 @@ const Model: React.FC<ModelProps> = () => {
     let particleCount = 10000;
     let particleSize = 0.25;
     if (prefersReducedMotion || lowEndDevice || isMobileLocal) {
-      particleCount = 5000; // much lighter on low-end / mobile / reduced-motion
+      particleCount = 4000; // much lighter on low-end / mobile / reduced-motion
       particleSize = 0.5;
     } else if (deviceMemory <= 4) {
-      particleCount = 7000; // medium devices
+      particleCount = 6000; // medium devices
       particleSize = 0.3;
     } else {
-      particleCount = 15000; // full experience
+      particleCount = 10000; // full experience (reduced from 15000)
       particleSize = 0.2;
     }
 

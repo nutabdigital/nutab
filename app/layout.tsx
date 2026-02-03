@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://nutab.ca"),
   alternates: {
     canonical: "/",
+    languages: {
+      "en-CA": "https://nutab.ca",
+    },
   },
   title: "NuTab Digital - Custom Software Development | Calgary",
   description:
@@ -62,6 +65,11 @@ const structuredData = {
     "addressLocality": "Calgary",
     "addressRegion": "AB",
     "addressCountry": "CA",
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": "51.0447",
+    "longitude": "-114.0719"
   },
   "contactPoint": {
     "@type": "ContactPoint",
@@ -230,6 +238,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       and fonts.gstatic.com is therefore redundant and can be removed to avoid
       unnecessary DNS/connections. */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://formspree.io" />
+        <link rel="preconnect" href="https://formspree.io" crossOrigin="anonymous" />
         
         {/* Preload critical above-the-fold images only - removed non-LCP images for mobile performance */}
         {/* The 3D model and OG images are not in the initial viewport on mobile, so no preload needed */}

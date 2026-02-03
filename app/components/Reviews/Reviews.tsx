@@ -115,8 +115,8 @@ const Reviews: React.FC = () => {
         {/* Modal for full review content */}
         {open && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            <div className="absolute inset-0 bg-black/50" onClick={() => setOpen(null)} />
-            <div className="relative bg-white dark:bg-gray-900 rounded-2xl shadow-xl p-6 max-w-2xl w-full z-10">
+            <div className="absolute inset-0 bg-white/20 dark:bg-black/20 backdrop-blur-sm" onClick={() => setOpen(null)} />
+            <div className="relative bg-white/70 dark:bg-black/70 backdrop-blur-xl rounded-2xl shadow-lg dark:shadow-black/75 p-6 max-w-2xl w-full z-10">
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <p className="text-xl font-semibold text-gray-900 dark:text-white">{open.author}</p>

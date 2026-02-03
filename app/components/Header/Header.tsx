@@ -354,8 +354,17 @@ const Header: React.FC = () => {
             Team
           </NavLink>
           <NavLink
-            href="#contact"
+            href="#reviews"
             isActive={isHomePage && currentSection === 4}
+            onClick={(e) => handleScroll(e, "reviews")}
+            className="max-lg:min-[601px]:text-[0.95rem] max-lg:min-[601px]:ml-2 max-lg:min-[601px]:px-2 max-lg:min-[601px]:py-1"
+            accentColor={accentColor}
+          >
+            Reviews
+          </NavLink>
+          <NavLink
+            href="#contact"
+            isActive={isHomePage && currentSection === 5}
             onClick={(e) => handleScroll(e, "contact")}
             className="max-lg:min-[601px]:text-[0.95rem] max-lg:min-[601px]:ml-2 max-lg:min-[601px]:px-2 max-lg:min-[601px]:py-1"
             accentColor={accentColor}
@@ -486,6 +495,15 @@ const Header: React.FC = () => {
                   className="no-underline py-2 px-4 block text-[#03045e] dark:text-white rounded-md transition-colors duration-200 hover:underline"
                 >
                   Our Team
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#reviews"
+                  onClick={(e) => handleScroll(e, "reviews")}
+                  className="no-underline py-2 px-4 block text-[#03045e] dark:text-white rounded-md transition-colors duration-200 hover:underline"
+                >
+                  Reviews
                 </a>
               </li>
               <li>

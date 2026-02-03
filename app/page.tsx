@@ -194,8 +194,8 @@ const HomePage: React.FC = () => {
 
           <section
             id="reviews"
-            className="page-section fade-section align-left"
-            data-section="3.1"
+            className="page-section fade-section align-right"
+            data-section="4"
           >
             <Suspense fallback={<h2>Client Reviews</h2>}>
               <Reviews />

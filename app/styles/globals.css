@@ -126,3 +126,17 @@ sup{
 .no-caret {
   caret-color: transparent; /* Hides the caret (blinking cursor) */
 }
+
+/* Portfolio-specific layout overrides */
+/* Remove top padding on section.relative within the portfolio routes */
+.portfolio-root section.relative {
+  padding-top: 0 !important;
+}
+
+/* Ensure blur containers remain active inside portfolio sections */
+.portfolio-root [class*="backdrop-blur"] {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: backdrop-filter, opacity;
+}

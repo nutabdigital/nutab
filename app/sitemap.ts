@@ -17,6 +17,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/portfolio`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
+      priority: 0.8,
+    },
+    // Portfolio detail pages
+    {
+      url: `${baseUrl}/portfolio/chopchop`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/portfolio/kingseye-towing`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/portfolio/kdt-restaurant`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
       priority: 0.7,
     },
     // Services Index

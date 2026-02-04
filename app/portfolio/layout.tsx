@@ -1,15 +1,20 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Portfolio | Calgary Web Development Projects | NuTab Digital",
+  title: "Web Development Portfolio | Calgary SEO & Digital Marketing | NuTab Digital",
   description:
-    "Explore NuTab Digital's portfolio of Calgary web development projects. See how we've transformed businesses with custom websites, apps, and digital solutions. Real results, real clients.",
+    "Explore NuTab Digital's portfolio of Calgary web development, SEO optimization, and digital marketing projects. See how our expert team transforms local businesses with custom websites, perfect PageSpeed scores, and results-driven marketing strategies.",
   keywords: [
     "Calgary web development portfolio",
-    "website projects Calgary",
-    "web design examples Alberta",
-    "NuTab Digital portfolio",
-    "Calgary software development case studies",
+    "Calgary SEO company",
+    "web design agency Alberta",
+    "digital marketing Calgary",
+    "website development case studies",
+    "small business web design Calgary",
+    "SEO optimization services",
+    "professional website examples",
+    "local business marketing Alberta",
+    "custom web development",
   ],
   alternates: {
     canonical: "https://nutab.ca/portfolio",
@@ -47,5 +52,5 @@ export default function PortfolioLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <div className="portfolio-root">{children}</div>;
 }

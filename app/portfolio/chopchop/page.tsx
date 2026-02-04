@@ -120,6 +120,31 @@ export default function ChopChopPortfolio() {
     description: "Professional web development, SEO optimization, and digital marketing services for small businesses in Calgary, Alberta.",
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://nutab.ca/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Portfolio",
+        item: "https://nutab.ca/portfolio",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "ChopChop Barber Shop",
+        item: "https://nutab.ca/portfolio/chopchop",
+      },
+    ],
+  };
+
   return (
     <main id="main-content" role="main" tabIndex={-1} className="relative">
       {/* JSON-LD Structured Data for SEO */}
@@ -130,6 +155,10 @@ export default function ChopChopPortfolio() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <Background />
 

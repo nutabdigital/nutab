@@ -93,6 +93,31 @@ export default function KingseyeTowingPortfolio() {
     description: "Professional website design and local SEO services for service businesses, including towing companies, contractors, and emergency services in Calgary, Alberta.",
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://nutab.ca/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Portfolio",
+        item: "https://nutab.ca/portfolio",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "King's Eye Towing",
+        item: "https://nutab.ca/portfolio/kingseye-towing",
+      },
+    ],
+  };
+
   return (
     <main id="main-content" role="main" tabIndex={-1} className="relative">
       {/* JSON-LD Structured Data for SEO */}
@@ -103,6 +128,10 @@ export default function KingseyeTowingPortfolio() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <Background />
 

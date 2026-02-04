@@ -170,7 +170,7 @@ const Model: React.FC<ModelProps> = () => {
     deviceLowEndRef.current = lowEndDevice;
 
     // Compute particle count based on device and user preference
-    let particleCount = 6500;
+    let particleCount = 6000;
     let particleSize = 0.35;
 
     // Enhanced Settings: Higher density for high-end, better optimization for mobile
@@ -181,10 +181,10 @@ const Model: React.FC<ModelProps> = () => {
       particleCount = 2500; // 2.5k is a sweet spot for mobile JS performance
       particleSize = 0.65;  // Larger size to compensate for lower count
     } else if (deviceMemory <= 4) {
-      particleCount = 5500; // Medium devices
+      particleCount = 4500; // Medium devices
       particleSize = 0.45;
     } else {
-      particleCount = 6500; // High-end: finer, denser particles
+      particleCount = 6000; // High-end: finer, denser particles
       particleSize = 0.35;
     }
     // Store chosen count for updates

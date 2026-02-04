@@ -1,5 +1,8 @@
 import { MetadataRoute } from 'next';
 
+// Required for static export
+export const dynamic = 'force-static';
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://nutab.ca';
   const currentDate = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format

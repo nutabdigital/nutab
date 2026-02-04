@@ -1,11 +1,7 @@
 import type { Metadata } from "next"; // Type import from Next.js to type-check metadata.
 import "./styles/globals.css";
-import dynamic from "next/dynamic";
 import AppClientProviders from "./AppClientProviders";
 import { DM_Sans } from "next/font/google";
-
-// Dynamically import the ModelWrapper component
-const ModelWrapper = dynamic(() => import("./context/ModelWrapper"), { ssr: false });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nutab.ca"),

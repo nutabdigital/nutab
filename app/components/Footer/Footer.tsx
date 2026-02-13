@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 // Lightweight inline SVG icons to replace react-icons (saves ~10KB)
 const LinkedInIcon = () => (
@@ -30,8 +31,42 @@ const Footer: React.FC = () => {
     "text-black dark:text-white transition-colors transition-transform duration-300 hover:text-[#0067e7] hover:scale-110";
 
   return (
-    <footer className="bg-[var(--background)] text-[var(--foreground)] py-5 relative z-10">
+    <footer className="bg-[var(--background)] text-[var(--foreground)] py-8 relative z-10">
       <div className="max-w-[1000px] mx-auto px-5">
+        {/* Footer Navigation for SEO crawl paths */}
+        <nav aria-label="Footer navigation" className="mb-6">
+          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">
+            <div>
+              <h3 className="font-semibold mb-2 text-[var(--foreground)]">Services</h3>
+              <ul className="space-y-1">
+                <li><Link href="/services/web-design/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">Web Design</Link></li>
+                <li><Link href="/services/app-development/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">App Development</Link></li>
+                <li><Link href="/services/seo-marketing/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">SEO &amp; Marketing</Link></li>
+                <li><Link href="/services/ecommerce/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">E-Commerce</Link></li>
+                <li><Link href="/services/ai-automation/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">AI &amp; Automation</Link></li>
+                <li><Link href="/services/brand-design/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">Brand Design</Link></li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold mb-2 text-[var(--foreground)]">Company</h3>
+              <ul className="space-y-1">
+                <li><Link href="/portfolio/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">Portfolio</Link></li>
+                <li><Link href="/services/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">All Services</Link></li>
+                <li><Link href="/services/it-consulting/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">IT Consulting</Link></li>
+                <li><Link href="/services/photo-media/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">Photo &amp; Media</Link></li>
+              </ul>
+            </div>
+            <div className="col-span-2 sm:col-span-1">
+              <h3 className="font-semibold mb-2 text-[var(--foreground)]">Calgary Office</h3>
+              <address className="not-italic text-sm opacity-70 space-y-1">
+                <p>Calgary, Alberta, Canada</p>
+                <p><a href="tel:+15878886755" className="hover:text-[#0067e7] transition-colors">(587) 888-6755</a></p>
+                <p><a href="mailto:nutabdigital@gmail.com" className="hover:text-[#0067e7] transition-colors">nutabdigital@gmail.com</a></p>
+              </address>
+            </div>
+          </div>
+        </nav>
+        <hr className="border-[var(--foreground)] opacity-10 mb-4" />
         <div className="flex flex-col items-center flex-wrap text-center">
           <div className="flex items-center gap-4 mb-2 order-[-1] z-[500]">
             <a

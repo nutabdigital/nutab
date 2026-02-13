@@ -1,23 +1,45 @@
 import type { Metadata } from "next"; // Type import from Next.js to type-check metadata.
+import Script from "next/script";
 import "./styles/globals.css";
 import AppClientProviders from "./AppClientProviders";
 import { DM_Sans } from "next/font/google";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nutab.ca"),
+  applicationName: "NuTab Digital",
+  category: "Technology",
   alternates: {
     canonical: "/",
     languages: {
       "en-CA": "https://nutab.ca",
     },
   },
-  title: "NuTab Digital - Custom Software Development | Calgary",
+  title: {
+    default: "NuTab Digital | Calgary Web Development, SEO & Custom Software",
+    template: "%s | NuTab Digital Calgary",
+  },
   description:
-    "Custom software solutions, mobile & web app development, SEO & digital marketing, and e-commerce development in Calgary, Alberta.",
-  robots: "index, follow",
+    "Calgary's premier custom software development, web design, SEO, and digital marketing agency. Serving businesses in Beltline, Kensington, Inglewood, Arbour Lake & Signal Hill, Alberta.",
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  other: {
+    'geo.region': 'CA-AB',
+    'geo.placename': 'Calgary',
+    'geo.position': '51.0447;-114.0719',
+    'ICBM': '51.0447, -114.0719',
+  },
   openGraph: {
-    title: "NuTab Digital - Custom Software Development | Calgary",
-    description: "Custom software solutions, mobile & web app development, SEO & digital marketing in Calgary, Alberta.",
+    title: "NuTab Digital | Calgary Web Development, SEO & Custom Software",
+    description: "Calgary's premier custom software development, web design, SEO, and digital marketing agency serving businesses across Alberta.",
     url: "https://nutab.ca",
     siteName: "NuTab Digital",
     images: [{
@@ -31,8 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "NuTab Digital - Custom Software Development | Calgary",
-    description: "Custom software solutions in Calgary, Alberta.",
+    title: "NuTab Digital | Calgary Web Development, SEO & Custom Software",
+    description: "Calgary's premier custom software development, web design, and digital marketing agency serving businesses across Alberta.",
     images: ["https://nutab.ca/photos/og-home.webp"], 
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
@@ -55,24 +77,37 @@ const structuredData = {
   "url": "https://nutab.ca",
   "logo": "https://nutab.ca/icons/logo-light.svg",
   "image": "https://nutab.ca/photos/og-home.webp",
-  "telephone": "+1-587-707-2495",
+  "telephone": "+1-587-888-6755",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "Calgary",
     "addressLocality": "Calgary",
     "addressRegion": "AB",
-    "addressCountry": "CA",
+    "postalCode": "T2P",
+    "addressCountry": "CA"
   },
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": "51.0447",
     "longitude": "-114.0719"
   },
+  "hasMap": "https://www.google.com/maps/place/Calgary,+AB,+Canada",
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+1-587-707-2495",
+    "telephone": "+1-587-888-6755",
     "contactType": "customer service",
-    "areaServed": "CA",
-    "availableLanguage": ["en"],
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Calgary",
+        "sameAs": "https://en.wikipedia.org/wiki/Calgary"
+      },
+      {
+        "@type": "State",
+        "name": "Alberta"
+      }
+    ],
+    "availableLanguage": ["en"]
   },
   "sameAs": [
     "https://www.instagram.com/nutab_digital/",
@@ -80,10 +115,41 @@ const structuredData = {
     "https://www.facebook.com/profile.php?id=61575073651409",
     "https://www.linkedin.com/company/nutab-digital-inc/"
   ],
-  "areaServed": {
-    "@type": "Country",
-    "name": "Canada"
+  "areaServed": [
+    {
+      "@type": "City",
+      "name": "Calgary",
+      "sameAs": "https://en.wikipedia.org/wiki/Calgary"
+    },
+    {
+      "@type": "State",
+      "name": "Alberta",
+      "sameAs": "https://en.wikipedia.org/wiki/Alberta"
+    },
+    {
+      "@type": "Country",
+      "name": "Canada"
+    }
+  ],
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": "51.0447",
+      "longitude": "-114.0719"
+    },
+    "geoRadius": "50000"
   },
+  "knowsAbout": [
+    "Web Development",
+    "SEO Calgary",
+    "Mobile App Development",
+    "E-Commerce Development",
+    "AI Automation",
+    "Brand Design",
+    "Digital Marketing Alberta",
+    "IT Consulting Calgary"
+  ],
   "priceRange": "$$",
   "openingHoursSpecification": [
     { "@type": "OpeningHoursSpecification", "dayOfWeek": "Sunday", "opens": "00:00", "closes": "23:59" },
@@ -259,12 +325,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
 
-        {/* Optimized Google Analytics - async loading with delayed pageview */}
-        <script
-          async
+        {/* Optimized Google Analytics - loaded after page is interactive */}
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-BSE95BQFCB"
+          strategy="afterInteractive"
         />
-        <script
+        <Script
+          id="gtag-config"
+          strategy="afterInteractive"
           dangerouslySetInnerHTML={{
             __html: `
       window.dataLayer = window.dataLayer || [];
@@ -275,7 +343,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         anonymize_ip: true
       });
       
-      // Only send pageview after page is interactive
       if (document.readyState === 'complete') {
         gtag('event', 'page_view');
       } else {

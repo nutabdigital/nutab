@@ -83,7 +83,6 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
 
         const minDist = Math.min(...distances.map(d => d.dist));
         const allowed = Math.max(10, window.innerHeight * 0.05); // 5% of viewport or 10px
-        console.debug('[TeamObserver] distances:', distances.map(d => ({mid: Math.round(d.elemMid), dist: Math.round(d.dist)})), 'min', Math.round(minDist), 'allowed', Math.round(allowed));
 
         distances.forEach(({ el, dist }) => {
           if (dist <= allowed || dist === minDist) {

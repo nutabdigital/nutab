@@ -98,11 +98,11 @@ const HomePage: React.FC = () => {
             "@type": "WebSite",
             name: "NuTab Digital",
             url: "https://nutab.ca",
-            potentialAction: {
-              "@type": "SearchAction",
-              target: "https://nutab.ca/?s={search_term_string}",
-              "query-input": "required name=search_term_string",
-            },
+            description: "Calgary's premier custom software development, web design, and digital marketing agency serving businesses across Alberta.",
+            publisher: {
+              "@type": "Organization",
+              "@id": "https://nutab.ca/#organization"
+            }
           }),
         }}
       />

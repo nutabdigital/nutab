@@ -133,13 +133,11 @@ const Model: React.FC<ModelProps> = () => {
       canvas.addEventListener("webglcontextlost", (e) => {
         e.preventDefault();
         webglContextLostRef.current = true;
-        console.warn("WebGL context lost — animation paused");
       }, false);
 
       // Handle WebGL context restored
       canvas.addEventListener("webglcontextrestored", () => {
         webglContextLostRef.current = false;
-        console.log("WebGL context restored — reinitializing");
         // Reinitialize scene after context restore
         createParticles();
       }, false);

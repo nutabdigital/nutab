@@ -43,6 +43,26 @@ const Stars: React.FC = () => (
   <div className="text-yellow-400 font-medium">★★★★★</div>
 );
 
+const getRelativeTime = (dateString: string) => {
+  const date = new Date(dateString);
+  const now = new Date();
+  const diffTime = Math.abs(now.getTime() - date.getTime());
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+
+  if (diffDays === 0) return "Today";
+  if (diffDays === 1) return "Yesterday";
+  if (diffDays < 7) return `${diffDays} days ago`;
+  
+  const diffWeeks = Math.floor(diffDays / 7);
+  if (diffWeeks < 5) return `${diffWeeks} week${diffWeeks > 1 ? "s" : ""} ago`;
+  
+  const diffMonths = Math.floor(diffDays / 30);
+  if (diffMonths < 12) return `${diffMonths} month${diffMonths > 1 ? "s" : ""} ago`;
+  
+  const diffYears = Math.floor(diffDays / 365);
+  return `${diffYears} year${diffYears > 1 ? "s" : ""} ago`;
+};
+
 const Reviews: React.FC = () => {
   const [open, setOpen] = useState<Review | null>(null);
 
@@ -89,6 +109,7 @@ const Reviews: React.FC = () => {
                 </div>
                 <div className="text-right">
                   <Stars />
+                  <p className="text-sm opacity-70 text-gray-500">{getRelativeTime(r.schemaDate)}</p>
                 </div>
               </div>
 
@@ -97,7 +118,6 @@ const Reviews: React.FC = () => {
                 <>
                   <div className="relative overflow-hidden" style={{ maxHeight: 160 }}>
                     <p className="text-sm leading-relaxed text-gray-700 dark:text-gray-300 whitespace-pre-wrap">{r.content}</p>
-                    <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-12 bg-gradient-to-t from-white/90 dark:from-black/80"></div>
                   </div>
                   <div className="mt-4 flex items-center justify-between">
                     <button

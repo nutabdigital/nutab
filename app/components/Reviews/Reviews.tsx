@@ -89,7 +89,6 @@ const Reviews: React.FC = () => {
                 </div>
                 <div className="text-right">
                   <Stars />
-                  <p className="text-sm opacity-70 text-gray-500">{r.date}</p>
                 </div>
               </div>
 

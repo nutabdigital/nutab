@@ -40,11 +40,13 @@ const Footer: React.FC = () => {
               <h3 className="font-semibold mb-2 text-[var(--foreground)]">Services</h3>
               <ul className="space-y-1">
                 <li><Link href="/services/web-design/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">Web Design</Link></li>
-                <li><Link href="/services/app-development/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">App Development</Link></li>
                 <li><Link href="/services/seo-marketing/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">SEO &amp; Marketing</Link></li>
+                <li><Link href="/services/app-development/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">App Development</Link></li>
                 <li><Link href="/services/ecommerce/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">E-Commerce</Link></li>
                 <li><Link href="/services/ai-automation/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">AI &amp; Automation</Link></li>
+                <li><Link href="/services/it-consulting/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">IT Consulting</Link></li>
                 <li><Link href="/services/brand-design/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">Brand Design</Link></li>
+                <li><Link href="/services/photo-media/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">Photo &amp; Media</Link></li>
               </ul>
             </div>
             <div>
@@ -52,8 +54,6 @@ const Footer: React.FC = () => {
               <ul className="space-y-1">
                 <li><Link href="/portfolio/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">Portfolio</Link></li>
                 <li><Link href="/services/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">All Services</Link></li>
-                <li><Link href="/services/it-consulting/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">IT Consulting</Link></li>
-                <li><Link href="/services/photo-media/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">Photo &amp; Media</Link></li>
               </ul>
             </div>
             <div className="col-span-2 sm:col-span-1">

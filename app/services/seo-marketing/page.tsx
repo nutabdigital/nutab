@@ -5,12 +5,13 @@ import { Search, BarChart3, TrendingUp, ArrowRight, Sparkles, Target, Users, Che
 import Link from "next/link";
 import FAQSection from "../../components/FAQSection/FAQSection";
 import PricingSection, { PricingPackage } from "../../components/PricingSection/PricingSection";
+import { CALGARY_SEO_KEYWORDS } from "../../../data/calgaryLocalization";
 
 export const generateMetadata = (): import("next").Metadata => ({
-  title: "SEO & Digital Marketing Calgary | NuTab Digital",
+  title: "SEO & Digital Marketing Calgary",
   description:
     "Calgary's trusted SEO and digital marketing experts. Search engine optimization, content marketing, PPC, and social media management for Alberta businesses. Boost your online visibility.",
-  keywords: ["SEO Calgary", "digital marketing Calgary", "search engine optimization Alberta", "PPC Calgary", "content marketing Calgary", "social media marketing Alberta"],
+  keywords: [...new Set(["SEO Calgary", "digital marketing Calgary", "search engine optimization Alberta", "PPC Calgary", "content marketing Calgary", "social media marketing Alberta", ...CALGARY_SEO_KEYWORDS['seo-marketing']])],
   alternates: {
     canonical: "https://nutab.ca/services/seo-marketing",
   },
@@ -161,7 +162,6 @@ const pricingLdJson = {
       position: i + 1,
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
-      priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       url: `https://nutab.ca/services/seo-marketing#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
@@ -175,12 +175,15 @@ const pricingLdJson = {
 
         if (typeof p.priceNumber === "number") {
           offer.price = p.priceNumber;
-          offer.priceSpecification = {
-            "@type": "UnitPriceSpecification",
-            price: p.priceNumber,
-            priceCurrency: "CAD",
-            billingDuration: p.isMonthly ? "P1M" : undefined,
-          };
+          offer.priceCurrency = "CAD";
+          if (p.isMonthly) {
+            offer.priceSpecification = {
+              "@type": "UnitPriceSpecification",
+              price: p.priceNumber,
+              priceCurrency: "CAD",
+              billingDuration: "P1M",
+            };
+          }
     }
 
     return offer;
@@ -226,9 +229,9 @@ const SEOMarketing: React.FC = () => {
             description: "Comprehensive search engine optimization and digital marketing services to boost online visibility and drive business growth.",
             serviceType: "Digital Marketing",
             url: "https://nutab.ca/services/seo-marketing",
-            image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            image: "https://nutab.ca/photos/og-seo-marketing.webp",
             datePublished: "2024-01-15",
-            dateModified: "2025-12-11",
+            dateModified: "2026-02-23",
             provider: { "@id": "https://nutab.ca/#organization" },
             areaServed: {
               "@type": "City",

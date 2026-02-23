@@ -5,12 +5,13 @@ import { Camera, Video, Film, ArrowRight, Sparkles, Image, Aperture, CheckCircle
 import Link from "next/link";
 import FAQSection from "../../components/FAQSection/FAQSection";
 import PricingSection, { PricingPackage } from "../../components/PricingSection/PricingSection";
+import { CALGARY_SEO_KEYWORDS } from "../../../data/calgaryLocalization";
 
 export const generateMetadata = (): import("next").Metadata => ({
-  title: "Photography & Media Production Calgary | NuTab Digital",
+  title: "Photography & Media Production Calgary",
   description:
     "Calgary's professional photography and media production team. Commercial photography, video production, event coverage, and photo editing for Alberta businesses. Book your session today.",
-  keywords: ["photography Calgary", "video production Calgary", "commercial photography Alberta", "event photography Calgary", "media production Calgary", "product photography Alberta"],
+  keywords: [...new Set(["photography Calgary", "video production Calgary", "commercial photography Alberta", "event photography Calgary", "media production Calgary", "product photography Alberta", ...CALGARY_SEO_KEYWORDS['photo-media']])],
   alternates: {
     canonical: "https://nutab.ca/services/photo-media",
   },
@@ -158,7 +159,6 @@ const pricingLdJson = {
       position: i + 1,
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
-      priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       url: `https://nutab.ca/services/photo-media#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
@@ -172,6 +172,7 @@ const pricingLdJson = {
 
         if (typeof p.priceNumber === "number") {
           offer.price = p.priceNumber;
+          offer.priceCurrency = "CAD";
     }
 
     return offer;
@@ -217,9 +218,9 @@ const PhotoMedia: React.FC = () => {
             description: "Professional photography and video production services for businesses, including commercial shoots, event coverage, and post-production editing.",
             serviceType: "Photography & Media Production",
             url: "https://nutab.ca/services/photo-media",
-            image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            image: "https://nutab.ca/photos/og-photo-media.webp",
             datePublished: "2024-01-15",
-            dateModified: "2025-12-11",
+            dateModified: "2026-02-23",
             provider: { "@id": "https://nutab.ca/#organization" },
             areaServed: {
               "@type": "City",

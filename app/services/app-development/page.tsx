@@ -5,12 +5,13 @@ import { Code2, Server, Database, ArrowRight, Settings, Shield, Cloud, CheckCirc
 import Link from "next/link";
 import FAQSection from "../../components/FAQSection/FAQSection";
 import PricingSection, { PricingPackage } from "../../components/PricingSection/PricingSection";
+import { CALGARY_SEO_KEYWORDS } from "../../../data/calgaryLocalization";
 
 export const generateMetadata = (): import("next").Metadata => ({
-  title: "Custom App & Software Development Calgary | Mobile, Web & Enterprise Solutions | NuTab Digital",
+  title: "Custom App & Software Development Calgary | Mobile, Web & Enterprise Solutions",
   description:
     "Full-service custom app and software development in Calgary. NuTab Digital builds iOS, Android, web apps, and enterprise software solutions tailored to your business needs.",
-  keywords: ["custom software Calgary", "app development Calgary", "mobile app developers Calgary", "enterprise software Alberta", "iOS app Calgary", "Android app Calgary", "software development Alberta"],
+  keywords: [...new Set(["custom software Calgary", "app development Calgary", "mobile app developers Calgary", "enterprise software Alberta", "iOS app Calgary", "Android app Calgary", "software development Alberta", ...CALGARY_SEO_KEYWORDS['app-development']])],
   alternates: {
     canonical: "https://nutab.ca/services/app-development",
   },
@@ -143,7 +144,6 @@ const pricingLdJson = {
       position: i + 1,
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
-      priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       url: `https://nutab.ca/services/app-development#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
@@ -157,6 +157,7 @@ const pricingLdJson = {
 
     if (typeof p.priceNumber === "number") {
       offer.price = p.priceNumber;
+      offer.priceCurrency = "CAD";
     }
 
     return offer;
@@ -201,15 +202,19 @@ const AppSoftwareDevelopment: React.FC = () => {
             description: "Custom software and mobile app development services including iOS, Android, web applications, and enterprise solutions.",
             serviceType: "Software & App Development",
             url: "https://nutab.ca/services/app-development",
-            image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            image: "https://nutab.ca/photos/og-app-development.webp",
             datePublished: "2024-01-15",
-            dateModified: "2025-12-13",
+            dateModified: "2026-02-23",
             provider: { "@id": "https://nutab.ca/#organization" },
             areaServed: {
               "@type": "City",
               name: "Calgary",
               containedIn: { "@type": "AdministrativeArea", name: "Alberta" }
             },
+            availableChannel: {
+              "@type": "ServiceChannel",
+              serviceUrl: "https://nutab.ca/services/app-development"
+            }
           }),
         }}
       />

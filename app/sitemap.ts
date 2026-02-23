@@ -1,10 +1,14 @@
 import { MetadataRoute } from 'next';
+import { NUTAB_BUSINESS, CALGARY_SEO_KEYWORDS } from '../data/calgaryLocalization';
 
 // Required for static export
 export const dynamic = 'force-static';
 
+/** All service slugs for sitemap generation */
+const SERVICE_SLUGS = Object.keys(CALGARY_SEO_KEYWORDS);
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://nutab.ca';
+  const baseUrl = NUTAB_BUSINESS.url;
   const currentDate = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
 
   return [

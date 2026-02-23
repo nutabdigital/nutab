@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "ChopChop Barber Shop Website Redesign | Calgary Web Development | NuTab Digital",
+  title: "ChopChop Barber Shop Website Redesign | Calgary Web Development",
   description:
     "Calgary web development case study: NuTab Digital transformed ChopChop Barber Shop from a slow Squarespace site to a blazing-fast Next.js application with perfect PageSpeed 100 scores. Expert SEO optimization and modern web design.",
   keywords: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description:
       "See how NuTab Digital's web development and SEO expertise transformed ChopChop Barber Shop's online presence with a complete redesign achieving perfect PageSpeed scores.",
     url: "https://nutab.ca/portfolio/chopchop",
-    siteName: "NuTab Digital - Calgary Web Development",
+    siteName: "NuTab Digital",
     images: [
       {
         url: "https://nutab.ca/photos/og-portfolio.webp",

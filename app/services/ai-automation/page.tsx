@@ -5,12 +5,13 @@ import { Brain, Zap, ShieldCheck, ArrowRight, Sparkles, Target, TrendingUp, Cloc
 import Link from "next/link";
 import FAQSection from "../../components/FAQSection/FAQSection";
 import PricingSection, { PricingPackage } from "../../components/PricingSection/PricingSection";
+import { CALGARY_SEO_KEYWORDS } from "../../../data/calgaryLocalization";
 
 export const generateMetadata = (): import("next").Metadata => ({
-  title: "AI & Automation Solutions Calgary | Machine Learning & Workflow Automation | NuTab Digital",
+  title: "AI & Automation Solutions Calgary | Machine Learning & Workflow Automation",
   description:
     "Calgary's AI and automation experts. NuTab Digital helps Alberta businesses leverage artificial intelligence, machine learning, and workflow automation to reduce costs and improve efficiency. Free consultation.",
-  keywords: ["AI solutions Calgary", "automation Calgary", "machine learning Alberta", "AI development Calgary", "workflow automation Calgary", "chatbot development Alberta"],
+  keywords: [...new Set(["AI solutions Calgary", "automation Calgary", "machine learning Alberta", "AI development Calgary", "workflow automation Calgary", "chatbot development Alberta", ...CALGARY_SEO_KEYWORDS['ai-automation']])],
   alternates: {
     canonical: "https://nutab.ca/services/ai-automation",
   },
@@ -154,7 +155,6 @@ const pricingLdJson = {
       position: i + 1,
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
-      priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       url: `https://nutab.ca/services/ai-automation#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
@@ -168,6 +168,7 @@ const pricingLdJson = {
 
         if (typeof p.priceNumber === "number") {
           offer.price = p.priceNumber;
+          offer.priceCurrency = "CAD";
         }
 
     return offer;
@@ -213,9 +214,9 @@ const AIAutomation: React.FC = () => {
             description: "Leverage artificial intelligence and automation to improve efficiency, reduce manual tasks, and make smarter decisions.",
             serviceType: "AI & Automation",
             url: "https://nutab.ca/services/ai-automation",
-            image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            image: "https://nutab.ca/photos/og-ai-automation.webp",
             datePublished: "2024-01-15",
-            dateModified: "2025-12-11",
+            dateModified: "2026-02-23",
             provider: { "@id": "https://nutab.ca/#organization" },
             areaServed: {
               "@type": "City",

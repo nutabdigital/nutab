@@ -5,12 +5,13 @@ import { Palette, Layers, Sparkles, ArrowRight, PenTool, Image, FileText, CheckC
 import Link from "next/link";
 import FAQSection from "../../components/FAQSection/FAQSection";
 import PricingSection, { PricingPackage } from "../../components/PricingSection/PricingSection";
+import { CALGARY_SEO_KEYWORDS } from "../../../data/calgaryLocalization";
 
 export const generateMetadata = (): import("next").Metadata => ({
-  title: "Graphic & Brand Design Calgary | Logo Design & Visual Identity | NuTab Digital",
+  title: "Graphic & Brand Design Calgary | Logo Design & Visual Identity",
   description:
     "Calgary's creative brand design studio. NuTab Digital delivers professional logo design, visual identity, and brand strategy for Alberta businesses. Make your brand unforgettable.",
-  keywords: ["brand design Calgary", "logo design Calgary", "graphic design Alberta", "visual identity Calgary", "branding agency Calgary", "creative design Alberta"],
+  keywords: [...new Set(["brand design Calgary", "logo design Calgary", "graphic design Alberta", "visual identity Calgary", "branding agency Calgary", "creative design Alberta", ...CALGARY_SEO_KEYWORDS['brand-design']])],
   alternates: {
     canonical: "https://nutab.ca/services/brand-design",
   },
@@ -143,7 +144,6 @@ const pricingLdJson = {
       position: i + 1,
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
-      priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       url: `https://nutab.ca/services/brand-design#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
@@ -157,6 +157,7 @@ const pricingLdJson = {
 
         if (typeof p.priceNumber === "number") {
           offer.price = p.priceNumber;
+          offer.priceCurrency = "CAD";
         }
 
     return offer;
@@ -201,15 +202,19 @@ const BrandDesign: React.FC = () => {
             description: "Professional brand design services including logo design, visual identity, and brand strategy.",
             serviceType: "Brand Design",
             url: "https://nutab.ca/services/brand-design",
-            image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            image: "https://nutab.ca/photos/og-brand-design.webp",
             datePublished: "2024-01-15",
-            dateModified: "2025-12-11",
+            dateModified: "2026-02-23",
             provider: { "@id": "https://nutab.ca/#organization" },
             areaServed: {
               "@type": "City",
               name: "Calgary",
               containedIn: { "@type": "AdministrativeArea", name: "Alberta" }
             },
+            availableChannel: {
+              "@type": "ServiceChannel",
+              serviceUrl: "https://nutab.ca/services/brand-design"
+            }
           }),
         }}
       />

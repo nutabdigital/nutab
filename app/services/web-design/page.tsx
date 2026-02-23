@@ -5,12 +5,13 @@ import { Globe, Palette, Zap, ArrowRight, Layout, SearchCheck, Smartphone, Check
 import Link from "next/link";
 import FAQSection from "../../components/FAQSection/FAQSection";
 import PricingSection, { PricingPackage } from "../../components/PricingSection/PricingSection";
+import { CALGARY_SEO_KEYWORDS } from "../../../data/calgaryLocalization";
 
 export const generateMetadata = (): import("next").Metadata => ({
-  title: "Web Design & Development Calgary | Custom Websites | NuTab Digital",
+  title: "Web Design & Development Calgary | Custom Websites",
   description:
     "Professional web design and development in Calgary. NuTab Digital creates stunning, responsive websites that drive results. SEO-optimized, mobile-friendly, and conversion-focused.",
-  keywords: ["web design Calgary", "website development Alberta", "responsive web design Calgary", "custom websites Calgary", "web developers Calgary", "SEO web design Alberta"],
+  keywords: [...new Set(["web design Calgary", "website development Alberta", "responsive web design Calgary", "custom websites Calgary", "web developers Calgary", "SEO web design Alberta", ...CALGARY_SEO_KEYWORDS['web-design']])],
   alternates: {
     canonical: "https://nutab.ca/services/web-design",
   },
@@ -149,7 +150,6 @@ const pricingLdJson = {
       position: i + 1,
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
-      priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       url: `https://nutab.ca/services/web-design#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
@@ -163,6 +163,7 @@ const pricingLdJson = {
 
         if (typeof p.priceNumber === "number") {
           offer.price = p.priceNumber;
+          offer.priceCurrency = "CAD";
     }
 
     return offer;
@@ -207,15 +208,19 @@ const WebDesign: React.FC = () => {
             description: "Professional web design and development services creating stunning, responsive websites that drive results for Calgary businesses.",
             serviceType: "Web Design & Development",
             url: "https://nutab.ca/services/web-design",
-            image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            image: "https://nutab.ca/photos/og-home.webp",
             datePublished: "2024-01-15",
-            dateModified: "2025-12-13",
+            dateModified: "2026-02-23",
             provider: { "@id": "https://nutab.ca/#organization" },
             areaServed: {
               "@type": "City",
               name: "Calgary",
               containedIn: { "@type": "AdministrativeArea", name: "Alberta" }
             },
+            availableChannel: {
+              "@type": "ServiceChannel",
+              serviceUrl: "https://nutab.ca/services/web-design"
+            }
           }),
         }}
       />

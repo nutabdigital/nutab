@@ -12,6 +12,7 @@ const ContactPopup = React.lazy(() => import("./components/ContactPopup/ContactP
 const Reviews = React.lazy(() => import("./components/Reviews/Reviews"));
 import { useModelState } from "./context/ModelStateProvider"; // adjust path if needed
 import { useHeaderSection } from "./context/HeaderSectionContext";
+import { NUTAB_BUSINESS } from "../data/calgaryLocalization";
 
 interface Contact {
   name: string;
@@ -96,12 +97,12 @@ const HomePage: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebSite",
-            name: "NuTab Digital",
-            url: "https://nutab.ca",
+            name: NUTAB_BUSINESS.name,
+            url: NUTAB_BUSINESS.url,
             description: "Calgary's premier custom software development, web design, and digital marketing agency serving businesses across Alberta.",
             publisher: {
               "@type": "Organization",
-              "@id": "https://nutab.ca/#organization"
+              "@id": `${NUTAB_BUSINESS.url}/#organization`
             }
           }),
         }}

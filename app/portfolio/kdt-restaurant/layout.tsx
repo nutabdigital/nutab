@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "KDT Restaurant Website Design | Calgary Web Development & SEO | NuTab Digital",
+  title: "KDT Restaurant Website Design | Calgary Web Development & SEO",
   description:
     "Calgary web development case study: NuTab Digital designed a modern, SEO-optimized website for KDT Restaurant featuring online menu and mobile-first responsive design. Expert restaurant marketing solutions.",
   keywords: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description:
       "See how NuTab Digital's web development and digital marketing expertise created a stunning, SEO-optimized website for KDT Restaurant.",
     url: "https://nutab.ca/portfolio/kdt-restaurant",
-    siteName: "NuTab Digital - Calgary Web Development",
+    siteName: "NuTab Digital",
     images: [
       {
         url: "https://nutab.ca/photos/og-portfolio.webp",

@@ -3,6 +3,8 @@ import Script from "next/script";
 import "./styles/globals.css";
 import AppClientProviders from "./AppClientProviders";
 import { DM_Sans } from "next/font/google";
+import { CALGARY_GEO, NUTAB_BUSINESS, getCalgaryServiceAreaSchema, getAreaServedSchema, CORE_NEIGHBORHOODS } from "../data/calgaryLocalization";
+import { PHOTO_SIZES } from "../data/photoSizes";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://nutab.ca"),
@@ -32,20 +34,19 @@ export const metadata: Metadata = {
     },
   },
   other: {
-    'geo.region': 'CA-AB',
+    'geo.region': `${CALGARY_GEO.countryCode}-${CALGARY_GEO.provinceCode}`,
     'geo.placename': 'Calgary',
-    'geo.position': '51.0447;-114.0719',
-    'ICBM': '51.0447, -114.0719',
+    'geo.position': `${CALGARY_GEO.latitude};${CALGARY_GEO.longitude}`,
+    'ICBM': `${CALGARY_GEO.latitude}, ${CALGARY_GEO.longitude}`,
   },
   openGraph: {
     title: "NuTab Digital | Calgary Web Development, SEO & Custom Software",
     description: "Calgary's premier custom software development, web design, SEO, and digital marketing agency serving businesses across Alberta.",
-    url: "https://nutab.ca",
-    siteName: "NuTab Digital",
+    url: NUTAB_BUSINESS.url,
+    siteName: NUTAB_BUSINESS.name,
     images: [{
-      url: "https://nutab.ca/photos/og-home.webp", 
-      width: 1200,
-      height: 800,
+      url: `${NUTAB_BUSINESS.url}/photos/og-home.webp`, 
+      ...PHOTO_SIZES["/photos/og-home.webp"],
       alt: "NuTab Digital - Calgary Software Development"
     }],
     locale: "en_CA",
@@ -55,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "NuTab Digital | Calgary Web Development, SEO & Custom Software",
     description: "Calgary's premier custom software development, web design, and digital marketing agency serving businesses across Alberta.",
-    images: ["https://nutab.ca/photos/og-home.webp"], 
+    images: [`${NUTAB_BUSINESS.url}/photos/og-home.webp`], 
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
   },
@@ -72,74 +73,46 @@ const dmSans = DM_Sans({
 const structuredData = {
   "@context": "https://schema.org",
   "@type": ["Organization", "LocalBusiness"],
-  "@id": "https://nutab.ca/#organization",
-  "name": "NuTab Digital",
-  "url": "https://nutab.ca",
-  "logo": "https://nutab.ca/icons/logo-light.svg",
-  "image": "https://nutab.ca/photos/og-home.webp",
-  "telephone": "+1-587-888-6755",
+  "@id": `${NUTAB_BUSINESS.url}/#organization`,
+  "name": NUTAB_BUSINESS.name,
+  "legalName": NUTAB_BUSINESS.legalName,
+  "url": NUTAB_BUSINESS.url,
+  "logo": `${NUTAB_BUSINESS.url}/icons/logo-light.svg`,
+  "image": `${NUTAB_BUSINESS.url}/photos/og-home.webp`,
+  "telephone": NUTAB_BUSINESS.phone,
+  "email": NUTAB_BUSINESS.email,
+  "foundingDate": NUTAB_BUSINESS.foundingDate,
+  "founder": NUTAB_BUSINESS.founders.map(f => ({ "@type": "Person", "name": f.name, "jobTitle": f.role })),
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Calgary",
     "addressLocality": "Calgary",
-    "addressRegion": "AB",
-    "postalCode": "T2P",
-    "addressCountry": "CA"
+    "addressRegion": CALGARY_GEO.provinceCode,
+    "postalCode": "T2P 1J9",
+    "addressCountry": CALGARY_GEO.countryCode
   },
   "geo": {
     "@type": "GeoCoordinates",
-    "latitude": "51.0447",
-    "longitude": "-114.0719"
+    "latitude": String(CALGARY_GEO.latitude),
+    "longitude": String(CALGARY_GEO.longitude)
   },
   "hasMap": "https://www.google.com/maps/place/Calgary,+AB,+Canada",
   "contactPoint": {
     "@type": "ContactPoint",
-    "telephone": "+1-587-888-6755",
+    "telephone": NUTAB_BUSINESS.phone,
     "contactType": "customer service",
-    "areaServed": [
-      {
-        "@type": "City",
-        "name": "Calgary",
-        "sameAs": "https://en.wikipedia.org/wiki/Calgary"
-      },
-      {
-        "@type": "State",
-        "name": "Alberta"
-      }
-    ],
+    "areaServed": getAreaServedSchema(),
     "availableLanguage": ["en"]
   },
-  "sameAs": [
-    "https://www.instagram.com/nutab_digital/",
-    "https://twitter.com/NuTabDigital",
-    "https://www.facebook.com/profile.php?id=61575073651409",
-    "https://www.linkedin.com/company/nutab-digital-inc/"
-  ],
+  "sameAs": Object.values(NUTAB_BUSINESS.socialProfiles),
   "areaServed": [
-    {
-      "@type": "City",
-      "name": "Calgary",
-      "sameAs": "https://en.wikipedia.org/wiki/Calgary"
-    },
-    {
-      "@type": "State",
-      "name": "Alberta",
-      "sameAs": "https://en.wikipedia.org/wiki/Alberta"
-    },
-    {
-      "@type": "Country",
-      "name": "Canada"
-    }
+    ...getAreaServedSchema(),
+    ...CORE_NEIGHBORHOODS.map(n => ({
+      "@type": "Neighborhood",
+      "name": n.name,
+      "containedInPlace": { "@type": "City", "name": "Calgary" }
+    }))
   ],
-  "serviceArea": {
-    "@type": "GeoCircle",
-    "geoMidpoint": {
-      "@type": "GeoCoordinates",
-      "latitude": "51.0447",
-      "longitude": "-114.0719"
-    },
-    "geoRadius": "50000"
-  },
+  "serviceArea": getCalgaryServiceAreaSchema(),
   "knowsAbout": [
     "Web Development",
     "SEO Calgary",
@@ -163,12 +136,12 @@ const structuredData = {
   "makesOffer": [
     {
       "@type": "Offer",
-      "url": "https://nutab.ca/services/app-development",
+      "url": "https://nutab.ca/services/web-design",
       "itemOffered": {
         "@type": "Service",
-        "name": "Custom Software Development",
-        "description": "Tailored custom software that streamlines operations and boosts efficiency for businesses.",
-        "serviceType": "Software Development",
+        "name": "Web Design & Development",
+        "description": "Professional web design and development creating stunning, responsive websites that drive results for Calgary businesses.",
+        "serviceType": "Web Design & Development",
         "provider": {
           "@type": "Organization",
           "name": "NuTab Digital"
@@ -180,9 +153,9 @@ const structuredData = {
       "url": "https://nutab.ca/services/app-development",
       "itemOffered": {
         "@type": "Service",
-        "name": "Mobile & Web App Development",
-        "description": "User-friendly mobile and web applications that provide seamless experiences and drive customer engagement.",
-        "serviceType": "Application Development",
+        "name": "Custom App & Software Development",
+        "description": "Full-service custom app and software development including iOS, Android, web apps, and enterprise solutions.",
+        "serviceType": "Software & App Development",
         "provider": {
           "@type": "Organization",
           "name": "NuTab Digital"

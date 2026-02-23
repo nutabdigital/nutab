@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Web Development Portfolio | Calgary SEO & Digital Marketing | NuTab Digital",
+  title: "Web Development Portfolio | Calgary SEO & Digital Marketing",
   description:
     "Explore NuTab Digital's portfolio of Calgary web development, SEO optimization, and digital marketing projects. See how our expert team transforms local businesses with custom websites, perfect PageSpeed scores, and results-driven marketing strategies.",
   keywords: [

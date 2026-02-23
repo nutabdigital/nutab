@@ -48,7 +48,7 @@ export const NUTAB_BUSINESS = {
   ],
   socialProfiles: {
     instagram: 'https://www.instagram.com/nutab_digital/',
-    twitter: 'https://twitter.com/NuTabDigital',
+    twitter: 'https://x.com/NuTabDigital',
     facebook: 'https://www.facebook.com/profile.php?id=61575073651409',
     linkedin: 'https://www.linkedin.com/company/nutab-digital-inc/',
   },

@@ -5,12 +5,13 @@ import { Briefcase, Users, Lightbulb, ArrowRight, Sparkles, Target, Cloud, Shiel
 import Link from "next/link";
 import FAQSection from "../../components/FAQSection/FAQSection";
 import PricingSection, { PricingPackage } from "../../components/PricingSection/PricingSection";
+import { CALGARY_SEO_KEYWORDS } from "../../../data/calgaryLocalization";
 
 export const generateMetadata = (): import("next").Metadata => ({
-  title: "IT Consulting Calgary | Business Technology Strategy | NuTab Digital",
+  title: "IT Consulting Calgary | Business Technology Strategy",
   description:
     "Calgary's business and IT consulting experts. NuTab Digital provides digital transformation, cloud strategy, and technology consulting for Alberta companies. Local support. Free consultation.",
-  keywords: ["IT consulting Calgary", "business consulting Calgary", "digital transformation Alberta", "cloud migration Calgary", "technology consulting Calgary", "IT strategy Alberta"],
+  keywords: [...new Set(["IT consulting Calgary", "business consulting Calgary", "digital transformation Alberta", "cloud migration Calgary", "technology consulting Calgary", "IT strategy Alberta", ...CALGARY_SEO_KEYWORDS['it-consulting']])],
   alternates: {
     canonical: "https://nutab.ca/services/it-consulting",
   },
@@ -156,7 +157,6 @@ const pricingLdJson = {
       position: i + 1,
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
-      priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       url: `https://nutab.ca/services/it-consulting#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
@@ -170,6 +170,7 @@ const pricingLdJson = {
 
     if (typeof p.priceNumber === "number") {
       offer.price = p.priceNumber;
+      offer.priceCurrency = "CAD";
     }
 
     return offer;
@@ -215,9 +216,9 @@ const ITConsulting: React.FC = () => {
             description: "Expert technology consulting to help organizations achieve their goals through digital transformation and strategic IT planning.",
             serviceType: "IT Consulting",
             url: "https://nutab.ca/services/it-consulting",
-            image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            image: "https://nutab.ca/photos/og-it-consulting.webp",
             datePublished: "2024-01-15",
-            dateModified: "2025-12-11",
+            dateModified: "2026-02-23",
             provider: { "@id": "https://nutab.ca/#organization" },
             areaServed: {
               "@type": "City",

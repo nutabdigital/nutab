@@ -5,12 +5,13 @@ import { ShoppingCart, CreditCard, TrendingUp, ArrowRight, Package, BarChart3, C
 import Link from "next/link";
 import FAQSection from "../../components/FAQSection/FAQSection";
 import PricingSection, { PricingPackage } from "../../components/PricingSection/PricingSection";
+import { CALGARY_SEO_KEYWORDS } from "../../../data/calgaryLocalization";
 
 export const generateMetadata = (): import("next").Metadata => ({
-  title: "Ecommerce Development Calgary | Online Store Solutions | NuTab Digital",
+  title: "Ecommerce Development Calgary | Online Store Solutions",
   description:
     "Ecommerce development in Calgary. NuTab Digital builds high-converting online stores with Shopify, WooCommerce, and custom solutions. Start selling online today.",
-  keywords: ["ecommerce Calgary", "online store Calgary", "Shopify Calgary", "WooCommerce Calgary", "ecommerce development Alberta", "online shopping website Calgary"],
+  keywords: [...new Set(["ecommerce Calgary", "online store Calgary", "Shopify Calgary", "WooCommerce Calgary", "ecommerce development Alberta", "online shopping website Calgary", ...CALGARY_SEO_KEYWORDS['ecommerce']])],
   alternates: {
     canonical: "https://nutab.ca/services/ecommerce",
   },
@@ -143,7 +144,6 @@ const pricingLdJson = {
       position: i + 1,
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
-      priceCurrency: "CAD",
       availability: "https://schema.org/InStock",
       url: `https://nutab.ca/services/ecommerce#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
@@ -157,6 +157,7 @@ const pricingLdJson = {
 
     if (typeof p.priceNumber === "number") {
       offer.price = p.priceNumber;
+      offer.priceCurrency = "CAD";
     }
 
     return offer;
@@ -201,15 +202,19 @@ const Ecommerce: React.FC = () => {
             description: "Ecommerce development services including online store setup, payment integration, and scaling solutions.",
             serviceType: "Ecommerce Development",
             url: "https://nutab.ca/services/ecommerce",
-            image: "https://nutab.ca/photos/3d-nutab-logo.png",
+            image: "https://nutab.ca/photos/og-ecommerce.webp",
             datePublished: "2024-01-15",
-            dateModified: "2025-12-11",
+            dateModified: "2026-02-23",
             provider: { "@id": "https://nutab.ca/#organization" },
             areaServed: {
               "@type": "City",
               name: "Calgary",
               containedIn: { "@type": "AdministrativeArea", name: "Alberta" }
             },
+            availableChannel: {
+              "@type": "ServiceChannel",
+              serviceUrl: "https://nutab.ca/services/ecommerce"
+            }
           }),
         }}
       />

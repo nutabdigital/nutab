@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Background from "../components/Background/Background";
 import ServicesSummary from "../components/ServicesSummary/Services";
 import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
+import { CALGARY_SEO_KEYWORDS } from "../../data/calgaryLocalization";
 
 export const generateMetadata = (): Metadata => ({
-  title: "Digital Services | Web Development, SEO & More | NuTab Digital Calgary",
+  title: "Digital Services | Web Development, SEO & More",
   description: "Explore NuTab Digital's full range of services in Calgary: custom software development, mobile & web apps, SEO & digital marketing, e-commerce, AI automation, IT consulting, brand design, and photography.",
-  keywords: ["Calgary software development", "web design Calgary", "SEO services Alberta", "custom software Calgary", "app development Calgary", "digital marketing Calgary"],
+  keywords: [...new Set(["Calgary software development", "web design Calgary", "SEO services Alberta", "custom software Calgary", "app development Calgary", "digital marketing Calgary", ...Object.values(CALGARY_SEO_KEYWORDS).flat().slice(0, 10)])],
   robots: "index, follow",
   alternates: { canonical: "https://nutab.ca/services" },
   openGraph: {

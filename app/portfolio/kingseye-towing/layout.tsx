@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "King's Eye Towing Website | Calgary Web Development & Local SEO | NuTab Digital",
+  title: "King's Eye Towing Website | Calgary Web Development & Local SEO",
   description:
     "Calgary web development case study: NuTab Digital built a professional, SEO-optimized website for King's Eye Towing with 24/7 availability, quick contact features, and local search optimization for emergency services.",
   keywords: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description:
       "See how NuTab Digital's web development and local SEO expertise created a professional, high-converting website for King's Eye Towing.",
     url: "https://nutab.ca/portfolio/kingseye-towing",
-    siteName: "NuTab Digital - Calgary Web Development",
+    siteName: "NuTab Digital",
     images: [
       {
         url: "https://nutab.ca/photos/og-portfolio.webp",

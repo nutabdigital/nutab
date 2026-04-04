@@ -16,6 +16,7 @@ import { NUTAB_BUSINESS } from "../data/calgaryLocalization";
 
 interface Contact {
   name: string;
+  role: string;
   phone: string;
   email: string;
   company: string;
@@ -27,16 +28,18 @@ interface Contact {
 const contacts: Record<string, Contact> = {
   navjot: {
     name: "Navjot Saran",
-    phone: "(587) 707-2495",
-    email: "navjots@nutab.ca",
+    role: "Co-Founder 2025-2026",
+    phone: "",
+    email: "",
     company: "Nutab",
     website: "https://www.nutab.ca",
     photo: "/photos/nav-headshot.webp", // updated to webp
   },
   fysal: {
     name: "Fysal Beauferris",
+    role: "Co-Founder",
     phone: "(587) 888-6755",
-    email: "fysalb@nutab.ca",
+    email: "nutabdigital@gmail.com",
     company: "Nutab",
     website: "https://www.nutab.ca",
     photo: "/photos/fysal-headshot.webp", // updated to webp

@@ -43,8 +43,8 @@ export const NUTAB_BUSINESS = {
   email: 'nutabdigital@gmail.com',
   foundingDate: '2024',
   founders: [
-    { name: 'Navjot Saran', role: 'Co-Founder', email: 'navjots@nutab.ca', phone: '(587) 707-2495' },
-    { name: 'Fysal Beauferris', role: 'Co-Founder', email: 'fysalb@nutab.ca', phone: '(587) 888-6755' },
+    { name: 'Navjot Saran', role: 'Co-Founder 2025-2026', email: '', phone: '' },
+    { name: 'Fysal Beauferris', role: 'Co-Founder', email: 'nutabdigital@gmail.com', phone: '(587) 888-6755' },
   ],
   socialProfiles: {
     instagram: 'https://www.instagram.com/nutab_digital/',

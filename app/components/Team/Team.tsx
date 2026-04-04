@@ -5,6 +5,7 @@ import Image from 'next/image';
 // Contact structure
 interface Contact {
   name: string;
+  role: string;
   phone: string;
   email: string;
   company: string;
@@ -20,16 +21,18 @@ interface TeamProps {
 const contacts: Record<string, Contact> = {
   navjot: {
     name: "Navjot Saran",
-    phone: "(587) 707-2495",
-    email: "navjots@nutab.ca",
+    role: "Co-Founder 2025-2026",
+    phone: "",
+    email: "",
     company: "Nutab",
     website: "https://www.nutab.ca",
     photo: "/photos/nav-headshot.webp",
   },
   fysal: {
     name: "Fysal Beauferris",
+    role: "Co-Founder",
     phone: "(587) 888-6755",
-    email: "fysalb@nutab.ca",
+    email: "nutabdigital@gmail.com",
     company: "Nutab",
     website: "https://www.nutab.ca",
     photo: "/photos/fysal-headshot.webp",
@@ -143,8 +146,8 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
             height={200}
             decoding="async"
           />
-          <p className="text-[1.5rem] font-normal my-2">Navjot Saran</p>
-          <p className="bg-[#0067e7] rounded-[1.5rem] font-normal mb-2 text-white inline-block px-3 py-1 text-[1rem]">Co-Founder</p>
+          <p className="text-[1.5rem] font-normal my-2">{contacts.navjot.name}</p>
+          <p className="bg-[#0067e7] rounded-[1.5rem] font-normal mb-2 text-white inline-block px-3 py-1 text-[1rem]">{contacts.navjot.role}</p>
           <p className="text-[1.05rem] font-normal text-[#0067e7] opacity-[0.95] mt-1 mb-2 tracking-[0.01em]">Software Developer</p>
           <p className="opacity-[0.85]">B.Sc. in Computer Science, University of Calgary</p>
         </div>
@@ -159,8 +162,8 @@ const Team: React.FC<TeamProps> = ({ onSelectContact }) => {
             height={200}
             decoding="async"
           />
-          <p className="text-[1.5rem] font-normal my-2">Fysal Beauferris</p>
-          <p className="bg-[#0067e7] rounded-[1.5rem] font-normal mb-2 text-white inline-block px-3 py-1 text-[1rem]">Co-Founder</p>
+          <p className="text-[1.5rem] font-normal my-2">{contacts.fysal.name}</p>
+          <p className="bg-[#0067e7] rounded-[1.5rem] font-normal mb-2 text-white inline-block px-3 py-1 text-[1rem]">{contacts.fysal.role}</p>
           <p className="text-[1.05rem] font-normal text-[#0067e7] opacity-[0.95] mt-1 mb-2 tracking-[0.01em]">Software Developer</p>
           <p className="opacity-[0.85]">B.Sc. in Computer Science, University of Calgary</p>
         </div>

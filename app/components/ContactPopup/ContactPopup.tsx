@@ -3,6 +3,7 @@ import { X, Download } from "lucide-react";
 
 interface Contact {
   name: string;
+  role: string;
   phone: string;
   email: string;
   company: string;
@@ -64,23 +65,29 @@ END:VCARD`;
 
         <p className="text-2xl font-normal">{contact.name}</p>
 
-        <p className="bg-[#0067e7] rounded-full px-3 py-1 text-white inline-block text-base font-normal">Co-Founder</p>
+        <p className="bg-[#0067e7] rounded-full px-3 py-1 text-white inline-block text-base font-normal">{contact.role}</p>
 
         <p className="text-[1.05rem] font-normal text-[#0067e7] opacity-[0.95]">Software Developer</p>
 
         <p className="opacity-[0.85]">B.Sc. in Computer Science, University of Calgary</p>
 
-        <p className="text-base opacity-[0.85]"><a className="text-[#0067e7] opacity-[0.95] no-underline break-all" href={`mailto:${contact.email}`}>{contact.email}</a></p>
+        {contact.email && (
+          <p className="text-base opacity-[0.85]"><a className="text-[#0067e7] opacity-[0.95] no-underline break-all" href={`mailto:${contact.email}`}>{contact.email}</a></p>
+        )}
 
-        <p className="text-base opacity-[0.85]">{contact.phone}</p>
+        {contact.phone && (
+          <p className="text-base opacity-[0.85]">{contact.phone}</p>
+        )}
 
-        <button
-          className="px-6 py-3 bg-gradient-to-r from-[#9333ea] to-[#3b82f6] text-slate-50 rounded-full text-base font-normal cursor-pointer transition-transform duration-150 transform hover:-translate-y-0.5 shadow-lg flex items-center gap-2 dark:from-[#3f37c9] dark:to-[#3b82f6]"
-          onClick={generateVCard}
-        >
-          <Download size={18} />
-          Save Contact
-        </button>
+        {(contact.name !== 'Navjot Saran') && (
+          <button
+            className="px-6 py-3 bg-gradient-to-r from-[#9333ea] to-[#3b82f6] text-slate-50 rounded-full text-base font-normal cursor-pointer transition-transform duration-150 transform hover:-translate-y-0.5 shadow-lg flex items-center gap-2 dark:from-[#3f37c9] dark:to-[#3b82f6]"
+            onClick={generateVCard}
+          >
+            <Download size={18} />
+            Save Contact
+          </button>
+        )}
       </div>
     </div>
   );

@@ -148,7 +148,7 @@ const pricingLdJson = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "NuTab Digital AI Automation Pricing",
-  description: "Starter, Growth and Scale automation packages (25% discount applied).",
+  description: "Starter, Growth and Scale automation packages.",
   itemListElement: aiPackages.map((p, i) => {
     const offer: any = {
       "@type": "Offer",

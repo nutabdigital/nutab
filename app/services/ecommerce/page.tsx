@@ -137,7 +137,7 @@ const pricingLdJson = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "NuTab Digital Ecommerce Pricing",
-  description: "Starter Store, Growth Store, and Scale Commerce packages (25% discount applied).",
+  description: "Starter Store, Growth Store, and Scale Commerce packages.",
   itemListElement: ecommercePackages.map((p, i) => {
     const offer: any = {
       "@type": "Offer",

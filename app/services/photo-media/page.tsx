@@ -152,7 +152,7 @@ const pricingLdJson = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "NuTab Digital Photography & Media Pricing",
-  description: "Basic Shoot, Media Plus, and Full Production packages (25% discount applied).",
+  description: "Basic Shoot, Media Plus, and Full Production packages.",
   itemListElement: mediaPackages.map((p, i) => {
     const offer: any = {
       "@type": "Offer",

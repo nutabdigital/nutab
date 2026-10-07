@@ -155,7 +155,7 @@ const pricingLdJson = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "NuTab Digital SEO & Marketing Pricing",
-  description: "Starter, Growth, and Scale monthly SEO packages (25% discount applied).",
+  description: "Starter, Growth, and Scale monthly SEO packages.",
   itemListElement: seoPackages.map((p, i) => {
     const offer: any = {
       "@type": "Offer",

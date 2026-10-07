@@ -137,7 +137,7 @@ const pricingLdJson = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "NuTab Digital Brand Design Pricing",
-  description: "Logo, Brand Kit, and Complete Brand packages (25% discount applied).",
+  description: "Logo, Brand Kit, and Complete Brand packages.",
   itemListElement: brandPackages.map((p, i) => {
     const offer: any = {
       "@type": "Offer",

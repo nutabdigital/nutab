@@ -143,7 +143,7 @@ const pricingLdJson = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "NuTab Digital Web Design Pricing",
-  description: "Starter, Business, and Advanced website packages (25% discount applied).",
+  description: "Starter, Business, and Advanced website packages.",
   itemListElement: webDesignPackages.map((p, i) => {
     const offer: any = {
       "@type": "Offer",

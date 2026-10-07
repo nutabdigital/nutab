@@ -137,7 +137,7 @@ const pricingLdJson = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "NuTab Digital App & Software Development Pricing",
-  description: "MVP App, Growth Platform, and Enterprise Solution packages (25% discount applied).",
+  description: "MVP App, Growth Platform, and Enterprise Solution packages.",
   itemListElement: devPackages.map((p, i) => {
     const offer: any = {
       "@type": "Offer",

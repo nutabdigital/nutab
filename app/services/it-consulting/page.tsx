@@ -150,7 +150,7 @@ const pricingLdJson = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   name: "NuTab Digital IT Consulting Pricing",
-  description: "IT Assessment, Optimization, and Transformation packages (25% discount applied).",
+  description: "IT Assessment, Optimization, and Transformation packages.",
   itemListElement: consultingPackages.map((p, i) => {
     const offer: any = {
       "@type": "Offer",

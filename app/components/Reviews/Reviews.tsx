@@ -68,7 +68,6 @@ const Reviews: React.FC = () => {
 
   const sanitizeMeta = (meta: string) => meta.split("•")[0].trim();
 
-  // Build JSON-LD schema for these reviews
   const schema = {
     "@context": "https://schema.org",
     "@type": "Organization",

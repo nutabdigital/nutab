@@ -15,14 +15,9 @@ const ThemeContext = createContext<ThemeContextType>({
 });
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  // Initialize from DOM attribute set by inline script to avoid flash
-  const [theme, setTheme] = useState<'dark' | 'light'>(() => {
-    if (typeof window !== 'undefined') {
-      const domTheme = document.documentElement.getAttribute('data-theme');
-      if (domTheme === 'light' || domTheme === 'dark') return domTheme;
-    }
-    return 'dark';
-  });
+  // Initialize to 'dark' to match server default - prevents hydration mismatch
+  // useEffect will update with stored preference after hydration
+  const [theme, setTheme] = useState<'dark' | 'light'>('dark');
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

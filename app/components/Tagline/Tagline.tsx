@@ -5,8 +5,8 @@ import { scrollToSection } from "@/app/utils/scrollToSection";
 const Tagline: React.FC = () => {
 
   return (
-    <section className="relative flex justify-center items-center h-screen w-[50vw] max-w-[700px] box-border caret-transparent z-10 max-[600px]:w-[85vw]">
-      <div className="relative w-[50vw] max-w-[700px] box-border p-6 mx-[2.5vw] bg-white/75 dark:bg-[rgba(10,10,10,0.75)] text-gray-900 dark:text-white shadow-lg dark:shadow-black/75 backdrop-blur-xl rounded-3xl z-10 will-change-[transform,opacity] max-[600px]:w-[85vw] max-[600px]:mx-0 max-[600px]:shadow-md max-[600px]:bg-white/95 dark:max-[600px]:bg-[rgba(10,10,10,0.95)] max-[600px]:backdrop-blur-none min-[601px]:bg-transparent min-[601px]:dark:bg-transparent min-[601px]:shadow-none min-[601px]:backdrop-blur-none min-[601px]:border-0 min-[601px]:text-left">
+    <section className="relative flex justify-center items-center min-h-screen w-full box-border z-10 max-[600px]:py-8">
+      <div className="content-wrapper card-background relative box-border p-6 mx-auto z-10 will-change-[transform,opacity] max-[600px]:w-[85vw] max-[600px]:shadow-md max-[600px]:bg-white/95 dark:max-[600px]:bg-[rgba(10,10,10,0.95)] max-[600px]:backdrop-blur-none min-[601px]:bg-transparent min-[601px]:dark:bg-transparent min-[601px]:shadow-none min-[601px]:backdrop-blur-none min-[601px]:border-0 min-[601px]:text-left">
         {/* Orbs for visual effect */}
         <div className="absolute top-6 left-6 w-14 h-14 bg-purple-500/40 rounded-full blur-[32px] z-[1] pointer-events-none transform-gpu max-[600px]:blur-[16px]"></div>
         <div className="absolute bottom-10 right-8 w-20 h-20 bg-blue-500/30 rounded-full blur-[32px] z-[1] pointer-events-none transform-gpu max-[600px]:blur-[16px] min-[601px]:hidden"></div>
@@ -21,7 +21,7 @@ const Tagline: React.FC = () => {
         </p>
         <div className="flex gap-4 justify-center min-[601px]:justify-start">
           <button
-            className="relative overflow-hidden px-8 py-4 w-fit text-lg font-semibold rounded-full border-0 text-white bg-gradient-to-r from-indigo-600 to-purple-600 shadow-lg shadow-indigo-500/25 cursor-pointer transition-all duration-300 will-change-[transform,opacity] hover:opacity-90 hover:shadow-indigo-500/40 hover:scale-105"
+            className="relative overflow-hidden px-8 py-4 w-fit text-lg font-semibold rounded-full border-0 text-white gradient-button will-change-[transform,opacity] cursor-pointer"
             onClick={() => scrollToSection("about", 10)}
           >
             <span className="relative z-[1]">Learn More</span>

@@ -32,7 +32,7 @@ const Footer: React.FC = () => {
 
   return (
     <footer className="bg-[var(--background)] text-[var(--foreground)] py-8 relative z-10">
-      <div className="content-wrapper px-5 max-md:px-4">
+      <div className="max-w-[1000px] mx-auto px-5">
         {/* Footer Navigation for SEO crawl paths */}
         <nav aria-label="Footer navigation" className="mb-6">
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm">

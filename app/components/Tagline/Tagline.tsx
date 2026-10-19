@@ -5,7 +5,7 @@ import { scrollToSection } from "@/app/utils/scrollToSection";
 const Tagline: React.FC = () => {
 
   return (
-    <section className="relative flex justify-center items-center h-screen w-[50vw] box-border caret-transparent z-10 max-[600px]:w-[85vw]">
+    <section className="relative flex justify-center items-center h-screen w-[50vw] max-w-[700px] box-border caret-transparent z-10 max-[600px]:w-[85vw]">
       <div className="relative w-[50vw] max-w-[700px] box-border p-6 mx-[2.5vw] bg-white/75 dark:bg-[rgba(10,10,10,0.75)] text-gray-900 dark:text-white shadow-lg dark:shadow-black/75 backdrop-blur-xl rounded-3xl z-10 will-change-[transform,opacity] max-[600px]:w-[85vw] max-[600px]:mx-0 max-[600px]:shadow-md max-[600px]:bg-white/95 dark:max-[600px]:bg-[rgba(10,10,10,0.95)] max-[600px]:backdrop-blur-none min-[601px]:bg-transparent min-[601px]:dark:bg-transparent min-[601px]:shadow-none min-[601px]:backdrop-blur-none min-[601px]:border-0 min-[601px]:text-left">
         {/* Orbs for visual effect */}
         <div className="absolute top-6 left-6 w-14 h-14 bg-purple-500/40 rounded-full blur-[32px] z-[1] pointer-events-none transform-gpu max-[600px]:blur-[16px]"></div>

@@ -54,7 +54,7 @@ const About: React.FC = () => {
   }, []);
 
   return (
-    <section className="flex items-center justify-center box-border w-screen min-h-screen z-10 py-8 max-md:items-start max-md:pt-8 max-md:h-auto">
+    <section className="flex items-center justify-center box-border w-full min-h-screen z-10 py-8 max-md:items-start max-md:pt-8 max-md:h-auto">
       <div className="flex flex-col items-center box-border w-[75vw] max-w-[1200px] p-4 mx-auto bg-white/70 dark:bg-black/70 shadow-lg dark:shadow-black/75 rounded-3xl z-10 backdrop-blur-xl max-md:w-[85vw]">
         <div className="text-center text-gray-900 dark:text-white">
           <div className="flex flex-col items-center justify-center mb-2">

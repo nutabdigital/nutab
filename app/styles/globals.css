@@ -65,7 +65,13 @@ html { scroll-behavior: smooth; }
 }
 
 .home-page { position: relative; }
-.content-wrapper { z-index: 3; }
+.content-wrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  box-sizing: border-box;
+  z-index: 3;
+}
 
 .fade-section { opacity: 0; transition: opacity 0.7s ease, transform 0.6s ease; }
 .fade-section.visible { opacity: 1; }

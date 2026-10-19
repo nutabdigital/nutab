@@ -173,8 +173,18 @@ export default function ChopChopPortfolio() {
       {/* Back to Portfolio link removed per request */}
 
       {/* Hero Section */}
-      <section className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-8 pb-16">
-        <div className="max-w-6xl mx-auto text-center">
+      <section className="relative isolate overflow-hidden min-h-[80vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-8 pb-16">
+        <video
+          aria-hidden="true"
+          autoPlay
+          muted
+          playsInline
+          preload="metadata"
+          className="pointer-events-none absolute inset-0 z-0 h-full w-full object-cover opacity-30 blur-sm"
+        >
+          <source src="/photos/chopchop-hero-vid.mov" />
+        </video>
+        <div className="relative z-10 max-w-6xl mx-auto text-center">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}

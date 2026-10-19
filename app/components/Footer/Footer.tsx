@@ -54,6 +54,10 @@ const Footer: React.FC = () => {
               <ul className="space-y-1">
                 <li><Link href="/portfolio/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">Portfolio</Link></li>
                 <li><Link href="/services/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">All Services</Link></li>
+                <li><Link href="/privacy/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">Privacy Policy</Link></li>
+                <li><Link href="/terms/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">Terms of Use</Link></li>
+                <li><Link href="/accessibility/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">Accessibility</Link></li>
+                <li><Link href="/cookies/" className="opacity-70 hover:opacity-100 hover:text-[#0067e7] transition-all">Cookie Preferences</Link></li>
               </ul>
             </div>
             <div className="col-span-2 sm:col-span-1">

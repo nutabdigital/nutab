@@ -7,6 +7,7 @@ import { HeaderSectionProvider } from "./context/HeaderSectionContext";
 import dynamic from "next/dynamic";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
+import CookieConsent from "./components/CookieConsent/CookieConsent";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
@@ -66,6 +67,7 @@ function InnerProviders({ children }: { children: React.ReactNode }) {
       {!hideModel && showModel && <ModelWrapper />}
       {children}
       <Footer />
+      <CookieConsent />
     </>
   );
 }

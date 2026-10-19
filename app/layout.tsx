@@ -1,5 +1,4 @@
 import type { Metadata } from "next"; // Type import from Next.js to type-check metadata.
-import Script from "next/script";
 import "./styles/globals.css";
 import AppClientProviders from "./AppClientProviders";
 import { DM_Sans } from "next/font/google";
@@ -274,7 +273,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       and generates local font files/preloads. Manual preconnect to fonts.googleapis.com
       and fonts.gstatic.com is therefore redundant and can be removed to avoid
       unnecessary DNS/connections. */}
-        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="dns-prefetch" href="https://formspree.io" />
         <link rel="preconnect" href="https://formspree.io" crossOrigin="anonymous" />
         
@@ -297,36 +295,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
-
-        {/* Optimized Google Analytics - loaded after page is interactive */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-BSE95BQFCB"
-          strategy="afterInteractive"
-        />
-        <Script
-          id="gtag-config"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-BSE95BQFCB', { 
-        send_page_view: false,
-        anonymize_ip: true
-      });
-      
-      if (document.readyState === 'complete') {
-        gtag('event', 'page_view');
-      } else {
-        window.addEventListener('load', function() {
-          gtag('event', 'page_view');
-        });
-      }
-    `,
-          }}
-        />
-
 
       </head>
       <body className={dmSans.className}>

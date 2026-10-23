@@ -147,6 +147,7 @@ export default function KingseyeTowingPortfolio() {
 
       {/* Hero Section */}
       <section className="relative isolate overflow-hidden min-h-[80vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 pt-8 pb-16">
+        {/* Hero video disabled for now to keep page render fast
         <video
           aria-hidden="true"
           autoPlay
@@ -157,6 +158,7 @@ export default function KingseyeTowingPortfolio() {
         >
           <source src="/photos/kingseye-hero-vid.mov" />
         </video>
+        */}
         <div className="relative z-10 max-w-6xl mx-auto text-center">
           {/* Badge */}
           <motion.div

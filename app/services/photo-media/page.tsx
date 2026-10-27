@@ -1,7 +1,7 @@
 import React from "react";
 import Background from "../../components/Background/Background";
 import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs";
-import { Camera, Video, Film, ArrowRight, Sparkles, Image, Aperture, CheckCircle2, ChevronDown, Users, Clapperboard, Play } from "lucide-react";
+import { Camera, Video, Film, ArrowRight, Sparkles, Image, CheckCircle2, ChevronDown, Users, Clapperboard, Play } from "lucide-react";
 import Link from "next/link";
 import FAQSection from "../../components/FAQSection/FAQSection";
 import PricingSection, { PricingPackage } from "../../components/PricingSection/PricingSection";
@@ -77,10 +77,6 @@ const faqs = [
     answer: "Yes! We provide creative consultation, mood boards, location scouting, and art direction to bring your vision to life."
   },
   {
-    question: "Do you offer drone photography and videography?",
-    answer: "Yes, we offer licensed drone services for aerial photography and videography, perfect for real estate, events, and promotional content."
-  },
-  {
     question: "What file formats do you deliver?",
     answer: "We deliver high-resolution images in JPEG and RAW formats. Videos are provided in MP4, MOV, or other formats based on your needs."
   },
@@ -139,7 +135,6 @@ const mediaPackages: PricingPackage[] = [
       "Full-day shoot (8 hours)",
       "Unlimited edited images",
       "3-5 minute video content",
-      "Drone/aerial coverage",
       "Motion graphics",
       "Priority turnaround",
       "2 rounds of revisions"
@@ -392,11 +387,6 @@ const PhotoMedia: React.FC = () => {
                 title: "Post-Production & Editing",
                 description: "Professional retouching, color grading, video editing, and motion graphics that polish your content.",
                 icon: Film
-              },
-              {
-                title: "Drone & Aerial Media",
-                description: "Licensed drone photography and videography for real estate, events, and cinematic promotional content.",
-                icon: Aperture
               }
             ].map(({ title, description, icon: Icon }) => (
               <div 

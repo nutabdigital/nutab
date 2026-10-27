@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   robots: "index, follow",
 };
 
-const updatedDate = "October 18, 2026";
+const updatedDate = "October 27, 2026";
 
 export default function PrivacyPage() {
   return (
@@ -48,6 +48,13 @@ export default function PrivacyPage() {
                 </a>{" "}
                 or call <a className="font-medium text-[#0067e7] underline underline-offset-4" href="tel:+15878886755">(587) 888-6755</a>.
               </p>
+              <p>
+                <strong>Privacy officer:</strong> Fysal Beauferris, Co-Founder, is the person
+                accountable for NuTab Digital&apos;s compliance with applicable privacy laws,
+                including Alberta&apos;s <em>Personal Information Protection Act</em> and
+                Canada&apos;s <em>Personal Information Protection and Electronic Documents Act</em>.
+                Send privacy requests and concerns to the email address above.
+              </p>
             </PolicySection>
 
             <PolicySection title="2. Information We Collect">
@@ -78,8 +85,8 @@ export default function PrivacyPage() {
                 operate our website and respond to inquiries.
               </p>
               <ul className="list-disc space-y-2 pl-6">
-                <li><strong>Formspree:</strong> our contact form is processed by Formspree. When you submit it, Formspree receives the information in your submission so we can receive and respond to your inquiry.</li>
-                <li><strong>Google Analytics:</strong> we use Google Analytics to understand website usage and performance. Google Analytics may collect technical and usage data through cookies or similar technologies. Our implementation requests IP anonymization.</li>
+                <li><strong>Formspree:</strong> our contact form is processed by Formspree, which is based in the United States. When you submit it, Formspree receives the information in your submission so we can receive and respond to your inquiry. Formspree uses Google reCAPTCHA to detect spam and bots, and you may see a reCAPTCHA check on Formspree&apos;s page after you submit the form. reCAPTCHA is operated by Google and is subject to Google&apos;s privacy policy and terms.</li>
+                <li><strong>Google Analytics:</strong> if you allow optional analytics, we use Google Analytics (operated by Google, based in the United States) to understand website usage and performance. Google Analytics may collect technical and usage data through cookies or similar technologies.</li>
                 <li><strong>Social media platforms:</strong> our website links to third-party social media platforms. Those platforms handle information according to their own privacy policies when you follow a link to them.</li>
               </ul>
               <p>
@@ -108,7 +115,8 @@ export default function PrivacyPage() {
 
             <PolicySection title="6. International Processing">
               <p>
-                Our service providers may process, store, or access information outside Alberta or
+                Our service providers, including Formspree and Google, process and store information
+                in the United States and may also do so in other countries outside Alberta and
                 Canada. Information processed in another country may be subject to the laws of that
                 jurisdiction and may be accessible to its government authorities, courts,
                 law-enforcement agencies, or regulators.
@@ -119,7 +127,15 @@ export default function PrivacyPage() {
               <p>
                 We retain personal information only as long as reasonably necessary to respond to
                 inquiries, maintain business records, comply with legal obligations, resolve
-                disputes, and enforce agreements. We use reasonable administrative, technical, and
+                disputes, and enforce agreements. In general:
+              </p>
+              <ul className="list-disc space-y-2 pl-6">
+                <li><strong>Website inquiries</strong> that do not lead to a client engagement are kept for up to 2 years after our last communication with you, and are then deleted or anonymized.</li>
+                <li><strong>Client and financial records</strong> are kept for as long as the law requires (for example, up to 6 years for tax purposes) and then deleted or anonymized.</li>
+                <li><strong>Analytics data</strong> is kept by Google Analytics according to the retention setting we configure.</li>
+              </ul>
+              <p>
+                We use reasonable administrative, technical, and
                 organizational safeguards designed to protect personal information. No method of
                 internet transmission or storage is completely secure, however, and we cannot
                 guarantee absolute security.
@@ -130,8 +146,20 @@ export default function PrivacyPage() {
               <p>
                 Depending on applicable law, you may have rights to request access to or correction
                 of your personal information, withdraw consent, request information about our
-                privacy practices, or make a privacy complaint. To make a request, contact us using
-                the details in Section 1. We may need to verify your identity before responding.
+                privacy practices, or make a privacy complaint. To make a request, contact our
+                privacy officer using the details in Section 1. We may need to verify your identity
+                before responding, and we will respond within 30 days of receiving your request
+                (or tell you if we need more time, as permitted by law).
+              </p>
+              <p>
+                If you are not satisfied with our response, you may file a complaint with the{" "}
+                <a className="font-medium text-[#0067e7] underline underline-offset-4" href="https://oipc.ab.ca" target="_blank" rel="noopener noreferrer">
+                  Office of the Information and Privacy Commissioner of Alberta
+                </a>{" "}
+                or the{" "}
+                <a className="font-medium text-[#0067e7] underline underline-offset-4" href="https://www.priv.gc.ca" target="_blank" rel="noopener noreferrer">
+                  Office of the Privacy Commissioner of Canada
+                </a>.
               </p>
             </PolicySection>
 

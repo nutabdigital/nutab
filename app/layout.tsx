@@ -86,7 +86,7 @@ const structuredData = {
     "@type": "PostalAddress",
     "addressLocality": "Calgary",
     "addressRegion": CALGARY_GEO.provinceCode,
-    "postalCode": "T2P 1J9",
+    "postalCode": "T2J",
     "addressCountry": CALGARY_GEO.countryCode
   },
   "geo": {

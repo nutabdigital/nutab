@@ -5,7 +5,6 @@ interface Review {
   author: string;
   meta: string;
   date: string;
-  schemaDate: string;
   content: string;
 }
 
@@ -13,8 +12,7 @@ const reviews: Review[] = [
   {
     author: "Harpreet",
     meta: "1 review • 0 photos",
-    date: "42 weeks ago",
-    schemaDate: "2025-04-14",
+    date: "2025-04-14",
     content: `I had an outstanding experience working with NuTab for our website. From start to finish, their team was super friendly, professional, and reliable, making the entire process smooth and stress-free.
 
 What stood out for us was them helping us at every step, from planning to execution, ensuring our vision was perfectly translated into a functional, modern website. Our site is not only visually appealing but also intuitive and easy to navigate, thanks to their thoughtful design approach. NuTab was always available to answer questions, make adjustments, and provide support, which was incredibly reassuring.
@@ -26,15 +24,13 @@ Thank you, NuTab, for exceeding our expectations!`,
   {
     author: "Yusuf Abdillahi",
     meta: "6 reviews • 1 photo",
-    date: "7 weeks ago",
-    schemaDate: "2025-12-14",
+    date: "2025-12-14",
     content: `Nav was amazing and very thoughtful. He helped quickly setup our google business profile and Nutab designed us a beautiful sign that encourages our customers to leave reviews. Highly recommended!`,
   },
   {
     author: "Moe Souraya",
     meta: "2 reviews • 0 photos",
-    date: "6 days ago",
-    schemaDate: "2026-01-27",
+    date: "2026-01-27",
     content: `Thanks to Fysal for giving my website a much needed update. He was very communicative and helped me understand things along the way. He was easy to work with and provided a lot of feedback and ideas to best support my business, going above and beyond with his services.`,
   },
 ];
@@ -43,56 +39,30 @@ const Stars: React.FC = () => (
   <div className="text-yellow-400 font-medium">★★★★★</div>
 );
 
-const getRelativeTime = (dateString: string) => {
-  const date = new Date(dateString);
-  const now = new Date();
-  const diffTime = Math.abs(now.getTime() - date.getTime());
-  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); 
+const GOOGLE_REVIEWS_URL = "https://share.google/fOz9M9782KvnHBKe5";
 
-  if (diffDays === 0) return "Today";
-  if (diffDays === 1) return "Yesterday";
-  if (diffDays < 7) return `${diffDays} days ago`;
-  
-  const diffWeeks = Math.floor(diffDays / 7);
-  if (diffWeeks < 5) return `${diffWeeks} week${diffWeeks > 1 ? "s" : ""} ago`;
-  
-  const diffMonths = Math.floor(diffDays / 30);
-  if (diffMonths < 12) return `${diffMonths} month${diffMonths > 1 ? "s" : ""} ago`;
-  
-  const diffYears = Math.floor(diffDays / 365);
-  return `${diffYears} year${diffYears > 1 ? "s" : ""} ago`;
-};
+const formatReviewDate = (dateString: string) =>
+  new Date(dateString).toLocaleDateString("en-CA", { month: "long", year: "numeric", timeZone: "UTC" });
 
 const Reviews: React.FC = () => {
   const [open, setOpen] = useState<Review | null>(null);
 
   const sanitizeMeta = (meta: string) => meta.split("•")[0].trim();
 
-  const schema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "NuTab",
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "5",
-      reviewCount: String(reviews.length),
-    },
-    review: reviews.map((r) => ({
-      "@type": "Review",
-      author: { "@type": "Person", name: r.author },
-      reviewBody: r.content,
-      datePublished: r.schemaDate,
-      reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
-    })),
-  };
-
   return (
     <section className="flex items-center justify-center box-border w-full min-h-screen mx-auto z-10 py-8 max-md:items-start max-md:pt-8 max-md:h-auto">
       <div className="flex flex-col items-center box-border w-[75vw] max-w-[1200px] p-4 mx-auto bg-white/70 dark:bg-black/70 shadow-lg dark:shadow-black/75 rounded-3xl z-10 backdrop-blur-xl max-md:w-[85vw]">
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
         <div className="text-center text-gray-900 dark:text-white mb-4">
           <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-2">Client Reviews</h2>
-          <p className="text-lg font-normal text-center mb-4 opacity-85 text-gray-700 dark:text-gray-300">Real feedback from businesses we've worked with</p>
+          <p className="text-lg font-normal text-center mb-4 opacity-85 text-gray-700 dark:text-gray-300">Reviews from businesses we&apos;ve worked with, posted on Google</p>
+          <a
+            href={GOOGLE_REVIEWS_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm font-medium text-[#0067e7] underline underline-offset-4"
+          >
+            Read all reviews on Google
+          </a>
         </div>
 
         <div className="grid grid-cols-3 gap-6 w-full p-2 max-[900px]:grid-cols-1">
@@ -108,7 +78,7 @@ const Reviews: React.FC = () => {
                 </div>
                 <div className="text-right">
                   <Stars />
-                  <p className="text-sm opacity-70 text-gray-500">{getRelativeTime(r.schemaDate)}</p>
+                  <p className="text-sm opacity-70 text-gray-500">{formatReviewDate(r.date)}</p>
                 </div>
               </div>
 
@@ -142,7 +112,7 @@ const Reviews: React.FC = () => {
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <p className="text-xl font-semibold text-gray-900 dark:text-white">{open.author}</p>
-                  <p className="text-sm opacity-80 text-gray-600 dark:text-gray-400">{sanitizeMeta(open.meta)} • {open.date}</p>
+                  <p className="text-sm opacity-80 text-gray-600 dark:text-gray-400">{sanitizeMeta(open.meta)} • {formatReviewDate(open.date)}</p>
                 </div>
                 <button onClick={() => setOpen(null)} className="text-gray-600 dark:text-gray-300">Close</button>
               </div>

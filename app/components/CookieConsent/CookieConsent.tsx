@@ -70,8 +70,7 @@ function Analytics() {
             window.gtag = window.gtag || gtag;
             gtag('js', new Date());
             gtag('config', '${ANALYTICS_ID}', {
-              send_page_view: true,
-              anonymize_ip: true
+              send_page_view: true
             });
           `,
         }}

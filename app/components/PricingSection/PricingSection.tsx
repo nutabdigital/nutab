@@ -153,7 +153,9 @@ export const PricingCard: React.FC<PricingCardProps> = ({
       <div className="mb-6" itemProp="priceSpecification" itemScope itemType="https://schema.org/UnitPriceSpecification">
         {typeof pkg.priceNumber === "number" ? (
           <>
-            <span className="text-sm text-gray-500 dark:text-gray-400 block mb-1">Starting from</span>
+            <span className="text-sm text-gray-500 dark:text-gray-400 block mb-1">
+              Starting from (CAD, + GST){pkg.isMonthly ? ", billed monthly" : ""}
+            </span>
             <meta itemProp="priceCurrency" content="CAD" />
             <div className="flex items-baseline gap-3">
               <span
@@ -276,6 +278,13 @@ const PricingSection: React.FC<PricingSectionProps> = ({
             />
           ))}
         </div>
+
+        <p className="mt-8 text-center text-xs text-gray-500 dark:text-gray-400 max-w-3xl mx-auto">
+          All prices are in Canadian dollars (CAD) and exclude GST. Prices shown are starting
+          prices; your final price, including any recurring monthly fees, is confirmed in a written
+          quote or agreement before work begins. Third-party costs such as domains, paid plugins,
+          and advertising spend are not included unless stated in your quote.
+        </p>
       </div>
     </section>
   );

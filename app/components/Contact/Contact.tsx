@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useCallback } from "react";
+import Link from "next/link";
 
 const SUBMIT_COOLDOWN_MS = 10_000; // 10-second cooldown between submissions
 
@@ -124,6 +125,14 @@ const Contact: React.FC = () => {
           )}
 
           {/* Submit button with rate limiting */}
+          <p className="text-xs opacity-80">
+            We use your name, email, and message only to respond to your inquiry. Your submission is
+            processed by Formspree (United States). See our{" "}
+            <Link href="/privacy/" className="underline underline-offset-2">
+              Privacy Policy
+            </Link>
+            .
+          </p>
           <button
             type="submit"
             disabled={isSubmitting}

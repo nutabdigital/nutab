@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   robots: "index, follow",
 };
 
-const updatedDate = "October 18, 2026";
+const updatedDate = "October 27, 2026";
 
 export default function CookiePreferencesPage() {
   return (
@@ -84,7 +84,9 @@ export default function CookiePreferencesPage() {
               <p>
                 Our contact form is processed by Formspree when you submit it. Formspree is not an
                 analytics cookie set merely by visiting the website, but it receives the details you
-                provide when you send an inquiry. Learn more in our <Link className="font-medium text-[#0067e7] underline underline-offset-4" href="/privacy/">Privacy Policy</Link>.
+                provide when you send an inquiry. Formspree also uses Google reCAPTCHA for spam
+                protection, which may load on Formspree&apos;s page after you submit the form and
+                may use cookies or similar technologies. Learn more in our <Link className="font-medium text-[#0067e7] underline underline-offset-4" href="/privacy/">Privacy Policy</Link>.
               </p>
             </CookieSection>
 

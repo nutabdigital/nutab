@@ -17,17 +17,17 @@ export const metadata: Metadata = {
     "local business SEO Calgary",
   ],
   alternates: {
-    canonical: "https://nutab.ca/portfolio/chopchop",
+    canonical: "https://nutab.ca/portfolio/chopchop/",
   },
   openGraph: {
     title: "ChopChop Barber Shop Website Redesign | Calgary Web Development",
     description:
       "See how NuTab Digital's web development and SEO expertise transformed ChopChop Barber Shop's online presence with a complete redesign achieving perfect PageSpeed scores.",
-    url: "https://nutab.ca/portfolio/chopchop",
+    url: "https://nutab.ca/portfolio/chopchop/",
     siteName: "NuTab Digital",
     images: [
       {
-        url: "https://nutab.ca/photos/og-portfolio.webp",
+        url: "https://nutab.ca/photos/og-home.webp",
         width: 1200,
         height: 800,
         alt: "ChopChop Barber Shop Website Transformation by NuTab Digital Calgary",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "ChopChop Barber Shop | Calgary Web Development Case Study",
     description:
       "Website transformation: From Squarespace to Next.js with perfect PageSpeed 100 scores. Calgary web development expertise.",
-    images: ["https://nutab.ca/photos/og-portfolio.webp"],
+    images: ["https://nutab.ca/photos/og-home.webp"],
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
   },

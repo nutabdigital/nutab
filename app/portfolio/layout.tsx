@@ -17,17 +17,17 @@ export const metadata: Metadata = {
     "custom web development",
   ],
   alternates: {
-    canonical: "https://nutab.ca/portfolio",
+    canonical: "https://nutab.ca/portfolio/",
   },
   openGraph: {
     title: "Portfolio | Calgary Web Development Projects | NuTab Digital",
     description:
       "Explore NuTab Digital's portfolio of Calgary web development projects. See how we've transformed businesses with custom websites, apps, and digital solutions.",
-    url: "https://nutab.ca/portfolio",
+    url: "https://nutab.ca/portfolio/",
     siteName: "NuTab Digital",
     images: [
       {
-        url: "https://nutab.ca/photos/og-portfolio.webp",
+        url: "https://nutab.ca/photos/og-home.webp",
         width: 1200,
         height: 800,
         alt: "NuTab Digital Portfolio - Calgary Web Development Projects",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "Portfolio | Calgary Web Development Projects | NuTab Digital",
     description:
       "Explore NuTab Digital's portfolio of Calgary web development projects showcasing real results.",
-    images: ["https://nutab.ca/photos/og-portfolio.webp"],
+    images: ["https://nutab.ca/photos/og-home.webp"],
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
   },

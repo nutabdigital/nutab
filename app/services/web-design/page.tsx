@@ -13,17 +13,17 @@ export const generateMetadata = (): import("next").Metadata => ({
     "Professional web design and development in Calgary. NuTab Digital creates stunning, responsive websites that drive results. SEO-optimized, mobile-friendly, and conversion-focused.",
   keywords: [...new Set(["web design Calgary", "website development Alberta", "responsive web design Calgary", "custom websites Calgary", "web developers Calgary", "SEO web design Alberta", ...CALGARY_SEO_KEYWORDS['web-design']])],
   alternates: {
-    canonical: "https://nutab.ca/services/web-design",
+    canonical: "https://nutab.ca/services/web-design/",
   },
   openGraph: {
     title: "Web Design & Development Calgary | Custom Websites | NuTab Digital",
     description:
       "Professional web design and development in Calgary. Create stunning, responsive websites that convert visitors into customers.",
-    url: "https://nutab.ca/services/web-design",
+    url: "https://nutab.ca/services/web-design/",
     siteName: "NuTab Digital",
     images: [
       {
-        url: "https://nutab.ca/photos/og-web-design.webp",
+        url: "https://nutab.ca/photos/og-home.webp",
         width: 1200,
         height: 800,
         alt: "Web Design & Development Services in Calgary, Alberta",
@@ -37,7 +37,7 @@ export const generateMetadata = (): import("next").Metadata => ({
     title: "Web Design & Development Calgary | Custom Websites | NuTab Digital",
     description:
       "Professional web design and development in Calgary. Build beautiful, high-performing websites.",
-    images: ["https://nutab.ca/photos/og-web-design.webp"],
+    images: ["https://nutab.ca/photos/og-home.webp"],
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
   },
@@ -151,7 +151,7 @@ const pricingLdJson = {
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
       availability: "https://schema.org/InStock",
-      url: `https://nutab.ca/services/web-design#${p.id}`,
+      url: `https://nutab.ca/services/web-design/#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
       itemOffered: {
         "@type": "Service",
@@ -190,8 +190,8 @@ const WebDesign: React.FC = () => {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://nutab.ca" },
-              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services" },
-              { "@type": "ListItem", position: 3, name: "Web Design & Development", item: "https://nutab.ca/services/web-design" }
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services/" },
+              { "@type": "ListItem", position: 3, name: "Web Design & Development", item: "https://nutab.ca/services/web-design/" }
             ]
           }),
         }}
@@ -203,11 +203,11 @@ const WebDesign: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "@id": "https://nutab.ca/services/web-design#service",
+            "@id": "https://nutab.ca/services/web-design/#service",
             name: "Web Design & Development",
             description: "Professional web design and development services creating stunning, responsive websites that drive results for Calgary businesses.",
             serviceType: "Web Design & Development",
-            url: "https://nutab.ca/services/web-design",
+            url: "https://nutab.ca/services/web-design/",
             image: "https://nutab.ca/photos/og-home.webp",
             datePublished: "2024-01-15",
             dateModified: "2026-02-23",
@@ -219,7 +219,7 @@ const WebDesign: React.FC = () => {
             },
             availableChannel: {
               "@type": "ServiceChannel",
-              serviceUrl: "https://nutab.ca/services/web-design"
+              serviceUrl: "https://nutab.ca/services/web-design/"
             }
           }),
         }}

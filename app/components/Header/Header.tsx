@@ -246,7 +246,7 @@ const Header: React.FC = () => {
             <img
               className="block pl-6 dark:hidden"
               src="/icons/logo-light.svg"
-              alt="New Tab Digital Logo"
+              alt="NuTab Digital logo"
               width={75}
               height={57}
               loading="eager"
@@ -255,7 +255,7 @@ const Header: React.FC = () => {
             <img
               className="hidden pl-6 dark:block"
               src="/icons/logo-dark.svg"
-              alt="New Tab Digital Logo"
+              alt="NuTab Digital logo"
               width={75}
               height={57}
               loading="eager"

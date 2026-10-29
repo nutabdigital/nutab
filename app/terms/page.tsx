@@ -6,7 +6,7 @@ import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Terms of Use",
   description: "Terms governing use of the NuTab Digital website.",
-  alternates: { canonical: "https://nutab.ca/terms" },
+  alternates: { canonical: "https://nutab.ca/terms/" },
   robots: "index, follow",
 };
 

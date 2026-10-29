@@ -13,13 +13,13 @@ export const generateMetadata = (): import("next").Metadata => ({
     "Calgary's professional photography and media production team. Commercial photography, video production, event coverage, and photo editing for Alberta businesses. Book your session today.",
   keywords: [...new Set(["photography Calgary", "video production Calgary", "commercial photography Alberta", "event photography Calgary", "media production Calgary", "product photography Alberta", ...CALGARY_SEO_KEYWORDS['photo-media']])],
   alternates: {
-    canonical: "https://nutab.ca/services/photo-media",
+    canonical: "https://nutab.ca/services/photo-media/",
   },
   openGraph: {
     title: "Photography & Media Production Calgary | NuTab Digital",
     description:
       "Calgary's professional photography and media production team. Commercial photography, video production, event coverage, and photo editing for Alberta businesses.",
-    url: "https://nutab.ca/services/photo-media",
+    url: "https://nutab.ca/services/photo-media/",
     siteName: "NuTab Digital",
     images: [
       {
@@ -155,7 +155,7 @@ const pricingLdJson = {
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
       availability: "https://schema.org/InStock",
-      url: `https://nutab.ca/services/photo-media#${p.id}`,
+      url: `https://nutab.ca/services/photo-media/#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
       itemOffered: {
         "@type": "Service",
@@ -195,8 +195,8 @@ const PhotoMedia: React.FC = () => {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://nutab.ca" },
-              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services" },
-              { "@type": "ListItem", position: 3, name: "Photography & Media", item: "https://nutab.ca/services/photo-media" }
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services/" },
+              { "@type": "ListItem", position: 3, name: "Photography & Media", item: "https://nutab.ca/services/photo-media/" }
             ]
           }),
         }}
@@ -208,11 +208,11 @@ const PhotoMedia: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "@id": "https://nutab.ca/services/photo-media#service",
+            "@id": "https://nutab.ca/services/photo-media/#service",
             name: "Photography & Media Production",
             description: "Professional photography and video production services for businesses, including commercial shoots, event coverage, and post-production editing.",
             serviceType: "Photography & Media Production",
-            url: "https://nutab.ca/services/photo-media",
+            url: "https://nutab.ca/services/photo-media/",
             image: "https://nutab.ca/photos/og-photo-media.webp",
             datePublished: "2024-01-15",
             dateModified: "2026-02-23",
@@ -224,7 +224,7 @@ const PhotoMedia: React.FC = () => {
             },
             availableChannel: {
               "@type": "ServiceChannel",
-              serviceUrl: "https://nutab.ca/services/photo-media"
+              serviceUrl: "https://nutab.ca/services/photo-media/"
             }
           }),
         }}

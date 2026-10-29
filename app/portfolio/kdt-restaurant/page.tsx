@@ -67,7 +67,7 @@ export default function KDTRestaurantPortfolio() {
       url: "https://nutab.ca",
     },
     datePublished: "2024-09-20",
-    url: "https://nutab.ca/portfolio/kdt-restaurant",
+    url: "https://nutab.ca/portfolio/kdt-restaurant/",
     about: {
       "@type": "WebSite",
       name: "KDT Restaurant",
@@ -106,13 +106,13 @@ export default function KDTRestaurantPortfolio() {
         "@type": "ListItem",
         position: 2,
         name: "Portfolio",
-        item: "https://nutab.ca/portfolio",
+        item: "https://nutab.ca/portfolio/",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "KDT Restaurant",
-        item: "https://nutab.ca/portfolio/kdt-restaurant",
+        item: "https://nutab.ca/portfolio/kdt-restaurant/",
       },
     ],
   };

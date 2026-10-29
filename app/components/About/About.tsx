@@ -12,7 +12,7 @@ const aboutItems = [
   {
     icon: HeartHandshake,
     title: "Why Choose Us",
-    description: "Our team works face-to-face with Canadian businesses to understand their needs and deliver results that drive growth. We build long-term relationships, not just solutions.",
+    description: "Our team works face-to-face with Calgary and Alberta businesses to understand their needs and deliver results that drive growth. We build long-term relationships, not just solutions.",
     gradient: "from-blue-500 to-cyan-500",
   },
   {
@@ -60,18 +60,18 @@ const About: React.FC = () => {
           <div className="flex flex-col items-center justify-center mb-2">
             <img
               src="/icons/maple-leaf-icon.svg"
-              alt="Canadian maple leaf icon representing local service"
+              alt="Calgary, Alberta, Canada maple leaf icon"
               className="w-10 h-10 mb-2"
               loading="lazy"
               width="40"
               height="40"
             />
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 text-center">
-              Built in Canada, Designed for Growth
+              Calgary-Built, Designed for Growth
             </h2>
           </div>
           <p className="text-lg font-normal text-center mb-6 opacity-85 text-gray-700 dark:text-gray-300">
-            Your Digital Partner from Coast to Coast
+            Your Calgary Digital Partner for Alberta Businesses
           </p>
         </div>
         

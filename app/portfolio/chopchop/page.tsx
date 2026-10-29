@@ -95,7 +95,7 @@ export default function ChopChopPortfolio() {
       url: "https://nutab.ca",
     },
     datePublished: "2024-06-15",
-    url: "https://nutab.ca/portfolio/chopchop",
+    url: "https://nutab.ca/portfolio/chopchop/",
     about: {
       "@type": "WebSite",
       name: "ChopChop Barber Shop",
@@ -134,13 +134,13 @@ export default function ChopChopPortfolio() {
         "@type": "ListItem",
         position: 2,
         name: "Portfolio",
-        item: "https://nutab.ca/portfolio",
+        item: "https://nutab.ca/portfolio/",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "ChopChop Barber Shop",
-        item: "https://nutab.ca/portfolio/chopchop",
+        item: "https://nutab.ca/portfolio/chopchop/",
       },
     ],
   };

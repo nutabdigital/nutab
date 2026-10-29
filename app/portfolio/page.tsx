@@ -258,7 +258,7 @@ export default function Portfolio() {
         "@type": "ListItem",
         position: 2,
         name: "Portfolio",
-        item: "https://nutab.ca/portfolio",
+        item: "https://nutab.ca/portfolio/",
       },
     ],
   };

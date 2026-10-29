@@ -9,11 +9,11 @@ export const generateMetadata = (): Metadata => ({
   description: "Explore NuTab Digital's full range of services in Calgary: custom software development, mobile & web apps, SEO & digital marketing, e-commerce, AI automation, IT consulting, brand design, and photography.",
   keywords: [...new Set(["Calgary software development", "web design Calgary", "SEO services Alberta", "custom software Calgary", "app development Calgary", "digital marketing Calgary", ...Object.values(CALGARY_SEO_KEYWORDS).flat().slice(0, 10)])],
   robots: "index, follow",
-  alternates: { canonical: "https://nutab.ca/services" },
+  alternates: { canonical: "https://nutab.ca/services/" },
   openGraph: {
     title: "Digital Services | Web Development, SEO & More | NuTab Digital Calgary",
     description: "Explore NuTab Digital's full range of services in Calgary: custom software, apps, SEO, e-commerce, AI, IT consulting, brand design, and photography.",
-    url: "https://nutab.ca/services",
+    url: "https://nutab.ca/services/",
     siteName: "NuTab Digital",
     images: [
       {
@@ -55,7 +55,7 @@ export default function ServicesIndex() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
-            "@id": "https://nutab.ca/services#breadcrumb",
+            "@id": "https://nutab.ca/services/#breadcrumb",
             itemListElement: [
               {
                 "@type": "ListItem",
@@ -67,7 +67,7 @@ export default function ServicesIndex() {
                 "@type": "ListItem",
                 position: 2,
                 name: "Services",
-                item: "https://nutab.ca/services",
+                item: "https://nutab.ca/services/",
               },
             ],
           }),

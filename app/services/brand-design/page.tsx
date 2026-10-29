@@ -13,13 +13,13 @@ export const generateMetadata = (): import("next").Metadata => ({
     "Calgary's creative brand design studio. NuTab Digital delivers professional logo design, visual identity, and brand strategy for Alberta businesses. Make your brand unforgettable.",
   keywords: [...new Set(["brand design Calgary", "logo design Calgary", "graphic design Alberta", "visual identity Calgary", "branding agency Calgary", "creative design Alberta", ...CALGARY_SEO_KEYWORDS['brand-design']])],
   alternates: {
-    canonical: "https://nutab.ca/services/brand-design",
+    canonical: "https://nutab.ca/services/brand-design/",
   },
   openGraph: {
     title: "Graphic & Brand Design Calgary | Logo Design & Visual Identity | NuTab Digital",
     description:
       "Calgary's creative brand design studio. NuTab Digital delivers professional logo design, visual identity, and brand strategy.",
-    url: "https://nutab.ca/services/brand-design",
+    url: "https://nutab.ca/services/brand-design/",
     siteName: "NuTab Digital",
     images: [
       {
@@ -145,7 +145,7 @@ const pricingLdJson = {
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
       availability: "https://schema.org/InStock",
-      url: `https://nutab.ca/services/brand-design#${p.id}`,
+      url: `https://nutab.ca/services/brand-design/#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
       itemOffered: {
         "@type": "Service",
@@ -184,8 +184,8 @@ const BrandDesign: React.FC = () => {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://nutab.ca" },
-              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services" },
-              { "@type": "ListItem", position: 3, name: "Graphic & Brand Design", item: "https://nutab.ca/services/brand-design" }
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services/" },
+              { "@type": "ListItem", position: 3, name: "Graphic & Brand Design", item: "https://nutab.ca/services/brand-design/" }
             ]
           }),
         }}
@@ -197,11 +197,11 @@ const BrandDesign: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "@id": "https://nutab.ca/services/brand-design#service",
+            "@id": "https://nutab.ca/services/brand-design/#service",
             name: "Graphic & Brand Design",
             description: "Professional brand design services including logo design, visual identity, and brand strategy.",
             serviceType: "Brand Design",
-            url: "https://nutab.ca/services/brand-design",
+            url: "https://nutab.ca/services/brand-design/",
             image: "https://nutab.ca/photos/og-brand-design.webp",
             datePublished: "2024-01-15",
             dateModified: "2026-02-23",
@@ -213,7 +213,7 @@ const BrandDesign: React.FC = () => {
             },
             availableChannel: {
               "@type": "ServiceChannel",
-              serviceUrl: "https://nutab.ca/services/brand-design"
+              serviceUrl: "https://nutab.ca/services/brand-design/"
             }
           }),
         }}

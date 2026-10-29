@@ -13,13 +13,13 @@ export const generateMetadata = (): import("next").Metadata => ({
     "Full-service custom app and software development in Calgary. NuTab Digital builds iOS, Android, web apps, and enterprise software solutions tailored to your business needs.",
   keywords: [...new Set(["custom software Calgary", "app development Calgary", "mobile app developers Calgary", "enterprise software Alberta", "iOS app Calgary", "Android app Calgary", "software development Alberta", ...CALGARY_SEO_KEYWORDS['app-development']])],
   alternates: {
-    canonical: "https://nutab.ca/services/app-development",
+    canonical: "https://nutab.ca/services/app-development/",
   },
   openGraph: {
     title: "Custom App & Software Development Calgary | Mobile, Web & Enterprise Solutions | NuTab Digital",
     description:
       "Full-service custom app and software development in Calgary. Build scalable mobile apps, web applications, and enterprise software solutions.",
-    url: "https://nutab.ca/services/app-development",
+    url: "https://nutab.ca/services/app-development/",
     siteName: "NuTab Digital",
     images: [
       {
@@ -145,7 +145,7 @@ const pricingLdJson = {
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
       availability: "https://schema.org/InStock",
-      url: `https://nutab.ca/services/app-development#${p.id}`,
+      url: `https://nutab.ca/services/app-development/#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
       itemOffered: {
         "@type": "Service",
@@ -184,8 +184,8 @@ const AppSoftwareDevelopment: React.FC = () => {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://nutab.ca" },
-              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services" },
-              { "@type": "ListItem", position: 3, name: "Custom App & Software Development", item: "https://nutab.ca/services/app-development" }
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services/" },
+              { "@type": "ListItem", position: 3, name: "Custom App & Software Development", item: "https://nutab.ca/services/app-development/" }
             ]
           }),
         }}
@@ -197,11 +197,11 @@ const AppSoftwareDevelopment: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "@id": "https://nutab.ca/services/app-development#service",
+            "@id": "https://nutab.ca/services/app-development/#service",
             name: "Custom App & Software Development",
             description: "Custom software and mobile app development services including iOS, Android, web applications, and enterprise solutions.",
             serviceType: "Software & App Development",
-            url: "https://nutab.ca/services/app-development",
+            url: "https://nutab.ca/services/app-development/",
             image: "https://nutab.ca/photos/og-app-development.webp",
             datePublished: "2024-01-15",
             dateModified: "2026-02-23",
@@ -213,7 +213,7 @@ const AppSoftwareDevelopment: React.FC = () => {
             },
             availableChannel: {
               "@type": "ServiceChannel",
-              serviceUrl: "https://nutab.ca/services/app-development"
+              serviceUrl: "https://nutab.ca/services/app-development/"
             }
           }),
         }}

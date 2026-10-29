@@ -13,13 +13,13 @@ export const generateMetadata = (): import("next").Metadata => ({
     "Calgary's trusted SEO and digital marketing experts. Search engine optimization, content marketing, PPC, and social media management for Alberta businesses. Boost your online visibility.",
   keywords: [...new Set(["SEO Calgary", "digital marketing Calgary", "search engine optimization Alberta", "PPC Calgary", "content marketing Calgary", "social media marketing Alberta", ...CALGARY_SEO_KEYWORDS['seo-marketing']])],
   alternates: {
-    canonical: "https://nutab.ca/services/seo-marketing",
+    canonical: "https://nutab.ca/services/seo-marketing/",
   },
   openGraph: {
     title: "SEO & Digital Marketing Calgary | NuTab Digital",
     description:
       "Calgary's trusted SEO and digital marketing experts. Search engine optimization, content marketing, PPC, and social media management for Alberta businesses.",
-    url: "https://nutab.ca/services/seo-marketing",
+    url: "https://nutab.ca/services/seo-marketing/",
     siteName: "NuTab Digital",
     images: [
       {
@@ -163,7 +163,7 @@ const pricingLdJson = {
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
       availability: "https://schema.org/InStock",
-      url: `https://nutab.ca/services/seo-marketing#${p.id}`,
+      url: `https://nutab.ca/services/seo-marketing/#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
       itemOffered: {
         "@type": "Service",
@@ -211,8 +211,8 @@ const SEOMarketing: React.FC = () => {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://nutab.ca" },
-              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services" },
-              { "@type": "ListItem", position: 3, name: "SEO & Digital Marketing", item: "https://nutab.ca/services/seo-marketing" }
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services/" },
+              { "@type": "ListItem", position: 3, name: "SEO & Digital Marketing", item: "https://nutab.ca/services/seo-marketing/" }
             ]
           }),
         }}
@@ -224,11 +224,11 @@ const SEOMarketing: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "@id": "https://nutab.ca/services/seo-marketing#service",
+            "@id": "https://nutab.ca/services/seo-marketing/#service",
             name: "SEO & Digital Marketing",
             description: "Comprehensive search engine optimization and digital marketing services to boost online visibility and drive business growth.",
             serviceType: "Digital Marketing",
-            url: "https://nutab.ca/services/seo-marketing",
+            url: "https://nutab.ca/services/seo-marketing/",
             image: "https://nutab.ca/photos/og-seo-marketing.webp",
             datePublished: "2024-01-15",
             dateModified: "2026-02-23",
@@ -240,7 +240,7 @@ const SEOMarketing: React.FC = () => {
             },
             availableChannel: {
               "@type": "ServiceChannel",
-              serviceUrl: "https://nutab.ca/services/seo-marketing"
+              serviceUrl: "https://nutab.ca/services/seo-marketing/"
             }
           }),
         }}

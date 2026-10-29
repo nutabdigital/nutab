@@ -6,7 +6,7 @@ import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Privacy Policy",
   description: "Learn how NuTab Digital collects, uses, shares, and protects personal information.",
-  alternates: { canonical: "https://nutab.ca/privacy" },
+  alternates: { canonical: "https://nutab.ca/privacy/" },
   robots: "index, follow",
 };
 

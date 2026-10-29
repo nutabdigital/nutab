@@ -71,7 +71,7 @@ const dmSans = DM_Sans({
 // Define structured data as a JavaScript object
 const structuredData = {
   "@context": "https://schema.org",
-  "@type": ["Organization", "LocalBusiness"],
+  "@type": ["Organization", "ProfessionalService"],
   "@id": `${NUTAB_BUSINESS.url}/#organization`,
   "name": NUTAB_BUSINESS.name,
   "legalName": NUTAB_BUSINESS.legalName,
@@ -94,7 +94,7 @@ const structuredData = {
     "latitude": String(CALGARY_GEO.latitude),
     "longitude": String(CALGARY_GEO.longitude)
   },
-  "hasMap": "https://www.google.com/maps/place/Calgary,+AB,+Canada",
+  "hasMap": NUTAB_BUSINESS.googleBusinessProfile,
   "contactPoint": {
     "@type": "ContactPoint",
     "telephone": NUTAB_BUSINESS.phone,
@@ -102,7 +102,7 @@ const structuredData = {
     "areaServed": getAreaServedSchema(),
     "availableLanguage": ["en"]
   },
-  "sameAs": Object.values(NUTAB_BUSINESS.socialProfiles),
+  "sameAs": [...Object.values(NUTAB_BUSINESS.socialProfiles), NUTAB_BUSINESS.googleBusinessProfile],
   "areaServed": [
     ...getAreaServedSchema(),
     ...CORE_NEIGHBORHOODS.map(n => ({
@@ -135,7 +135,7 @@ const structuredData = {
   "makesOffer": [
     {
       "@type": "Offer",
-      "url": "https://nutab.ca/services/web-design",
+      "url": "https://nutab.ca/services/web-design/",
       "itemOffered": {
         "@type": "Service",
         "name": "Web Design & Development",
@@ -149,7 +149,7 @@ const structuredData = {
     },
     {
       "@type": "Offer",
-      "url": "https://nutab.ca/services/app-development",
+      "url": "https://nutab.ca/services/app-development/",
       "itemOffered": {
         "@type": "Service",
         "name": "Custom App & Software Development",
@@ -163,7 +163,7 @@ const structuredData = {
     },
     {
       "@type": "Offer",
-      "url": "https://nutab.ca/services/seo-marketing",
+      "url": "https://nutab.ca/services/seo-marketing/",
       "itemOffered": {
         "@type": "Service",
         "name": "SEO & Digital Marketing",
@@ -177,7 +177,7 @@ const structuredData = {
     },
     {
       "@type": "Offer",
-      "url": "https://nutab.ca/services/ecommerce",
+      "url": "https://nutab.ca/services/ecommerce/",
       "itemOffered": {
         "@type": "Service",
         "name": "E-Commerce Development",
@@ -191,7 +191,7 @@ const structuredData = {
     },
     {
       "@type": "Offer",
-      "url": "https://nutab.ca/services/ai-automation",
+      "url": "https://nutab.ca/services/ai-automation/",
       "itemOffered": {
         "@type": "Service",
         "name": "AI & Automation Solutions",
@@ -205,7 +205,7 @@ const structuredData = {
     },
     {
       "@type": "Offer",
-      "url": "https://nutab.ca/services/it-consulting",
+      "url": "https://nutab.ca/services/it-consulting/",
       "itemOffered": {
         "@type": "Service",
         "name": "Business & IT Consulting",
@@ -219,7 +219,7 @@ const structuredData = {
     },
     {
       "@type": "Offer",
-      "url": "https://nutab.ca/services/brand-design",
+      "url": "https://nutab.ca/services/brand-design/",
       "itemOffered": {
         "@type": "Service",
         "name": "Graphic & Brand Design",
@@ -233,7 +233,7 @@ const structuredData = {
     },
     {
       "@type": "Offer",
-      "url": "https://nutab.ca/services/photo-media",
+      "url": "https://nutab.ca/services/photo-media/",
       "itemOffered": {
         "@type": "Service",
         "name": "Photography & Media Production",

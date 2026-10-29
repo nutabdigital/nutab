@@ -17,17 +17,17 @@ export const metadata: Metadata = {
     "restaurant digital marketing",
   ],
   alternates: {
-    canonical: "https://nutab.ca/portfolio/kdt-restaurant",
+    canonical: "https://nutab.ca/portfolio/kdt-restaurant/",
   },
   openGraph: {
     title: "KDT Restaurant Website Design | Calgary Web Development & SEO",
     description:
       "See how NuTab Digital's web development and digital marketing expertise created a stunning, SEO-optimized website for KDT Restaurant.",
-    url: "https://nutab.ca/portfolio/kdt-restaurant",
+    url: "https://nutab.ca/portfolio/kdt-restaurant/",
     siteName: "NuTab Digital",
     images: [
       {
-        url: "https://nutab.ca/photos/og-portfolio.webp",
+        url: "https://nutab.ca/photos/og-home.webp",
         width: 1200,
         height: 800,
         alt: "KDT Restaurant Website by NuTab Digital Calgary",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "KDT Restaurant | Calgary Web Development Case Study",
     description:
       "Restaurant website case study: Modern SEO-optimized design with mobile-first approach. Calgary web development expertise.",
-    images: ["https://nutab.ca/photos/og-portfolio.webp"],
+    images: ["https://nutab.ca/photos/og-home.webp"],
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
   },

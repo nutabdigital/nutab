@@ -68,7 +68,7 @@ export default function KingseyeTowingPortfolio() {
       url: "https://nutab.ca",
     },
     datePublished: "2024-11-10",
-    url: "https://nutab.ca/portfolio/kingseye-towing",
+    url: "https://nutab.ca/portfolio/kingseye-towing/",
     about: {
       "@type": "WebSite",
       name: "King's Eye Towing",
@@ -107,13 +107,13 @@ export default function KingseyeTowingPortfolio() {
         "@type": "ListItem",
         position: 2,
         name: "Portfolio",
-        item: "https://nutab.ca/portfolio",
+        item: "https://nutab.ca/portfolio/",
       },
       {
         "@type": "ListItem",
         position: 3,
         name: "King's Eye Towing",
-        item: "https://nutab.ca/portfolio/kingseye-towing",
+        item: "https://nutab.ca/portfolio/kingseye-towing/",
       },
     ],
   };

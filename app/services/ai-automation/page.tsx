@@ -13,13 +13,13 @@ export const generateMetadata = (): import("next").Metadata => ({
     "Calgary's AI and automation experts. NuTab Digital helps Alberta businesses leverage artificial intelligence, machine learning, and workflow automation to reduce costs and improve efficiency. Free consultation.",
   keywords: [...new Set(["AI solutions Calgary", "automation Calgary", "machine learning Alberta", "AI development Calgary", "workflow automation Calgary", "chatbot development Alberta", ...CALGARY_SEO_KEYWORDS['ai-automation']])],
   alternates: {
-    canonical: "https://nutab.ca/services/ai-automation",
+    canonical: "https://nutab.ca/services/ai-automation/",
   },
   openGraph: {
     title: "AI & Automation Solutions Calgary | Machine Learning & Workflow Automation | NuTab Digital",
     description:
       "Calgary's AI and automation experts. NuTab Digital helps Alberta businesses leverage artificial intelligence, machine learning, and workflow automation.",
-    url: "https://nutab.ca/services/ai-automation",
+    url: "https://nutab.ca/services/ai-automation/",
     siteName: "NuTab Digital",
     images: [
       {
@@ -156,7 +156,7 @@ const pricingLdJson = {
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
       availability: "https://schema.org/InStock",
-      url: `https://nutab.ca/services/ai-automation#${p.id}`,
+      url: `https://nutab.ca/services/ai-automation/#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
       itemOffered: {
         "@type": "Service",
@@ -196,8 +196,8 @@ const AIAutomation: React.FC = () => {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://nutab.ca" },
-              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services" },
-              { "@type": "ListItem", position: 3, name: "AI & Automation", item: "https://nutab.ca/services/ai-automation" }
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services/" },
+              { "@type": "ListItem", position: 3, name: "AI & Automation", item: "https://nutab.ca/services/ai-automation/" }
             ]
           }),
         }}
@@ -209,11 +209,11 @@ const AIAutomation: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "@id": "https://nutab.ca/services/ai-automation#service",
+            "@id": "https://nutab.ca/services/ai-automation/#service",
             name: "AI & Automation Solutions",
             description: "Leverage artificial intelligence and automation to improve efficiency, reduce manual tasks, and make smarter decisions.",
             serviceType: "AI & Automation",
-            url: "https://nutab.ca/services/ai-automation",
+            url: "https://nutab.ca/services/ai-automation/",
             image: "https://nutab.ca/photos/og-ai-automation.webp",
             datePublished: "2024-01-15",
             dateModified: "2026-02-23",
@@ -225,7 +225,7 @@ const AIAutomation: React.FC = () => {
             },
             availableChannel: {
               "@type": "ServiceChannel",
-              serviceUrl: "https://nutab.ca/services/ai-automation"
+              serviceUrl: "https://nutab.ca/services/ai-automation/"
             }
           }),
         }}

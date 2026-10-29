@@ -17,7 +17,7 @@ const Tagline: React.FC = () => {
           <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-violet-500 bg-clip-text text-transparent" style={{ textShadow: '0 1px 6px rgba(168, 85, 247, 0.2), 0 1px 10px rgba(139, 92, 246, 0.13)' }}>Start Something Extraordinary.</span>
         </h1>
         <p className="text-lg sm:text-xl font-normal leading-relaxed mb-8 opacity-85 text-gray-600 dark:text-gray-300 text-center will-change-[opacity,transform] min-[601px]:text-left">
-          Elevating brands through modern<br />web design & development
+          Calgary software, web &amp; app development<br />for growing local businesses
         </p>
         <div className="flex gap-4 justify-center min-[601px]:justify-start">
           <button

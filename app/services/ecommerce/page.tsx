@@ -13,13 +13,13 @@ export const generateMetadata = (): import("next").Metadata => ({
     "Ecommerce development in Calgary. NuTab Digital builds high-converting online stores with Shopify, WooCommerce, and custom solutions. Start selling online today.",
   keywords: [...new Set(["ecommerce Calgary", "online store Calgary", "Shopify Calgary", "WooCommerce Calgary", "ecommerce development Alberta", "online shopping website Calgary", ...CALGARY_SEO_KEYWORDS['ecommerce']])],
   alternates: {
-    canonical: "https://nutab.ca/services/ecommerce",
+    canonical: "https://nutab.ca/services/ecommerce/",
   },
   openGraph: {
     title: "Ecommerce Development Calgary | Online Store Solutions | NuTab Digital",
     description:
       "Ecommerce development in Calgary. NuTab Digital builds high-converting online stores with Shopify, WooCommerce, and custom solutions.",
-    url: "https://nutab.ca/services/ecommerce",
+    url: "https://nutab.ca/services/ecommerce/",
     siteName: "NuTab Digital",
     images: [
       {
@@ -145,7 +145,7 @@ const pricingLdJson = {
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
       availability: "https://schema.org/InStock",
-      url: `https://nutab.ca/services/ecommerce#${p.id}`,
+      url: `https://nutab.ca/services/ecommerce/#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
       itemOffered: {
         "@type": "Service",
@@ -184,8 +184,8 @@ const Ecommerce: React.FC = () => {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://nutab.ca" },
-              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services" },
-              { "@type": "ListItem", position: 3, name: "Ecommerce", item: "https://nutab.ca/services/ecommerce" }
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services/" },
+              { "@type": "ListItem", position: 3, name: "Ecommerce", item: "https://nutab.ca/services/ecommerce/" }
             ]
           }),
         }}
@@ -197,11 +197,11 @@ const Ecommerce: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "@id": "https://nutab.ca/services/ecommerce#service",
+            "@id": "https://nutab.ca/services/ecommerce/#service",
             name: "Ecommerce Development",
             description: "Ecommerce development services including online store setup, payment integration, and scaling solutions.",
             serviceType: "Ecommerce Development",
-            url: "https://nutab.ca/services/ecommerce",
+            url: "https://nutab.ca/services/ecommerce/",
             image: "https://nutab.ca/photos/og-ecommerce.webp",
             datePublished: "2024-01-15",
             dateModified: "2026-02-23",
@@ -213,7 +213,7 @@ const Ecommerce: React.FC = () => {
             },
             availableChannel: {
               "@type": "ServiceChannel",
-              serviceUrl: "https://nutab.ca/services/ecommerce"
+              serviceUrl: "https://nutab.ca/services/ecommerce/"
             }
           }),
         }}

@@ -7,7 +7,7 @@ import CookiePreferencesControl from "../components/CookieConsent/CookiePreferen
 export const metadata: Metadata = {
   title: "Cookie Preferences",
   description: "Manage analytics preferences and learn how NuTab Digital uses cookies and local storage.",
-  alternates: { canonical: "https://nutab.ca/cookies" },
+  alternates: { canonical: "https://nutab.ca/cookies/" },
   robots: "index, follow",
 };
 

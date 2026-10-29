@@ -5,7 +5,7 @@ import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
 export const metadata: Metadata = {
   title: "Accessibility Statement",
   description: "NuTab Digital's commitment to making its website accessible to all visitors.",
-  alternates: { canonical: "https://nutab.ca/accessibility" },
+  alternates: { canonical: "https://nutab.ca/accessibility/" },
   robots: "index, follow",
 };
 

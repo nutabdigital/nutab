@@ -61,7 +61,7 @@ const Footer: React.FC = () => {
               </ul>
             </div>
             <div className="col-span-2 sm:col-span-1">
-              <h3 className="font-semibold mb-2 text-[var(--foreground)]">Calgary Office</h3>
+              <h3 className="font-semibold mb-2 text-[var(--foreground)]">Contact</h3>
               <address className="not-italic text-sm opacity-70 space-y-1">
                 <p>Calgary, Alberta, Canada</p>
                 <p><a href="tel:+15878886755" className="hover:text-[#0067e7] transition-colors">(587) 888-6755</a></p>

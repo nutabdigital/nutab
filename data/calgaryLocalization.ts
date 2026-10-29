@@ -39,6 +39,7 @@ export const NUTAB_BUSINESS = {
   name: 'NuTab Digital',
   legalName: 'Nutab Digital Inc.',
   url: 'https://nutab.ca',
+  googleBusinessProfile: 'https://www.google.com/maps/place/NuTab+Digital+Inc./@51.0275896,-114.418153,10z/data=!4m6!3m5!1s0x8f994239299aa695:0x54134ca7f2afe900!8m2!3d51.0276233!4d-114.087835!16s%2Fg%2F11mck405gp',
   phone: '+1-587-888-6755',
   email: 'nutabdigital@gmail.com',
   foundingDate: '2024',

@@ -17,17 +17,17 @@ export const metadata: Metadata = {
     "local business digital marketing",
   ],
   alternates: {
-    canonical: "https://nutab.ca/portfolio/kingseye-towing",
+    canonical: "https://nutab.ca/portfolio/kingseye-towing/",
   },
   openGraph: {
     title: "King's Eye Towing Website | Calgary Web Development & Local SEO",
     description:
       "See how NuTab Digital's web development and local SEO expertise created a professional, high-converting website for King's Eye Towing.",
-    url: "https://nutab.ca/portfolio/kingseye-towing",
+    url: "https://nutab.ca/portfolio/kingseye-towing/",
     siteName: "NuTab Digital",
     images: [
       {
-        url: "https://nutab.ca/photos/og-portfolio.webp",
+        url: "https://nutab.ca/photos/og-home.webp",
         width: 1200,
         height: 800,
         alt: "King's Eye Towing Website by NuTab Digital Calgary",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "King's Eye Towing | Calgary Web Development Case Study",
     description:
       "Service business website case study: Professional SEO-optimized design with 24/7 emergency features. Calgary web development expertise.",
-    images: ["https://nutab.ca/photos/og-portfolio.webp"],
+    images: ["https://nutab.ca/photos/og-home.webp"],
     site: "@NuTabDigital",
     creator: "@NuTabDigital",
   },

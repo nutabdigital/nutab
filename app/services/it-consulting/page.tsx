@@ -13,13 +13,13 @@ export const generateMetadata = (): import("next").Metadata => ({
     "Calgary's business and IT consulting experts. NuTab Digital provides digital transformation, cloud strategy, and technology consulting for Alberta companies. Local support. Free consultation.",
   keywords: [...new Set(["IT consulting Calgary", "business consulting Calgary", "digital transformation Alberta", "cloud migration Calgary", "technology consulting Calgary", "IT strategy Alberta", ...CALGARY_SEO_KEYWORDS['it-consulting']])],
   alternates: {
-    canonical: "https://nutab.ca/services/it-consulting",
+    canonical: "https://nutab.ca/services/it-consulting/",
   },
   openGraph: {
     title: "IT Consulting Calgary | Business Technology Strategy | NuTab Digital",
     description:
       "Calgary's business and IT consulting experts. NuTab Digital provides digital transformation, cloud strategy, and technology consulting for Alberta companies.",
-    url: "https://nutab.ca/services/it-consulting",
+    url: "https://nutab.ca/services/it-consulting/",
     siteName: "NuTab Digital",
     images: [
       {
@@ -158,7 +158,7 @@ const pricingLdJson = {
       name: p.title,
       description: `${p.subtitle}. ${p.features.join(", ")}`,
       availability: "https://schema.org/InStock",
-      url: `https://nutab.ca/services/it-consulting#${p.id}`,
+      url: `https://nutab.ca/services/it-consulting/#${p.id}`,
       seller: { "@id": "https://nutab.ca/#organization" },
       itemOffered: {
         "@type": "Service",
@@ -198,8 +198,8 @@ const ITConsulting: React.FC = () => {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://nutab.ca" },
-              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services" },
-              { "@type": "ListItem", position: 3, name: "Business & IT Consulting", item: "https://nutab.ca/services/it-consulting" }
+              { "@type": "ListItem", position: 2, name: "Services", item: "https://nutab.ca/services/" },
+              { "@type": "ListItem", position: 3, name: "Business & IT Consulting", item: "https://nutab.ca/services/it-consulting/" }
             ]
           }),
         }}
@@ -211,11 +211,11 @@ const ITConsulting: React.FC = () => {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Service",
-            "@id": "https://nutab.ca/services/it-consulting#service",
+            "@id": "https://nutab.ca/services/it-consulting/#service",
             name: "Business & IT Consulting",
             description: "Expert technology consulting to help organizations achieve their goals through digital transformation and strategic IT planning.",
             serviceType: "IT Consulting",
-            url: "https://nutab.ca/services/it-consulting",
+            url: "https://nutab.ca/services/it-consulting/",
             image: "https://nutab.ca/photos/og-it-consulting.webp",
             datePublished: "2024-01-15",
             dateModified: "2026-02-23",
@@ -227,7 +227,7 @@ const ITConsulting: React.FC = () => {
             },
             availableChannel: {
               "@type": "ServiceChannel",
-              serviceUrl: "https://nutab.ca/services/it-consulting"
+              serviceUrl: "https://nutab.ca/services/it-consulting/"
             }
           }),
         }}

@@ -187,10 +187,10 @@ const Header: React.FC = () => {
       // Next.js app-router's router.push returns void, so use a timeout fallback
       router.push(`/#${sectionId}`);
       // small timeout to let the new page render, then scroll
-      setTimeout(() => scrollToSection(sectionId, 10), 200);
+      setTimeout(() => scrollToSection(sectionId), 200);
     } else {
       // already on homepage — scroll straight away
-      scrollToSection(sectionId, 10);
+      scrollToSection(sectionId);
     }
   };
 

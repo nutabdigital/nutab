@@ -22,7 +22,7 @@ const Tagline: React.FC = () => {
         <div className="flex gap-4 justify-center min-[601px]:justify-start">
           <button
             className="relative overflow-hidden px-8 py-4 w-fit text-lg font-semibold rounded-full border-0 text-white bg-gradient-to-r from-indigo-600 to-purple-600 shadow-lg shadow-indigo-500/25 cursor-pointer transition-all duration-300 will-change-[transform,opacity] hover:opacity-90 hover:shadow-indigo-500/40 hover:scale-105"
-            onClick={() => scrollToSection("about", 10)}
+            onClick={() => scrollToSection("about")}
           >
             <span className="relative z-[1]">Learn More</span>
           </button>

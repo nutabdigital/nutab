@@ -1,132 +1,35 @@
 import { MetadataRoute } from 'next';
-import { NUTAB_BUSINESS, CALGARY_SEO_KEYWORDS } from '../data/calgaryLocalization';
+import { NUTAB_BUSINESS } from '../data/calgaryLocalization';
 
 // Required for static export
 export const dynamic = 'force-static';
 
-/** All service slugs for sitemap generation */
-const SERVICE_SLUGS = Object.keys(CALGARY_SEO_KEYWORDS);
+// Update a page's date only when its content meaningfully changes.
+// Google ignores lastmod values that always equal the build date.
+const PAGES: { path: string; lastModified: string }[] = [
+  { path: '/', lastModified: '2026-10-28' },
+  { path: '/services/', lastModified: '2026-10-28' },
+  { path: '/services/web-design/', lastModified: '2026-10-28' },
+  { path: '/services/app-development/', lastModified: '2026-10-28' },
+  { path: '/services/seo-marketing/', lastModified: '2026-10-28' },
+  { path: '/services/ecommerce/', lastModified: '2026-10-28' },
+  { path: '/services/ai-automation/', lastModified: '2026-10-28' },
+  { path: '/services/it-consulting/', lastModified: '2026-10-28' },
+  { path: '/services/brand-design/', lastModified: '2026-10-28' },
+  { path: '/services/photo-media/', lastModified: '2026-10-28' },
+  { path: '/portfolio/', lastModified: '2026-10-28' },
+  { path: '/portfolio/chopchop/', lastModified: '2026-10-28' },
+  { path: '/portfolio/kingseye-towing/', lastModified: '2026-10-28' },
+  { path: '/portfolio/kdt-restaurant/', lastModified: '2026-10-28' },
+  { path: '/privacy/', lastModified: '2026-10-27' },
+  { path: '/cookies/', lastModified: '2026-10-27' },
+  { path: '/terms/', lastModified: '2026-10-18' },
+  { path: '/accessibility/', lastModified: '2026-10-18' },
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = NUTAB_BUSINESS.url;
-  const currentDate = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
-
-  return [
-    // Home Page
-    {
-      url: `${baseUrl}/`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 1.0,
-    },
-    // Privacy Policy
-    {
-      url: `${baseUrl}/privacy/`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    // Website policies and visitor information
-    {
-      url: `${baseUrl}/terms/`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/accessibility/`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/cookies/`,
-      lastModified: currentDate,
-      changeFrequency: 'yearly',
-      priority: 0.3,
-    },
-    // Portfolio
-    {
-      url: `${baseUrl}/portfolio/`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    // Portfolio detail pages
-    {
-      url: `${baseUrl}/portfolio/chopchop/`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/portfolio/kingseye-towing/`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/portfolio/kdt-restaurant/`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.7,
-    },
-    // Services Index — priority >= children for proper hierarchy
-    {
-      url: `${baseUrl}/services/`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    // Top Priority Services
-    {
-      url: `${baseUrl}/services/app-development/`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services/web-design/`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/services/seo-marketing/`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    // Secondary Services
-    {
-      url: `${baseUrl}/services/ecommerce/`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/services/ai-automation/`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/services/it-consulting/`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/services/brand-design/`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/services/photo-media/`,
-      lastModified: currentDate,
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-  ];
+  return PAGES.map(({ path, lastModified }) => ({
+    url: `${NUTAB_BUSINESS.url}${path}`,
+    lastModified,
+  }));
 }

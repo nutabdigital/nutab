@@ -8,14 +8,28 @@ import {
   Scissors,
   UtensilsCrossed,
   Truck,
+  ShoppingBag,
   ExternalLink,
   Sparkles,
 } from "lucide-react";
 import Background from "../components/Background/Background";
 import Breadcrumbs from "../components/Breadcrumbs/Breadcrumbs";
 
-// Portfolio projects data
+// Portfolio projects data (newest first)
 const portfolioProjects = [
+  {
+    id: "wishful-thinking",
+    name: "Wishful Thinking",
+    description: "A Shopify store with interactive hat and name badge designers, wholesale account access, and quote-based ordering for a Calgary decor company.",
+    icon: ShoppingBag,
+    href: "/portfolio/wishful-thinking",
+    externalUrl: "https://www.wishfulthinking.ca",
+    gradient: "from-sky-500 via-blue-500 to-indigo-500",
+    glowColor: "shadow-sky-500/30 hover:shadow-sky-500/50",
+    borderColor: "border-sky-500/20 hover:border-sky-500/40",
+    iconBg: "from-sky-500 to-blue-500",
+    tags: ["Shopify", "B2B Wholesale", "Custom App"],
+  },
   {
     id: "chopchop",
     name: "ChopChop Barber Shop",
